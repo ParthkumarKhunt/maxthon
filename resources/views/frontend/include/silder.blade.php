@@ -42,5 +42,17 @@ $currentRoute = Route::current()->getName();
     <!-- partial -->
 </div>
 <!--SLIDER END-->
+
+@else
+    <!--SLIDER START-->
+    <div class="pages-hero">
+        <div class="container">
+            <div class="pages-title">
+                <h1>Services</h1>
+                <p>A new generation of cleaning and restoration concepts.</p>
+            </div>
+        </div>
+    </div>
+    <!--SLIDER END-->
 @endif
 
