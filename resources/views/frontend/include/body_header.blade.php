@@ -43,9 +43,9 @@
                 <li><a href="{{ route('services') }}" class="nav-item nav-link last-link-item">Services</a></li>
                 <li><a href="{{ route('gallery') }}" class="nav-item nav-link last-link-item">Gallery</a></li>
                 <li><a href="{{ route('blog') }}" class="nav-item nav-link last-link-item">Blog</a></li>
-                <li><a href="{{ route('contact-us') }}" class="nav-item nav-link last-link-item">Contact us</a></li>
                 <li><a href="{{ route('about-us') }}" class="nav-item nav-link last-link-item">About us</a></li>
                 <li><a href="{{ route('career') }}" class="nav-item nav-link last-link-item">Career</a></li>
+                <li><a href="{{ route('contact-us') }}" class="nav-item nav-link last-link-item">Contact us</a></li>
             </ul>
         </div>
     </div>
