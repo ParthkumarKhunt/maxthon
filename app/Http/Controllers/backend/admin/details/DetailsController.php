@@ -6,34 +6,30 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
 use App\Models\Details;
-
 class DetailsController extends Controller
 {
     function __construct(){
 
     }
 
-    public function list (Request $request){
+    public function details  (Request $request){
+        $objDetails = new Details();
+        $data['details'] = $objDetails->getDetails();
         if ($request->isMethod('post')) {
             $objDetails = new Details();
-            $result  = $objDetails->updateDetails($request);
+            $result = $objDetails->editDetail($request);
             if($result){
                 $return['status'] = 'success';
-                $return['message'] = 'Details updated succesfully !!';
-                $return['jscode'] = '$(".submitbtn:visible").attr("disabled","disabled");$("#loader").show();';
+                $return['message'] = 'Details successfully updated';
                 $return['redirect'] = route('admin-details');
             }else{
                 $return['status'] = 'error';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
-                $return['message'] = 'Something goes to wrong.Please try agian later';
+                $return['message'] = 'Something goes to wrong.Please try again';
             }
             return json_encode($return);
                 exit();
         }
-
-        $objDetails = new Details();
-        $data['details']  = $objDetails->getDetails();
-
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Details';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Details';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Details';
@@ -41,7 +37,6 @@ class DetailsController extends Controller
             'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
-
         );
         $data['pluginjs'] = array(
             'toastr/toastr.min.js',
@@ -59,11 +54,10 @@ class DetailsController extends Controller
         $data['header'] = array(
             'title' => 'Details',
             'breadcrumb' => array(
-                'Dashboard'=> route('admin-dashboard'),
-                'Details'=> 'Details',
+                'Dashboard' => route('admin-dashboard'),
+                'Details' => 'Details',
             )
         );
         return view('backend.pages.admin.details.list', $data);
-
     }
 }

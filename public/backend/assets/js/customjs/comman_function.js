@@ -1,4 +1,3 @@
-
 function getDataTableNoAjax(tableID, extraOption) {
     if (typeof extraOption === 'undefined') {
         extraOption = {};
@@ -9,7 +8,7 @@ function getDataTableNoAjax(tableID, extraOption) {
         loadingMessage: 'Loading...',
         dataTable: {
             "dom": "<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'f<'table-group-actions pull-right'>>r>t<'row'<'col-md-8 col-sm-12'pli><'col-md-4 col-sm-12'>>",
-//            "bStateSave": true,
+            //            "bStateSave": true,
             "lengthMenu": [
                 [10, 20, 50, 100, 150, -1],
                 [10, 20, 50, 100, 150, "All"]
@@ -19,9 +18,9 @@ function getDataTableNoAjax(tableID, extraOption) {
                 [0, "asc"]
             ],
             "aoColumnDefs": [{
-                    'bSortable': false,
-                    'aTargets': [2, 3]
-                }],
+                'bSortable': false,
+                'aTargets': [2, 3]
+            }],
             "serverSide": false,
             "ajax": null
         }
@@ -44,7 +43,7 @@ function CKupdate() {
         CKEDITOR.instances[instance].updateElement();
 }
 if (typeof CKEDITOR !== 'undefined') {
-    CKEDITOR.on('instanceCreated', function (ev) {
+    CKEDITOR.on('instanceCreated', function(ev) {
         CKEDITOR.dtd.$removeEmpty['a'] = 0;
     })
 }
@@ -57,7 +56,7 @@ function ajaxcall(url, data, callback) {
         url: url,
         data: data,
         async: false,
-        success: function (result) {
+        success: function(result) {
             //   App.stopPageLoading();
             callback(result);
         }
@@ -67,14 +66,14 @@ function ajaxcall(url, data, callback) {
 function handleAjaxFormSubmit(form, type) {
 
     if (typeof type === 'undefined') {
-        ajaxcall($(form).attr('action'), $(form).serialize(), function (output) {
+        ajaxcall($(form).attr('action'), $(form).serialize(), function(output) {
             handleAjaxResponse(output);
         });
     } else if (type === true) {
         // App.startPageLoading();
         var options = {
             resetForm: false, // reset the form after successful submit
-            success: function (output) {
+            success: function(output) {
                 //   App.stopPageLoading();
                 handleAjaxResponse(output);
             }
@@ -131,44 +130,44 @@ function showToster(status, message) {
 //         });
 //     }
 // }
-function handleAjaxResponse(output){
+function handleAjaxResponse(output) {
 
     output = JSON.parse(output);
     $('#deleteModel').removeClass('show');
-    $("#deleteModel").css({ 'display' : 'none'});
+    $("#deleteModel").css({ 'display': 'none' });
     var html = "";
 
 
 
 
     if (output.status == 'success') {
-        html = '<div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">'+
-                '<div class="alert-icon">'+
-                    '<i class="fa fa-check-circle-o"></i>'+
-                '</div>'+
-                '<div class="alert-text">'+ output.message +'</div>'+
+        html = '<div class="alert alert-custom alert-notice alert-light-success fade show mb-5" role="alert">' +
+            '<div class="alert-icon">' +
+            '<i class="fa fa-check-circle-o"></i>' +
+            '</div>' +
+            '<div class="alert-text">' + output.message + '</div>' +
 
             '</div>';
     }
     if (output.status == 'error') {
-        html = '<div class="alert alert-custom alert-notice alert-light-danger fade show mb-5" role="alert">'+
-                '<div class="alert-icon">'+
-                '<i class="fa fa-close"></i>'+
-                '</div>'+
-                '<div class="alert-text">'+ output.message +'</div>'+
-                '</div>';
+        html = '<div class="alert alert-custom alert-notice alert-light-danger fade show mb-5" role="alert">' +
+            '<div class="alert-icon">' +
+            '<i class="fa fa-close"></i>' +
+            '</div>' +
+            '<div class="alert-text">' + output.message + '</div>' +
+            '</div>';
     }
     if (output.status == 'warning') {
-        html = '<div class="alert alert-custom alert-notice alert-light-warning fade show mb-5" role="alert">'+
-        '<div class="alert-icon">'+
-            '<i class="fa fa-exclamation-triangle"></i>'+
-        '</div>'+
-        '<div class="alert-text">A simple warning alert—check it out!</div>'+
-    '</div>';
+        html = '<div class="alert alert-custom alert-notice alert-light-warning fade show mb-5" role="alert">' +
+            '<div class="alert-icon">' +
+            '<i class="fa fa-exclamation-triangle"></i>' +
+            '</div>' +
+            '<div class="alert-text">A simple warning alert—check it out!</div>' +
+            '</div>';
     }
     $("#alertDiv").html(html);
     if (typeof output.redirect !== 'undefined' && output.redirect != '') {
-        setTimeout(function () {
+        setTimeout(function() {
             window.location.href = output.redirect;
         }, 2000);
     }
@@ -178,6 +177,7 @@ function handleAjaxResponse(output){
     }
 
 }
+
 function handleAjaxResponse(output) {
 
     output = JSON.parse(output);
@@ -186,12 +186,12 @@ function handleAjaxResponse(output) {
         showToster(output.status, output.message, '');
     }
     if (typeof output.redirect !== 'undefined' && output.redirect != '') {
-        setTimeout(function () {
+        setTimeout(function() {
             window.location.href = output.redirect;
         }, 4000);
     }
     if (typeof output.reload !== 'undefined' && output.reload != '') {
-            window.location.href =  location.reload();
+        window.location.href = location.reload();
     }
     if (typeof output.jscode !== 'undefined' && output.jscode != '') {
         eval(output.jscode);
@@ -199,7 +199,8 @@ function handleAjaxResponse(output) {
 }
 
 function _fn_getQueryStringValue(name) {
-    var regex = new RegExp("[\\?&]" + name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]") + "=([^&#]*)"), results = regex.exec(window.location.search);
+    var regex = new RegExp("[\\?&]" + name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]") + "=([^&#]*)"),
+        results = regex.exec(window.location.search);
     return results ? decodeURIComponent(results[1].replace(/\+/g, " ")) : '';
 }
 
@@ -213,15 +214,15 @@ function handleFormValidate(form, rules, submitCallback, showToaster) {
         focusInvalid: false, // do not focus the last invalid input
         ignore: ":hidden",
         rules: rules,
-        invalidHandler: function (event, validator) { //display error alert on form submit
+        invalidHandler: function(event, validator) { //display error alert on form submit
             success.hide();
             error.show();
-//            App.scrollTo(error, -200);
+            //            App.scrollTo(error, -200);
             if (typeof showToaster !== 'undefined' && showToaster) {
                 Toastr.init('warning', 'Some fields are missing!.', '');
             }
         },
-        showErrors: function (errorMap, errorList) {
+        showErrors: function(errorMap, errorList) {
             if (typeof errorList[0] != "undefined") {
                 var position = $(errorList[0].element).offset().top - 70;
                 $('html, body').animate({
@@ -230,30 +231,30 @@ function handleFormValidate(form, rules, submitCallback, showToaster) {
             }
             this.defaultShowErrors(); // keep error messages next to each input element
         },
-        highlight: function (element) { // hightlight error inputs
+        highlight: function(element) { // hightlight error inputs
 
             $(element)
-                    .closest('.c-input, .form-control').addClass('is-invalid'); // set error class to the control group
+                .closest('.c-input, .form-control').addClass('is-invalid'); // set error class to the control group
 
             $(element).parent().parent().find('.select2').addClass('is-invalid');
 
         },
-        unhighlight: function (element) { // revert the change done by hightlight
+        unhighlight: function(element) { // revert the change done by hightlight
             $(element)
-                    .closest('.c-input, .form-control').removeClass('is-invalid'); // set error class to the control group
+                .closest('.c-input, .form-control').removeClass('is-invalid'); // set error class to the control group
             $(element)
-                    .closest('.c-input, .form-control').addClass('is-valid'); // set error class to the control group
+                .closest('.c-input, .form-control').addClass('is-valid'); // set error class to the control group
         },
-        success: function (label) {
+        success: function(label) {
             label.closest('.c-input, .form-control').removeClass('is-invalid'); // set success class to the control group
             label.closest('.c-input, .form-control').addClass('is-valid'); // set error class to the control group
         },
-        errorPlacement: function (error, element) {
+        errorPlacement: function(error, element) {
             return true;
         },
 
-        submitHandler: function (form) {
-            $(".submitbtn:visible").attr("disabled","disabled");
+        submitHandler: function(form) {
+            $(".submitbtn:visible").attr("disabled", "disabled");
             $("#loader").show();
             // form.submit();
             if (typeof submitCallback !== 'undefined' && typeof submitCallback == 'function') {
@@ -265,10 +266,10 @@ function handleFormValidate(form, rules, submitCallback, showToaster) {
         }
     });
 
-    $('.select2me', form).change(function () {
+    $('.select2me', form).change(function() {
         form.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
     });
-    $('.date-picker .form-control').change(function () {
+    $('.date-picker .form-control').change(function() {
         form.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
     })
 }
@@ -283,33 +284,33 @@ function handleFormValidateWithMsg(form, rules, messages, submitCallback, showTo
         focusInvalid: false, // do not focus the last invalid input
         ignore: ":hidden",
         rules: rules,
-        invalidHandler: function (event, validator) { //display error alert on form submit
+        invalidHandler: function(event, validator) { //display error alert on form submit
             success.hide();
             error.show();
 
-//            App.scrollTo(error, -200);
+            //            App.scrollTo(error, -200);
             if (typeof showToaster !== 'undefined' && showToaster) {
                 Toastr.init('warning', 'Some fields are missing!.', '');
             }
-//            Toastr.init('warning', 'Some fields are missing!.', '');
+            //            Toastr.init('warning', 'Some fields are missing!.', '');
         },
-        highlight: function (element) { // hightlight error inputs
+        highlight: function(element) { // hightlight error inputs
             // $(element)
             //         .closest('.form-control').addClass('has-error'); // set error class to the control group
         },
-        unhighlight: function (element) { // revert the change done by hightlight
+        unhighlight: function(element) { // revert the change done by hightlight
             // $(element)
             //         .closest('.form-control').removeClass('has-error'); // set error class to the control group
         },
-        success: function (label) {
+        success: function(label) {
             // label
             //         .closest('.form-control').removeClass('has-error'); // set success class to the control group
         },
         messages: messages,
-        submitHandler: function (form) {
+        submitHandler: function(form) {
             // $("#overlay").fadeIn(300);
-             $('#loader').show();
-             $('.btnsubmit').attr("disabled","disabled");
+            $('#loader').show();
+            $('.btnsubmit').attr("disabled", "disabled");
             if (typeof submitCallback !== 'undefined' && typeof submitCallback == 'function') {
                 submitCallback(form);
             } else {
@@ -317,21 +318,21 @@ function handleFormValidateWithMsg(form, rules, messages, submitCallback, showTo
             }
             return false;
         },
-        errorPlacement: function (error, element) {
+        errorPlacement: function(error, element) {
             var elem = $(element);
             if (elem.hasClass("select2-hidden-accessible")) {
-               element = $("#select2-" + elem.attr("id") + "-container").parent();
-               error.insertAfter(element);
+                element = $("#select2-" + elem.attr("id") + "-container").parent();
+                error.insertAfter(element);
             } else {
                 error.insertAfter(element);
             }
         },
     });
 
-    $('.select2me', form).change(function () {
+    $('.select2me', form).change(function() {
         form.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
     });
-    $('.date-picker .form-control').change(function () {
+    $('.date-picker .form-control').change(function() {
         form.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
     })
 }
@@ -354,11 +355,11 @@ function gritter(title, text, sticky, time) {
 
 }
 
-var Toastr = function () {
+var Toastr = function() {
 
     return {
         //main function to initiate the module
-        init: function (type, title, message) {
+        init: function(type, title, message) {
             toastr.options = {
                 "closeButton": true,
                 "debug": false,
@@ -383,15 +384,15 @@ var Toastr = function () {
 
 function handleDelete() {
 
-    $('body').on('click', '#btndelete', function () {
+    $('body').on('click', '#btndelete', function() {
         var data = '';
         var thumb = $(this).attr('data-thumb');
         if (thumb) {
-            data = {'id': $(this).attr('data-id'), 'thumb': thumb};
+            data = { 'id': $(this).attr('data-id'), 'thumb': thumb };
         } else {
-            data = {'id': $(this).attr('data-id'), '_token': $("input[name=_token]").val()};
+            data = { 'id': $(this).attr('data-id'), '_token': $("input[name=_token]").val() };
         }
-        ajaxcall($(this).attr('data-url'), data, function (output) {
+        ajaxcall($(this).attr('data-url'), data, function(output) {
             $('#myModal_autocomplete').modal('hide');
             handleAjaxResponse(output);
         });
@@ -402,7 +403,7 @@ function handleDeleteData() {
 
     var delete_records_value = '';
     var delete_model_name = '';
-    $('body').on('click', '.delete_confirmation_btn', function () {
+    $('body').on('click', '.delete_confirmation_btn', function() {
 
         var checked_value = $('input[type="checkbox"].delete_checkbox_id:checked');
         if (checked_value.length > 0) {
@@ -418,9 +419,9 @@ function handleDeleteData() {
             Toastr.init('warning', 'Please select atleast one record', '');
         }
     });
-    $('body').on('click', '#multiple_delete_btn', function () {
-        var data = {'id': delete_records_value};
-        ajaxcall($(this).attr('data-url'), data, function (output) {
+    $('body').on('click', '#multiple_delete_btn', function() {
+        var data = { 'id': delete_records_value };
+        ajaxcall($(this).attr('data-url'), data, function(output) {
             $(delete_model_name).modal('hide');
             var temp_array = delete_records_value.split(',');
             for (var i = 0; i < temp_array.length; i++) {
@@ -453,27 +454,25 @@ function handleTimePickers() {
         });
 
         // handle input group button click
-        $('.timepicker').parent('.input-group').on('click', '.input-group-btn', function (e) {
+        $('.timepicker').parent('.input-group').on('click', '.input-group-btn', function(e) {
             e.preventDefault();
             $(this).parent('.input-group').find('.timepicker').timepicker('showWidget');
         });
     }
 }
 
-var check_checkbox = function () {
+var check_checkbox = function() {
 
     return {
-        init: function () {
+        init: function() {
             var checked_length = $(".checkboxes:checked").length;
             var id_array = new Array();
-            $('.checkboxes:checked').each(function () {
+            $('.checkboxes:checked').each(function() {
                 id_array.push($(this).attr('value'));
             });
-            if (checked_length != 0)
-            {
+            if (checked_length != 0) {
                 return id_array;
-            } else
-            {
+            } else {
                 Toastr.init('warning', 'Opps..', 'Please Select Atleast One Checkbox');
                 return false;
             }
@@ -482,8 +481,8 @@ var check_checkbox = function () {
 }();
 
 // Handle Sidebar toggling
-$('.page-sidebar-menu li').on('click', function () {
-    $('.page-sidebar-menu li:not(.open)').each(function (i) {
+$('.page-sidebar-menu li').on('click', function() {
+    $('.page-sidebar-menu li:not(.open)').each(function(i) {
         $(this).find('a .arrow').removeClass('open');
         $(this).find('ul.sub-menu').hide();
     });
@@ -494,13 +493,13 @@ if (getQueryString('status') != null && getQueryString('message') != null) {
     Toastr.init(getQueryString('status'), '', decodeURIComponent(getQueryString('message')));
 }
 if (getQueryString('redirect') != null) {
-    setTimeout(function () {
+    setTimeout(function() {
         window.location.href = getQueryString('redirect');
     }, 500);
 }
 
 // Handle Checkall Table
-$('body').on('click', '.checkall', function () {
+$('body').on('click', '.checkall', function() {
     if ($(this).prop('checked')) {
         $(this).closest('.groupcheckboxes').find('.checkallone').prop('checked', true);
         $.uniform.update(".checkallone");
@@ -545,7 +544,7 @@ function ordinal(number) {
     }
 }
 
-$("body").on('click', '.restoreWaiting', function () {
+$("body").on('click', '.restoreWaiting', function() {
     var bookId = $(this).attr('data-id');
 
     var permit = $(this).attr("data-permit");
@@ -555,7 +554,7 @@ $("body").on('click', '.restoreWaiting', function () {
         return false;
     }
 
-    ajaxcall(tutorurl + 'booking/restoreWaiting', {id: bookId, is_accept: permit, reason: reason}, function (output) {
+    ajaxcall(tutorurl + 'booking/restoreWaiting', { id: bookId, is_accept: permit, reason: reason }, function(output) {
         var res = JSON.parse(output);
         $("#restoreWaitingPopupReason").val("");
         $(".booking_restored_success").attr("data-id", bookId);
@@ -572,7 +571,7 @@ $("body").on('click', '.restoreWaiting', function () {
 });
 
 
-$('body').on('click', '.booking_restored', function () {
+$('body').on('click', '.booking_restored', function() {
     var orderId = $(this).attr("data-id");
     var dataurlid = $(this).attr("data-url-id");
 
@@ -584,7 +583,7 @@ $('body').on('click', '.booking_restored', function () {
     }
 
     $("#booking_restore_popup").modal("hide");
-    ajaxcall(tutorurl + 'booking/restoreBooking', {orderId: orderId, is_accept: permit, reason: reason}, function (output) {
+    ajaxcall(tutorurl + 'booking/restoreBooking', { orderId: orderId, is_accept: permit, reason: reason }, function(output) {
         var res = JSON.parse(output);
         $("#popupreason").val("");
         if (res.status == "deleteDay") {
@@ -608,16 +607,16 @@ $('body').on('click', '.booking_restored', function () {
     });
 });
 
-$('body').on('click', '.camp_restore', function () {
+$('body').on('click', '.camp_restore', function() {
     var orderId = $(this).attr("data-id");
     var dataurlid = $(this).attr("data-url-id");
 
-    ajaxcall(tutorurl + 'holiday_programme/restoreBooking', {orderId: orderId}, function (output) {
+    ajaxcall(tutorurl + 'holiday_programme/restoreBooking', { orderId: orderId }, function(output) {
         handleAjaxResponse(output);
     });
 });
 
-$('body').on('click', '.checkContactcookie', function () {
+$('body').on('click', '.checkContactcookie', function() {
     Cookies.set('currentLoginType', $(this).attr('data-userType'));
 });
 
@@ -625,10 +624,10 @@ var isValidTutor = true;
 var isGettingSide = false;
 var notifiSecs = 1;
 
-$('body').on('click', '.notifOpen', function () {
+$('body').on('click', '.notifOpen', function() {
     if (!isGettingSide) {
         isGettingSide = true;
-        ajaxcall(baseurl + 'Notification/getSideNotification', {a: 'a'}, function (output) {
+        ajaxcall(baseurl + 'Notification/getSideNotification', { a: 'a' }, function(output) {
             isGettingSide = false;
             output = JSON.parse(output);
             $(".sideNotifDiv").html(output.htm);
@@ -639,14 +638,14 @@ $('body').on('click', '.notifOpen', function () {
     }
 });
 
-$('body').on('click', '.notifClose', function () {
+$('body').on('click', '.notifClose', function() {
     isGettingSide = false;
     $(".sideNotifDiv").html('');
     $('body').removeClass('page-quick-sidebar-open');
 });
 
 
-$('#show_notification').on('hidden.bs.modal', function () {
+$('#show_notification').on('hidden.bs.modal', function() {
     $(".sideNotifDiv").html('');
     $(".allNotifDiv").html('');
     $('body').removeClass('page-quick-sidebar-open');
@@ -666,41 +665,41 @@ function dateFormate(field) {
 
 
 function checkNonWorkingDate(field) {
-    var send=true;
-   $(field).datepicker({
+    var send = true;
+    $(field).datepicker({
         format: 'dd-mm-yyyy',
         calendarWeeks: true,
         autoclose: true,
-        todayHighlight:true
+        todayHighlight: true
     }).on("changeDate", function(e) {
-        if(send){
-        var  date = $(this).val();
-        $.ajax({
-            type: "POST",
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val(),
-            },
-            url: baseurl + "company/task-ajaxAction",
-            data: {'action': 'checkDate', 'date': date},
+        if (send) {
+            var date = $(this).val();
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "company/task-ajaxAction",
+                data: { 'action': 'checkDate', 'date': date },
                 success: function(output) {
                     handleAjaxResponse(output);
-                    var  output = JSON.parse(output);
-                    if (typeof  output.counts != 'undefined' && output.counts != null && output.counts > 0) {
+                    var output = JSON.parse(output);
+                    if (typeof output.counts != 'undefined' && output.counts != null && output.counts > 0) {
                         $(field).val('');
                         $(field).focus();
                     }
                 }
             });
-            send=false;
+            send = false;
         }
-         setTimeout(function(){send=true;},200);
-     });
+        setTimeout(function() { send = true; }, 200);
+    });
 }
 
 /* START FOR LANGUAGE SET USING COOKIE */
 
 //console.log(getCookie('language'));
-$("body").on("change", "#languageSelection", function () {
+$("body").on("change", "#languageSelection", function() {
     var lang = $(this).val();
     if (lang != '') {
         setCookie('language', lang, 365);
@@ -719,7 +718,7 @@ $("body").on("change", "#languageSelection", function () {
 //        }
 //    });
 
-$("body").on("change", ".language", function () {
+$("body").on("change", ".language", function() {
     var lang = ($(this).val() !== '') ? $(this).val() : 'en';
     if (lang) {
         setCookie('language', lang, 365);
@@ -770,9 +769,10 @@ function getDataTable(arr) {
             "search": "_INPUT_",
             "searchPlaceholder": "Search..."
         },
-        "order": [[(arr.defaultSortColumn) ? arr.defaultSortColumn : '0', (arr.defaultSortOrder) ? arr.defaultSortOrder : 'desc']],
-        "columnDefs": [
-            {
+        "order": [
+            [(arr.defaultSortColumn) ? arr.defaultSortColumn : '0', (arr.defaultSortOrder) ? arr.defaultSortOrder : 'desc']
+        ],
+        "columnDefs": [{
                 "targets": arr.hideColumnList,
                 "visible": false
             },
@@ -792,8 +792,8 @@ function getDataTable(arr) {
             headers: {
                 'X-CSRF-TOKEN': $('input[name="_token"]').val()
             },
-            data: {'action': arr.ajaxAction, 'data': arr.postData},
-            error: function () {  // error handling
+            data: { 'action': arr.ajaxAction, 'data': arr.postData },
+            error: function() { // error handling
                 $(".row-list-error").html("");
                 $(arr.tableID).append('<tbody class="row-list-error"><tr><td colspan="4" style="text-align: center;"><p style="color:red;">Sorry, No Record Found</p></td></tr></tbody>');
                 $(arr.tableID + "processing").css("display", "none");
@@ -801,9 +801,10 @@ function getDataTable(arr) {
         }
     });
 
-//    onLoadDefaultColumnSet(dataTable);
-//    hideShowDatatableColumn(dataTable);
+    //    onLoadDefaultColumnSet(dataTable);
+    //    hideShowDatatableColumn(dataTable);
 }
+
 function getDataTablenew(arr) {
 
     var dataTable = $(arr.tableID).DataTable({
@@ -817,9 +818,10 @@ function getDataTablenew(arr) {
             "search": "_INPUT_",
             "searchPlaceholder": "Search..."
         },
-        "order": [[(arr.defaultSortColumn) ? arr.defaultSortColumn : '0', (arr.defaultSortOrder) ? arr.defaultSortOrder : 'desc']],
-        "columnDefs": [
-            {
+        "order": [
+            [(arr.defaultSortColumn) ? arr.defaultSortColumn : '0', (arr.defaultSortOrder) ? arr.defaultSortOrder : 'desc']
+        ],
+        "columnDefs": [{
                 "targets": arr.hideColumnList,
                 "visible": false
             },
@@ -839,8 +841,8 @@ function getDataTablenew(arr) {
             headers: {
                 'X-CSRF-TOKEN': $('input[name="_token"]').val()
             },
-            data: {'action': arr.ajaxAction, 'arraydata':arr.data,'data': arr.postData},
-            error: function () {  // error handling
+            data: { 'action': arr.ajaxAction, 'arraydata': arr.data, 'data': arr.postData },
+            error: function() { // error handling
                 $(".row-list-error").html("");
                 $(arr.tableID).append('<tbody class="row-list-error"><tr><td colspan="4" style="text-align: center;"><p style="color:red;">Sorry, No Record Found</p></td></tr></tbody>');
                 $(arr.tableID + "processing").css("display", "none");
@@ -848,12 +850,12 @@ function getDataTablenew(arr) {
         }
     });
 
-//    onLoadDefaultColumnSet(dataTable);
-//    hideShowDatatableColumn(dataTable);
+    //    onLoadDefaultColumnSet(dataTable);
+    //    hideShowDatatableColumn(dataTable);
 }
 
 function onLoadDefaultColumnSet(dataTable) {
-    $('.custom-column').each(function () {
+    $('.custom-column').each(function() {
         var column = dataTable.column($(this).attr('data-column'));
         var status = $(this).attr('data-default-status');
 
@@ -869,7 +871,7 @@ function onLoadDefaultColumnSet(dataTable) {
 }
 
 function hideShowDatatableColumn(dataTable) {
-    $('body').on('click', '.custom-column', function () {
+    $('body').on('click', '.custom-column', function() {
         // Get the column API object
         var column = dataTable.column($(this).attr('data-column'));
         // Toggle the visibility
@@ -923,11 +925,11 @@ function checkDateRange(classOrID, startDateID, endDateID, msg) {
 
 
 
-$(".onlyNumber").keypress(function (e) {
+$(".onlyNumber").keypress(function(e) {
     //if the letter is not digit then display error and don't type anything
     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-       //display error message
-    //    $("#errmsg").html("Digits Only").show().fadeOut("slow");
-              return false;
-   }
-  });
+        //display error message
+        //    $("#errmsg").html("Digits Only").show().fadeOut("slow");
+        return false;
+    }
+});
