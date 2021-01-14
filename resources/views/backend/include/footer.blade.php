@@ -4,8 +4,8 @@
         <!--end::Global Config-->
         <script src="{{ asset('public/backend/assets/js/pages/jquery/jquery.min.js') }}"></script>
 		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="{{ asset('public/backend/assets/plugins/global/plugins.bundled1cf.js') }}"></script>
-		<script src="{{ asset('public/backend/assets/plugins/custom/prismjs/prismjs.bundled1cf.js') }}"></script>
+		<script src="{{ asset('public/backend/assets/plugins/global/plugins.bundle.js') }}"></script>
+		<script src="{{ asset('public/backend/assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
 		<script src="{{ asset('public/backend/assets/js/scripts.bundled1cf.js') }}"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Vendors(used by this page)-->
