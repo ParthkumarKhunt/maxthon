@@ -14,7 +14,7 @@
                     <h3 class="card-title">{{$header['title']}}</h3>
                 </div>
                 <!--begin::Form-->
-                <form class="form" id="details-form" method="POST" >@csrf
+                <form class="form" id="details-form" method="POST">@csrf
                     <div class="card-body">
                         <div class="form-group ">
                             <label class="col-form-label ">Phone no

@@ -60,27 +60,4 @@ class DetailsController extends Controller
         );
         return view('backend.pages.admin.details.list', $data);
     }
-
-    public function saveDetails(Request $request){
-
-        if ($request->isMethod('post')) {
-            print_r($request->input());
-            die();
-            $objDetails = new Details();
-            $result = $objDetails->editDetail($request);
-            if($result){
-                $return['status'] = 'success';
-                $return['message'] = 'Details successfully updated.';
-                $return['redirect'] = route('admin-details');
-            }else{
-                $return['status'] = 'error';
-                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
-                $return['message'] = 'Something goes to wrong.Please try again';
-            }
-            return json_encode($return);
-                exit();
-        }else{
-                return redirect('admin');
-        }
-    }
 }
