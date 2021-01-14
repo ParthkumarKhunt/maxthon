@@ -21,8 +21,8 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     // Dashboard
     Route::match(['get', 'post'], 'admin-dashboard', ['as' => 'admin-dashboard', 'uses' => 'backend\admin\dashboard\DashboardController@dashboard']);
     // Details
-    Route::match(['get', 'post'], 'admin-details', ['as' => 'admin-details', 'uses' => 'backend\admin\details\DetailsController@details']);
-    Route::match(['get', 'post'], 'save-details', ['as' => 'save-details', 'uses' => 'backend\admin\details\DetailsController@saveDetails']);
+    Route::match(['get', 'post'], 'update-details', ['as' => 'update-details', 'uses' => 'backend\admin\details\DetailsController@details']);
+    // Route::match(['get', 'post'], 'save-details', ['as' => 'save-details', 'uses' => 'backend\admin\details\DetailsController@saveDetails']);
 
 
 });
