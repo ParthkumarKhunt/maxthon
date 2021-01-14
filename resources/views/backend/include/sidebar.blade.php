@@ -53,8 +53,8 @@ $currentRoute = Route::current()->getName();
                 </li>
 
 
-                <li class="menu-item {{ ( $currentRoute == 'admin-details'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
-                    <a href="{{  route('admin-details') }}" class="menu-link">
+                <li class="menu-item {{ ( $currentRoute == 'update-details'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
+                    <a href="{{  route('update-details') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
