@@ -62,7 +62,10 @@ class DetailsController extends Controller
     }
 
     public function saveDetails(Request $request){
+
         if ($request->isMethod('post')) {
+            print_r($request->input());
+            die();
             $objDetails = new Details();
             $result = $objDetails->editDetail($request);
             if($result){
