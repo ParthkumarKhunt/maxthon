@@ -6,9 +6,12 @@
     <meta name="keywords" content="{{ $keywords }}">
     <!-- TITLE -->
     <title>{{ $title }}</title>
+    @php
+    $logodetails = getdetails();
 
+@endphp
     <!--  FAVICON  -->
-    <link rel="shortcut icon" href="images/icons/favicon.png">
+    <link rel="shortcut icon" href="{{ asset('public/upload/details/'.$logodetails[0]->favicon) }}">
 
     <!-- FONT AWESOME ICONS LIBRARY -->
     <link rel="stylesheet" href="{{ asset('public/frontend/assets/fonts/css/all.min.css') }}">

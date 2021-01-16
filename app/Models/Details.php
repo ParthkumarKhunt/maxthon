@@ -25,12 +25,12 @@ class Details extends Model
             $objDetails->logo = $logo;
         }
 
-        if ($request->file('favicon_icon')) {
-            $image = $request->file('favicon_icon');
+        if ($request->file('favicon')) {
+            $image = $request->file('favicon');
             $favicon_icon = time() . '1.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/upload/details');
             $image->move($destinationPath, $favicon_icon);
-            $objDetails->favicon_icon = $favicon_icon;
+            $objDetails->favicon = $favicon_icon;
 
         }
 
