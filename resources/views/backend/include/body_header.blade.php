@@ -2,11 +2,7 @@
 if (!empty(Auth()->guard('admin')->user())) {
    $data = Auth()->guard('admin')->user();
 }
-
 $logodetails = getdetails();
-// print_r($data);
-// die();
-
 @endphp
 <!--begin::Header-->
 

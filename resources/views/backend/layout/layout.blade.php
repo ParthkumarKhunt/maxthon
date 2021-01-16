@@ -59,6 +59,7 @@
 						@yield('section')
 					</div>
 					<!--end::Content-->
+					@include('backend.include.modal')
 					@include('backend.include.body_footer')
 				</div>
 				<!--end::Wrapper-->

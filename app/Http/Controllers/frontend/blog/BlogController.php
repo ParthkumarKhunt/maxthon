@@ -27,6 +27,8 @@ class BlogController extends Controller
         $data['funinit'] = array(
         );
         $data['header'] = array(
+            'title' => 'Blog',
+            'breadcrumb' => array()
         );
         return view('frontend.pages.blog.blog', $data);
     }

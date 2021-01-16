@@ -27,6 +27,8 @@ class TeamController extends Controller
         $data['funinit'] = array(
         );
         $data['header'] = array(
+            'title' => 'Our Team',
+            'breadcrumb' => array()
         );
         return view('frontend.pages.team.team', $data);
     }

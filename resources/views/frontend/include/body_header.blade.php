@@ -1,6 +1,5 @@
 @php
     $logodetails = getdetails();
-
 @endphp
 <!-- TOP HEADER START -->
 <div class="top-header-wrapper">

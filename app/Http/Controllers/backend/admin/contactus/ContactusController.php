@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend\admin\contactus;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contactusdetails;
+use App\Models\RequestList;
 use Config;
 class ContactusController extends Controller
 {
@@ -74,10 +75,13 @@ class ContactusController extends Controller
             'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
+            'plugins/custom/datatables/datatables.bundled1cf.css'
         );
         $data['pluginjs'] = array(
             'toastr/toastr.min.js',
             'plugins/validate/jquery.validate.min.js',
+            'plugins/custom/datatables/datatables.bundled1cf.js',
+            'pages/crud/datatables/data-sources/htmld1cf.js'
         );
         $data['js'] = array(
             'comman_function.js',
@@ -96,5 +100,37 @@ class ContactusController extends Controller
             )
         );
         return view('backend.pages.admin.contactus.list', $data);
+    }
+
+
+
+
+    public function ajaxAction(Request $request) {
+        $action = $request->input('action');
+        $session = session()->all();
+        switch ($action) {
+            case 'getdatatable':
+                $objRequestList = new RequestList();
+                $list = $objRequestList->getdatatable();
+
+                echo json_encode($list);
+                break;
+
+            case 'deleteRequestList':
+
+                $objRequestList = new RequestList();
+                $result = $objRequestList->deleteRequestList($request->input('data'));
+                if ($result) {
+                    $return['status'] = 'success';
+                    $return['message'] = 'User request successfully deletd';
+                    $return['redirect'] = route('admin-contactus-list');
+                } else {
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        $return['message'] = 'Something goes to wrong.';
+                }
+                echo json_encode($return);
+                exit;
+        }
     }
 }

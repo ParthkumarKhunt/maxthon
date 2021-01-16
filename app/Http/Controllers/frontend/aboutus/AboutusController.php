@@ -26,6 +26,8 @@ class AboutusController extends Controller
         $data['funinit'] = array(
         );
         $data['header'] = array(
+            'title' => 'About Us',
+            'breadcrumb' => array()
         );
         return view('frontend.pages.aboutus.aboutus', $data);
     }

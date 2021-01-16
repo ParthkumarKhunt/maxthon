@@ -27,6 +27,8 @@ class FaqsController extends Controller
         $data['funinit'] = array(
         );
         $data['header'] = array(
+            'title' => 'FAQS',
+            'breadcrumb' => array()
         );
         return view('frontend.pages.faqs.faqs', $data);
     }

@@ -12,7 +12,7 @@ if (!empty(Auth()->guard('admin')->user())) {
 <div id="kt_quick_user" class="offcanvas offcanvas-right p-10">
     <!--begin::Header-->
     <div class="offcanvas-header d-flex align-items-center justify-content-between pb-5">
-        <h3 class="font-weight-bold m-0">User Profile 
+        <h3 class="font-weight-bold m-0">User Profile
         <small class="text-muted font-size-sm ml-2">12 messages</small></h3>
         <a href="#" class="btn btn-xs btn-icon btn-light btn-hover-primary" id="kt_quick_user_close">
             <i class="ki ki-close icon-xs text-muted"></i>
@@ -79,7 +79,7 @@ if (!empty(Auth()->guard('admin')->user())) {
                     </div>
                     <div class="navi-text">
                         <div class="font-weight-bold">My Profile</div>
-                        <div class="text-muted">Account settings and more 
+                        <div class="text-muted">Account settings and more
                         <span class="label label-light-danger label-inline font-weight-bold">update</span></div>
                     </div>
                 </div>

@@ -24,7 +24,12 @@
     <link href="{{ asset('public/backend/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
     <!--end::Layout Themes-->
-    {{-- <link rel="shortcut icon" href="../theme/html/demo1/dist/assets/media/logos/favicon.ico" /> --}}
+    @php
+    $logodetails = getdetails();
+
+@endphp
+    <!--  FAVICON  -->
+    <link rel="shortcut icon" href="{{ asset('public/upload/details/'.$logodetails[0]->favicon) }}">
     @if (!empty($css))
     @foreach ($css as $value)
     @if(!empty($value))

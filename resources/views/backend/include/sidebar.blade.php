@@ -2,14 +2,14 @@
 @php
 
 $currentRoute = Route::current()->getName();
-
+$logodetails = getdetails();
 @endphp
 <div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
     <!--begin::Brand-->
-    <div class="brand flex-column-auto" id="kt_brand">
+    <div class="brand flex-column-auto" id="kt_brand" style="background-color: white">
         <!--begin::Logo-->
-        <a href="index.html" class="brand-logo">
-            <img alt="Logo" src="{{ asset('public/backend/assets/media/logos/logo-light.png') }}" />
+        <a href="{{  route('admin-dashboard') }}" class="brand-logo">
+            <img alt="Logo" src="{{ asset('public/upload/details/'.$logodetails[0]->logo) }}"  style="width: 135px;height: 30px;"/>
         </a>
         <!--end::Logo-->
         <!--begin::Toggle-->
@@ -98,6 +98,50 @@ $currentRoute = Route::current()->getName();
                             <li class="menu-item {{ ( $currentRoute == 'admin-contactus-list'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
                                 <a href="{{ route('admin-contactus-list') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Request List</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-aboutus-statistical' || $currentRoute == 'admin-aboutus-section-one' || $currentRoute == 'admin-aboutus-section-two'  ? 'menu-item-active menu-item-open' : '' )  }}" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-11-19-154210/theme/html/demo1/dist/../src/media/svg/icons/Communication/Group-chat.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"/>
+                                <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10"/>
+                                <rect fill="#000000" x="11" y="10" width="2" height="7" rx="1"/>
+                                <rect fill="#000000" x="11" y="7" width="2" height="2" rx="1"/>
+                            </g>
+                            </svg><!--end::Svg Icon-->
+                        </span>
+                        </span>
+                        <span class="menu-text">About Us</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item {{ ( $currentRoute == 'admin-aboutus-section-one'  ? 'menu-item-active ' : '' )  }}" aria-haspopup="true">
+                                <a href="{{ route('admin-aboutus-section-one') }}" class="menu-link">
+
+                                    <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Section 1</span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item {{ ( $currentRoute == 'admin-aboutus-statistical'  ? 'menu-item-active ' : '' )  }}" aria-haspopup="true">
+                                <a href="{{ route('admin-aboutus-statistical') }}" class="menu-link">
+
+                                    <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Statistical details</span>
+                                </a>
+                            </li>
+
+
+                            <li class="menu-item {{ ( $currentRoute == 'admin-aboutus-section-two'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
+                                <a href="{{ route('admin-aboutus-section-two') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Section 2</span>
                                 </a>
                             </li>
 
