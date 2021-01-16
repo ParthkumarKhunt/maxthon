@@ -17,15 +17,23 @@
                 <form class="form" id="details-form" method="POST">@csrf
                     <div class="card-body">
                         <div class="form-group ">
-                            <label class="col-form-label ">Phone no
+                            <label class="col-form-label ">Phone Number
                             <span class="text-danger">*</span></label>
                             <input type="text" class="form-control onlyNumber" id="phoneno" name="phoneno"  value="{{ $details[0]->phoneno }}"/>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Phone Number 2 (optional)</label>
+                            <input type="text" class="form-control onlyNumber" id="phoneno2" name="phoneno2"  value="{{ $details[0]->phoneno2 }}"/>
                         </div>
 
                         <div class="form-group ">
                             <label class="col-form-label ">Email
                             <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="email" name="email"  value="{{ $details[0]->email }}"/>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Email 2 (optional)</label>
+                            <input type="text" class="form-control" id="email2" name="email2"  value="{{ $details[0]->email2 }}"/>
                         </div>
 
                         <div class="form-group ">

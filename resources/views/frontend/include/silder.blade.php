@@ -48,8 +48,7 @@ $currentRoute = Route::current()->getName();
     <div class="pages-hero">
         <div class="container">
             <div class="pages-title">
-                <h1>Services</h1>
-                <p>A new generation of cleaning and restoration concepts.</p>
+                <h1>{{$header['title']}}</h1>
             </div>
         </div>
     </div>

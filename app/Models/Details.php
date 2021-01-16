@@ -11,7 +11,7 @@ class Details extends Model
     protected $table="details";
 
     public function getDetails(){
-            return Details::select("phoneno","email","facebook","twitter","linkedin","instagram","github","logo","favicon","address_line1","address_line2","aboutus","map")->where("id",1)->get();
+            return Details::select("phoneno","email","phoneno2","email2","facebook","twitter","linkedin","instagram","github","logo","favicon","address_line1","address_line2","aboutus","map")->where("id",1)->get();
     }
 
     public function editDetail($request){
@@ -37,6 +37,18 @@ class Details extends Model
 
         $objDetails->phoneno = $request->input('phoneno');
         $objDetails->email = $request->input('email');
+
+        if($request->input('phoneno2') == '' || $request->input('phoneno2') == NULL){
+            $objDetails->phoneno2 = NULL;
+        }else{
+            $objDetails->phoneno2 = $request->input('phoneno2');
+        }
+
+        if($request->input('email2') == '' || $request->input('email2') == NULL){
+            $objDetails->email2 = NULL;
+        }else{
+            $objDetails->email2 = $request->input('email2');
+        }
 
         if($request->input('facebook') == '' || $request->input('facebook') == NULL){
             $objDetails->facebook = NULL;

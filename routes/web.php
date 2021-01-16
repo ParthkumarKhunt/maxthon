@@ -42,3 +42,6 @@ Route::match(['get', 'post'], 'our-team', ['as' => 'our-team', 'uses' => 'fronte
 // Admin
 Route::match(['get', 'post'], 'admin', ['as' => 'admin', 'uses' => 'backend\LoginController@admin']);
 
+// testing-mail
+Route::match(['get', 'post'], 'testing-mail', ['as' => 'testing-mail', 'uses' => 'backend\LoginController@testingmail']);
+

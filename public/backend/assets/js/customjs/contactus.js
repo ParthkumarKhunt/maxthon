@@ -1,19 +1,16 @@
-var Contactus = function(){
-    var addMail = function(){
-
-
-        // login-form
-        var form = $('#add-mail-form');
+var Contactus = function() {
+    var addDetails = function() {
+        var form = $('#details-form');
         var rules = {
-            email: { required: true, email: true },
+            details: { required: true }
         };
-        handleFormValidate(form, rules,function(form) {
-            handleAjaxFormSubmit(form,true);
+        handleFormValidate(form, rules, function(form) {
+            handleAjaxFormSubmit(form, true);
         });
     };
     return {
-        init:function(){
-            addMail();
+        init: function() {
+            addDetails();
         }
     }
 }();
