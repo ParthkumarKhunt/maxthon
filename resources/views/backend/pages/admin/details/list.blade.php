@@ -13,6 +13,9 @@
                 <div class="card-header">
                     <h3 class="card-title">{{$header['title']}}</h3>
                 </div>
+                <div id="alertDiv">
+
+                </div>
                 <!--begin::Form-->
                 <form class="form" id="details-form" method="POST">@csrf
                     <div class="card-body">

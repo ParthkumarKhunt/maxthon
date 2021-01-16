@@ -22,4 +22,6 @@ class Contactusdetails extends Model
         $objContactusdetails->updated_at = date("Y-m-d h:i:s");
         return $objContactusdetails->save();
     }
+
+
 }

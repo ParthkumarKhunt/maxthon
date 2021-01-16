@@ -63,11 +63,44 @@ function ajaxcall(url, data, callback) {
     })
 }
 
+function handleAjaxResponse_new(output) {
+    output = JSON.parse(output);
+    $('#deleteModel').removeClass('show');
+    $("#deleteModel").css({ 'display': 'none' });
+    var html = "";
+    if (output.status == 'success') {
+        html = '<div class="alert alert-success" role="alert">' +
+            '<strong>' + output.message + '</strong>' +
+            '</div>';
+    }
+    if (output.status == 'error') {
+        html = '<div class="alert alert-danger" role="alert">' +
+            '<strong>' + output.message + '</strong>' +
+            '</div>';
+    }
+    if (output.status == 'warning') {
+        html = '<div class="alert alert-warning" role="alert">' +
+            '<strong>' + output.message + '</strong>' +
+            '</div>';
+    }
+    $("#alertDiv").html(html);
+    if (typeof output.redirect !== 'undefined' && output.redirect != '') {
+        setTimeout(function() {
+            window.location.href = output.redirect;
+        }, 2000);
+    }
+
+    if (typeof output.jscode !== 'undefined' && output.jscode != '') {
+        eval(output.jscode);
+    }
+
+}
+
 function handleAjaxFormSubmit(form, type) {
 
     if (typeof type === 'undefined') {
         ajaxcall($(form).attr('action'), $(form).serialize(), function(output) {
-            handleAjaxResponse(output);
+            handleAjaxResponse_new(output);
         });
     } else if (type === true) {
         // App.startPageLoading();
@@ -75,7 +108,7 @@ function handleAjaxFormSubmit(form, type) {
             resetForm: false, // reset the form after successful submit
             success: function(output) {
                 //   App.stopPageLoading();
-                handleAjaxResponse(output);
+                handleAjaxResponse_new(output);
             }
         };
         $(form).ajaxSubmit(options);

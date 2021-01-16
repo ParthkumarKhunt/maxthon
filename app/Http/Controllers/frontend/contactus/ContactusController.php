@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
 use App\Models\Contactusdetails;
+use App\Models\RequestList;
 class ContactusController extends Controller
 {
     function __construct(){
@@ -15,8 +16,20 @@ class ContactusController extends Controller
     public function contactus(Request $request){
 
         if ($request->isMethod('post')) {
-            print_r($request->input());
-            die();
+
+            $objRequestList = new RequestList();
+            $res = $objRequestList->saveDetails($request);
+            if($res){
+                $return['status'] = 'success';
+                $return['message'] = 'Your details successfully received.We will contact you soon.';
+                $return['redirect'] = route('contact-us');
+            }else{
+                $return['status'] = 'error';
+                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                $return['message'] = 'Something goes to wrong.Please try again';
+            }
+            return json_encode($return);
+            exit();
         }
 
         $objContactusdetails = new Contactusdetails();

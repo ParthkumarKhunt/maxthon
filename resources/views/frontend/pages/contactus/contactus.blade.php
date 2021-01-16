@@ -56,6 +56,9 @@ $logodetails = getdetails();
                     {!! $details[0]->details !!}
                 </div>
                 <br/>
+                <div id="alertDiv">
+
+                </div>
                 <form id="contact-form-add" method="post" >
                     @csrf
                     <div class="messages"></div>
