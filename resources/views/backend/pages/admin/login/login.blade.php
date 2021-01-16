@@ -1,3 +1,7 @@
+@php
+$logodetails = getdetails();
+@endphp
+
 @extends('backend.layout.login_layout')
 @section('content')
 
@@ -6,18 +10,14 @@
     <!--begin::Login-->
     <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
         <!--begin::Aside-->
-        <div class="login-aside d-flex flex-column flex-row-auto" style="background-color: #F2C98A;">
+        <div class="login-aside d-flex flex-column flex-row-auto" style="background-color: #5f5f5f;">
             <!--begin::Aside Top-->
             <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
                 <!--begin::Aside header-->
                 <a href="{{ route('admin') }}" class="text-center mb-10">
-                    <img src="{{ asset('public/backend/assets/media/logos/logo-letter-1.png') }}" class="max-h-120px" alt="KKMT" />
+                    <img src="{{ asset('public/upload/details/'.$logodetails[0]->logo) }}" class="max-h-120px" alt="KKMT" />
                 </a>
                 <!--end::Aside header-->
-                <!--begin::Aside title-->
-                <h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #986923;">Discover Amazing Metronic
-                <br />with great build tools</h3>
-                <!--end::Aside title-->
             </div>
             <!--end::Aside Top-->
             <!--begin::Aside Bottom-->
@@ -60,7 +60,7 @@
                         <!--end::Form group-->
                         <!--begin::Action-->
                         <div class="pb-lg-0 pb-5">
-                            <button type="submit" id="kt_login_signin_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3 my-color">Sign In</button>
+                            <button type="submit" id="kt_login_signin_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3 ">Sign In</button>
                         </div>
                         <!--end::Action-->
                     </form>
