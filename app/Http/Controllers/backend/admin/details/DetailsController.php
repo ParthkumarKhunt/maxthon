@@ -16,6 +16,8 @@ class DetailsController extends Controller
         $objDetails = new Details();
         $data['details'] = $objDetails->getDetails();
         if ($request->isMethod('post')) {
+            print_r($request->input());
+            die();
             $objDetails = new Details();
             $result = $objDetails->editDetail($request);
             if($result){

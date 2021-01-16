@@ -11587,16 +11587,16 @@ Dropzone._autoDiscoverFunction = function() { if (Dropzone.autoDiscover) return 
                     e = this,
                     i = this.settings.mixTagsInterpolator; return function n(a) { a.childNodes.forEach((function(a) { if (1 == a.nodeType) { if (a.classList.contains(e.settings.classNames.tag) && e.tagData(a)) { if (e.tagData(a).__removed) return; return void(t += i[0] + JSON.stringify(a.__tagifyTagData) + i[1]) } "BR" != a.tagName || a.parentNode != e.DOM.input && 1 != a.parentNode.childNodes.length ? "DIV" != a.tagName && "P" != a.tagName || (t += "\r\n", n(a)) : t += "\r\n" } else t += a.textContent })) }(this.DOM.input), t } }, h.prototype.removeTag = h.prototype.removeTags, h })),
     /*!
-     * 
+     *
      * Super simple wysiwyg editor v0.8.18
      * https://summernote.org
-     * 
-     * 
+     *
+     *
      * Copyright 2013- Alan Hong. and other contributors
      * summernote may be freely distributed under the MIT license.
-     * 
+     *
      * Date: 2020-05-20T16:47Z
-     * 
+     *
      */
     function(t, e) { if ("object" == typeof exports && "object" == typeof module) module.exports = e(require("jquery"));
         else if ("function" == typeof define && define.amd) define(["jquery"], e);
@@ -17491,3 +17491,4 @@ var identity = function(t) { return t },
                 m(i, e), t.repeaters && d(i), n.call(i.get(0)) };
         e = function(t) { s().remove(), foreach(t, g) }, o(i.find("[data-repeater-create]"), t.repeaters).click((function() { g() })), r.on("click", "[data-repeater-delete]", (function() { var e = $(this).closest("[data-repeater-item]").get(0);
             a.call(e, (function() { $(e).remove(), f(s(), u(), t.repeaters) })) })) })), this.setList = e, this };
+
