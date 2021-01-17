@@ -1,7 +1,6 @@
 @extends('frontend.layout.app')
 @section('section')
 
-
 <!-- CONTENT START -->
 <section>
     <!-- ABOUT SECTION START -->
@@ -9,33 +8,49 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="about-info-layer">
-                    <h5 class="subtitle">About Washla</h5>
-                    <h2>Expert House Cleaning Service you Can Trust</h2>
-                    <p><strong>Customized advice to smallholder couriera with radical efficiency and scalability
-                            logistic.</strong></p>
-                    <p>Washla cleaning service. We are a company dedicated to giving our customers back the time
-                        they deserve to enjoy the things they love. We put The Extra In Your Ordinary, restoring
-                        balance to your life by taking care of your home.</p>
+                    {{-- <h5 class="subtitle">About Washla</h5> --}}
+                    <h2>
+                        @if($aboutus_section_one[0]->title)   
+                        {{ $aboutus_section_one[0]->title }}
+                        @endif
+                    </h2>
+                    <p>
+                        @if($aboutus_section_one[0]->details)  
+                        {!! $aboutus_section_one[0]->details !!} 
+                        @endif
+                    </p>
 
                     <div class="brand-layer d-flex">
                         <figure class="signature">
-                            <img src="{{ asset('public/frontend/assets/images/commons/signature.jpg') }}" alt="">
+                            @if($aboutus_section_one[0]->signuture)  
+                            <img src="{{ asset('public/upload/aboutus_section/'.$aboutus_section_one[0]->signuture) }}" alt="signuture_image">
+                            @endif
                         </figure>
                         <div class="bl-contact">
                             <p>Call Us for Service</p>
-                            <h4>052 5401 3322</h4>
+                            <h4>
+                                @if($aboutus_section_one[0]->contact_no)  
+                                {{$aboutus_section_one[0]->contact_no}}
+                                @endif
+                            </h4>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 spacing-md">
                 <figure class="about-img-layer">
-                    <img src="{{ asset('public/frontend/assets/images/commons/washla-about.jpg') }}" alt="">
+                    @if($aboutus_section_one[0]->image)  
+                    <img src="{{ asset('public/upload/aboutus_section/'.$aboutus_section_one[0]->image) }}"  alt="aboutus_section_image ">
+                    @endif
                     <div class="ai-banner">
                         <div class="media">
 
                             <div class="media-body">
-                                <h5 class="mt-0">Cleaning Your Worries Away</h5>
+                                <h5 class="mt-0">
+                                    @if($aboutus_section_one[0]->image_headline)  
+                                    {{$aboutus_section_one[0]->image_headline}}
+                                    @endif
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -101,15 +116,18 @@
 
                 <div class="col-lg-12 spacing-md">
                     <div class="ws-left-side">
-
-                        <h2>We have 20 Years of experience</h2>
+                        
+                        <h2>
+                            @if($aboutus_section_two[0]->title)   
+                            {{ $aboutus_section_two[0]->title }}
+                            @endif
+                        </h2>
                         <p>
-                            <strong>
-                                World’s leading non-asset- based supply chain management companies, we design and implement industry-leading.
-                            </strong>
+                            @if($aboutus_section_two[0]->details) 
+                            {!! $aboutus_section_two[0]->details !!} 
+                            @endif
                         </p>
-                        <p>Washla customers has a tremendous opportunity to answer the call of logistic needs across the globe. Has 26 affiliated state soybean associations representing 30 soybean-producing state.</p>
-
+                     
                     </div>
                 </div>
             </div>

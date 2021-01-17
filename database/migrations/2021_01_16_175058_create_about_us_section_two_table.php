@@ -15,6 +15,8 @@ class CreateAboutUsSectionTwoTable extends Migration
     {
         Schema::create('about_us_section_two', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable()->default(NULL);
+            $table->text('details')->nullable()->default(NULL);
             $table->timestamps();
         });
     }

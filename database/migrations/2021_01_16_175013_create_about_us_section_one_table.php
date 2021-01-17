@@ -15,6 +15,12 @@ class CreateAboutUsSectionOneTable extends Migration
     {
         Schema::create('about_us_section_one', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable()->default(NULL);
+            $table->text('details')->nullable()->default(NULL);
+            $table->string('image')->nullable()->default(NULL);
+            $table->string('image_headline')->nullable()->default(NULL);
+            $table->string('signuture')->nullable()->default(NULL);
+            $table->string('contact_no')->nullable()->default(NULL);
             $table->timestamps();
         });
     }
