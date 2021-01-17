@@ -54,7 +54,7 @@ class Ourclients extends Model
             $image = url("public/upload/ourclients/" . $row['image']);
 
             $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteClients" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
-            .'<a href="' . route('admin-our-clients-edit', $row['id']) . '" class="btn btn-icon primary"<i class="fa fa-edit"> </i></a>';
+            .'<a href="' . route('admin-our-clients-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
 
             $i++;
             $nestedData = array();
