@@ -63,12 +63,12 @@
     <br><br><br><br>
 
     <!-- COUNTER START -->
-    <div class="ww-counter mb-5">
+    <div class="ww-counter mb-5" style="background-image:url({{ asset('public/upload/aboutus_section/'.$statistical[0]->image)}});">
         <div class="container">
             <div class="counter-bar">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="media counter-layer right-border">
+                        <div class="media counter-layer right-border" style="padding: 32px;">
                             <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon1) }}"  class="mr-3" alt="happay_client">
                             <div class="media-body">
                                 <div class="counter" data-count="{{$statistical[0]->count1}}">0</div>
@@ -110,6 +110,7 @@
     <!-- COUNTER END -->
 
     <!-- GRID SECTION START -->
+    @if(!$aboutus_section_two->isEmpty())   
     <div class="bg-wrapper mt-5" style="background-color: white">
         <div class="container">
             <div class="row">
@@ -133,8 +134,29 @@
             </div>
         </div>
     </div>
+    @endif
     <!-- GRID SECTION END -->
 
-
+    <!-- CLIENTS CAROUSEL START -->  
+    @if(!$ourClient->isEmpty())
+    <div class="container mt-5 mb-5">
+        <div class="clients-carousel">
+            <div class="owl-carousel owl-theme">              
+                @foreach($ourClient as $key => $value)
+                <div class="item">
+                    <div class="client-box">
+                        <figure class="client-icon">
+                            <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img" style="width: 184px;
+                            height: 125px;">                            
+                            {{-- <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt=""> --}}
+                        </figure>
+                    </div>
+                </div>               
+                @endforeach              
+            </div>
+        </div>
+    </div>
+    @endif
+    <!-- CLIENTS CAROUSEL END -->
 
 @endsection
