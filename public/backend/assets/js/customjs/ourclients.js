@@ -20,7 +20,7 @@ var Ourclients = function() {
         };
         getDataTable(arrList);
 
-        $("body").on("click", ".deleteRequestList", function() {
+        $("body").on("click", ".deleteClients", function() {
             var id = $(this).data('id');
             setTimeout(function() {
                 $('.yes-sure:visible').attr('data-id', id);
@@ -37,8 +37,8 @@ var Ourclients = function() {
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 },
-                url: baseurl + "admin-contactus-list-ajaxaction",
-                data: { 'action': 'deleteRequestList', 'data': data },
+                url: baseurl + "admin-our-clients-ajaxaction",
+                data: { 'action': 'deleteClients', 'data': data },
                 success: function(data) {
                     $("#loader").show();
                     handleAjaxResponse(data);
@@ -46,9 +46,22 @@ var Ourclients = function() {
             });
         });
     }
+    var add = function() {
+
+        var form = $('#add-client-form');
+        var rules = {
+            logo: { required: true},
+        };
+        handleFormValidate(form, rules, function(form) {
+            handleAjaxFormSubmit(form, true);
+        });
+    };
     return {
         list: function() {
             listClient();
+        },
+        init: function() {
+            add();
         },
     }
 }();

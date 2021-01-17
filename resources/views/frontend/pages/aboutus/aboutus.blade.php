@@ -59,7 +59,7 @@
         </div>
     </div>
     <!-- ABOUT SECTION END -->
-
+    
     <br><br><br><br>
 
     <!-- COUNTER START -->
@@ -69,37 +69,37 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="media counter-layer right-border">
-                            <img src="{{ asset('public/frontend/assets/images/icons/happy.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon1) }}"  class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="385">0</div>
-                                <p>Happy Customers</p>
+                                <div class="counter" data-count="{{$statistical[0]->count1}}">0</div>
+                                <p>Happy  Client </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="media counter-layer right-border">
-                            <img src="{{ asset('public/frontend/assets/images/icons/counter-house-cleaning.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon2) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="842">0</div>
-                                <p>Houses Cleaned</p>
+                                <div class="counter" data-count="{{$statistical[0]->count2}}">0</div>
+                                <p> Number of Employees</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="media counter-layer right-border">
-                            <img src="{{ asset('public/frontend/assets/images/icons/counter-award.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon3) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="489">0</div>
-                                <p>Awards Received</p>
+                                <div class="counter" data-count="{{$statistical[0]->count3}}">0</div>
+                                <p>Number of Completed Projects</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="media counter-layer">
-                            <img src="{{ asset('public/frontend/assets/images/icons/service-glass-cleaning.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon4) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="1344">0</div>
-                                <p>Glass Cleaned</p>
+                                <div class="counter" data-count="{{$statistical[0]->count4}}">0</div>
+                                <p>Technology & Platform</p>
                             </div>
                         </div>
                     </div>

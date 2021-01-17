@@ -54,12 +54,12 @@ class OurclientsController extends Controller
 
         if ($request->isMethod('post')) {
 
-            $objContactusdetails = new Contactusdetails();
-            $result = $objContactusdetails->editDetail($request);
+            $objOurclientsdetails = new Ourclients();
+            $result = $objOurclientsdetails->addDetail($request);
             if($result){
                 $return['status'] = 'success';
-                $return['message'] = 'Details successfully updated';
-                $return['redirect'] = route('admin-contactus-details');
+                $return['message'] = 'image successfully added';
+                $return['redirect'] = route('admin-our-clients');
             }else{
                 $return['status'] = 'error';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -87,10 +87,10 @@ class OurclientsController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'contactus.js'
+            'ourclients.js'
         );
         $data['funinit'] = array(
-            'Contactus.init()'
+            'Ourclients.init()'
         );
         $data['header'] = array(
             'title' => 'Add Our Client List',
@@ -114,14 +114,14 @@ class OurclientsController extends Controller
                 echo json_encode($list);
                 break;
 
-            case 'deleteRequestList':
+            case 'deleteClients':
 
-                $objRequestList = new RequestList();
-                $result = $objRequestList->deleteRequestList($request->input('data'));
+                $objRequestList = new Ourclients();
+                $result = $objRequestList->deleteOurclients($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
-                    $return['message'] = 'User request successfully deletd';
-                    $return['redirect'] = route('admin-contactus-list');
+                    $return['message'] = 'Image successfully deleted';
+                    $return['redirect'] = route('admin-our-clients');
                 } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';

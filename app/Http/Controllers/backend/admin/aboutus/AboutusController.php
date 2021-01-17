@@ -128,7 +128,6 @@ class AboutusController extends Controller
         $data['details'] = $objDetails->getDetails();
      
         if ($request->isMethod('post')) {
-
             $objDetails = new Statistical();
             $result = $objDetails->editDetail($request);
             if($result){

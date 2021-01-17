@@ -17,7 +17,7 @@
 
                 </div>
                 <!--begin::Form-->
-                <form class="form" id="sectionone-form" method="POST">@csrf
+                <form class="form" id="statistical-form" method="POST">@csrf
                     <div class="card-body">
                         <div class="form-group ">
                             <img src="{{ asset('public/upload/aboutus_section/'.$details[0]->image) }}"  alt="Logo" style="height: 300px;width: 100%;">
@@ -30,62 +30,62 @@
 
 
                         <div class="form-group ">
-                            <label class="col-form-label "><h5> Happy Customers </h5></label>
+                            <label class="col-form-label "><h5> Happy Client </h5></label>
                             <br>
                             <img src="{{ asset('public/upload/aboutus_section/'.$details[0]->icon1) }}"  alt="Logo" style="height: 50px; width: 100px">
                             <br>
-                            <label class="col-form-label ">icon 1
+                            <label class="col-form-label ">icon
                             <span>(optional, 50*50)</span></label>
 
                             <input type="file" accept="image/*" class="form-control" id="icon1" name="icon1" />
                         </div>
                         <div class="form-group ">
-                            <label class="col-form-label ">Count 1</label>
+                            <label class="col-form-label ">Count</label>
                             <input type="text" class="form-control onlyNumber" id="count1" name="count1"  value="{{ $details[0]->count1 }}"/>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Houses Cleaned</label>
+                            <label class="col-form-label "><h5> Number of Employees </h5></label>
                             <br>
                             <img src="{{ asset('public/upload/aboutus_section/'.$details[0]->icon2) }}"  alt="Logo" style="height: 50px; width: 100px">
                             <br>
-                            <label class="col-form-label ">icon 2
+                            <label class="col-form-label ">icon
                             <span>(optional, 50*50)</span></label>
 
                             <input type="file" accept="image/*" class="form-control" id="icon2" name="icon2" />
                         </div>
                          <div class="form-group ">
-                            <label class="col-form-label ">Count 2</label>
+                            <label class="col-form-label ">Count</label>
                             <input type="text" class="form-control onlyNumber" id="count2" name="count2"  value="{{ $details[0]->count2 }}"/>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Awards Received</label>
+                            <label class="col-form-label "><h5>Number of Completed Projects </h5></label>
                             <br>
                             <img src="{{ asset('public/upload/aboutus_section/'.$details[0]->icon3) }}"  alt="Logo" style="height: 50px; width: 100px">
                             <br>
-                            <label class="col-form-label ">icon 3
+                            <label class="col-form-label ">icon
                             <span>(optional, 50*50)</span></label>
 
                             <input type="file" accept="image/*" class="form-control" id="icon3" name="icon3" />
                         </div>
                          <div class="form-group ">
-                            <label class="col-form-label ">Count 3</label>
+                            <label class="col-form-label ">Count</label>
                             <input type="text" class="form-control onlyNumber" id="count3" name="count3"  value="{{ $details[0]->count3 }}"/>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Glass Cleaned</label>
+                            <label class="col-form-label "><h5>Technology & Platform</h5></label>
                             <br>
                             <img src="{{ asset('public/upload/aboutus_section/'.$details[0]->icon4) }}"  alt="Logo" style="height: 50px; width: 100px">
                             <br>
-                            <label class="col-form-label ">icon 4
+                            <label class="col-form-label ">icon
                             <span>(optional, 50*50)</span></label>
 
                             <input type="file" accept="image/*" class="form-control" id="icon4" name="icon4" />
                         </div>
                          <div class="form-group ">
-                            <label class="col-form-label ">Count 4</label>
+                            <label class="col-form-label ">Count</label>
                             <input type="text" class="form-control onlyNumber" id="count4" name="count4"  value="{{ $details[0]->count4 }}"/>
                         </div>
 

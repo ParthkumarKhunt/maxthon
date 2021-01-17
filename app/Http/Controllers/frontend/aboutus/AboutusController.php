@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Config;
 use App\Models\Aboutus_section_one;
 use App\Models\Aboutus_section_two;
+use App\Models\Statistical;
+
 class AboutusController extends Controller
 {
     function __construct(){
@@ -18,6 +20,8 @@ class AboutusController extends Controller
         $data['aboutus_section_one'] = $objAboutussectionone->getDetails();
         $objAboutussectiontwo = new Aboutus_section_two();
         $data['aboutus_section_two'] = $objAboutussectiontwo->getDetails();
+        $objDetails = new Statistical();
+        $data['statistical'] = $objDetails->getDetails();
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.ABOUT_US_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.ABOUT_US_PAGE' ) ;

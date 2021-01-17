@@ -53,7 +53,9 @@ class Ourclients extends Model
         foreach ($resultArr as $row) {
             $image = url("public/upload/ourclients/" . $row['image']);
 
-            $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteClients" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
+            $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteClients" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
+            .'<a href="' . route('admin-our-clients-edit', $row['id']) . '" class="btn btn-icon primary"<i class="fa fa-edit"> </i></a>';
+
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
@@ -69,4 +71,34 @@ class Ourclients extends Model
         );
         return $json_data;
     }
+
+    public function addDetail($request)
+    {
+        $obj= new Ourclients();
+        if ($request->file('logo')) {
+            $imagenew = $request->file('logo');
+            $logo = time() . '1.' . $imagenew->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/ourclients');
+            $imagenew->move($destinationPath, $logo);
+            $obj->image = $logo;
+        }
+        $obj->updated_at = date("Y-m-d h:i:s");
+        $obj->updated_at = date("Y-m-d h:i:s");
+        if($obj->save()){
+            return true;
+        }else{
+            return false;
+        }
+     
+
+    }
+  
+  
+    public function  deleteOurclients($data){
+        $obj = Ourclients::find($data['id']);
+        $obj->is_deleted = "Yes";
+        $obj->updated_at = date("Y-m-d h:i:s");
+        return $obj->save();
+    }
+
 }

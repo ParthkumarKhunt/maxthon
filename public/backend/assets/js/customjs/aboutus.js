@@ -37,12 +37,38 @@ var Aboutus = function() {
             handleAjaxFormSubmit(form, true);
         });
     };
+
+    var statisticalDetails = function() {
+
+        $(".onlyNumber").keypress(function(e) {
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                return false;
+            }
+        });
+
+        var form = $('#statistical-form');
+        var rules = {
+            count1: { required: true},
+            count2: { required: true},
+            count3: { required: true},
+            count4: { required: true},
+
+        };
+        handleFormValidate(form, rules, function(form) {
+            handleAjaxFormSubmit(form, true);
+        });
+    };
+
+
     return {
         one: function() {
             oneDetails();
         },
         two: function() {
             twoDetails();
+        },
+        statistical: function(){
+            statisticalDetails();
         }
     }
 }();
