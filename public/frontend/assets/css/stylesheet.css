@@ -2963,7 +2963,7 @@ p.replay-all::after {
 }
 
 .ww-counter {
-    background-image: url("../images/commons/cleaning-equipmen.jpg");
+    /* background-image: url("../images/commons/cleaning-equipmen.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

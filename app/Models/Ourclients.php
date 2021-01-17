@@ -116,7 +116,7 @@ class Ourclients extends Model
         return Ourclients::select("image")->where("id",$id)->get();
     }
     public function getAllDetails() {
-        return Ourclients::select("image")->get();
+        return Ourclients::select("image")->where("is_deleted",'No')->get();
     }
 
 

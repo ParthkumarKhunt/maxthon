@@ -8,6 +8,8 @@ use Config;
 use App\Models\Aboutus_section_one;
 use App\Models\Aboutus_section_two;
 use App\Models\Statistical;
+use App\Models\Ourclients;
+
 
 class AboutusController extends Controller
 {
@@ -22,6 +24,8 @@ class AboutusController extends Controller
         $data['aboutus_section_two'] = $objAboutussectiontwo->getDetails();
         $objDetails = new Statistical();
         $data['statistical'] = $objDetails->getDetails();
+        $objDetails = new Ourclients();
+        $data['ourClient'] = $objDetails->getAllDetails();
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.ABOUT_US_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.ABOUT_US_PAGE' ) ;

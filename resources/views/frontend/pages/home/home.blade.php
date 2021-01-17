@@ -317,43 +317,44 @@
     <!-- CAROUSEL INFO SECTION END -->
 
     <!-- COUNTER START -->
-    <div class="ww-counter mb-5">
+    @if(!$statistical->isEmpty())
+    <div class="ww-counter mb-5" style="background-image:url({{ asset('public/upload/aboutus_section/'.$statistical[0]->image)}});">
         <div class="container">
             <div class="counter-bar">
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="media counter-layer right-border">
-                            <img src="{{ asset('public/frontend/assets/images/icons/happy.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon1) }}"  class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="385">0</div>
-                                <p>Happy Customers</p>
+                                <div class="counter" data-count="{{$statistical[0]->count1}}">0</div>
+                                <p>Happy  Client </p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="media counter-layer right-border">
-                            <img src="{{ asset('public/frontend/assets/images/icons/counter-house-cleaning.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon2) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="842">0</div>
-                                <p>Houses Cleaned</p>
+                                <div class="counter" data-count="{{$statistical[0]->count2}}">0</div>
+                                <p> Number of Employees</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="media counter-layer right-border">
-                            <img src="{{ asset('public/frontend/assets/images/icons/counter-award.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon3) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="489">0</div>
-                                <p>Awards Received</p>
+                                <div class="counter" data-count="{{$statistical[0]->count3}}">0</div>
+                                <p>Number of Completed Projects</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="media counter-layer">
-                            <img src="{{ asset('public/frontend/assets/images/icons/service-glass-cleaning.png') }}" class="mr-3" alt="...">
+                            <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon4) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
-                                <div class="counter" data-count="1344">0</div>
-                                <p>Glass Cleaned</p>
+                                <div class="counter" data-count="{{$statistical[0]->count4}}">0</div>
+                                <p>Technology & Platform</p>
                             </div>
                         </div>
                     </div>
@@ -361,28 +362,32 @@
             </div>
         </div>
     </div>
+    @endif
     <!-- COUNTER END -->
 
+
     <!-- CLIENTS CAROUSEL START -->
+    @if(!$ourClient->isEmpty())
     <div class="container mt-5 mb-5">
         <div class="clients-carousel">
             <div class="owl-carousel owl-theme">
-                @if(!$ourClient->isEmpty())
+              
                 @foreach($ourClient as $key => $value)
                 <div class="item">
                     <div class="client-box">
                         <figure class="client-icon">
-                            <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img">
+                            <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img" style="width: 184px;
+                            height: 125px;">
                             
                             {{-- <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt=""> --}}
                         </figure>
                     </div>
                 </div>               
                 @endforeach
-                @endif
             </div>
         </div>
     </div>
+    @endif
     <!-- CLIENTS CAROUSEL END -->
 </section>
 
