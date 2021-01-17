@@ -83,7 +83,6 @@ class Ourclients extends Model
             $obj->image = $logo;
         }
         $obj->updated_at = date("Y-m-d h:i:s");
-        $obj->updated_at = date("Y-m-d h:i:s");
         if($obj->save()){
             return true;
         }else{
@@ -91,6 +90,19 @@ class Ourclients extends Model
         }
      
 
+    }
+    public function editDetail($request,$id){
+        $obj = Ourclients::find($id);
+        // $obj = Ourclients::find($request);
+            if ($request->file('logo')) {
+            $imagenew = $request->file('logo');
+            $logo = time() . '1.' . $imagenew->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/ourclients');
+            $imagenew->move($destinationPath, $logo);
+            $obj->image = $logo;
+        }
+        $obj->updated_at = date("Y-m-d h:i:s");
+        return $obj->save();
     }
   
   
@@ -100,5 +112,12 @@ class Ourclients extends Model
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
+    public function getDetails($id){
+        return Ourclients::select("image")->where("id",$id)->get();
+    }
+    public function getAllDetails() {
+        return Ourclients::select("image")->get();
+    }
+
 
 }

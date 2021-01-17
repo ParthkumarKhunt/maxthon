@@ -38,7 +38,7 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     // Our Teambackend/admin/ourclients/OurclientsController
     Route::match(['get', 'post'], 'admin-our-clients', ['as' => 'admin-our-clients', 'uses' => 'backend\admin\ourclients\OurclientsController@list']);
     Route::match(['get', 'post'], 'admin-our-clients-add', ['as' => 'admin-our-clients-add', 'uses' => 'backend\admin\ourclients\OurclientsController@add']);
-    Route::match(['get', 'post'], 'admin-our-clients-edit', ['as' => 'admin-our-clients-edit', 'uses' => 'backend\admin\ourclients\OurclientsController@edit']);
+    Route::match(['get', 'post'], 'admin-our-clients-edit/{id}', ['as' => 'admin-our-clients-edit', 'uses' => 'backend\admin\ourclients\OurclientsController@edit']);
     Route::match(['get', 'post'], 'admin-our-clients-ajaxaction', ['as' => 'admin-our-clients-ajaxaction', 'uses' => 'backend\admin\ourclients\OurclientsController@ajaxAction']);
 
     // Details

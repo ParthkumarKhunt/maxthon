@@ -102,6 +102,61 @@ class OurclientsController extends Controller
         );
         return view('backend.pages.admin.ourclients.add', $data);
     }
+    public function edit(Request $request,$id){
+
+        $obj = new Ourclients();
+        $data['details'] = $obj->getDetails($id);
+      
+        if ($request->isMethod('post')) {
+
+            $objOurclientsdetails = new Ourclients();
+            $result = $objOurclientsdetails->editDetail($request,$id);
+            if($result){
+                $return['status'] = 'success';
+                $return['message'] = 'image successfully Updated';
+                $return['redirect'] = route('admin-our-clients');
+            }else{
+                $return['status'] = 'error';
+                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                $return['message'] = 'Something goes to wrong.Please try again';
+            }
+            return json_encode($return);
+                exit();
+        }
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Client List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Client List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Client List';
+        $data['css'] = array(
+            'toastr/toastr.min.css'
+        );
+        $data['plugincss'] = array(
+        );
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'plugins/validate/jquery.validate.min.js',
+            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
+            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
+        );
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'ourclients.js'
+        );
+        $data['funinit'] = array(
+            'Ourclients.init()'
+        );
+        $data['header'] = array(
+            'title' => 'Add Our Client List',
+            'breadcrumb' => array(
+                'Dashboard' => route('admin-dashboard'),
+                'Our Client List' => route('admin-our-clients'),
+                'Edit Our Client List' => 'Edit Our Client List',
+            )
+        );
+        return view('backend.pages.admin.ourclients.edit', $data);
+    }
 
     public function ajaxAction(Request $request) {
         $action = $request->input('action');

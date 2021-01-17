@@ -367,62 +367,19 @@
     <div class="container mt-5 mb-5">
         <div class="clients-carousel">
             <div class="owl-carousel owl-theme">
+                @if(!$ourClient->isEmpty())
+                @foreach($ourClient as $key => $value)
                 <div class="item">
                     <div class="client-box">
                         <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt="">
+                            <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img">
+                            
+                            {{-- <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt=""> --}}
                         </figure>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-5.jpg') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-8.jpg') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-4.jpg') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-2.jpg') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-6.jpg') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-7.jpg') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/frontend/assets/images/commons/client-logo-3.jpg') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
+                </div>               
+                @endforeach
+                @endif
             </div>
         </div>
     </div>
