@@ -18,10 +18,10 @@ class CreateOurTeamTable extends Migration
             $table->string('image');
             $table->string('name');
             $table->string('designation');
-            $table->string('facebook');
-            $table->string('twiter');
-            $table->string('instagram');
-            $table->string('linkedin');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
             $table->enum('is_deleted',['Yes','No'])->default('No');
             $table->timestamps();
         });

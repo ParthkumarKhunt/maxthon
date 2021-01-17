@@ -56,8 +56,8 @@ class OurteamController extends Controller
             $result = $objOurTeam->addDetail($request);
             if($result){
                 $return['status'] = 'success';
-                $return['message'] = 'image successfully added';
-                $return['redirect'] = route('admin-our-clients');
+                $return['message'] = 'Team member successfully added';
+                $return['redirect'] = route('admin-our-team');
             }else{
                 $return['status'] = 'error';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -85,10 +85,10 @@ class OurteamController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'ourclients.js'
+            'ourteam.js'
         );
         $data['funinit'] = array(
-            'Ourclients.init()'
+            'Ourteam.add()'
         );
         $data['header'] = array(
             'title' => 'Add Our Team List',
@@ -101,16 +101,16 @@ class OurteamController extends Controller
         return view('backend.pages.admin.ourteam.add', $data);
     }
 
-    public function edit(Request $request){
+    public function edit(Request $request,$id){
 
         if ($request->isMethod('post')) {
 
             $objOurTeam = new OurTeam();
-            $result = $objOurTeam->addDetail($request);
+            $result = $objOurTeam->editDetail($request);
             if($result){
                 $return['status'] = 'success';
-                $return['message'] = 'image successfully added';
-                $return['redirect'] = route('admin-our-clients');
+                $return['message'] = 'Team member successfully edited';
+                $return['redirect'] = route('admin-our-team');
             }else{
                 $return['status'] = 'error';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -119,6 +119,9 @@ class OurteamController extends Controller
             return json_encode($return);
                 exit();
         }
+
+        $objOurTeam = new OurTeam();
+        $data['memberDetails']  = $objOurTeam->getDetail($id);
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
@@ -138,10 +141,10 @@ class OurteamController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'ourclients.js'
+            'ourteam.js'
         );
         $data['funinit'] = array(
-            'Ourclients.init()'
+            'Ourteam.edit()'
         );
         $data['header'] = array(
             'title' => 'Edit Our Team List',

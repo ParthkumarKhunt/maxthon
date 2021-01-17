@@ -88,7 +88,7 @@ class Ourclients extends Model
         }else{
             return false;
         }
-     
+
 
     }
     public function editDetail($request,$id){
@@ -104,8 +104,8 @@ class Ourclients extends Model
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
-  
-  
+
+
     public function  deleteOurclients($data){
         $obj = Ourclients::find($data['id']);
         $obj->is_deleted = "Yes";

@@ -7,7 +7,6 @@ var Ourteam = function() {
         var columnWidth = { "width": "5%", "targets": 0 };
         var arrList = {
             'tableID': '#our-team-list',
-
             'ajaxURL': baseurl + "admin-our-team-ajaxaction",
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
@@ -46,11 +45,23 @@ var Ourteam = function() {
             });
         });
     }
-    var add = function() {
+    var addTeam = function() {
 
-        var form = $('#add-client-form');
+        var form = $('#add-team-form');
         var rules = {
-            logo: { required: true },
+            name: { required: true },
+            designation: { required: true },
+            image: { required: true },
+        };
+        handleFormValidate(form, rules, function(form) {
+            handleAjaxFormSubmit(form, true);
+        });
+    };
+    var editTeam = function() {
+        var form = $('#edit-team-form');
+        var rules = {
+            name: { required: true },
+            designation: { required: true },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
@@ -60,8 +71,12 @@ var Ourteam = function() {
         list: function() {
             listClient();
         },
-        init: function() {
-            add();
+
+        add: function() {
+            addTeam();
+        },
+        edit: function() {
+            editTeam();
         },
     }
 }();

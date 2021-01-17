@@ -20,17 +20,17 @@
                 <form class="form" id="edit-team-form" method="POST">@csrf
 
                     <div class="card-body">
-
+                        <input type="hidden" class="form-control" id="editId" name="editId"  value="{{  $memberDetails[0]->id }}" />
                         <div class="form-group ">
                             <label class="col-form-label ">Member Name
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="name" name="name"  />
+                            <input type="text" class="form-control" id="name" name="name"  value="{{  $memberDetails[0]->name }}" />
                         </div>
 
                         <div class="form-group ">
                             <label class="col-form-label ">Meber Designation
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="designation" name="designation"  />
+                            <input type="text" class="form-control" id="designation" name="designation"  value="{{  $memberDetails[0]->designation }}" />
                         </div>
 
                         <div class="form-group ">
@@ -41,22 +41,22 @@
 
                         <div class="form-group ">
                             <label class="col-form-label ">Facebook link (optional)</label>
-                            <input type="text" class="form-control" id="facebook" name="facebook" />
+                            <input type="text" class="form-control" id="facebook" name="facebook" value="{{  $memberDetails[0]->facebook }}" />
                         </div>
 
                         <div class="form-group ">
                             <label class="col-form-label ">Twitter link (optional)</label>
-                            <input type="text" class="form-control" id="twitter" name="twitter" />
+                            <input type="text" class="form-control" id="twitter" name="twitter" value="{{  $memberDetails[0]->twitter }}" />
                         </div>
 
                         <div class="form-group ">
                             <label class="col-form-label ">Linkedin (optional) </label>
-                            <input type="text" class="form-control" id="linkedin" name="linkedin" />
+                            <input type="text" class="form-control" id="linkedin" name="linkedin" value="{{  $memberDetails[0]->linkedin }}" />
                         </div>
 
                         <div class="form-group ">
                             <label class="col-form-label ">Instagram (optional)</label>
-                            <input type="text" class="form-control" id="instagram" name="instagram" />
+                            <input type="text" class="form-control" id="instagram" name="instagram" value="{{  $memberDetails[0]->instagram }}" />
                         </div>
 
                     </div>
