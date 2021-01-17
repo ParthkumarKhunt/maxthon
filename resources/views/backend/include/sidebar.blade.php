@@ -149,7 +149,7 @@ $logodetails = getdetails();
                     </div>
                 </li>
 
-                <li class="menu-item {{ ( $currentRoute == 'admin-our-team'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
+                <li class="menu-item {{ ( $currentRoute == 'admin-our-team' || $currentRoute == 'admin-our-team-add' || $currentRoute == 'admin-our-team-edit'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
                     <a href="{{  route('admin-our-team') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
@@ -167,7 +167,7 @@ $logodetails = getdetails();
                 </li>
 
 
-                <li class="menu-item {{ ( $currentRoute == 'admin-our-clients'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
+                <li class="menu-item {{ ( $currentRoute == 'admin-our-clients-add' || $currentRoute == 'admin-our-clients' || $currentRoute == 'admin-our-clients-edit'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
                     <a href="{{  route('admin-our-clients') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->

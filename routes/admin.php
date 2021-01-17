@@ -32,7 +32,7 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     // Our Team
     Route::match(['get', 'post'], 'admin-our-team', ['as' => 'admin-our-team', 'uses' => 'backend\admin\ourteam\OurteamController@list']);
     Route::match(['get', 'post'], 'admin-our-team-add', ['as' => 'admin-our-team-add', 'uses' => 'backend\admin\ourteam\OurteamController@add']);
-    Route::match(['get', 'post'], 'admin-our-team-edit', ['as' => 'admin-our-team-edit', 'uses' => 'backend\admin\ourteam\OurteamController@edit']);
+    Route::match(['get', 'post'], 'admin-our-team-edit/{id}', ['as' => 'admin-our-team-edit', 'uses' => 'backend\admin\ourteam\OurteamController@edit']);
     Route::match(['get', 'post'], 'admin-our-team-ajaxaction', ['as' => 'admin-our-team-ajaxaction', 'uses' => 'backend\admin\ourteam\OurteamController@ajaxAction']);
 
     // Our Teambackend/admin/ourclients/OurclientsController

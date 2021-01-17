@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend\admin\ourteam;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\OurTeam;
 use Config;
 class OurteamController extends Controller
 {
@@ -44,6 +45,141 @@ class OurteamController extends Controller
                 'Our Team List' => 'Our Team List',
             )
         );
-        return view('backend.pages.admin.ourclients.list', $data);
+        return view('backend.pages.admin.ourteam.list', $data);
+    }
+
+    public function add(Request $request){
+
+        if ($request->isMethod('post')) {
+
+            $objOurTeam = new OurTeam();
+            $result = $objOurTeam->addDetail($request);
+            if($result){
+                $return['status'] = 'success';
+                $return['message'] = 'image successfully added';
+                $return['redirect'] = route('admin-our-clients');
+            }else{
+                $return['status'] = 'error';
+                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                $return['message'] = 'Something goes to wrong.Please try again';
+            }
+            return json_encode($return);
+                exit();
+        }
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Our Team List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Our Team List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Our Team List';
+        $data['css'] = array(
+            'toastr/toastr.min.css'
+        );
+        $data['plugincss'] = array(
+        );
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'plugins/validate/jquery.validate.min.js',
+            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
+            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
+        );
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'ourclients.js'
+        );
+        $data['funinit'] = array(
+            'Ourclients.init()'
+        );
+        $data['header'] = array(
+            'title' => 'Add Our Team List',
+            'breadcrumb' => array(
+                'Dashboard' => route('admin-dashboard'),
+                'Our Team List' => route('admin-our-team'),
+                'Add Our Team List' => 'Add Our Team List',
+            )
+        );
+        return view('backend.pages.admin.ourteam.add', $data);
+    }
+
+    public function edit(Request $request){
+
+        if ($request->isMethod('post')) {
+
+            $objOurTeam = new OurTeam();
+            $result = $objOurTeam->addDetail($request);
+            if($result){
+                $return['status'] = 'success';
+                $return['message'] = 'image successfully added';
+                $return['redirect'] = route('admin-our-clients');
+            }else{
+                $return['status'] = 'error';
+                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                $return['message'] = 'Something goes to wrong.Please try again';
+            }
+            return json_encode($return);
+                exit();
+        }
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
+        $data['css'] = array(
+            'toastr/toastr.min.css'
+        );
+        $data['plugincss'] = array(
+        );
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'plugins/validate/jquery.validate.min.js',
+            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
+            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
+        );
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'ourclients.js'
+        );
+        $data['funinit'] = array(
+            'Ourclients.init()'
+        );
+        $data['header'] = array(
+            'title' => 'Edit Our Team List',
+            'breadcrumb' => array(
+                'Dashboard' => route('admin-dashboard'),
+                'Our Team List' => route('admin-our-team'),
+                'Edit Our Team List' => 'Edit Our Team List',
+            )
+        );
+        return view('backend.pages.admin.ourteam.edit', $data);
+    }
+
+    public function ajaxAction(Request $request) {
+        $action = $request->input('action');
+        $session = session()->all();
+        switch ($action) {
+            case 'getdatatable':
+                $objOurTeam = new OurTeam();
+                $list = $objOurTeam->getdatatable();
+
+                echo json_encode($list);
+                break;
+
+            case 'deleteClients':
+
+                $objRequestList = new Ourclients();
+                $result = $objRequestList->deleteOurclients($request->input('data'));
+                if ($result) {
+                    $return['status'] = 'success';
+                    $return['message'] = 'Image successfully deleted';
+                    $return['redirect'] = route('admin-our-clients');
+                } else {
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        $return['message'] = 'Something goes to wrong.';
+                }
+                echo json_encode($return);
+                exit;
+        }
     }
 }
