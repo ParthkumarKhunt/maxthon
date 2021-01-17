@@ -13,9 +13,7 @@ $currentRoute = Route::current()->getName();
             <div class="container slider-caption">
                 <h5 class="subtitle">Affordable prices to anyone</h5>
                 <h2 class="title"> cleaning service  <br>you can trust</h2>
-                <div class="slider-btn">
-                    <a href="contact.html" class="btn-washla btn-outline-blue btn-lg">Contact Us</a>
-                </div>
+
             </div>
         </div>
         <div class="carousel-cell" style="background-image:url({{ asset('public/frontend/assets/images/commons/slider6.jpg') }});">
@@ -23,9 +21,7 @@ $currentRoute = Route::current()->getName();
             <div class="container slider-caption">
                 <h5 class="subtitle">We clean. A lot.</h5>
                 <h2 class="title">Because quality <br /> is necessary</h2>
-                <div class="slider-btn">
-                    <a href="contact.html" class="btn-washla btn-outline-blue btn-lg">Contact Us</a>
-                </div>
+
             </div>
         </div>
         <div class="carousel-cell" style="background-image:url({{ asset('public/frontend/assets/images/commons/slider7.jpg') }});">
@@ -33,9 +29,6 @@ $currentRoute = Route::current()->getName();
             <div class="container slider-caption">
                 <h5 class="subtitle">Renew your look</h5>
                 <h2 class="title">A tradition of <br />quality cleaning</h2>
-                <div class="slider-btn">
-                    <a href="contact.html" class="btn-washla btn-outline-blue btn-lg">Contact Us</a>
-                </div>
             </div>
         </div>
     </div>
