@@ -179,4 +179,9 @@ class OurTeam extends Model
         $objOurTeam->updated_at = date("Y-m-d h:i:s");
         return $objOurTeam->save();
     }
+
+    public function getAllDetails(){
+        return OurTeam::select('our_team.id','our_team.image','our_team.name','our_team.designation','our_team.facebook','our_team.twitter','our_team.instagram','our_team.linkedin')
+        ->get();
+    }
 }

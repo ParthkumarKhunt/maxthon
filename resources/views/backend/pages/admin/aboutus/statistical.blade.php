@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label "><h5>Number of Completed Projects </h5></label>
+                            <label class="col-form-label "><h5>Completed Projects </h5></label>
                             <br>
                             <img src="{{ asset('public/upload/aboutus_section/'.$details[0]->icon3) }}"  alt="Logo" style="height: 50px; width: 100px">
                             <br>

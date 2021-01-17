@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Config;
 use App\Models\Ourclients;
 use App\Models\Statistical;
+use App\Models\OurTeam;
+
 
 class HomeController extends Controller
 {
@@ -20,6 +22,8 @@ class HomeController extends Controller
         $data['statistical'] = $objDetails->getDetails();
         $objDetails = new Ourclients();
         $data['ourClient'] = $objDetails->getAllDetails();
+        $objDetails = new OurTeam();
+        $data['ourTeam'] = $objDetails->getAllDetails();
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.HOME_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.HOME_PAGE' ) ;

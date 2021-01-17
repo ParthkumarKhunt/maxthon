@@ -90,7 +90,7 @@
                             <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon3) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
                                 <div class="counter" data-count="{{$statistical[0]->count3}}">0</div>
-                                <p>Number of Completed Projects</p>
+                                <p>Completed Projects</p>
                             </div>
                         </div>
                     </div>

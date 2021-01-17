@@ -149,91 +149,34 @@
         </div>
         <div class="team-carousel">
             <div class="owl-carousel owl-theme">
+            @foreach($ourTeam as $key => $value)
                 <div class="item">
                     <div class="team-card">
                         <figure class="tc-portrait">
-                            <img src="{{ asset('public/frontend/assets/images/commons/team-portrait-1.jpg') }}" alt="">
+                            <img src="{{ asset('public/upload/ourteam/'. $value->image)}}" alt="ourteam">
                             <ul class="tc-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                            @if($value->facebook != NULL)
+                                <li><a href="{{ $value->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
+                            @endif
+                            @if($value->twitter != NULL)
+                                <li><a href="{{ $value->twitter }}"><i class="fab fa-twitter"></i></a></li>
+                            @endif
+                            @if($value->instagram != NULL)
+                                <li><a href="{{ $value->instagram }}"><i class="fab fa-linkedin-in"></i></a></li>
+                            @endif
+                            @if($value->linkedin != NULL)
+                                <li><a href="{{ $value->linkedin }}"><i class="fab fa-dribbble"></i></a></li>
+                            @endif
                             </ul>
                         </figure>
                         <div class="tc-caption">
-                            <h4>Laura Jones</h4>
-                            <p>Cleaner</p>
+                        
+                            <h4>{{ $value->name }}</h4>
+                            <p>{{ $value->designation}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="team-card">
-                        <figure class="tc-portrait">
-                            <img src="{{ asset('public/frontend/assets/images/commons/team-portrait-2.jpg') }}" alt="">
-                            <ul class="tc-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </figure>
-                        <div class="tc-caption">
-                            <h4>Sara Ryan</h4>
-                            <p>House Cleaner</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="team-card">
-                        <figure class="tc-portrait">
-                            <img src="{{ asset('public/frontend/assets/images/commons/team-portrait-3.jpg') }}" alt="">
-                            <ul class="tc-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </figure>
-                        <div class="tc-caption">
-                            <h4>John Smith</h4>
-                            <p>Housekeeper</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="team-card">
-                        <figure class="tc-portrait">
-                            <img src="{{ asset('public/frontend/assets/images/commons/team-portrait-4.jpg') }}" alt="">
-                            <ul class="tc-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </figure>
-                        <div class="tc-caption">
-                            <h4>Maria Johnson</h4>
-                            <p>Cleaning Attendants</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="team-card">
-                        <figure class="tc-portrait">
-                            <img src="{{ asset('public/frontend/assets/images/commons/team-portrait-5.jpg') }}" alt="">
-                            <ul class="tc-social">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                            </ul>
-                        </figure>
-                        <div class="tc-caption">
-                            <h4>Monica Gordon</h4>
-                            <p>House Cleaning</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="owl-theme">
                 <div class="owl-controls">
@@ -345,7 +288,7 @@
                             <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon3) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
                                 <div class="counter" data-count="{{$statistical[0]->count3}}">0</div>
-                                <p>Number of Completed Projects</p>
+                                <p>Completed Projects</p>
                             </div>
                         </div>
                     </div>
