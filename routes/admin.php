@@ -35,6 +35,13 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-our-team-edit/{id}', ['as' => 'admin-our-team-edit', 'uses' => 'backend\admin\ourteam\OurteamController@edit']);
     Route::match(['get', 'post'], 'admin-our-team-ajaxaction', ['as' => 'admin-our-team-ajaxaction', 'uses' => 'backend\admin\ourteam\OurteamController@ajaxAction']);
 
+  // Our Team
+  Route::match(['get', 'post'], 'admin-home-silder', ['as' => 'admin-home-silder', 'uses' => 'backend\admin\homesilder\HomeSilderController@list']);
+  Route::match(['get', 'post'], 'admin-home-silder-add', ['as' => 'admin-home-silder-add', 'uses' => 'backend\admin\homesilder\HomeSilderController@add']);
+  Route::match(['get', 'post'], 'admin-home-silder-edit/{id}', ['as' => 'admin-home-silder-edit', 'uses' => 'backend\admin\homesilder\HomeSilderController@edit']);
+  Route::match(['get', 'post'], 'admin-home-silder-ajaxaction', ['as' => 'admin-home-silder-ajaxaction', 'uses' => 'backend\admin\homesilder\HomeSilderController@ajaxAction']);
+
+
     // Our Teambackend/admin/ourclients/OurclientsController
     Route::match(['get', 'post'], 'admin-our-clients', ['as' => 'admin-our-clients', 'uses' => 'backend\admin\ourclients\OurclientsController@list']);
     Route::match(['get', 'post'], 'admin-our-clients-add', ['as' => 'admin-our-clients-add', 'uses' => 'backend\admin\ourclients\OurclientsController@add']);

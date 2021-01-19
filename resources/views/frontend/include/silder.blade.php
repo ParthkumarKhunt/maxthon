@@ -8,34 +8,20 @@ $currentRoute = Route::current()->getName();
 <div class="home-slider">
     <!-- partial:index.partial.html -->
     <div class="hero-slider" data-carousel>
-        <div class="carousel-cell" style="background-image:url({{ asset('public/frontend/assets/images/commons/slider4.jpg') }});">
+    @foreach($homeSlider as $key => $value)
+        <div class="carousel-cell" style="background-image:url({{ asset('public/upload/homesilder/'.$value->image) }});">
             <div class="overlay"></div>
             <div class="container slider-caption">
-                <h5 class="subtitle">Affordable prices to anyone</h5>
-                <h2 class="title"> cleaning service  <br>you can trust</h2>
+                <h5 class="subtitle">{{$value->title}}</h5>
+                <h2 class="title">{{ $value->description}} </h2>
 
             </div>
         </div>
-        <div class="carousel-cell" style="background-image:url({{ asset('public/frontend/assets/images/commons/slider6.jpg') }});">
-            <div class="overlay"></div>
-            <div class="container slider-caption">
-                <h5 class="subtitle">We clean. A lot.</h5>
-                <h2 class="title">Because quality <br /> is necessary</h2>
-
-            </div>
-        </div>
-        <div class="carousel-cell" style="background-image:url({{ asset('public/frontend/assets/images/commons/slider7.jpg') }});">
-            <div class="overlay"></div>
-            <div class="container slider-caption">
-                <h5 class="subtitle">Renew your look</h5>
-                <h2 class="title">A tradition of <br />quality cleaning</h2>
-            </div>
-        </div>
+        @endforeach             
     </div>
     <!-- partial -->
 </div>
 <!--SLIDER END-->
-
 @else
     <!--SLIDER START-->
     <div class="pages-hero">

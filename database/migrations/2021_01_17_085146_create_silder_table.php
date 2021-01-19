@@ -18,6 +18,7 @@ class CreateSilderTable extends Migration
             $table->string('image');
             $table->string('title');
             $table->string('description');
+            $table->enum('is_deleted',['Yes','No'])->default('No');
             $table->timestamps();
         });
     }
