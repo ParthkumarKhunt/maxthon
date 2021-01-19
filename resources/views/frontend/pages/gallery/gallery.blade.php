@@ -6,10 +6,13 @@
    <div class="container mt-5 mb-5">
        <div class="filter-container">
            <ul class="filter">
-               <li class="active" data-filter="*">All</li>
+           @foreach($submenu as $key => $value)
+               <li class=".house" data-filter="*">{{ $value->name }}</li>
+            @endforeach
+               <!-- <li class="active" data-filter="*">All</li>
                <li data-filter=".house">House</li>
                <li data-filter=".apartment">Apartment</li>
-               <li data-filter=".office">Office</li>
+               <li data-filter=".office">Office</li> -->
            </ul>
        </div>
        <div class="grid" id="kehl-grid">

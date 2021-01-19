@@ -52,4 +52,14 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-aboutus-section-one', ['as' => 'admin-aboutus-section-one', 'uses' => 'backend\admin\aboutus\AboutusController@sectionone']);
     Route::match(['get', 'post'], 'admin-aboutus-section-two', ['as' => 'admin-aboutus-section-two', 'uses' => 'backend\admin\aboutus\AboutusController@sectiontwo']);
     Route::match(['get', 'post'], 'admin-aboutus-statistical', ['as' => 'admin-aboutus-statistical', 'uses' => 'backend\admin\aboutus\AboutusController@statistical']);
+
+    //gallery
+    Route::match(['get', 'post'], 'admin-gallery-submenu', ['as' => 'admin-gallery-submenu', 'uses' => 'backend\admin\gallery\GallerySubController@list']);
+    Route::match(['get', 'post'], 'admin-gallery-submenu-add', ['as' => 'admin-gallery-submenu-add', 'uses' => 'backend\admin\gallery\GallerySubController@add']);
+    Route::match(['get', 'post'], 'admin-gallery-submenu-edit/{id}', ['as' => 'admin-gallery-submenu-edit', 'uses' => 'backend\admin\gallery\GallerySubController@edit']);
+    Route::match(['get', 'post'], 'admin-gallery-submenu-ajaxaction', ['as' => 'admin-gallery-submenu-ajaxaction', 'uses' => 'backend\admin\gallery\GallerySubController@ajaxAction']);
+
+
+
+
 });

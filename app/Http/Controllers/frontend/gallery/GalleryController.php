@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontend\gallery;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Config;
+use App\Models\GallerySubmenu;
+
 class GalleryController extends Controller
 {
     //
@@ -13,6 +15,8 @@ class GalleryController extends Controller
     }
 
     public function gallery(Request $request){
+        $objDetails = new GallerySubmenu();
+        $data['submenu'] = $objDetails->getAllDetails();
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.GALLERY_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.GALLERY_PAGE' ) ;
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'keywords.GALLERY_PAGE' ) ;
