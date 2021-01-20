@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\backend\admin\ourteam;
+namespace App\Http\Controllers\backend\admin\testimonials;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\OurTeam;
+use App\Models\Testimonials;
 use Config;
-class OurteamController extends Controller
+class TestimonialsController extends Controller
 {
     function __construct()
     {
@@ -14,9 +14,9 @@ class OurteamController extends Controller
     }
 
     public function list(Request $request){
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Our Team List';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Our Team List';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Our Team List';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Testimonials List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Testimonials List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Testimonials List';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -33,31 +33,31 @@ class OurteamController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'ourteam.js'
+            'testimonials.js'
         );
         $data['funinit'] = array(
-            'Ourteam.list()'
+            'Testimonials.list()'
         );
         $data['header'] = array(
-            'title' => 'Our Team List',
+            'title' => 'Testimonials List',
             'breadcrumb' => array(
                 'Dashboard' => route('admin-dashboard'),
-                'Our Team List' => 'Our Team List',
+                'Testimonials List' => 'Testimonials List',
             )
         );
-        return view('backend.pages.admin.ourteam.list', $data);
+        return view('backend.pages.admin.testimonials.list', $data);
     }
 
     public function add(Request $request){
 
         if ($request->isMethod('post')) {
 
-            $objOurTeam = new OurTeam();
-            $result = $objOurTeam->addDetail($request);
+            $objTestimonials = new Testimonials();
+            $result = $objTestimonials->addDetail($request);
             if($result){
                 $return['status'] = 'success';
-                $return['message'] = 'Team member successfully added';
-                $return['redirect'] = route('admin-our-team');
+                $return['message'] = 'Testimonials successfully added';
+                $return['redirect'] = route('admin-testimonials');
             }else{
                 $return['status'] = 'error';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -67,9 +67,9 @@ class OurteamController extends Controller
                 exit();
         }
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Our Team List';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Our Team List';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Our Team List';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Testimonials List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Testimonials List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Testimonials List';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -85,32 +85,32 @@ class OurteamController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'ourteam.js'
+            'testimonials.js'
         );
         $data['funinit'] = array(
-            'Ourteam.add()'
+            'Testimonials.add()'
         );
         $data['header'] = array(
-            'title' => 'Add Our Team List',
+            'title' => 'Add Testimonials List',
             'breadcrumb' => array(
                 'Dashboard' => route('admin-dashboard'),
-                'Our Team List' => route('admin-our-team'),
-                'Add Our Team List' => 'Add Our Team List',
+                'Testimonials List' => route('admin-testimonials'),
+                'Add Testimonials List' => 'Add Testimonials List',
             )
         );
-        return view('backend.pages.admin.ourteam.add', $data);
+        return view('backend.pages.admin.testimonials.add', $data);
     }
 
     public function edit(Request $request,$id){
 
         if ($request->isMethod('post')) {
 
-            $objOurTeam = new OurTeam();
-            $result = $objOurTeam->editDetail($request);
+            $objTestimonials = new Testimonials();
+            $result = $objTestimonials->editDetail($request);
             if($result){
                 $return['status'] = 'success';
-                $return['message'] = 'Team member successfully edited';
-                $return['redirect'] = route('admin-our-team');
+                $return['message'] = 'Testimonials successfully edited';
+                $return['redirect'] = route('admin-testimonials');
             }else{
                 $return['status'] = 'error';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -120,12 +120,12 @@ class OurteamController extends Controller
                 exit();
         }
 
-        $objOurTeam = new OurTeam();
-        $data['memberDetails']  = $objOurTeam->getDetail($id);
+        $objTestimonials = new Testimonials();
+        $data['details']  = $objTestimonials->getDetail($id);
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Our Team List';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Testimonials List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Testimonials List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Testimonials List';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -141,20 +141,20 @@ class OurteamController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'ourteam.js'
+            'testimonials.js'
         );
         $data['funinit'] = array(
-            'Ourteam.edit()'
+            'Testimonials.edit()'
         );
         $data['header'] = array(
-            'title' => 'Edit Our Team List',
+            'title' => 'Edit Testimonials List',
             'breadcrumb' => array(
                 'Dashboard' => route('admin-dashboard'),
-                'Our Team List' => route('admin-our-team'),
-                'Edit Our Team List' => 'Edit Our Team List',
+                'Testimonials List' => route('admin-testimonials'),
+                'Edit Testimonials List' => 'Edit Testimonials List',
             )
         );
-        return view('backend.pages.admin.ourteam.edit', $data);
+        return view('backend.pages.admin.testimonials.edit', $data);
     }
 
     public function ajaxAction(Request $request) {
@@ -162,18 +162,20 @@ class OurteamController extends Controller
         $session = session()->all();
         switch ($action) {
             case 'getdatatable':
-                $objOurTeam = new OurTeam();
-                $list = $objOurTeam->getdatatable();
+                $objTestimonials = new Testimonials();
+                $list = $objTestimonials->getdatatable();
+
                 echo json_encode($list);
                 break;
 
-            case 'deleteTeam':
-                $obj = new OurTeam();
-                $result = $obj->deleteOurTeam($request->input('data'));
+            case 'deleteTestimonials':
+                // echo $request->input('data');
+                $obj = new Testimonials();
+                $result = $obj->deleteTestimonials($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
-                    $return['message'] = 'Team member successfully deleted';
-                    $return['redirect'] = route('admin-our-team');
+                    $return['message'] = 'Testimonials successfully deleted';
+                    $return['redirect'] = route('admin-testimonials');
                 } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';

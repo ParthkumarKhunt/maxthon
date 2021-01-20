@@ -171,8 +171,8 @@ class OurclientsController extends Controller
 
             case 'deleteClients':
 
-                $objRequestList = new Ourclients();
-                $result = $objRequestList->deleteOurclients($request->input('data'));
+                $obj = new Ourclients();
+                $result = $obj->deleteOurclients($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
                     $return['message'] = 'Image successfully deleted';

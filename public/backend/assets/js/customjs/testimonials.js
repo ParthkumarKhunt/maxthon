@@ -1,13 +1,13 @@
-var Ourteam = function() {
+var Testimonials = function() {
 
 
-    var listClient = function() {
+    var list = function() {
 
         var dataArr = {};
         var columnWidth = { "width": "5%", "targets": 0 };
         var arrList = {
-            'tableID': '#our-team-list',
-            'ajaxURL': baseurl + "admin-our-team-ajaxaction",
+            'tableID': '#testimonials-list',
+            'ajaxURL': baseurl + "admin-testimonials-ajaxaction",
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
             'hideColumnList': [],
@@ -19,7 +19,7 @@ var Ourteam = function() {
         };
         getDataTable(arrList);
 
-        $("body").on("click", ".deleteTeam", function() {
+        $("body").on("click", ".deleteTestimonials", function() {
             var id = $(this).data('id');
             setTimeout(function() {
                 $('.yes-sure:visible').attr('data-id', id);
@@ -27,15 +27,17 @@ var Ourteam = function() {
         })
 
         $('body').on('click', '.yes-sure', function() {
+
             var id = $(this).attr('data-id');
+            // alert(id);
             var data = { id: id, _token: $('#_token').val() };
-                $.ajax({
+            $.ajax({
                 type: "POST",
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 },
-                url: baseurl + "admin-our-team-ajaxaction",
-                data: { 'action': 'deleteTeam', 'data': data },
+                url: baseurl + "admin-testimonials-ajaxaction",
+                data: { 'action': 'deleteTestimonials', 'data': data },
                 success: function(data) {
                     $("#loader").show();
                     handleAjaxResponse(data);
@@ -43,23 +45,23 @@ var Ourteam = function() {
             });
         });
     }
-    var addTeam = function() {
+    var add = function() {
 
-        var form = $('#add-team-form');
+        var form = $('#add-testimonials-form');
         var rules = {
-            name: { required: true },
-            designation: { required: true },
+            name: { required: true},
             image: { required: true },
+            description: { required: true, maxlength: 80 },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
         });
     };
-    var editTeam = function() {
-        var form = $('#edit-team-form');
+    var edit = function() {
+        var form = $('#edit-testimonials-form');
         var rules = {
-            name: { required: true },
-            designation: { required: true },
+            name: { required: true},
+            description: { required: true, maxlength: 80 },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
@@ -67,14 +69,14 @@ var Ourteam = function() {
     };
     return {
         list: function() {
-            listClient();
+            list();
         },
 
         add: function() {
-            addTeam();
+            add();
         },
         edit: function() {
-            editTeam();
+            edit();
         },
     }
 }();

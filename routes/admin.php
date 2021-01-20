@@ -47,6 +47,11 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-our-clients-add', ['as' => 'admin-our-clients-add', 'uses' => 'backend\admin\ourclients\OurclientsController@add']);
     Route::match(['get', 'post'], 'admin-our-clients-edit/{id}', ['as' => 'admin-our-clients-edit', 'uses' => 'backend\admin\ourclients\OurclientsController@edit']);
     Route::match(['get', 'post'], 'admin-our-clients-ajaxaction', ['as' => 'admin-our-clients-ajaxaction', 'uses' => 'backend\admin\ourclients\OurclientsController@ajaxAction']);
+  //testimonials
+    Route::match(['get', 'post'], 'admin-testimonials', ['as' => 'admin-testimonials', 'uses' => 'backend\admin\testimonials\TestimonialsController@list']);
+    Route::match(['get', 'post'], 'admin-testimonials-add', ['as' => 'admin-testimonials-add', 'uses' => 'backend\admin\testimonials\TestimonialsController@add']);
+    Route::match(['get', 'post'], 'admin-testimonials-edit/{id}', ['as' => 'admin-testimonials-edit', 'uses' => 'backend\admin\testimonials\TestimonialsController@edit']);
+    Route::match(['get', 'post'], 'admin-testimonials-ajaxaction', ['as' => 'admin-testimonials-ajaxaction', 'uses' => 'backend\admin\testimonials\TestimonialsController@ajaxAction']);
 
     // Details
     Route::match(['get', 'post'], 'admin-aboutus-section-one', ['as' => 'admin-aboutus-section-one', 'uses' => 'backend\admin\aboutus\AboutusController@sectionone']);

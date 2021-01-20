@@ -127,39 +127,19 @@
                 <div class="col-lg-6 spacing-md">
                     <div class="testimonials-layer">
                         <ul class="list-unstyled">
+                        @foreach($testimonials as $key => $value)
                             <li class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar5.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1">Monica Johnson</h5>
-                                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                        praesentium voluptatum deleniti atque.</p>
+                            <img src="{{ asset('public/upload/testimonials/'.$value->image) }}" alt="testimonials_img" class="mr-3">
+                                 <div class="media-body">
+                                    <h5 class="mt-0 mb-1">{{ $value->name}}</h5>
+                                    <p>{{ $value->description}}</p>
                                 </div>
                                 <div class="quote-icon">
                                     <i class="fas fa-quote-right"></i>
                                 </div>
                             </li>
-                            <li class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar4.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1">Lisa Douglas</h5>
-                                    <p>Must explain to you how all this mistaken idea of denouncing pleasure and
-                                        praising pain was born and I will.</p>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar3.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="mt-0 mb-1">Albert Thomas</h5>
-                                    <p>harum quidem rerum facilis est et expedita distinctio. Nam libero tempore,
-                                        cum soluta nobis est eligendi optio.</p>
-                                </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </li>
+                            @endforeach
+                         
                         </ul>
                     </div>
                 </div>

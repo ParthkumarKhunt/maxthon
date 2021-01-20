@@ -19,7 +19,7 @@ class OurTeam extends Model
             3 => 'our_team.designation'
 
         );
-        $query = RequestList ::from('our_team')
+        $query = OurTeam ::from('our_team')
                     ->where("our_team.is_deleted","No");
 
 
@@ -183,5 +183,11 @@ class OurTeam extends Model
     public function getAllDetails(){
         return OurTeam::select('our_team.id','our_team.image','our_team.name','our_team.designation','our_team.facebook','our_team.twitter','our_team.instagram','our_team.linkedin')
         ->get();
+    }
+    public function  deleteOurTeam($data){
+        $obj = OurTeam::find($data['id']);
+        $obj->is_deleted = "Yes";
+        $obj->updated_at = date("Y-m-d h:i:s");
+        return $obj->save();
     }
 }
