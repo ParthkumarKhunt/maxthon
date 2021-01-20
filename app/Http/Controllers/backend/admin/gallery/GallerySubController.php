@@ -15,9 +15,9 @@ class GallerySubController extends Controller
     }
 
     public function list (Request $request){
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Gallery';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Gallery';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Gallery';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Category';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Category';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Category';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -38,12 +38,12 @@ class GallerySubController extends Controller
         );
         $data['funinit'] = array(
             'Gallery.list()'
-        ); 
+        );
         $data['header'] = array(
-            'title' => 'Gallery Sub Menu',
+            'title' => 'Portfolio Category',
             'breadcrumb' => array(
                 'Dashboard'=> route('admin-dashboard'),
-                'Gallery Sub Menu'=> 'Gallery Sub Menu',
+                'Portfolio Category'=> 'Portfolio Category',
             )
         );
         return view('backend.pages.admin.gallery.list', $data);
@@ -55,24 +55,24 @@ class GallerySubController extends Controller
             $result  = $obj->addSubmenu($request->post('name'));
             if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Submenu add succesfully !!';
-                // $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
-                $return['redirect'] = route('admin-gallery-submenu');
+                $return['message'] = 'Portfolio Category add succesfully !!';
+                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                $return['redirect'] = route('admin-portfolio-category');
             } else {
                 if ($result == "wrong") {
                     $return['status'] = 'error';
-                    // $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                    $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                     $return['message'] = 'Something goes to wrong.Please try agian later';
                 } else {
                     if ($result == "exits") {
                         $return['status'] = 'error';
-                        $return['message'] = 'The submenu menu is already there.';
-                        $return['redirect'] = route('admin-gallery-submenu');
+                        $return['message'] = 'The Portfolio Category is already there.';
+                        $return['redirect'] = route('admin-portfolio-category');
                     } else {
                         $return['status'] = 'error';
-                        // $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                         $return['message'] = 'Something goes to wrong.Please try agian later';
-                   
+
                     }
                 }
             }
@@ -80,21 +80,21 @@ class GallerySubController extends Controller
             exit;
         }
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Gallery';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Gallery';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Gallery';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Category';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Category';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Category';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
 
         );
-       
+
         $data['pluginjs'] = array(
             'toastr/toastr.min.js',
             'plugins/validate/jquery.validate.min.js',
         );
-         
+
         $data['js'] = array(
             'comman_function.js',
             'ajaxfileupload.js',
@@ -105,11 +105,11 @@ class GallerySubController extends Controller
             'Gallery.add()'
         );
         $data['header'] = array(
-            'title' => 'Add Gallery Sub Menu',
+            'title' => 'Add Portfolio Category',
             'breadcrumb' => array(
                 'Dashboard'=> route('admin-dashboard'),
-                'Gallery Sub Menu' => route('admin-gallery-submenu-add'),
-                'Add Gallery Sub Menu'=> 'Add Gallery Sub Menu',
+                'Portfolio Category' => route('admin-portfolio-category-add'),
+                'Add Portfolio Category'=> 'Add Portfolio Category',
             )
         );
         return view('backend.pages.admin.gallery.add', $data);
@@ -124,24 +124,24 @@ class GallerySubController extends Controller
 
             if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Gallery Sub Menu successfully edited!';
-                // $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
-                $return['redirect'] = route('admin-gallery-submenu');
+                $return['message'] = 'Portfolio Category successfully edited!';
+                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                $return['redirect'] = route('admin-portfolio-category');
             } else {
                 if ($result == "wrong") {
                     $return['status'] = 'error';
-                    // $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                    $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                     $return['message'] = 'Something goes to wrong.Please try agian later';
                 } else {
                     if ($result == "exits") {
                         $return['status'] = 'error';
-                        $return['message'] = 'The submenu menu is already there.';
-                        $return['redirect'] = route('admin-gallery-submenu');
+                        $return['message'] = 'The Portfolio Category is already there.';
+                        $return['redirect'] = route('admin-portfolio-category');
                     } else {
                         $return['status'] = 'error';
-                        // $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                         $return['message'] = 'Something goes to wrong.Please try agian later';
-                   
+
                     }
                 }
             }
@@ -152,9 +152,9 @@ class GallerySubController extends Controller
         $obj = new GallerySubmenu();
         $data['details']  = $obj->getDetail($id);
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Home Silder List';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Home Silder List';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Home Silder List';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Category';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Category';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Category';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -176,11 +176,11 @@ class GallerySubController extends Controller
             'Gallery.add()'
         );
         $data['header'] = array(
-            'title' => 'Edit Gallery Sub Menu',
+            'title' => 'Edit Portfolio Category',
             'breadcrumb' => array(
                 'Dashboard' => route('admin-dashboard'),
-                'Gallery Sub Menu' => route('admin-gallery-submenu-add'),
-                'Edit Gallery Sub Menu' => 'Edit Gallery Sub Menu',
+                'Portfolio Category' => route('admin-portfolio-category-add'),
+                'Edit Portfolio Category' => 'Edit Portfolio Category',
             )
         );
         return view('backend.pages.admin.gallery.edit', $data);
@@ -201,8 +201,8 @@ class GallerySubController extends Controller
                 $result = $obj->deleteGallerySubmenu($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
-                    $return['message'] = 'Gallery Submenu successfully deleted';
-                    $return['redirect'] = route('admin-gallery-submenu');
+                    $return['message'] = 'Portfolio Category successfully deleted';
+                    $return['redirect'] = route('admin-portfolio-category');
                 } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -213,3 +213,4 @@ class GallerySubController extends Controller
         }
     }
 }
+

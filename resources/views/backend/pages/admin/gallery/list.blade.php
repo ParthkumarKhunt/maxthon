@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a href="{{  route('admin-gallery-submenu-add') }}" class="btn btn-primary font-weight-bolder">
+                    <a href="{{  route('admin-portfolio-category-add') }}" class="btn btn-primary font-weight-bolder">
                     <i class="far fa-plus-square"></i> New Sub Menu</a>
                     <!--end::Button-->
                 </div>

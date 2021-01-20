@@ -22,25 +22,25 @@
                     <div class="card-body">
                         <input type="hidden" class="form-control" id="editId" name="editId"  value="{{  $details[0]->id }}" />
                         <div class="form-group ">
-                            <label class="col-form-label ">Title
-                            <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="title" name="title"  value="{{  $details[0]->title }}" />
+                            <label class="col-form-label ">Title (Max  : 30 Characters)
+                                <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Please enter silder title"  value="{{  $details[0]->title }}" />
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Description
+                            <label class="col-form-label ">Description (Max  : 80 Characters)
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="description" name="description"  value="{{  $details[0]->description }}" />
+                            <textarea class="form-control" id="description" name="description" placeholder="Please enter silder description">{{  $details[0]->description }}</textarea>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Image (Size : 480px * 520px)
-                            <span class="text-danger">*</span></label>
+                            <label class="col-form-label ">Image (Size : 1920px * 1080px)
+                                <span class="text-danger">*</span></label>
+                                <br>
+                                    <img src="{{ asset('public/upload/homesilder/'.$details[0]->image) }}" alt="Silder Image" style="width: 100% ;height: 350px ">
+                                <br><br>
                             <input type="file" accept="image/*" class="form-control" id="image" name="image" />
                         </div>
-
-
-
                     </div>
 
                     <div class="card-footer">

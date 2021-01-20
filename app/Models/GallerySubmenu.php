@@ -9,7 +9,7 @@ class GallerySubmenu extends Model
 {
     protected $table = 'gallerysubmenu';
     use HasFactory;
-    
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
@@ -53,7 +53,7 @@ class GallerySubmenu extends Model
         $i = 0;
         foreach ($resultArr as $row) {
             $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteGallerySubmenu" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
-            .'<a href="' . route('admin-gallery-submenu-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
+            .'<a href="' . route('admin-portfolio-category-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
 
             $i++;
             $nestedData = array();
@@ -83,7 +83,7 @@ class GallerySubmenu extends Model
            } else {
                return "wrong";
             }
-       } 
+       }
        else {
             return "exits";
        }
@@ -103,11 +103,11 @@ class GallerySubmenu extends Model
             } else {
                 return "wrong";
              }
-        } 
+        }
         else {
              return "exits";
         }
-        
+
     }
 
     public function getAllDetails(){
@@ -121,5 +121,5 @@ class GallerySubmenu extends Model
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
- 
+
 }

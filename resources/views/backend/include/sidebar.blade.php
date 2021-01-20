@@ -52,6 +52,61 @@ $logodetails = getdetails();
                     </a>
                 </li>
 
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-home-silder-add' || $currentRoute == 'admin-home-silder' || $currentRoute == 'admin-home-silder-edit'  ? 'menu-item-active menu-item-open' : '' )  }}" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-11-19-154210/theme/html/demo1/dist/../src/media/svg/icons/Communication/Group-chat.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"/>
+                                <polygon fill="#000000" opacity="0.3" points="5 3 19 3 23 8 1 8"/>
+                                <polygon fill="#000000" points="23 8 12 20 1 8"/>
+                            </g>
+                            </svg><!--end::Svg Icon-->
+                        </span>
+                        </span>
+                        <span class="menu-text">Home Page</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item {{ ( $currentRoute == 'admin-home-silder-add' || $currentRoute == 'admin-home-silder' || $currentRoute == 'admin-home-silder-edit' ? 'menu-item-active ' : '' )  }}" aria-haspopup="true">
+                                <a href="{{ route('admin-home-silder') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Silder Image</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-portfolio-category-add' || $currentRoute == 'admin-portfolio-category' || $currentRoute == 'admin-portfolio-category-edit' ? 'menu-item-active menu-item-open' : '' )  }}" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <span class="svg-icon menu-icon"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-11-19-154210/theme/html/demo1/dist/../src/media/svg/icons/Communication/Group-chat.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <polygon points="0 0 24 0 24 24 0 24"/>
+                                <path d="M6,5 L18,5 C19.6568542,5 21,6.34314575 21,8 L21,17 C21,18.6568542 19.6568542,20 18,20 L6,20 C4.34314575,20 3,18.6568542 3,17 L3,8 C3,6.34314575 4.34314575,5 6,5 Z M5,17 L14,17 L9.5,11 L5,17 Z M16,14 C17.6568542,14 19,12.6568542 19,11 C19,9.34314575 17.6568542,8 16,8 C14.3431458,8 13,9.34314575 13,11 C13,12.6568542 14.3431458,14 16,14 Z" fill="#000000"/>
+                            </g>
+                            </svg><!--end::Svg Icon-->
+                        </span>
+                        </span>
+                        <span class="menu-text">
+                            Portfolio Gallery
+                        </span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+                            <li class="menu-item {{ ( $currentRoute == 'admin-portfolio-category-add' || $currentRoute == 'admin-portfolio-category' || $currentRoute == 'admin-portfolio-category-edit' ? 'menu-item-active ' : '' )  }}" aria-haspopup="true">
+                                <a href="{{ route('admin-portfolio-category') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Category</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
 
                 <li class="menu-item {{ ( $currentRoute == 'admin-details'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
                     <a href="{{  route('admin-details') }}" class="menu-link">
@@ -184,43 +239,6 @@ $logodetails = getdetails();
                         <span class="menu-text">Our Clients</span>
                     </a>
                 </li>
-
-                <li class="menu-item {{ ( $currentRoute == 'admin-home-silder-add' || $currentRoute == 'admin-home-silder' || $currentRoute == 'admin-home-silder-edit'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
-                    <a href="{{  route('admin-home-silder') }}" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z" fill="#000000" opacity="0.3"/>
-                                    <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z" fill="#000000" opacity="0.3"/>
-                                    <path d="M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 C14.5228466,17 11.463736,17 7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Home Silder</span>
-                    </a>
-                </li>
-
-                <li class="menu-item {{ ( $currentRoute == 'admin-gallery-submenu-add' || $currentRoute == 'admin-gallery-submenu' || $currentRoute == 'admin-gallery-submenu-edit'  ? 'menu-item-active' : '' )  }}" aria-haspopup="true">
-                    <a href="{{  route('admin-gallery-submenu') }}" class="menu-link">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24"/>
-                                    <path d="M4,4 L11.6314229,2.5691082 C11.8750185,2.52343403 12.1249815,2.52343403 12.3685771,2.5691082 L20,4 L20,13.2830094 C20,16.2173861 18.4883464,18.9447835 16,20.5 L12.5299989,22.6687507 C12.2057287,22.8714196 11.7942713,22.8714196 11.4700011,22.6687507 L8,20.5 C5.51165358,18.9447835 4,16.2173861 4,13.2830094 L4,4 Z" fill="#000000" opacity="0.3"/>
-                                    <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z" fill="#000000" opacity="0.3"/>
-                                    <path d="M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 C14.5228466,17 11.463736,17 7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3"/>
-                                </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Gallery Sub Menu</span>
-                    </a>
-                </li>
-
 
             </ul>
             <!--end::Menu Nav-->

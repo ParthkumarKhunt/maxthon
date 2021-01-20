@@ -22,9 +22,9 @@
                     <div class="card-body">
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Name
+                            <label class="col-form-label ">Portfolio Category (Ex : Web Design , App Development)
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="name" name="name"  />
+                            <input type="text" class="form-control" id="name" name="name"  placeholder="Please enter portfolio category"/>
                         </div>
                     </div>
 

@@ -7,7 +7,7 @@ var Gallery = function() {
         var columnWidth = { "width": "5%", "targets": 0 };
         var arrList = {
             'tableID': '#gallery-submenu-list',
-            'ajaxURL': baseurl + "admin-gallery-submenu-ajaxaction",
+            'ajaxURL': baseurl + "admin-portfolio-category-ajaxaction",
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
             'hideColumnList': [],
@@ -29,14 +29,14 @@ var Gallery = function() {
         $('body').on('click', '.yes-sure', function() {
 
             var id = $(this).attr('data-id');
-// alert(id);
+            // alert(id);
             var data = { id: id, _token: $('#_token').val() };
             $.ajax({
                 type: "POST",
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 },
-                url: baseurl + "admin-gallery-submenu-ajaxaction",
+                url: baseurl + "admin-portfolio-category-ajaxaction",
                 data: { 'action': 'deleteGallerySubmenu', 'data': data },
                 success: function(data) {
                     $("#loader").show();

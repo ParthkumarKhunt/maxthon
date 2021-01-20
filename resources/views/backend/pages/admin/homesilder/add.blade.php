@@ -22,21 +22,21 @@
                     <div class="card-body">
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Title
+                            <label class="col-form-label ">Title (Max  : 30 Characters)
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="title" name="title"  />
+                            <input type="text" class="form-control" id="title" name="title"  placeholder="Please enter silder title"/>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Description
+                            <label class="col-form-label ">Description (Max  : 80 Characters)
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="description" name="description"  />
+                            <textarea class="form-control" id="description" name="description" placeholder="Please enter silder description"></textarea>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Image (Size : 480px * 520px)
+                            <label class="col-form-label ">Image (Size : 1920px * 1080px)
                             <span class="text-danger">*</span></label>
-                            <input type="file" accept="image/*" class="form-control" id="image" name="image" />
+                            <input type="file" accept="image/*" class="form-control" id="image" name="image" accept="image/*"/>
                         </div>
                     </div>
 
