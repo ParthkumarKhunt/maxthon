@@ -3,63 +3,21 @@
 
 <section>
     <!-- HOME SERVICE CAROUSEL START -->
+    @if(!$homeService->isEmpty())
     <div class="container mt-5 mb-5">
         <div class="front-carousel-alt">
             <div class="owl-carousel owl-theme">
+            @foreach($homeService as $key => $value)
                 <div class="item">
                     <div class="box-layer">
                         <figure class="bl-icon">
-                            <img src="{{ asset('public/frontend/assets/images/icons/white-cleaning.png') }}" alt="Silder 1">
+                            <img src="{{ asset('public/upload/homeservice/'.$value->image) }}" alt="service_image">
                         </figure>
-                        <h4>Home Cleaning</h4>
-                        <p>Homes and thoroughly launder them between usage.</p>
+                        <h4>{{ $value->title }}</h4>
+                        <p>{{ $value->description }}</p>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="box-layer">
-                        <figure class="bl-icon">
-                            <img src="{{ asset('public/frontend/assets/images/icons/white-service-glass-cleaning.png') }}" alt="Silder 2">
-                        </figure>
-                        <h4>Windows Cleaning</h4>
-                        <p>We are closely monitoring national, state and local health.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="box-layer">
-                        <figure class="bl-icon">
-                            <img src="{{ asset('public/frontend/assets/images/icons/white-cleaner.png') }}" alt="Silder 3">
-                        </figure>
-                        <h4>Office Cleaning</h4>
-                        <p>Follow these tips from the CDC to help prevent the seasonal.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="box-layer">
-                        <figure class="bl-icon">
-                            <img src="{{ asset('public/frontend/assets/images/icons/white-cleaning-tools.png') }}" alt="">
-                        </figure>
-                        <h4>Deep Cleaning</h4>
-                        <p>Cleanliness plays a large role in the comfort of your home.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="box-layer">
-                        <figure class="bl-icon">
-                            <img src="{{ asset('public/frontend/assets/images/icons/white-vaccum-cleaner.png') }}" alt="">
-                        </figure>
-                        <h4>Carpet Cleaning</h4>
-                        <p>We realize that every family has their own preferences.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="box-layer">
-                        <figure class="bl-icon">
-                            <img src="{{ asset('public/frontend/assets/images/icons/white-house-cleaning.png') }}" alt="">
-                        </figure>
-                        <h4>Apartment Cleaning</h4>
-                        <p>While some cleaning companies use rotating cleaning plans.</p>
-                    </div>
-                </div>
+                @endforeach 
             </div>
             <div class="owl-theme">
                 <div class="owl-controls">
@@ -68,6 +26,7 @@
             </div>
         </div>
     </div>
+    @endif
     <!-- HOME SERVICE CAROUSEL END -->
 
     <!-- HOME ABOUT START -->

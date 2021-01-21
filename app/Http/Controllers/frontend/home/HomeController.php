@@ -9,6 +9,8 @@ use App\Models\Ourclients;
 use App\Models\Statistical;
 use App\Models\OurTeam;
 use App\Models\HomeSilder;
+use App\Models\HomeService;
+
 
 class HomeController extends Controller
 {
@@ -26,6 +28,8 @@ class HomeController extends Controller
         $data['ourTeam'] = $objDetails->getAllDetails();
         $objDetails = new HomeSilder();
         $data['homeSlider'] = $objDetails->getAllDetails();
+        $objHomeService = new HomeService();
+        $data['homeService'] = $objHomeService->getAllDetails();
         // print_r($data['homeSlider']);
         // die;
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.HOME_PAGE' ) ;

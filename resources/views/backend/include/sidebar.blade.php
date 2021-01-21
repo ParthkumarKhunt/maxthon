@@ -74,7 +74,11 @@ $logodetails = getdetails();
                                     <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Silder Image</span>
                                 </a>
                             </li>
-
+                            <li class="menu-item {{ ( $currentRoute == 'admin-home-service-add' || $currentRoute == 'admin-home-service' || $currentRoute == 'admin-home-service-edit' ? 'menu-item-active ' : '' )  }}" aria-haspopup="true">
+                                <a href="{{ route('admin-home-service') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right" style="color: white"></i>&nbsp;&nbsp;Service</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
