@@ -17,7 +17,7 @@
                         <p>{{ $value->description }}</p>
                     </div>
                 </div>
-                @endforeach 
+                @endforeach
             </div>
             <div class="owl-theme">
                 <div class="owl-controls">
@@ -129,7 +129,7 @@
                             </ul>
                         </figure>
                         <div class="tc-caption">
-                        
+
                             <h4>{{ $value->name }}</h4>
                             <p>{{ $value->designation}}</p>
                         </div>
@@ -273,18 +273,18 @@
     <div class="container mt-5 mb-5">
         <div class="clients-carousel">
             <div class="owl-carousel owl-theme">
-              
+
                 @foreach($ourClient as $key => $value)
                 <div class="item">
                     <div class="client-box">
                         <figure class="client-icon">
                             <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img" style="width: 184px;
                             height: 125px;">
-                            
+
                             {{-- <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt=""> --}}
                         </figure>
                     </div>
-                </div>               
+                </div>
                 @endforeach
             </div>
         </div>

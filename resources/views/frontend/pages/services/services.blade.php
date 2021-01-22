@@ -112,41 +112,48 @@
     </div>
     <!-- SERVICE END -->
 
-    <!-- TESTIMONIALS START -->
-    <div class="bg-wrapper mt-5 mb-5">
+    <div class="mb-5" style="padding-top: 100px ; padding-bottom: 100px ; background: #ccf0fa ">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 tl-layer">
-                    <div class="about-testimonials">
-                        <h5>Testimonials</h5>
-                        <h2>Customer Love Our Service</h2>
-                        <p>Cleanliness plays a large role in the comfort of your home, but many homeowners simply
-                            don’t have the time to complete this task due to their busy lifestyles.</p>
+            <div class="pc-center">
+                <div class="section-heading">
+                    <div class="row">
+                        <div class="col-10 col-md-6 mx-auto text-center mb-4">
+                            <h2>Testimonials</h2>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 spacing-md">
-                    <div class="testimonials-layer">
-                        <ul class="list-unstyled">
+
+
+
+
+                <div class="bs-carousel">
+                    <div class="owl-carousel owl-theme" id="#owl-demo">
                         @foreach($testimonials as $key => $value)
-                            <li class="media">
-                            <img src="{{ asset('public/upload/testimonials/'.$value->image) }}" alt="testimonials_img" class="mr-3">
-                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1">{{ $value->name}}</h5>
+                            <div class="item text-center" style="width: 100% !important">
+                                <div class="ws-box-services">
+                                    <center>
+                                        <figure class="ws-box-icon" >
+                                            <img src="{{ asset('public/upload/testimonials/'.$value->image) }}" alt="testimonials_img" style="height: 80px; width: 80px; border-radius:50%; ">
+                                        </figure>
+                                    </center>
+
+                                    <h4>{{ $value->name}}</h4>
                                     <p>{{ $value->description}}</p>
                                 </div>
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                            </li>
-                            @endforeach
-                         
-                        </ul>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="owl-theme">
+                        <div class="owl-controls">
+                            <div class="custom-nav owl-nav"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- TESTIMONIALS END -->
+    <!-- HOME SERVICE END -->
+
 
 
 

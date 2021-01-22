@@ -49,9 +49,9 @@ var Testimonials = function() {
 
         var form = $('#add-testimonials-form');
         var rules = {
-            name: { required: true},
+            name: { required: true },
             image: { required: true },
-            description: { required: true, maxlength: 80 },
+            description: { required: true },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
@@ -60,8 +60,8 @@ var Testimonials = function() {
     var edit = function() {
         var form = $('#edit-testimonials-form');
         var rules = {
-            name: { required: true},
-            description: { required: true, maxlength: 80 },
+            name: { required: true },
+            description: { required: true },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
