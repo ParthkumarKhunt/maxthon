@@ -4,20 +4,20 @@ namespace App\Http\Controllers\backend\admin\gallery;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Gallery;
 use App\Models\GallerySubmenu;
 use Config;
 
-
-class GallerySubController extends Controller
+class GalleryController extends Controller
 {
-    function __construct(){
+       function __construct(){
 
     }
 
     public function list (Request $request){
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Category';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Category';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Category';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Image';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Image';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Portfolio Image';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -34,28 +34,31 @@ class GallerySubController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'gallery.js'
+            'galleryImage.js'
         );
         $data['funinit'] = array(
-            'Gallery.list()'
+            'GalleryImage.list()'
         );
         $data['header'] = array(
-            'title' => 'Portfolio Category',
+            'title' => 'Portfolio Image',
             'breadcrumb' => array(
                 'Dashboard'=> route('admin-dashboard'),
-                'Portfolio Category'=> 'Portfolio Category',
+                'Portfolio Image'=> 'Portfolio Image',
             )
         );
-        return view('backend.pages.admin.gallery.list', $data);
+        return view('backend.pages.admin.galleryimage.list', $data);
 
     }
+
     public function add (Request $request){
+        $obj = new GallerySubmenu();
+        $data['submenu']  = $obj->getAllDetails();
          if ($request->isMethod('post')) {
-            $obj = new GallerySubmenu();
-            $result  = $obj->addSubmenu($request->post('name'));
+            $obj = new Gallery();
+            $result  = $obj->addGalleryImage($request);
             if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Portfolio Category add succesfully !!';
+                $return['message'] = 'Portfolio Image add succesfully !!';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                 $return['redirect'] = route('admin-portfolio-category');
             } else {
@@ -66,7 +69,7 @@ class GallerySubController extends Controller
                 } else {
                     if ($result == "exits") {
                         $return['status'] = 'error';
-                        $return['message'] = 'The Portfolio Category is already there.';
+                        $return['message'] = 'The Portfolio Image is already there.';
                         $return['redirect'] = route('admin-portfolio-category');
                     } else {
                         $return['status'] = 'error';
@@ -80,9 +83,9 @@ class GallerySubController extends Controller
             exit;
         }
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Category';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Category';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Category';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Image';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Image';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Portfolio Image';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -100,32 +103,33 @@ class GallerySubController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'gallery.js'
+            'galleryImage.js'
         );
         $data['funinit'] = array(
-            'Gallery.add()'
+            'GalleryImage.add()'
         );
         $data['header'] = array(
-            'title' => 'Add Portfolio Category',
+            'title' => 'Add Portfolio Image',
             'breadcrumb' => array(
                 'Dashboard'=> route('admin-dashboard'),
-                'Portfolio Category' => route('admin-portfolio-category-add'),
-                'Add Portfolio Category'=> 'Add Portfolio Category',
+                'Portfolio Image' => route('admin-portfolio-category-add'),
+                'Add Portfolio Image'=> 'Add Portfolio Image',
             )
         );
-        return view('backend.pages.admin.gallery.add', $data);
+        return view('backend.pages.admin.galleryimage.add', $data);
 
     }
     public function edit(Request $request,$id){
-
+        $obj = new GallerySubmenu();
+        $data['submenu']  = $obj->getAllDetails();
         if ($request->isMethod('post')) {
 
-            $obj = new GallerySubmenu();
+            $obj = new Gallery();
             $result = $obj->editDetail($request);
 
             if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Portfolio Category successfully edited!';
+                $return['message'] = 'Portfolio Image successfully edited!';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                 $return['redirect'] = route('admin-portfolio-category');
             } else {
@@ -136,7 +140,7 @@ class GallerySubController extends Controller
                 } else {
                     if ($result == "exits") {
                         $return['status'] = 'error';
-                        $return['message'] = 'The Portfolio Category is already there.';
+                        $return['message'] = 'The Portfolio Image is already there.';
                         $return['redirect'] = route('admin-portfolio-category');
                     } else {
                         $return['status'] = 'error';
@@ -150,12 +154,12 @@ class GallerySubController extends Controller
                 exit();
         }
 
-        $obj = new GallerySubmenu();
+        $obj = new Gallery();
         $data['details']  = $obj->getDetail($id);
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Category';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Category';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Category';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Image';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Image';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Portfolio Image';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -171,38 +175,38 @@ class GallerySubController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'gallery.js'
+            'galleryImage.js'
         );
         $data['funinit'] = array(
-            'Gallery.add()'
+            'GalleryImage.add()'
         );
         $data['header'] = array(
-            'title' => 'Edit Portfolio Category',
+            'title' => 'Edit Portfolio Image',
             'breadcrumb' => array(
                 'Dashboard' => route('admin-dashboard'),
-                'Portfolio Category' => route('admin-portfolio-category-add'),
-                'Edit Portfolio Category' => 'Edit Portfolio Category',
+                'Portfolio Image' => route('admin-portfolio-category-add'),
+                'Edit Portfolio Image' => 'Edit Portfolio Image',
             )
         );
-        return view('backend.pages.admin.gallery.edit', $data);
+        return view('backend.pages.admin.galleryimage.edit', $data);
     }
     public function ajaxAction(Request $request) {
         $action = $request->input('action');
         $session = session()->all();
         switch ($action) {
             case 'getdatatable':
-                $obj = new GallerySubmenu();
+                $obj = new Gallery();
                 $list = $obj->getdatatable();
 
                 echo json_encode($list);
                 break;
 
-            case 'deleteGallerySubmenu':
-                $obj = new GallerySubmenu();
-                $result = $obj->deleteGallerySubmenu($request->input('data'));
+            case 'deleteGallery':
+                $obj = new Gallery();
+                $result = $obj->deleteGallery($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
-                    $return['message'] = 'Portfolio Category successfully deleted';
+                    $return['message'] = 'Portfolio Image successfully deleted';
                     $return['redirect'] = route('admin-portfolio-category');
                 } else {
                         $return['status'] = 'error';
@@ -214,4 +218,3 @@ class GallerySubController extends Controller
         }
     }
 }
-
