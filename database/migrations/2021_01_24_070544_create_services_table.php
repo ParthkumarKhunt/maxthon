@@ -18,7 +18,8 @@ class CreateServicesTable extends Migration
             $table->string('image');
             $table->string('icon');
             $table->string('title');
-            $table->string('description');
+            $table->string('short_description');
+            $table->string('description');                       
             $table->enum('is_deleted',['Yes','No'])->default('No');
             $table->timestamps();
         });

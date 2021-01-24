@@ -76,6 +76,11 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-galleryimage-edit/{id}', ['as' => 'admin-galleryimage-edit', 'uses' => 'backend\admin\gallery\GalleryController@edit']);
     Route::match(['get', 'post'], 'admin-galleryimage-ajaxaction', ['as' => 'admin-galleryimage-ajaxaction', 'uses' => 'backend\admin\gallery\GalleryController@ajaxAction']);
 
+//service
+Route::match(['get', 'post'], 'admin-service', ['as' => 'admin-service', 'uses' => 'backend\admin\service\ServicesController@list']);
+Route::match(['get', 'post'], 'admin-service-add', ['as' => 'admin-service-add', 'uses' => 'backend\admin\service\ServicesController@add']);
+Route::match(['get', 'post'], 'admin-service-edit/{id}', ['as' => 'admin-service-edit', 'uses' => 'backend\admin\service\ServicesController@edit']);
+Route::match(['get', 'post'], 'admin-service-ajaxaction', ['as' => 'admin-service-ajaxaction', 'uses' => 'backend\admin\service\ServicesController@ajaxAction']);
 
 
 

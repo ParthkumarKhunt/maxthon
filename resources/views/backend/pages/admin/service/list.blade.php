@@ -14,19 +14,21 @@
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a href="{{  route('admin-galleryimage-add') }}" class="btn btn-primary font-weight-bolder">
-                    <i class="far fa-plus-square"></i> New Image</a>
+                    <a href="{{  route('admin-service-add') }}" class="btn btn-primary font-weight-bolder">
+                    <i class="far fa-plus-square"></i> New Service</a>
                     <!--end::Button-->
                 </div>
             </div>
             <div class="card-body">@csrf
                 <!--begin: Datatable-->
-                <table class="table table-bordered table-hover table-checkable" id="galler-list" >
+                <table class="table table-bordered table-hover table-checkable" id="service-list" >
                     <thead>
                         <tr>
                             <th>Sr. No</th>
                             <th>Image</th>
-                            <th>Name</th>
+                            <th>Icon</th>
+                            <th>Title</th>
+                            <th>Description</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

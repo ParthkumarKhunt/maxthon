@@ -1,4 +1,4 @@
-var GalleryImage = function() {
+var Services = function() {
 
 
     var list = function() {
@@ -6,8 +6,8 @@ var GalleryImage = function() {
         var dataArr = {};
         var columnWidth = { "width": "5%", "targets": 0 };
         var arrList = {
-            'tableID': '#galler-list',
-            'ajaxURL': baseurl + "admin-galleryimage-ajaxaction",
+            'tableID': '#service-list',
+            'ajaxURL': baseurl + "admin-service-ajaxaction",
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
             'hideColumnList': [],
@@ -19,7 +19,7 @@ var GalleryImage = function() {
         };
         getDataTable(arrList);
 
-        $("body").on("click", ".deleteGallery", function() {
+        $("body").on("click", ".deleteServices", function() {
             var id = $(this).data('id');
             setTimeout(function() {
                 $('.yes-sure:visible').attr('data-id', id);
@@ -36,8 +36,8 @@ var GalleryImage = function() {
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 },
-                url: baseurl + "admin-galleryimage-ajaxaction",
-                data: { 'action': 'deleteGallery', 'data': data },
+                url: baseurl + "admin-service-ajaxaction",
+                data: { 'action': 'deleteServices', 'data': data },
                 success: function(data) {
                     $("#loader").show();
                     handleAjaxResponse(data);
@@ -47,22 +47,25 @@ var GalleryImage = function() {
     }
     var add = function() {
 
-        var form = $('#add-gallery-form');
+        var form = $('#add-service-form');
         var rules = {
-            name: { required: true },
-            submenu_id: { required: true },
-            image:{ required: true },
+            title: { required: true, maxlength: 30 },
+            short_description: { required: true, maxlength: 120 },
+            description: { required: true },
+            image: { required: true },
+            icon: { required: true },
+
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
         });
     };
     var edit = function() {
-
-        var form = $('#add-gallery-form');
+        var form = $('#edit-service-form');
         var rules = {
-            name: { required: true },
-            submenu_id: { required: true },
+            title: { required: true, maxlength: 30 },
+            short_description: { required: true, maxlength: 120 },
+            description: { required: true },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
@@ -72,6 +75,7 @@ var GalleryImage = function() {
         list: function() {
             list();
         },
+
         add: function() {
             add();
         },

@@ -5,23 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gallery extends Model
+class Services extends Model
 {
     use HasFactory;
-    protected $table = 'gallery';
- 
+    protected $table = 'services';
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
-            0 => 'id',
-            1 => 'name',
-            2 => 'image',
+            0 => 'services.id',
+            1 => 'services.image',
+            2 => 'services.title',
+            3 => 'services.description',
+            4 => 'services.short_description',
+            5 => 'services.icon'
 
         );
-        $query = Gallery ::from('gallery')
-                    ->where("is_deleted","No");
-
-
+        $query = Services ::from('services')
+            ->where("is_deleted","No");
+        
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
             $searchVal = $requestData['search']['value'];
             $query->where(function($query) use ($columns, $searchVal, $requestData) {
@@ -47,22 +49,25 @@ class Gallery extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('id','name','image')
+                ->select('services.id','services.image','services.icon','services.title','services.short_description')
                 ->where("is_deleted","No")
                 ->get();
         $data = array();
         $i = 0;
         foreach ($resultArr as $row) {
-            $image = url("public/upload/galleryimage/" . $row['image']);
+            $image = url("public/upload/services/" . $row['image']);
+            $icon = url("public/upload/services/" . $row['icon']);
 
-            $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteGallery" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
-            .'<a href="' . route('admin-galleryimage-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
+            $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteServices" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
+            .'<a href="' . route('admin-service-edit', $row['id']) . '" class="btn btn-icon"><i class="fa fa-edit"> </i></a>';
 
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
             $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
-            $nestedData[] = $row['name'];
+            $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $icon . '" style="margin:10px;">';
+            $nestedData[] = ucfirst($row['title']);
+            $nestedData[] = ucfirst($row['short_description']);
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -74,59 +79,74 @@ class Gallery extends Model
         );
         return $json_data;
     }
-    public function addGalleryImage($request){
 
+
+    public function addDetail($request){
+        $obj = new Services();
+        $obj->title = $request->input('title');
+        $obj->description = $request->input('description');
+        $obj->short_description = $request->input('short_description');
       
-        $obj = new Gallery();
-        $obj->name = $request->input('name');
-        $obj->submenu_id = $request->input('submenu_id');
         if ($request->file('image')) {
             $image = $request->file('image');
-            $galleryimage = time() . '1.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/galleryimage');
-            $image->move($destinationPath, $galleryimage);
-            $obj->image = $galleryimage;
+            $serviceTmage = time() . '1.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/services');
+            $image->move($destinationPath, $serviceTmage);
+            $obj->image = $serviceTmage;
+        }
+
+        if ($request->file('icon')) {
+            $image = $request->file('icon');
+            $icon = time() . '2.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/services');
+            $image->move($destinationPath, $icon);
+            $obj->icon = $icon;
         }
         $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
+    }
 
-            
-    }
     public function getDetail($id){
-        return Gallery::select('id','name','image','submenu_id')->where("id",$id)->get();
+        return Services::select('id','image','title','icon','description','short_description')->where("id",$id)->get();
     }
+
+
     public function editDetail($request){
-        $obj = new Gallery();
-        $obj  = Gallery::find($request->input('editId'));
-        $obj->name = $request->input('name');
-        $obj->submenu_id = $request->input('submenu_id');
+        $obj  = Services::find($request->input('editId'));
+        $obj->title = $request->input('title');
+        $obj->description = $request->input('description');
+        $obj->short_description = $request->input('short_description');
+
         if ($request->file('image')) {
             $image = $request->file('image');
-            $galleryimage = time() . '1.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/galleryimage');
-            $image->move($destinationPath, $galleryimage);
-            $obj->image = $galleryimage;
+            $serviceTmage = time() . '1.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/services');
+            $image->move($destinationPath, $serviceTmage);
+            $obj->image = $serviceTmage;
         }
-        $obj->created_at = date("Y-m-d h:i:s");
+        if ($request->file('icon')) {
+            $image = $request->file('icon');
+            $icon = time() . '2.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/services');
+            $image->move($destinationPath, $icon);
+            $obj->icon = $icon;
+        }
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
 
     public function getAllDetails(){
-        return Gallery::from('gallery')
-                        ->join("gallerysubmenu","gallerysubmenu.id","=","gallery.submenu_id")
-                        ->select('gallery.id','gallery.name','gallery.image','gallerysubmenu.name as cat_name')
-                        ->where("gallery.is_deleted","No")
-                        ->get();
+        return Services::select('id','image','icon','title','description','short_description')
+        ->where("is_deleted","No")->get();
     }
 
-    public function  deleteGallery($data){
-        $obj = Gallery::find($data['id']);
+    public function  deleteServices($data){
+        $obj = Services::find($data['id']);
         $obj->is_deleted = "Yes";
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
-
-    
 }
+
+

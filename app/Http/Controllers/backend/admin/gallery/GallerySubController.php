@@ -109,7 +109,7 @@ class GallerySubController extends Controller
             'title' => 'Add Portfolio Category',
             'breadcrumb' => array(
                 'Dashboard'=> route('admin-dashboard'),
-                'Portfolio Category' => route('admin-portfolio-category-add'),
+                'Portfolio Category' => route('admin-portfolio-category'),
                 'Add Portfolio Category'=> 'Add Portfolio Category',
             )
         );
@@ -180,7 +180,7 @@ class GallerySubController extends Controller
             'title' => 'Edit Portfolio Category',
             'breadcrumb' => array(
                 'Dashboard' => route('admin-dashboard'),
-                'Portfolio Category' => route('admin-portfolio-category-add'),
+                'Portfolio Category' => route('admin-portfolio-category'),
                 'Edit Portfolio Category' => 'Edit Portfolio Category',
             )
         );

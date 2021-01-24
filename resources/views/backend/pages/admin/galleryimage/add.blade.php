@@ -21,7 +21,7 @@
 
                     <div class="card-body">
 
-                          <div class="form-group">
+                        <div class="form-group">
                             <label for="exampleSelect1">Portfolio Category <span class="text-danger">*</span></label>
                             <select class="form-control"  id="submenu_id" name="submenu_id">
                              <option value="">-- Select -- </option>
@@ -41,7 +41,7 @@
                             <label class="col-form-label ">Portfolio Category Image (Ex : Web Design , App Development)
                             <span class="text-danger">*</span></label><br>
                             <div class="image-input image-input-outline" id="kt_image_1">
-                                <div class="image-input-wrapper" style="background-image: url(../../../theme/html/demo1/dist/assets/media/users/100_1.jpg)"></div>
+                                <div class="image-input-wrapper" style="background-image: url({{asset('public/upload/addimage.png')}}"></div>
                                 <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                     <i class="fa fa-pen icon-sm text-muted"></i>
                                     <input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />

@@ -60,7 +60,7 @@ class GalleryController extends Controller
                 $return['status'] = 'success';
                 $return['message'] = 'Portfolio Image add succesfully !!';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
-                $return['redirect'] = route('admin-portfolio-category');
+                $return['redirect'] = route('admin-galleryimage');
             } else {
                 if ($result == "wrong") {
                     $return['status'] = 'error';
@@ -70,7 +70,7 @@ class GalleryController extends Controller
                     if ($result == "exits") {
                         $return['status'] = 'error';
                         $return['message'] = 'The Portfolio Image is already there.';
-                        $return['redirect'] = route('admin-portfolio-category');
+                        $return['redirect'] = route('admin-galleryimage');
                     } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -112,7 +112,7 @@ class GalleryController extends Controller
             'title' => 'Add Portfolio Image',
             'breadcrumb' => array(
                 'Dashboard'=> route('admin-dashboard'),
-                'Portfolio Image' => route('admin-portfolio-category-add'),
+                'Portfolio Image' => route('admin-galleryimage'),
                 'Add Portfolio Image'=> 'Add Portfolio Image',
             )
         );
@@ -131,7 +131,7 @@ class GalleryController extends Controller
                 $return['status'] = 'success';
                 $return['message'] = 'Portfolio Image successfully edited!';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
-                $return['redirect'] = route('admin-portfolio-category');
+                $return['redirect'] = route('admin-galleryimage');
             } else {
                 if ($result == "wrong") {
                     $return['status'] = 'error';
@@ -141,7 +141,7 @@ class GalleryController extends Controller
                     if ($result == "exits") {
                         $return['status'] = 'error';
                         $return['message'] = 'The Portfolio Image is already there.';
-                        $return['redirect'] = route('admin-portfolio-category');
+                        $return['redirect'] = route('admin-galleryimage');
                     } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -178,13 +178,13 @@ class GalleryController extends Controller
             'galleryImage.js'
         );
         $data['funinit'] = array(
-            'GalleryImage.add()'
+            'GalleryImage.edit()'
         );
         $data['header'] = array(
             'title' => 'Edit Portfolio Image',
             'breadcrumb' => array(
                 'Dashboard' => route('admin-dashboard'),
-                'Portfolio Image' => route('admin-portfolio-category-add'),
+                'Portfolio Image' => route('admin-galleryimage'),
                 'Edit Portfolio Image' => 'Edit Portfolio Image',
             )
         );
@@ -207,7 +207,7 @@ class GalleryController extends Controller
                 if ($result) {
                     $return['status'] = 'success';
                     $return['message'] = 'Portfolio Image successfully deleted';
-                    $return['redirect'] = route('admin-portfolio-category');
+                    $return['redirect'] = route('admin-galleryimage');
                 } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
