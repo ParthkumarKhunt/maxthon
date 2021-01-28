@@ -9,27 +9,20 @@
             <h2>Frequently Asked Questions</h2>
             <p class="strong">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, <br/>by injected humour, or randomised words which don't look even slightly believable.</p>
         </div>
-        <ul class="accordion">
+        <ul class="accordion">                             
+        @php 
+        $i=0;
+        @endphp
+        @foreach($faqs as $value)  
+        @php 
+        $i++;
+        @endphp
+    
             <li>
-                <a>1) How can i contact you?</a>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its grid-item. The point of using Lorem Ipsum.</p>
+                <a> {{ $i }}) {{ $value->question}}</a>
+                <p>{!! $value->answer !!}</p>
             </li>
-            <li>
-                <a>2) What is your payment method?</a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, ipsum, fuga, in, obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas tempora maxime rerum neque deserunt suscipit provident cumque et mollitia ex aspernatur porro minus sapiente voluptatibus eos at perferendis repellat odit aliquid harum molestias ratione pariatur adipisci. Aliquid, iure.</p>
-            </li>
-            <li>
-                <a>3) How long does my warranty last?</a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, ipsum, fuga, in, obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas tempora maxime rerum neque deserunt suscipit provident cumque et mollitia ex aspernatur porro minus sapiente voluptatibus eos at perferendis repellat odit aliquid harum molestias ratione pariatur adipisci. Aliquid, iure.</p>
-            </li>
-            <li>
-                <a>4) What is a lifetime guarantee?</a>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its grid-item. The point of using Lorem Ipsum.</p>
-            </li>
-            <li>
-                <a>5) What are gas solutions?</a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, ipsum, fuga, in, obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas tempora maxime rerum neque deserunt suscipit provident cumque et mollitia ex aspernatur porro minus sapiente voluptatibus eos at perferendis repellat odit aliquid harum molestias ratione pariatur adipisci. Aliquid, iure.</p>
-            </li>
+            @endforeach   
         </ul> <!-- / accordion -->
     </div>
     <!-- FAQ END -->

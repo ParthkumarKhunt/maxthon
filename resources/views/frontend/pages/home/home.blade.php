@@ -153,18 +153,15 @@
                 <div class="col-lg-5">
                     <div class="gallery-carousel">
                         <div class="owl-carousel owl-theme">
+                        @if(!empty($section2_extraimages[0]))                                 
+                            @foreach($section2_extraimages as $value)
                             <div class="item">
                                 <div class="gallery-slider-bg"
-                                    style="background-image:url({{ asset('public/frontend/assets/images/commons/washla-6.jpg') }});"></div>
+                                    style="background-image:url({{ asset('public/upload/section/'.$value) }});"></div>
                             </div>
-                            <div class="item">
-                                <div class="gallery-slider-bg"
-                                    style="background-image:url({{ asset('public/frontend/assets/images/commons/blog-thumb-11.jpg') }});"></div>
-                            </div>
-                            <div class="item">
-                                <div class="gallery-slider-bg"
-                                    style="background-image:url({{ asset('public/frontend/assets/images/commons/washla-about.jpg') }});"></div>
-                            </div>
+                             @endforeach                                          
+                          @endif                     
+                            
                         </div>
                         <div class="owl-theme">
                             <div class="owl-controls">
@@ -175,42 +172,8 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="cf-content">
-                        <h2>The New Generation of Cleaning and Restoration</h2>
-                        <p>World’s leading non-asset- based supply chain management companies, we design and
-                            implement industry-leading. We specialise in intelligent & effective search and believes
-                            in the power of partnerships to grow business..</p>
-                        <div class="order-list d-flex">
-                            <ul class="ol-left">
-                                <li>Service guarantee</li>
-                                <li>Tradition of trust</li>
-                            </ul>
-                            <ul class="ol-right">
-                                <li>Shifting idled planes.</li>
-                                <li>Sustainable trade
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="cf-box-layer d-flex">
-                            <div class="cfb-inner">
-                                <div class="media">
-                                    <img src="{{ asset('public/frontend/assets/images/icons/guarantee.png') }}" class="mr-3" alt="...">
-                                    <div class="media-body">
-                                        <h5 class="mt-0">Service Guarantee</h5>
-                                        <p>We are telling our team members to switch cleaning.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cfb-inner">
-                                <div class="media">
-                                    <img src="{{ asset('public/frontend/assets/images/icons/medal-award.png') }}" class="mr-3" alt="...">
-                                    <div class="media-body">
-                                        <h5 class="mt-0">Awarded Company</h5>
-                                        <p>We encourage our customers to let us know in advance.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h2>{{ $section2[0]->title }}</h2> 
+                         <p>{!! $section2[0]->description  !!}</p>                        </div>
                     </div>
                 </div>
             </div>

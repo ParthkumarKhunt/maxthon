@@ -10,6 +10,7 @@ use App\Models\Statistical;
 use App\Models\OurTeam;
 use App\Models\HomeSilder;
 use App\Models\HomeService;
+use App\Models\Section2;
 
 
 class HomeController extends Controller
@@ -30,8 +31,9 @@ class HomeController extends Controller
         $data['homeSlider'] = $objDetails->getAllDetails();
         $objHomeService = new HomeService();
         $data['homeService'] = $objHomeService->getAllDetails();
-        // print_r($data['homeSlider']);
-        // die;
+        $objDetails = new Section2();
+        $data['section2'] = $objDetails->getDetails();
+        $data['section2_extraimages']=explode(",",$data['section2'][0]->image);
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.HOME_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.HOME_PAGE' ) ;
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'keywords.HOME_PAGE' ) ;
