@@ -17,7 +17,7 @@ class Section2 extends Model
     public function editDetail($request){     
        $objDetails = Section2::find(1);
         $images = array();
-    if ($request->file()) {
+      if ($request->file()) {
         if ($request->file('extra_image')) {
             $extra_images = $request->file('extra_image');
             $i = 0;            
@@ -43,7 +43,7 @@ class Section2 extends Model
         $objDetails->image = $final;
      
     
-    }
+         }
 
         $objDetails->title = $request->input('title');
         $objDetails->description = $request->input('description');
@@ -51,7 +51,6 @@ class Section2 extends Model
         return $objDetails->save();
     
     }
-    
 
     public function deleteImage($request){
         $images = Section2::select("image")->where("id",1)->get();

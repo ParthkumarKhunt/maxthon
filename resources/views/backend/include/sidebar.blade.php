@@ -67,7 +67,7 @@ $logodetails = getdetails();
                     </a>
                 </li>
 
-                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-home-silder-add' || $currentRoute == 'admin-home-silder' || $currentRoute == 'admin-home-silder-edit'  ? 'menu-item-active menu-item-open' : '' )  }}"
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-home-silder-add' || $currentRoute == 'admin-home-silder' || $currentRoute == 'admin-home-silder-edit' || $currentRoute == 'admin-top-section' || $currentRoute == 'admin-section2' || $currentRoute == 'admin-banner-section' ? 'menu-item-active menu-item-open' : '' )  }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -103,11 +103,25 @@ $logodetails = getdetails();
                                             style="color: white"></i>&nbsp;&nbsp;Service</span>
                                 </a>
                             </li>
+                            <li class="menu-item {{ ( $currentRoute == 'admin-top-section'  ? 'menu-item-active' : '' )  }}"
+                                aria-haspopup="true">
+                                <a href="{{  route('admin-top-section') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right"
+                                            style="color: white"></i>&nbsp;&nbsp;Top Section</span>
+                                </a>
+                            </li>
                             <li class="menu-item {{ ( $currentRoute == 'admin-section2'  ? 'menu-item-active' : '' )  }}"
                                 aria-haspopup="true">
                                 <a href="{{  route('admin-section2') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right"
                                             style="color: white"></i>&nbsp;&nbsp;Section2</span>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ ( $currentRoute == 'admin-banner-section'  ? 'menu-item-active' : '' )  }}"
+                                aria-haspopup="true">
+                                <a href="{{  route('admin-banner-section') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right"
+                                            style="color: white"></i>&nbsp;&nbsp;Banner Section</span>
                                 </a>
                             </li>
                         </ul>

@@ -34,38 +34,20 @@
         <div class="row">
             <div class="col-lg-6">
                 <figure class="about-front">
-                    <img src="{{ asset('public/frontend/assets/images/commons/staff-about.jpg') }}" alt="">
+                    <img src="{{ asset('public/upload/topsection/'.$topsection[0]->image) }}" alt="">
                     <div class="mission-layer">
                         <figure class="ml-icon">
-                            <img src="{{ asset('public/frontend/assets/images/icons/medal-award-white.png') }}" alt="">
+                            <img src="{{ asset('public/upload/topsection/'.$topsection[0]->icon) }}" alt="">
                         </figure>
-                        <h4>Our Values</h4>
-                        <p>World’s leading non-asset- based supply chain management companies.</p>
+                        <p>{{ $topsection[0]->short_description }}</p>
                     </div>
                 </figure>
             </div>
             <div class="col-lg-6 spacing-md ">
                 <div class="about-layer">
-                    <h5 class="subtitle">WHY CHOOSE US</h5>
-                    <h2>Cleaner Place is a <br /> Safer Place </h2>
-                    <p><strong>Customized advice to smallholder couriera with radical efficiency and scalability
-                            logistic.</strong></p>
-                    <p>Washla customers has a tremendous opportunity to answer the call of logistic needs across the
-                        globe. Has 26 affiliated state soybean associations representing 30 soybean-producing state.
-                    </p>
-                    <p class="read-more-alt">
-                        Read More
-                    </p>
-                    <div class="signature-layer">
-                        <figure class="signature-img">
-                            <img src="{{ asset('public/frontend/assets/images/commons/signature.jpg') }}" alt="">
-                        </figure>
-                        <div class="front-contact-layer">
-                            <h4>123-456-7890</h4>
-                            <p>Call Us for Service</p>
-                        </div>
-                    </div>
-                </div>
+                <h2>{{ $topsection[0]->title }}</h2> 
+                <p>{!! $topsection[0]->description  !!}</p> 
+            </div>
             </div>
         </div>
     </div>
@@ -75,20 +57,8 @@
     <div class="ws-washla mt-5 mb-5">
         <div class="content-left-layer">
             <div class="inner-cll">
-                <h2>Expert House Cleaning Service you Can Trust</h2>
-                <p>Washla cleaning service. We are a company dedicated to giving our customers back the time they
-                    deserve to enjoy the things they love. We put The Extra In Your Ordinary, restoring balance to
-                    your life by taking care of your home.</p>
-                <div class="order-list d-flex">
-                    <ul class="ol-left">
-                        <li>Market Research</li>
-                        <li>Cleaning Accreditation</li>
-                    </ul>
-                    <ul class="ol-right">
-                        <li>Lower Storage Costs.</li>
-                        <li>Collection Deliveries</li>
-                    </ul>
-                </div>
+            <h2>{{ $bannersection[0]->title }}</h2> 
+            <p>{!! $bannersection[0]->description  !!}</p> 
             </div>
         </div>
     </div>

@@ -11,6 +11,8 @@ use App\Models\OurTeam;
 use App\Models\HomeSilder;
 use App\Models\HomeService;
 use App\Models\Section2;
+use App\Models\TopSection;
+use App\Models\BannerSection;
 
 
 class HomeController extends Controller
@@ -31,9 +33,15 @@ class HomeController extends Controller
         $data['homeSlider'] = $objDetails->getAllDetails();
         $objHomeService = new HomeService();
         $data['homeService'] = $objHomeService->getAllDetails();
-        $objDetails = new Section2();
-        $data['section2'] = $objDetails->getDetails();
+        $objSection2= new Section2();
+        $data['section2'] = $objSection2->getDetails();
         $data['section2_extraimages']=explode(",",$data['section2'][0]->image);
+        
+        $objTopSection = new TopSection();
+        $data['topsection'] = $objTopSection->getDetails();
+        $objBannerSection = new BannerSection();
+        $data['bannersection'] = $objBannerSection->getDetails();
+
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.HOME_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.HOME_PAGE' ) ;
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'keywords.HOME_PAGE' ) ;

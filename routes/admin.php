@@ -27,7 +27,9 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-section2-ajaxaction', ['as' => 'admin-section2-ajaxaction', 'uses' => 'backend\admin\section2\Section2Controller@ajaxAction']);
 
     
-
+    Route::match(['get', 'post'], 'admin-banner-section', ['as' => 'admin-banner-section', 'uses' => 'backend\admin\banner\BannerSectionController@details']);
+    Route::match(['get', 'post'], 'admin-top-section', ['as' => 'admin-top-section', 'uses' => 'backend\admin\topsection\TopSectionController@details']);
+   
     // Details
     Route::match(['get', 'post'], 'admin-contactus-details', ['as' => 'admin-contactus-details', 'uses' => 'backend\admin\contactus\ContactusController@details']);
     Route::match(['get', 'post'], 'admin-contactus-list', ['as' => 'admin-contactus-list', 'uses' => 'backend\admin\contactus\ContactusController@list']);
@@ -92,7 +94,5 @@ Route::match(['get', 'post'], 'admin-faqs', ['as' => 'admin-faqs', 'uses' => 'ba
 Route::match(['get', 'post'], 'admin-faqs-add', ['as' => 'admin-faqs-add', 'uses' => 'backend\admin\faqs\FaqsController@add']);
 Route::match(['get', 'post'], 'admin-faqs-edit/{id}', ['as' => 'admin-faqs-edit', 'uses' => 'backend\admin\faqs\FaqsController@edit']);
 Route::match(['get', 'post'], 'admin-faqs-ajaxaction', ['as' => 'admin-faqs-ajaxaction', 'uses' => 'backend\admin\faqs\FaqsController@ajaxAction']);
-
-
 
 });
