@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected $table = 'gallery';
+    protected $table = 'blog';
  
     public function getdatatable(){
         $requestData = $_REQUEST;
@@ -22,7 +22,7 @@ class Blog extends Model
             6 => 'lastname',
             7 => 'designation'
        );
-        $query = Gallery ::from('blog')
+        $query = Blog ::from('blog')
                     ->where("is_deleted","No");
 
 
@@ -69,9 +69,9 @@ class Blog extends Model
             $nestedData = array();
             $nestedData[] = $i;
             $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $profile_image . '" style="margin:10px;">';
-            $nestedData[] = $row['firstname']+' '+$row['lastname'];
+            $nestedData[] = $row['firstname'].' '.$row['lastname'];
             $nestedData[] = $row['designation'];
-            $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
+            $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
             $nestedData[] = $row['title'];
             $nestedData[] = $row['description'];             
             $nestedData[] = $actionhtml;
@@ -85,19 +85,30 @@ class Blog extends Model
         );
         return $json_data;
     }
-    public function addGalleryImage($request){
-
+    public function addBlog($request){
       
-        $obj = new Gallery();
-        $obj->name = $request->input('name');
-        $obj->submenu_id = $request->input('submenu_id');
+        $obj = new Blog();
+   
         if ($request->file('image')) {
             $image = $request->file('image');
-            $galleryimage = time() . '1.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/galleryimage');
-            $image->move($destinationPath, $galleryimage);
-            $obj->image = $galleryimage;
+            $blogimage = time() . '1.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/blog');
+            $image->move($destinationPath, $blogimage);
+            $obj->image = $blogimage;
         }
+        if ($request->file('profile_image')) {
+            $image = $request->file('profile_image');
+            $profile_image = time() . '2.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/blog');
+            $image->move($destinationPath, $profile_image);
+            $obj->profile_image = $profile_image;
+        }
+        $obj->firstname = $request->input('firstname');
+        $obj->lastname = $request->input('lastname');
+        $obj->title = $request->input('title');
+        $obj->category_id = $request->input('category_id');  
+        $obj->description = $request->input('description');
+        $obj->designation = $request->input('designation');
         $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
@@ -105,35 +116,44 @@ class Blog extends Model
             
     }
     public function getDetail($id){
-        return Gallery::select('id','name','image','submenu_id')->where("id",$id)->get();
+        return Blog::select('id','category_id','firstname','lastname','profile_image','image','title','description','designation')->where("id",$id)->get();
     }
     public function editDetail($request){
-        $obj = new Gallery();
-        $obj  = Gallery::find($request->input('editId'));
-        $obj->name = $request->input('name');
-        $obj->submenu_id = $request->input('submenu_id');
+        $obj = new Blog();
+        $obj  = Blog::find($request->input('editId'));
         if ($request->file('image')) {
             $image = $request->file('image');
-            $galleryimage = time() . '1.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/galleryimage');
-            $image->move($destinationPath, $galleryimage);
-            $obj->image = $galleryimage;
+            $blogimage = time() . '1.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/blog');
+            $image->move($destinationPath, $blogimage);
+            $obj->image = $blogimage;
         }
-        $obj->created_at = date("Y-m-d h:i:s");
+        if ($request->file('profile_image')) {
+            $image = $request->file('profile_image');
+            $profile_image = time() . '2.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/blog');
+            $image->move($destinationPath, $profile_image);
+            $obj->profile_image = $profile_image;
+        }
+        $obj->firstname = $request->input('firstname');
+        $obj->lastname = $request->input('lastname');
+        $obj->title = $request->input('title');
+        $obj->category_id = $request->input('category_id');  
+        $obj->description = $request->input('description');
+        $obj->designation = $request->input('designation');
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
 
     public function getAllDetails(){
-        return Gallery::from('gallery')
-                        ->join("gallerysubmenu","gallerysubmenu.id","=","gallery.submenu_id")
-                        ->select('gallery.id','gallery.name','gallery.image','gallerysubmenu.name as cat_name')
-                        ->where("gallery.is_deleted","No")
-                        ->get();
+        return Blog::from('blog')
+                    ->join("blog_category","blog_category.id","=","blog.category_id")
+                    ->select('blog.id','blog_category.name','blog.firstname','blog.lastname','blog.profile_image','blog.image','blog.title','blog.description','blog.designation')
+                    ->where("blog.is_deleted","No")
+                    ->get();
     }
-
-    public function  deleteGallery($data){
-        $obj = Gallery::find($data['id']);
+    public function  deleteBlog($data){
+        $obj = Blog::find($data['id']);
         $obj->is_deleted = "Yes";
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();

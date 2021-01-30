@@ -6,219 +6,40 @@
     <section>
         <div class="container mt-5 mb-5">
             <!-- BLOG GRID START -->
+            @if(!$blog->isEmpty())
             <div class="row blog-grid">
+            @foreach($blog as $key => $value)
                 <div class="col-md-6 col-lg-4">
                     <div class="news-preview">
                         <figure class="np-thumbnail">
-                            <a href="blog-single.html"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-1.jpg') }}" alt=""></a>
-                            <div class="post-date">
+                            <a href="blog-single.html"><img src="{{ asset('public/upload/blog/'.$value->image) }}" alt=""></a>
+                            <!-- <div class="post-date">
                                 <h3>12</h3>
                                 <p>Nov</p>
-                            </div>
+                            </div> -->
                         </figure>
                         <div class="np-caption box-shadow">
-                            <p class="categorie">Cleaning</p>
-                            <h4><a href="blog-single.html">Temporary Ruling Issued</a></h4>
-                            <p>Washla has met the demands of a growing world cleaning tremendous. </p>
+                            <p class="categorie">{{ $value->name }}</p>
+                            <h4><a href="blog-single.html">{{ $value->title }}</a></h4>
+                            <p>{{ $value->description }}</p>
                             <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar-1.jpg') }}" class="mr-3" alt="...">
+                            
+                                <img src="{{ asset('public/upload/blog/'.$value->profile_image) }}" class="mr-3" alt="...">
                                 <div class="media-body">
-                                    <h5 class="author">Martha Smith</h5>
-                                    <p class="profession">Washla CEO</p>
+                                    <h5 class="author">{{ $value->firstname }} {{ $value->lastname }}</h5>
+                                    <p class="profession">{{ $value->designation }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="blog-single.html"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-2.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>11</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Home</p>
-                            <h4><a href="blog-single.html">The Expands California</a></h4>
-                            <p>welcomed and every sed ut perspiciatis unde omnis iste natus. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar2.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Laura Jones</h5>
-                                    <p class="profession">Accounting</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="blog-single.html"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-3.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>10</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Office</p>
-                            <h4><a href="blog-single.html">Temporary Ruling Issued</a></h4>
-                            <p>Washla has met the demands of a growing world. The Cleaning. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar3.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Matt Ryan</h5>
-                                    <p class="profession">Lawyer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="blog-single.html"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-4.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>10</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Laundry</p>
-                            <h4><a href="blog-single.html">The National Wheat</a></h4>
-                            <p>The first domesticated animals were dogs, which were used for. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar5.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Jesse Jonhson</h5>
-                                    <p class="profession">Washla Director</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="blog-single.html"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-5.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>09</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Carpet</p>
-                            <h4><a href="blog-single.html">Best Cleanning Tips</a></h4>
-                            <p>Ever feel like there’s not enough time during your hectic day to keep. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar6.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Carlos Gomez</h5>
-                                    <p class="profession">Washla Manager</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="#"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-6.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>09</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Buildings</p>
-                            <h4><a href="#">The Goals of Cleaning</a></h4>
-                            <p>Service delivers detail-oriented regular maintenance house cleaning. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar1.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Mat Cimmino</h5>
-                                    <p class="profession">Customer Support</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="#"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-7.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>08</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Office</p>
-                            <h4><a href="#">Felling Cleaning, The Best</a></h4>
-                            <p> On time services and even some extras contact us today. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar2.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Laura Jones</h5>
-                                    <p class="profession">Accounting</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="#"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-8.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>10</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Cleaning</p>
-                            <h4><a href="#">Year Cleaning Houses</a></h4>
-                            <p>Let us simplify your life by saving you time and energy so you. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar3.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Matt Ryan</h5>
-                                    <p class="profession">Lawyer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="news-preview">
-                        <figure class="np-thumbnail">
-                            <a href="#"><img src="{{ asset('public/frontend/assets/images/commons/blog-thumb-9.jpg') }}" alt=""></a>
-                            <div class="post-date">
-                                <h3>10</h3>
-                                <p>Nov</p>
-                            </div>
-                        </figure>
-                        <div class="np-caption box-shadow">
-                            <p class="categorie">Cleaning</p>
-                            <h4><a href="#">How to Clean Better</a></h4>
-                            <p>The first domesticated animals were dogs, which were used for. </p>
-                            <div class="media">
-                                <img src="{{ asset('public/frontend/assets/images/commons/avatar5.jpg') }}" class="mr-3" alt="...">
-                                <div class="media-body">
-                                    <h5 class="author">Jesse Jonhson</h5>
-                                    <p class="profession">Washla Director</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            @endforeach
             </div>
+            @endif
             <!-- BLOG GRID END -->
 
             <!-- PAGINATION START -->
-            <div class="site-pagination mt-4">
+            <!-- <div class="site-pagination mt-4">
                 <nav aria-label="Page navigation example">
                   <ul class="pagination">
                     <li class="page-item"></li>
@@ -232,7 +53,7 @@
                     </li>
                   </ul>
                 </nav>
-            </div>
+            </div> -->
             <!-- PAGINATION START -->
         </div>
     </section>

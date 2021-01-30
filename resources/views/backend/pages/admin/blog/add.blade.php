@@ -17,44 +17,59 @@
 
                 </div>
                 <!--begin::Form-->
-                <form class="form" id="add-gallery-form" method="POST">@csrf
+                <form class="form" id="add-blog-form" method="POST">@csrf
 
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label for="exampleSelect1">Portfolio Category <span class="text-danger">*</span></label>
-                            <select class="form-control"  id="submenu_id" name="submenu_id">
+                            <label for="exampleSelect1">Blog Category <span class="text-danger">*</span></label>
+                            <select class="form-control"  id="category_id" name="category_id">
                              <option value="">-- Select -- </option>
-                                @foreach($submenu as $key => $value)
+                                @foreach($menu as $key => $value)
                                 <option value="{{ $value->id }}">{{ $value->name }}</option>                                
                                 @endforeach
-                        
                             </select>
                            </div>
                            <div class="form-group ">
-                            <label class="col-form-label ">Portfolio Category Name (Ex : Web Design , App Development)
+                            <label class="col-form-label ">Profile Image (Size : 50px * 50px)
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="name" name="name"  placeholder="Please enter portfolio category"/>
+                            <input type="file" accept="image/*" class="form-control" id="profile_image" name="profile_image" accept="image/*"/>
                         </div>
-                
+                      
+                           <div class="form-group ">
+                            <label class="col-form-label ">First Name
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="firstname" name="firstname"  placeholder="Please enter first name"/>
+                        </div>
                         <div class="form-group ">
-                            <label class="col-form-label ">Portfolio Category Image (Ex : Web Design , App Development)
-                            <span class="text-danger">*</span></label><br>
-                            <div class="image-input image-input-outline" id="kt_image_1">
-                                <div class="image-input-wrapper" style="background-image: url({{asset('public/upload/addimage.png')}}"></div>
-                                <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                                    <i class="fa fa-pen icon-sm text-muted"></i>
-                                    <input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />
-                                    <input type="hidden" name="profile_avatar_remove" />
-                                </label>
-                                <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                                    <i class="ki ki-bold-close icon-xs text-muted"></i>
-                                </span>
-                            </div>
+                            <label class="col-form-label ">Last Name
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lastname" name="lastname"  placeholder="Please enter last name"/>
                         </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Designation
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="designation" name="designation"  placeholder="Please enter designation"/>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Title (Max  : 30 Characters)
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="title" name="title"  placeholder="Please enter title"/>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Description (Max  : 120 Characters)
+                            <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Please enter  description"></textarea>
+                        </div>
+                        
+                        <div class="form-group ">
+                            <label class="col-form-label ">Image (Size : 320px * 225px)
+                            <span class="text-danger">*</span></label>
+                            <input type="file" accept="image/*" class="form-control" id="image" name="image" accept="image/*"/>
+                        </div>
+                     
                     </div>
-                    
-								
+       					
 
                     <div class="card-footer">
                         <div class="row">

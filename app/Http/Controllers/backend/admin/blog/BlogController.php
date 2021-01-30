@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend\admin\blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use Config;
 class BlogController extends Controller
 {
@@ -49,10 +50,10 @@ class BlogController extends Controller
     }
 
     public function add (Request $request){
-        $obj = new GallerySubmenu();
-        $data['submenu']  = $obj->getAllDetails();
+        $obj = new BlogCategory();
+        $data['menu']  = $obj->getAllDetails();
          if ($request->isMethod('post')) {
-            $obj = new Gallery();
+            $obj = new Blog();
             $result  = $obj->addBlog($request);
             if ($result == "true") {
                 $return['status'] = 'success';
@@ -118,11 +119,11 @@ class BlogController extends Controller
 
     }
     public function edit(Request $request,$id){
-        $obj = new GallerySubmenu();
-        $data['submenu']  = $obj->getAllDetails();
+        $obj = new BlogCategory();
+        $data['menu']  = $obj->getAllDetails();
         if ($request->isMethod('post')) {
 
-            $obj = new Gallery();
+            $obj = new Blog();
             $result = $obj->editDetail($request);
 
             if ($result == "true") {
@@ -152,7 +153,7 @@ class BlogController extends Controller
                 exit();
         }
 
-        $obj = new Gallery();
+        $obj = new Blog();
         $data['details']  = $obj->getDetail($id);
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Blog';
@@ -193,15 +194,15 @@ class BlogController extends Controller
         $session = session()->all();
         switch ($action) {
             case 'getdatatable':
-                $obj = new Gallery();
+                $obj = new Blog();
                 $list = $obj->getdatatable();
 
                 echo json_encode($list);
                 break;
 
-            case 'deleteGallery':
-                $obj = new Gallery();
-                $result = $obj->deleteGallery($request->input('data'));
+            case 'deleteBlog':
+                $obj = new Blog();
+                $result = $obj->deleteBlog($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
                     $return['message'] = 'Blog successfully deleted';

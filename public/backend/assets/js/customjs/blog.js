@@ -49,9 +49,14 @@ var Blog = function() {
 
         var form = $('#add-blog-form');
         var rules = {
-            name: { required: true },
-            submenu_id: { required: true },
-            image:{ required: true },
+            category_id: { required: true },
+            title: { required: true },
+            image:{ required: true },           
+            description:{ required: true },
+            profile_image:{ required: true },
+            firstname: { required: true },
+            lastname: { required: true },
+            designation:{ required: true }
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
@@ -59,10 +64,14 @@ var Blog = function() {
     };
     var edit = function() {
 
-        var form = $('#add-blog-form');
+        var form = $('#edit-blog-form');
         var rules = {
-            name: { required: true },
-            submenu_id: { required: true },
+            category_id: { required: true },
+            title: { required: true, maxlength: 30 },
+            description:{ required: true },
+            firstname: { required: true },
+            lastname: { required: true },
+            designation:{ required: true }
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);

@@ -17,40 +17,63 @@
 
                 </div>
                 <!--begin::Form-->
-                <form class="form" id="add-gallery-form" method="POST">@csrf
+                <form class="form" id="edit-blog-form" method="POST">@csrf
                     <input type="hidden" class="form-control" id="editId" name="editId"  value="{{  $details[0]->id }}" />
                     <div class="card-body">
+                        <div class="form-group">
+                            <label for="exampleSelect1">Blog Category <span class="text-danger">*</span></label>
+                            <select class="form-control"  id="category_id" name="category_id">
+                             <option value="">-- Select -- </option>
+                                @foreach($menu as $key => $value)
+                                <option value="{{ $value->id }}" {{ $value->id == $details[0]->category_id ? "selected='selected'" : "" }}>{{ $value->name }}</option>                                
+                                @endforeach
+                            </select>
+                           </div>
+                       
                         <div class="form-group ">
-                        <label for="exampleSelect1">Portfolio Category <span class="text-danger">*</span></label>
-                        <select class="form-control"  id="submenu_id" name="submenu_id">
-                         <option value="">-- Select -- </option>
-                            @foreach($submenu as $key => $value)
-                            <option value="{{ $value->id }}" {{ $value->id == $details[0]->submenu_id ? "selected='selected'" : "" }}>{{ $value->name }}</option>                                
-                            @endforeach
-                    
-                        </select>
-                       </div>
-                       <div class="form-group ">
-                        <label class="col-form-label ">Portfolio Category Name (Ex : Web Design , App Development)
-                        <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{  $details[0]->name }}" placeholder="Please enter portfolio category"/>
-                    </div>
-            
-                    <div class="form-group ">
-                        <label class="col-form-label ">Portfolio Category Image (Ex : Web Design , App Development)
-                        <span class="text-danger">*</span></label><br>
-                        <div class="image-input image-input-outline" id="kt_image_1">
-                           <div class="image-input-wrapper" style="background-image: url({{asset('public/upload/galleryimage/'.$details[0]->image)}}"></div>
-                            <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                                <i class="fa fa-pen icon-sm text-muted"></i>
-                                <input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />
-                                <input type="hidden" name="profile_avatar_remove" />
-                            </label>
-                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                                <i class="ki ki-bold-close icon-xs text-muted"></i>
-                            </span>
+                            <label class="col-form-label ">Profile Image (Size : 50px * 50px)
+                                <span class="text-danger">*</span></label>
+                                <br>
+                                    <img src="{{ asset('public/upload/blog/'.$details[0]->profile_image) }}" alt="profile_image" style="width: 50px ;height: 50px ">
+                                <br><br>
+                            <input type="file" accept="image/*" class="form-control" id="profile_image" name="profile_image" />
                         </div>
-                    </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">First Name
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="firstname" name="firstname" value="{{  $details[0]->firstname }}" placeholder="Please enter first name"/>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Last Name
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lastname" name="lastname" value="{{  $details[0]->lastname }}"  placeholder="Please enter last name"/>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Designation
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="designation" name="designation"  value="{{  $details[0]->designation }}" placeholder="Please enter designation"/>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Title (Max  : 30 Characters)
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="title" name="title"  value="{{  $details[0]->title }}" placeholder="Please enter title"/>
+                        </div>
+            
+                        <div class="form-group ">
+                            <label class="col-form-label ">Description (Max  : 120 Characters)
+                            <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Please enter  description">{{  $details[0]->description }}</textarea>
+                        </div>
+                        
+                      <div class="form-group ">
+                            <label class="col-form-label ">Image (Size : 320px * 225px)
+                                <span class="text-danger">*</span></label>
+                                <br>
+                                    <img src="{{ asset('public/upload/blog/'.$details[0]->image) }}" alt="image" style="width: 320px ;height: 225px ">
+                                <br><br>
+                            <input type="file" accept="image/*" class="form-control" id="image" name="image" />
+                        </div>
+                       
                     </div>
 
                     <div class="card-footer">
