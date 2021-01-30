@@ -17,22 +17,15 @@
 
                 </div>
                 <!--begin::Form-->
-                <form class="form" id="add-faqs-form" method="POST">@csrf
+                <form class="form" id="add-blog-category-form" method="POST">@csrf
 
                     <div class="card-body">
-                        <input type="hidden" class="form-control" id="editId" name="editId"  value="{{  $details[0]->id }}" />
-                        <div class="form-group ">
-                            <label class="col-form-label ">Question
-                                <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="question" name="question" placeholder="Please enter question"  value="{{  $details[0]->question }}" />
-                        </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Answer
-                                <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="details" name="answer" placeholder="Please enter answer">{{  $details[0]->answer }}</textarea>
+                            <label class="col-form-label ">Blog Category (Ex : Web Design , App Development)
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name"  placeholder="Please enter blog category"/>
                         </div>
-
                     </div>
 
                     <div class="card-footer">

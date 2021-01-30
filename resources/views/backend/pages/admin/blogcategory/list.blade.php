@@ -14,14 +14,14 @@
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a href="{{  route('admin-portfolio-category-add') }}" class="btn btn-primary font-weight-bolder">
-                    <i class="far fa-plus-square"></i> New Sub Menu</a>
+                    <a href="{{  route('admin-blog-category-add') }}" class="btn btn-primary font-weight-bolder">
+                    <i class="far fa-plus-square"></i> New Blog Category</a>
                     <!--end::Button-->
                 </div>
             </div>
             <div class="card-body">@csrf
                 <!--begin: Datatable-->
-                <table class="table table-bordered table-hover table-checkable" id="gallery-submenu-list" >
+                <table class="table table-bordered table-hover table-checkable" id="blog-category-list" >
                     <thead>
                         <tr>
                             <th>Sr. No</th>

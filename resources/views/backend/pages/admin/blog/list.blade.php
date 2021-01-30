@@ -14,18 +14,22 @@
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a href="{{  route('admin-portfolio-category-add') }}" class="btn btn-primary font-weight-bolder">
-                    <i class="far fa-plus-square"></i> New Sub Menu</a>
+                    <a href="{{  route('admin-galleryimage-add') }}" class="btn btn-primary font-weight-bolder">
+                    <i class="far fa-plus-square"></i> New Image</a>
                     <!--end::Button-->
                 </div>
             </div>
             <div class="card-body">@csrf
                 <!--begin: Datatable-->
-                <table class="table table-bordered table-hover table-checkable" id="gallery-submenu-list" >
+                <table class="table table-bordered table-hover table-checkable" id="galler-list" >
                     <thead>
                         <tr>
                             <th>Sr. No</th>
+                            <th>Profile Image</th>
                             <th>Name</th>
+                            <th>designation</th>
+                            <th>Title</th>
+                            <th>Description</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
