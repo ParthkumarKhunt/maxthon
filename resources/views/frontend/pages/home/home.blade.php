@@ -45,8 +45,8 @@
             </div>
             <div class="col-lg-6 spacing-md ">
                 <div class="about-layer">
-                <h2>{{ $topsection[0]->title }}</h2> 
-                <p>{!! $topsection[0]->description  !!}</p> 
+                <h2>{{ $topsection[0]->title }}</h2>
+                <p>{!! $topsection[0]->description  !!}</p>
             </div>
             </div>
         </div>
@@ -54,11 +54,11 @@
     <!-- HOME ABOUT END -->
 
     <!-- HOME WIDE SECTION START -->
-    <div class="ws-washla mt-5 mb-5">
+    <div class="ws-washla mt-5 mb-5" style="background-image: url({{ asset('public/upload/banner/'.$bannersection[0]->image) }}) ">
         <div class="content-left-layer">
             <div class="inner-cll">
-            <h2>{{ $bannersection[0]->title }}</h2> 
-            <p>{!! $bannersection[0]->description  !!}</p> 
+            <h2>{{ $bannersection[0]->title }}</h2>
+            <p>{!! $bannersection[0]->description  !!}</p>
             </div>
         </div>
     </div>
@@ -123,15 +123,15 @@
                 <div class="col-lg-5">
                     <div class="gallery-carousel">
                         <div class="owl-carousel owl-theme">
-                        @if(!empty($section2_extraimages[0]))                                 
+                        @if(!empty($section2_extraimages[0]))
                             @foreach($section2_extraimages as $value)
                             <div class="item">
                                 <div class="gallery-slider-bg"
                                     style="background-image:url({{ asset('public/upload/section/'.$value) }});"></div>
                             </div>
-                             @endforeach                                          
-                          @endif                     
-                            
+                             @endforeach
+                          @endif
+
                         </div>
                         <div class="owl-theme">
                             <div class="owl-controls">
@@ -142,7 +142,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="cf-content">
-                        <h2>{{ $section2[0]->title }}</h2> 
+                        <h2>{{ $section2[0]->title }}</h2>
                          <p>{!! $section2[0]->description  !!}</p>                        </div>
                     </div>
                 </div>

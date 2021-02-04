@@ -107,23 +107,26 @@ $logodetails = getdetails();
                                 aria-haspopup="true">
                                 <a href="{{  route('admin-top-section') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right"
-                                            style="color: white"></i>&nbsp;&nbsp;Top Section</span>
+                                            style="color: white"></i>&nbsp;&nbsp;Section 1</span>
                                 </a>
                             </li>
-                            <li class="menu-item {{ ( $currentRoute == 'admin-section2'  ? 'menu-item-active' : '' )  }}"
-                                aria-haspopup="true">
-                                <a href="{{  route('admin-section2') }}" class="menu-link">
-                                    <span class="menu-text"><i class="far fa-hand-point-right"
-                                            style="color: white"></i>&nbsp;&nbsp;Section2</span>
-                                </a>
-                            </li>
+
                             <li class="menu-item {{ ( $currentRoute == 'admin-banner-section'  ? 'menu-item-active' : '' )  }}"
                                 aria-haspopup="true">
                                 <a href="{{  route('admin-banner-section') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right"
-                                            style="color: white"></i>&nbsp;&nbsp;Banner Section</span>
+                                            style="color: white"></i>&nbsp;&nbsp;Section 2  </span>
                                 </a>
                             </li>
+
+                            <li class="menu-item {{ ( $currentRoute == 'admin-section2'  ? 'menu-item-active' : '' )  }}"
+                                aria-haspopup="true">
+                                <a href="{{  route('admin-section2') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right"
+                                            style="color: white"></i>&nbsp;&nbsp;Section 3</span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </li>

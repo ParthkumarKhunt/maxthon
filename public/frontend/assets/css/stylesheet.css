@@ -1221,7 +1221,7 @@ p.read-more-alt {
 }
 
 .ws-washla {
-    background-image: url("../images/commons/washla-8.jpg");
+    /* background-image: url("../images/commons/washla-8.jpg"); */
     height: 500px;
     background-position: center;
     background-repeat: no-repeat;

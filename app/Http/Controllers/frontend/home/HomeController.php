@@ -36,7 +36,7 @@ class HomeController extends Controller
         $objSection2= new Section2();
         $data['section2'] = $objSection2->getDetails();
         $data['section2_extraimages']=explode(",",$data['section2'][0]->image);
-        
+
         $objTopSection = new TopSection();
         $data['topsection'] = $objTopSection->getDetails();
         $objBannerSection = new BannerSection();

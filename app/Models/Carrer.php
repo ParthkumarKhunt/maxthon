@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 class Carrer extends Model
 {
     use HasFactory;
+
     protected $table = 'carrer';
- 
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
@@ -73,7 +74,7 @@ class Carrer extends Model
         );
         return $json_data;
     }
-    public function addCarrer($request){      
+    public function addCarrer($request){
         $obj = new Carrer();
         $obj->department_id = $request->input('department_id');
         $obj->headline = $request->input('headline');
@@ -96,11 +97,11 @@ class Carrer extends Model
                     $objskill->updated_at = date("Y-m-d h:i:s");
                     $objskill->save();
                     $i++;
-                } 
+                }
             }
             return "true";
         }
-        return "true";            
+        return "true";
     }
     public function getDetail($id){
         return Carrer::from('carrer')
@@ -122,9 +123,9 @@ class Carrer extends Model
         $skills = $request->input('skills');
         // echo "<pre>";
         // print_r($skills[0]);
-        // die;            
-        if($skills[0]){ 
-            $skills = $request->input('skills');           
+        // die;
+        if($skills[0]){
+            $skills = $request->input('skills');
             $i = 0;
             foreach ($skills as $key => $value) {
                 $objskill = new Skills();
@@ -137,15 +138,18 @@ class Carrer extends Model
             return "true";
         }else{
             return "true";
-        }   
+        }
         return "true";
      }
-    
-    public function getAllDetails(){      
+
+    public function getAllDetails(){
         return Carrer::from('carrer')
                         ->join("skills","carrer.id","=","skills.carrer_id")
-                        ->select('carrer.id','carrer.headline','carrer.details','carrer.experience','carrer.department_id','skills.skills as skills_details')
+                        ->join("department","department.id","=","carrer.department_id")
+                        ->select('carrer.id','carrer.headline','carrer.details','carrer.experience','carrer.department_id',
+                        'department.name as dept_name', DB::raw('GROUP_CONCAT(skills.skills) AS skills_details'))
                         ->where("carrer.is_deleted","No")
+                        ->groupBy("skills.carrer_id")
                         ->get();
     }
 

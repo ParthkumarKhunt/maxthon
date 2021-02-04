@@ -6,14 +6,14 @@
    <div class="container mt-5 mb-5">
        <div class="filter-container">
            <ul class="filter">
-            <li class=".house" data-filter="*">All</li>
+            <li class=".house active" data-filter="*">All</li>
            @foreach($submenu as $key => $value)
                <li class="" data-filter="{{  ".".str_replace(' ', '-',$value['name'])  }}">  {{ $value->name }} </a></li>
             @endforeach
            </ul>
        </div>
 
-       
+
        <div class="grid" id="kehl-grid">
            <div class="grid-sizer"></div>
             @foreach($gallary as $key => $value)
@@ -23,10 +23,10 @@
                     <img style="height: 255px" src=" {{asset('public/upload/galleryimage/'.$value->image) }}" alt="" />
                     <h3>{{ $value->name }}</h3>
                 </a>
-            </div>     
+            </div>
             @endforeach
-           
-          
+
+
        </div>
    </div>
    <!-- PROJECT GRID END -->

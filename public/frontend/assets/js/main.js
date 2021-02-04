@@ -299,7 +299,7 @@ $('.popup-youtube, .popup-vimeo').magnificPopup({
 =============================================== */
 $('.clients-carousel .owl-carousel').owlCarousel({
     stagePadding: 0,
-    loop: true,
+    loop: false,
     dots: true,
     margin: 10,
     nav: true,
@@ -331,7 +331,7 @@ $('.team-carousel .owl-carousel').owlCarousel({
     autoplay: false,
     autoplayTimeout: 2500,
     autoplayHoverPause: false,
-    loop: true,
+    loop: false,
     dots: true,
     margin: 0,
     nav: true,
@@ -359,7 +359,7 @@ $('.team-carousel .owl-carousel').owlCarousel({
 =============================================== */
 $('.blog-news-carousel .owl-carousel').owlCarousel({
     stagePadding: 0,
-    loop: true,
+    loop: false,
     dots: true,
     margin: 0,
     nav: true,
@@ -395,7 +395,7 @@ $('.bs-carousel .owl-carousel').owlCarousel({
     autoplay: true,
     autoplayTimeout: 3500,
     autoplayHoverPause: false,
-    loop: true,
+    loop: false,
     dots: true,
     margin: 0,
     nav: true,
@@ -417,7 +417,7 @@ $('.gallery-carousel .owl-carousel').owlCarousel({
     autoplayTimeout: 3500,
     autoplayHoverPause: false,
     stagePadding: 0,
-    loop: true,
+    loop: false,
     dots: true,
     margin: 0,
     nav: true,
@@ -443,7 +443,7 @@ $('.front-carousel .owl-carousel').owlCarousel({
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
     stagePadding: 0,
-    loop: true,
+    loop: false,
     dots: true,
     margin: 0,
     nav: true,

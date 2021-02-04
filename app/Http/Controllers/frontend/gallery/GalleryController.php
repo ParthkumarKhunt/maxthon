@@ -16,13 +16,13 @@ class GalleryController extends Controller
     }
 
     public function gallery(Request $request){
-        
+
         $objDetails = new GallerySubmenu();
         $data['submenu'] = $objDetails->getAllDetails();
 
         $objDetails = new Gallery();
         $data['gallary'] = $objDetails->getAllDetails();
-        
+
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.GALLERY_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.GALLERY_PAGE' ) ;
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'keywords.GALLERY_PAGE' ) ;
@@ -43,9 +43,9 @@ class GalleryController extends Controller
         return view('frontend.pages.gallery.gallery', $data);
     }
 
-    
-    
 
 
-    
+
+
+
 }

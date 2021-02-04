@@ -20,7 +20,6 @@ class CareerController extends Controller
 
         $objDetails = new Carrer();
         $data['carrer'] = $objDetails->getAllDetails();
-
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.CAREER_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.CAREER_PAGE' ) ;
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'keywords.CAREER_PAGE' ) ;

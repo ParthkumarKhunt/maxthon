@@ -9,20 +9,20 @@
             <h2>Frequently Asked Questions</h2>
             <p class="strong">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, <br/>by injected humour, or randomised words which don't look even slightly believable.</p>
         </div>
-        <ul class="accordion">                             
-        @php 
+        <ul class="accordion">
+        @php
         $i=0;
         @endphp
-        @foreach($faqs as $value)  
-        @php 
+        @foreach($faqs as $value)
+        @php
         $i++;
         @endphp
-    
+
             <li>
                 <a> {{ $i }}) {{ $value->question}}</a>
                 <p>{!! $value->answer !!}</p>
             </li>
-            @endforeach   
+            @endforeach
         </ul> <!-- / accordion -->
     </div>
     <!-- FAQ END -->
