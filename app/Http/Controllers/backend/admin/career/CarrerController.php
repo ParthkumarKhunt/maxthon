@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Carrer;
 use App\Models\Department;
 use App\Models\Skills;
+use App\Models\CareerDetail;
 
 
 use Config;
@@ -205,6 +206,25 @@ class CarrerController extends Controller
                 echo json_encode($list);
                 break;
 
+            case 'getdatatablelist':
+                    $obj = new CareerDetail();
+                    $list = $obj->getdatatable();
+                    echo json_encode($list);
+                    break;
+            case 'deleteCareerDetail':
+                    $obj = new CareerDetail();
+                    $result = $obj->deleteList($request->input('data'));
+                    if ($result) {
+                        $return['status'] = 'success';
+                        $return['message'] = 'Carrer successfully deleted';
+                        $return['redirect'] = route('admin-carrer-list');
+                    } else {
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        $return['message'] = 'Something goes to wrong.';
+                    }
+                    echo json_encode($return);
+                    exit;            
             case 'deleteCarrer':
                 $obj = new Carrer();
                 $result = $obj->deleteCarrer($request->input('data'));
@@ -234,5 +254,40 @@ class CarrerController extends Controller
                     echo json_encode($return);
                     exit;
         }
+    }
+    
+    public function careerList(Request $request){
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Career Request List';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Career Request List';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Career Request List';
+        $data['css'] = array(
+            'toastr/toastr.min.css'
+        );
+        $data['plugincss'] = array(
+            'plugins/custom/datatables/datatables.bundled1cf.css'
+        );
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'plugins/validate/jquery.validate.min.js',
+            'plugins/custom/datatables/datatables.bundled1cf.js',
+            'pages/crud/datatables/data-sources/htmld1cf.js'
+        );
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'carrer.js'
+        );
+        $data['funinit'] = array(
+            'Carrer.careerList()'
+        );
+        $data['header'] = array(
+            'title' => 'Career Request List',
+            'breadcrumb' => array(
+                'Dashboard' => route('admin-dashboard'),
+                'Career Request List' => 'Career Request List',
+            )
+        );
+        return view('backend.pages.admin.carrer.carrerlist', $data);
     }
 }

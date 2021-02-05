@@ -115,5 +115,6 @@ Route::match(['get', 'post'], 'admin-carrer-add', ['as' => 'admin-carrer-add', '
 Route::match(['get', 'post'], 'admin-carrer-edit/{id}', ['as' => 'admin-carrer-edit', 'uses' => 'backend\admin\career\CarrerController@edit']);
 Route::match(['get', 'post'], 'admin-carrer-ajaxaction', ['as' => 'admin-carrer-ajaxaction', 'uses' => 'backend\admin\career\CarrerController@ajaxAction']);
 
-
+Route::match(['get', 'post'], 'admin-carrer-list', ['as' => 'admin-carrer-list', 'uses' => 'backend\admin\career\CarrerController@careerList']);
+  
 });

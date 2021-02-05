@@ -196,7 +196,7 @@ $logodetails = getdetails();
                     </a>
                 </li>
 
-                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-department-add' || $currentRoute == 'admin-department' || $currentRoute == 'admin-department-edit' || $currentRoute == 'admin-carrer-add' || $currentRoute == 'admin-carrer' || $currentRoute == 'admin-carrer-edit' ? 'menu-item-active menu-item-open' : '' )  }}"
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-department-add' || $currentRoute == 'admin-department' || $currentRoute == 'admin-department-edit' || $currentRoute == 'admin-carrer-add' || $currentRoute == 'admin-carrer-list'|| $currentRoute == 'admin-carrer' || $currentRoute == 'admin-carrer-edit' ? 'menu-item-active menu-item-open' : '' )  }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -233,6 +233,14 @@ $logodetails = getdetails();
                                 <a href="{{ route('admin-carrer') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right"
                                             style="color: white"></i>&nbsp;&nbsp;Career</span>
+                                </a>
+                            </li>
+
+                            <li class="menu-item {{ ( $currentRoute == 'admin-carrer-list'  ? 'menu-item-active' : '' )  }}"
+                                aria-haspopup="true">
+                                <a href="{{ route('admin-carrer-list') }}" class="menu-link">
+                                    <span class="menu-text"><i class="far fa-hand-point-right"
+                                            style="color: white"></i>&nbsp;&nbsp;Carrer List</span>
                                 </a>
                             </li>
 
