@@ -25,9 +25,6 @@
                     <thead>
                         <tr>
                             <th>Sr. No</th>
-                            <th>Profile Image</th>
-                            <th>Name</th>
-                            <th>designation</th>
                             <th>Image</th>
                             <th>Title</th>
                             <th>Description</th>

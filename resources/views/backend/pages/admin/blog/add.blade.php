@@ -29,28 +29,8 @@
                                 <option value="{{ $value->id }}">{{ $value->name }}</option>                                
                                 @endforeach
                             </select>
-                           </div>
-                           <div class="form-group ">
-                            <label class="col-form-label ">Profile Image (Size : 50px * 50px)
-                            <span class="text-danger">*</span></label>
-                            <input type="file" accept="image/*" class="form-control" id="profile_image" name="profile_image" accept="image/*"/>
-                        </div>
-                      
-                           <div class="form-group ">
-                            <label class="col-form-label ">First Name
-                            <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="firstname" name="firstname"  placeholder="Please enter first name"/>
-                        </div>
-                        <div class="form-group ">
-                            <label class="col-form-label ">Last Name
-                            <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="lastname" name="lastname"  placeholder="Please enter last name"/>
-                        </div>
-                        <div class="form-group ">
-                            <label class="col-form-label ">Designation
-                            <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="designation" name="designation"  placeholder="Please enter designation"/>
-                        </div>
+                           </div>      
+                   
                         <div class="form-group ">
                             <label class="col-form-label ">Title (Max  : 30 Characters)
                             <span class="text-danger">*</span></label>
@@ -59,13 +39,14 @@
                         <div class="form-group ">
                             <label class="col-form-label ">Description (Max  : 120 Characters)
                             <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Please enter  description"></textarea>
+                            <textarea class="form-control" id="details" name="description" placeholder="Please enter  description"></textarea>
                         </div>
+                        
                         
                         <div class="form-group ">
                             <label class="col-form-label ">Image (Size : 320px * 225px)
                             <span class="text-danger">*</span></label>
-                            <input type="file" accept="image/*" class="form-control" id="image" name="image" accept="image/*"/>
+                            <input type="file" accept="image/*" class="form-control" id="image" name="image"/>
                         </div>
                      
                     </div>

@@ -50,14 +50,9 @@ var Blog = function() {
         var form = $('#add-blog-form');
         var rules = {
             category_id: { required: true },
-            title: { required: true },
+            title: { required: true, maxlength: 30  },
             image:{ required: true },           
-            description:{ required: true },
-            profile_image:{ required: true },
-            firstname: { required: true },
-            lastname: { required: true },
-            designation:{ required: true }
-        };
+           };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
         });
@@ -68,10 +63,7 @@ var Blog = function() {
         var rules = {
             category_id: { required: true },
             title: { required: true, maxlength: 30 },
-            description:{ required: true },
-            firstname: { required: true },
-            lastname: { required: true },
-            designation:{ required: true }
+        
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);

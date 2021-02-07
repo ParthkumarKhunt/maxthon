@@ -18,11 +18,7 @@ class CreateBlogTable extends Migration
             $table->integer('category_id');
             $table->string('image');
             $table->string('title');
-            $table->string('description'); 
-            $table->string('profile_image');
-            $table->string('firstname');
-            $table->string('lastname');  
-            $table->string('designation');           
+            $table->text('description');                  
             $table->enum('is_deleted',['Yes','No'])->default('No');
             $table->timestamps();
         });

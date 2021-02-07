@@ -162,8 +162,6 @@ class BlogCategoryController extends Controller
         $data['pluginjs'] = array(
             'toastr/toastr.min.js',
             'plugins/validate/jquery.validate.min.js',
-            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
-            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
         );
         $data['js'] = array(
             'comman_function.js',

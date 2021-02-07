@@ -17,11 +17,7 @@ class Blog extends Model
             1 => 'image',
             2 => 'title',
             3 => 'description',
-            4 => 'profile_image',
-            5 => 'firstname',
-            6 => 'lastname',
-            7 => 'designation'
-       );
+               );
         $query = Blog ::from('blog')
                     ->where("is_deleted","No");
 
@@ -51,7 +47,7 @@ class Blog extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('id','image','title','description','profile_image','firstname','lastname','designation','category_id')
+                ->select('id','image','title','description','category_id')
                 ->where("is_deleted","No")
                 ->get();
         $data = array();
@@ -60,7 +56,6 @@ class Blog extends Model
         $i = 0;
         foreach ($resultArr as $row) {
             $image = url("public/upload/blog/" . $row['image']);
-            $profile_image = url("public/upload/blog/" . $row['profile_image']);
 
             $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteBlog" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
             .'<a href="' . route('admin-blog-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
@@ -68,9 +63,6 @@ class Blog extends Model
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
-            $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $profile_image . '" style="margin:10px;">';
-            $nestedData[] = $row['firstname'].' '.$row['lastname'];
-            $nestedData[] = $row['designation'];
             $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
             $nestedData[] = $row['title'];
             $nestedData[] = $row['description'];             
@@ -95,28 +87,18 @@ class Blog extends Model
             $destinationPath = public_path('/upload/blog');
             $image->move($destinationPath, $blogimage);
             $obj->image = $blogimage;
-        }
-        if ($request->file('profile_image')) {
-            $image = $request->file('profile_image');
-            $profile_image = time() . '2.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/blog');
-            $image->move($destinationPath, $profile_image);
-            $obj->profile_image = $profile_image;
-        }
-        $obj->firstname = $request->input('firstname');
-        $obj->lastname = $request->input('lastname');
+        }      
         $obj->title = $request->input('title');
         $obj->category_id = $request->input('category_id');  
         $obj->description = $request->input('description');
-        $obj->designation = $request->input('designation');
-        $obj->created_at = date("Y-m-d h:i:s");
+           $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
 
             
     }
     public function getDetail($id){
-        return Blog::select('id','category_id','firstname','lastname','profile_image','image','title','description','designation')->where("id",$id)->get();
+        return Blog::select('id','category_id','image','title','description')->where("id",$id)->get();
     }
     public function editDetail($request){
         $obj = new Blog();
@@ -128,19 +110,9 @@ class Blog extends Model
             $image->move($destinationPath, $blogimage);
             $obj->image = $blogimage;
         }
-        if ($request->file('profile_image')) {
-            $image = $request->file('profile_image');
-            $profile_image = time() . '2.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/blog');
-            $image->move($destinationPath, $profile_image);
-            $obj->profile_image = $profile_image;
-        }
-        $obj->firstname = $request->input('firstname');
-        $obj->lastname = $request->input('lastname');
         $obj->title = $request->input('title');
         $obj->category_id = $request->input('category_id');  
         $obj->description = $request->input('description');
-        $obj->designation = $request->input('designation');
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
@@ -148,8 +120,16 @@ class Blog extends Model
     public function getAllDetails(){
         return Blog::from('blog')
                     ->join("blog_category","blog_category.id","=","blog.category_id")
-                    ->select('blog.id','blog_category.name','blog.firstname','blog.lastname','blog.profile_image','blog.image','blog.title','blog.description','blog.designation')
+                    ->select('blog.id','blog_category.name','blog.image','blog.title','blog.description')
                     ->where("blog.is_deleted","No")
+                    ->get();
+    }
+    public function getBlogsDetail($id){
+        return Blog::from('blog')
+                    ->join("blog_category","blog_category.id","=","blog.category_id")
+                    ->select('blog.id','blog_category.name','blog.image','blog.title','blog.description')
+                    ->where("blog.is_deleted","No")
+                    ->where("blog.id",$id)
                     ->get();
     }
     public function  deleteBlog($data){

@@ -23,6 +23,8 @@ Route::match(['get', 'post'], 'gallery', ['as' => 'gallery', 'uses' => 'frontend
 
 // Blog
 Route::match(['get', 'post'], 'blog', ['as' => 'blog', 'uses' => 'frontend\blog\BlogController@blog']);
+Route::match(['get', 'post'], 'blogs/{id}', ['as' => 'blogs', 'uses' => 'frontend\blog\BlogController@blogs']);
+Route::match(['get', 'post'], 'blogdetail/{id}', ['as' => 'blogdetail', 'uses' => 'frontend\blog\BlogController@blogdetail']);
 
 // contact-us
 Route::match(['get', 'post'], 'contact-us', ['as' => 'contact-us', 'uses' => 'frontend\contactus\ContactusController@contactus']);

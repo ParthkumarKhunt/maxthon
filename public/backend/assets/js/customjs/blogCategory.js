@@ -45,6 +45,7 @@ var BlogCategory = function() {
             });
         });
     }
+    
     var add = function() {
 
         var form = $('#add-blog-category-form');
