@@ -1574,3 +1574,135 @@ screen and (max-height: 300px) {
 
 @media (max-width:380px) {}
 
+
+section.career-list {
+    padding: 70px 0;
+    background: #fdfdfd;
+}
+.career-box {
+    padding: 24px;
+    margin-bottom: 30px;
+    background: #fff no-repeat bottom 26px right 26px / 54px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 270px;
+    background-color: #fff;
+    box-shadow: 0 16px 32px 0 rgb(0 0 0 / 7%);
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    position: relative;
+}
+.career-box:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    box-shadow: 0 16px 32px 0 rgb(0 0 0 / 10%);
+}
+.career-box:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 64px;
+    display: block;
+    background: #01b3e4;
+    content: "";
+}
+.career-box h6 {
+    font-size: 24px;
+    line-height: 36px;
+    color: #1c2530;
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+.career-box p {
+    text-transform: capitalize;
+    font-size: 18px;
+    line-height: 32px;
+    margin: 0;
+    color: #333;
+}
+.career-box > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+.other-career-box {
+    background: #1c2530;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.other-career-box:before {
+    background: #e22264;
+}
+.other-career-box h6, .other-career-box small {
+    color: #fff;
+}
+.career-list-banner {
+  margin: 70px 0;
+}
+.career-list-banner h6 {
+    font-size: 18px;
+    line-height: 28px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.career-list-banner h2 {
+    font-size: 50px;
+    line-height: 78px;
+    font-weight: 900;
+}
+.career-contact a {
+    padding: 12px;
+    padding-left: 75px;
+    color: #1c2530;
+    min-width: 350px;
+    margin: 20px 25px 0px 0px;
+    display: inline-block;
+    float: left;
+    border-radius: 50px;
+    font-size: 20px;
+    line-height: 46px;
+    font-weight: 500;
+    text-decoration: none;
+    z-index: 1;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #01b3e4;
+}
+.career-contact a::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    background: #01b3e4;
+    border-radius: 50%;
+    font-family: 'Font Awesome 5 Free';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #fff;
+}
+.career-contact a.email::after {
+    content: '\f658';
+}
+.career-contact a.phone::after {
+    content: '\f3cd';
+}
+.career-contact::after {
+  content: "";
+  clear: both;
+  display: table;
+}
