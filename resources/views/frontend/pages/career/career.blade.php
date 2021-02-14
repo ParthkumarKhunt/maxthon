@@ -1,13 +1,13 @@
 @extends('frontend.layout.app')
 @section('section')
 
-  
+
     <div class="container">
         <div class="career-list-banner">
             <h6>{{$department[0]->line1}}</h6>
             <h2>{{ $department[0]->line2 }}</h2>
-            <div class="career-contact"> 
-                <a href="" class="email">{{ $department[0]->email }}</a> 
+            <div class="career-contact">
+                <a href="" class="email">{{ $department[0]->email }}</a>
                 <a href="" class="phone">{{ $department[0]->phoneno }}</a>
             </div>
         </div>
@@ -23,17 +23,16 @@
                         <a href="{{ route('careerdetail',$value->id)}}"></a>
                     </div>
                 </div>
-            @endforeach   
-             
+            @endforeach
+
             </div>
-            
+
        <div class="container mt-5 mb-5">
 
 <div class="row">
     <div class="col-md-8 mx-auto">
         <div class="contact-title">
             <h3>Ask Your Question</h3>
-          
         </div>
         <br/>
         <div id="alertDiv">
