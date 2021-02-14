@@ -15,10 +15,10 @@ class CreateCarrerTable extends Migration
     {
         Schema::create('carrer', function (Blueprint $table) {
             $table->id();
-            $table->string('department_id'); 
-            $table->string('headline');          
+            $table->string('department_name'); 
+            $table->string('icon');
+            $table->string('experience');   
             $table->text('details');
-            $table->text('experience');
             $table->enum('is_deleted',['Yes','No'])->default('No');
             $table->timestamps();
         });

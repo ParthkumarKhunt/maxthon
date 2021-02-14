@@ -15,8 +15,10 @@ class CreateDepartmentTable extends Migration
     {
         Schema::create('department', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); 
-            $table->enum('is_deleted',['Yes','No'])->default('No');         
+            $table->string('line1'); 
+            $table->string('line2'); 
+            $table->string('email');
+            $table->string('phoneno');       
             $table->timestamps();
         });
     }

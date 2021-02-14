@@ -15,9 +15,10 @@ class Carrer extends Model
         $requestData = $_REQUEST;
         $columns = array(
             0 => 'id',
-            1 => 'headline',
-            2 => 'details',
-            3 => 'experience'
+            1 => 'department_name',
+            2 => 'icon',
+            3 => 'experience',
+            4 => 'details'
         );
         $query = Carrer ::from('carrer')
                     ->where("is_deleted","No");
@@ -48,21 +49,23 @@ class Carrer extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('id','headline','department_id','details','experience')
+                ->select('id','department_name','icon','details','experience')
                 ->where("is_deleted","No")
                 ->get();
         $data = array();
         $i = 0;
         foreach ($resultArr as $row) {
+            $image = url("public/upload/career/" . $row['icon']);
             $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteCarrer" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
             .'<a href="' . route('admin-carrer-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
 
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
-            $nestedData[] = $row['headline'];
-            $nestedData[] = $row['details'];
+            $nestedData[] = $row['department_name'];
+            $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
             $nestedData[] = $row['experience'];
+            $nestedData[] = substr($row['details'],0,250);
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -76,80 +79,57 @@ class Carrer extends Model
     }
     public function addCarrer($request){
         $obj = new Carrer();
-        $obj->department_id = $request->input('department_id');
-        $obj->headline = $request->input('headline');
+        if ($request->file('icon')) {
+            $imagenew = $request->file('icon');
+            $icon = time() . '1.' . $imagenew->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/career');
+            $imagenew->move($destinationPath, $icon);
+            $obj->icon = $icon;
+        }
+        $obj->department_name = $request->input('department_name');
         $obj->details = $request->input('details');
         $obj->experience = $request->input('experience');
         $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
-        $result = $obj->save();
-        $lastid = $obj->id;
-        if ($lastid != '') {
-            $skill = $request->input('skills');
-            $i = 0;
-            $skills = array();
-            if ($skill) {
-                foreach ($skill as $key => $value) {
-                    $objskill = new Skills();
-                    $objskill->skills= $skill[$i];
-                    $objskill->carrer_id = $lastid;
-                    $objskill->created_at = date("Y-m-d h:i:s");
-                    $objskill->updated_at = date("Y-m-d h:i:s");
-                    $objskill->save();
-                    $i++;
-                }
-            }
-            return "true";
-        }
-        return "true";
+        return $obj->save();          
+        
     }
     public function getDetail($id){
         return Carrer::from('carrer')
-        ->join("skills","carrer.id","=","skills.carrer_id")
-        ->select('carrer.id','carrer.headline','carrer.details','carrer.experience','carrer.department_id','skills.skills as skills_details','skills.id as skills_id')
+        ->select('carrer.id','carrer.department_name','carrer.details','carrer.experience','carrer.icon')
         ->where("carrer.is_deleted","No")
         ->where("carrer.id",$id)
+        ->get();
+     }
+     public function getDetailWithoutId($id){
+        return Carrer::from('carrer')
+        ->select('carrer.id','carrer.department_name','carrer.details','carrer.experience','carrer.icon')
+        ->where("carrer.is_deleted","No")
+        ->where("carrer.id",'!=',$id)
         ->get();
      }
 
     public function editDetail($request){
         $obj  = Carrer::find($request->input('editId'));
-        $obj->department_id = $request->input('department_id');
-        $obj->headline = $request->input('headline');
+        if ($request->file('icon')) {
+            $imagenew = $request->file('icon');
+            $icon = time() . '1.' . $imagenew->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/career');
+            $imagenew->move($destinationPath, $icon);
+            $obj->icon = $icon;
+        }
+        $obj->department_name = $request->input('department_name');
         $obj->details = $request->input('details');
         $obj->experience = $request->input('experience');
         $obj->updated_at = date("Y-m-d h:i:s");
-        $result = $obj->save();
-        $skills = $request->input('skills');
-        // echo "<pre>";
-        // print_r($skills[0]);
-        // die;
-        if($skills[0]){
-            $skills = $request->input('skills');
-            $i = 0;
-            foreach ($skills as $key => $value) {
-                $objskill = new Skills();
-                $objskill->skills= $skills[$i];
-                $objskill->carrer_id = $request->input('editId');
-                $objskill->updated_at = date("Y-m-d h:i:s");
-                $objskill->save();
-                $i++;
-            }
-            return "true";
-        }else{
-            return "true";
-        }
-        return "true";
+        return $obj->save();
+      
      }
 
     public function getAllDetails(){
         return Carrer::from('carrer')
-                        ->join("skills","carrer.id","=","skills.carrer_id")
-                        ->join("department","department.id","=","carrer.department_id")
-                        ->select('carrer.id','carrer.headline','carrer.details','carrer.experience','carrer.department_id',
-                        'department.name as dept_name', DB::raw('GROUP_CONCAT(skills.skills) AS skills_details'))
+                        ->select('carrer.id','carrer.department_name','carrer.details','carrer.experience','carrer.icon')
                         ->where("carrer.is_deleted","No")
-                        ->groupBy("skills.carrer_id")
                         ->get();
     }
 

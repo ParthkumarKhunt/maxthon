@@ -20,35 +20,30 @@
                     <form class="form" id="add-career-form" method="POST">@csrf
 
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="exampleSelect1">Department Category <span
-                                        class="text-danger">*</span></label>
-                                <select class="form-control" id="department_id" name="department_id">
-                                    <option value="">-- Select -- </option>
-                                    @foreach($menu as $key => $value)
-                                    <option value="{{ $value->id }}">{{ $value->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                        <div class="form-group ">
+                            <label class="col-form-label ">Department Name (Max  : 30 Characters)
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="department_name" name="department_name"  placeholder="Please enter department name"/>
+                        </div>
+
                             <div class="form-group ">
-                                <label class="col-form-label ">Headline
-                                    <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="headline" name="headline"
-                                    placeholder="Please enter headline" />
-                            </div>
-                            <div class="form-group ">
-                                <label class="col-form-label ">Details
-                                    <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="details1" name="details"
-                                    placeholder="Please enter details" />
-                            </div>
-                            <div class="form-group ">
+                            <label class="col-form-label ">icon (Size : 50px * 50px)
+                            <span class="text-danger">*</span></label>
+                            <input type="file" accept="image/*" class="form-control" id="icon" name="icon" accept="image/*"/>
+                        </div>
+                        <div class="form-group ">
                                 <label class="col-form-label ">Experience
                                     <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="experience" name="experience"
-                                    placeholder="Please enter experience" />
+                                   placeholder="Please enter experience" />
                             </div>
-                            <div class="form-group ">
+
+                        <div class="form-group ">
+                            <label class="col-form-label ">Description
+                            <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="details" name="details" placeholder="Please enter  description"></textarea>
+                        </div>    
+                            <!-- <div class="form-group ">
                                 <label class="col-form-label ">Skills<span class="text-danger">*</span></label>
                                 <div class="appendDiv">
                                     <div class="row">
@@ -63,7 +58,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
 
                             <div class="card-footer">

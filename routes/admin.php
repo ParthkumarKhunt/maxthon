@@ -106,10 +106,11 @@ Route::match(['get', 'post'], 'admin-faqs-ajaxaction', ['as' => 'admin-faqs-ajax
     Route::match(['get', 'post'], 'admin-blog-edit/{id}', ['as' => 'admin-blog-edit', 'uses' => 'backend\admin\blog\BlogController@edit']);
     Route::match(['get', 'post'], 'admin-blog-ajaxaction', ['as' => 'admin-blog-ajaxaction', 'uses' => 'backend\admin\blog\BlogController@ajaxAction']);
 //career
-Route::match(['get', 'post'], 'admin-department', ['as' => 'admin-department', 'uses' => 'backend\admin\department\DepartmentController@list']);
-Route::match(['get', 'post'], 'admin-department-add', ['as' => 'admin-department-add', 'uses' => 'backend\admin\department\DepartmentController@add']);
-Route::match(['get', 'post'], 'admin-department-edit/{id}', ['as' => 'admin-department-edit', 'uses' => 'backend\admin\department\DepartmentController@edit']);
+Route::match(['get', 'post'], 'admin-department', ['as' => 'admin-department', 'uses' => 'backend\admin\department\DepartmentController@details']);
+// Route::match(['get', 'post'], 'admin-department-add', ['as' => 'admin-department-add', 'uses' => 'backend\admin\department\DepartmentController@add']);
+// Route::match(['get', 'post'], 'admin-department-edit/{id}', ['as' => 'admin-department-edit', 'uses' => 'backend\admin\department\DepartmentController@edit']);
 Route::match(['get', 'post'], 'admin-department-ajaxaction', ['as' => 'admin-department-ajaxaction', 'uses' => 'backend\admin\department\DepartmentController@ajaxAction']);
+
 Route::match(['get', 'post'], 'admin-carrer', ['as' => 'admin-carrer', 'uses' => 'backend\admin\career\CarrerController@list']);
 Route::match(['get', 'post'], 'admin-carrer-add', ['as' => 'admin-carrer-add', 'uses' => 'backend\admin\career\CarrerController@add']);
 Route::match(['get', 'post'], 'admin-carrer-edit/{id}', ['as' => 'admin-carrer-edit', 'uses' => 'backend\admin\career\CarrerController@edit']);

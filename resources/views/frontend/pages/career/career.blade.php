@@ -4,95 +4,88 @@
   
     <div class="container">
         <div class="career-list-banner">
-            <h6>We have a range of amazing opportunities available</h6>
-            <h2>Join Our Team</h2>
+            <h6>{{$department[0]->line1}}</h6>
+            <h2>{{ $department[0]->line2 }}</h2>
             <div class="career-contact"> 
-                <a href="" class="email">demo@gmail.com</a> 
-                <a href="" class="phone">+91 123456789</a>
+                <a href="" class="email">{{ $department[0]->email }}</a> 
+                <a href="" class="phone">{{ $department[0]->phoneno }}</a>
             </div>
         </div>
     </div>
     <section class="career-list">
         <div class="container">
             <div class="row">
+            @foreach($carrer as $key => $value)
                 <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2020/01/react-developer.svg);">
-                        <h6>React Native Developer</h6>
-                        <p>MIN 2 YEARS</p>
-                        <a href="#"></a>
+                    <div class="career-box" style="background-image: url({{ asset('public/upload/career/'.$value->icon) }});">
+                        <h6>{{ $value->department_name }}</h6>
+                        <p>{{ $value->experience }}</p>
+                        <a href="{{ route('careerdetail',$value->id)}}"></a>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2019/12/career-ic-BA.svg);">
-                        <h6>Business Analyst</h6>
-                        <p>3 YEARS</p>
-                        <a href="#"></a>
+            @endforeach   
+             
+            </div>
+            
+       <div class="container mt-5 mb-5">
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="contact-title">
+            <h3>Ask Your Question</h3>
+          
+        </div>
+        <br/>
+        <div id="alertDiv">
+
+        </div>
+        <form id="career-form-add" method="post" >
+            @csrf
+            <div class="messages"></div>
+            <div class="controls">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                        <lable>Your full Name *</lable>
+                            <input id="form_name" type="text" name="name" class="form-control custom-form" placeholder="Enter your full name" required="required" data-error="Enter your full name.">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                        <lable>Your Email *</lable>
+                            <input id="form_email" type="email" name="email" class="form-control custom-form" placeholder="Enter your email" required="required" data-error="Enter your email.">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                        <lable>Your mobile number</lable>
+                            <input id="form_phone" type="tel" name="phone" class="form-control custom-form onlyNumber" placeholder="Enter your moblie number">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                        <lable>Attach your resume (Only .pdf files)*</lable>
+                            <input id="form_file" type="file" name="file" accept="application/pdf, application/vnd.ms-excel" class="form-control custom-form">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <lable>Leave your message ( Maxlength 240 characters )</lable>
+                            <textarea id="form_message" name="message" class="form-control message-form custom-form" placeholder="*Your message" rows="6" required="required" data-error="Please,leave us a message."></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2020/07/python-developer.svg);">
-                        <h6>Python Developer</h6>
-                        <p>MIN 2 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2020/01/react-developer.svg);">
-                        <h6>React JS Developer</h6>
-                        <p>1 - 5 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2019/09/src_wordpress-dev.svg);">
-                        <h6>Jr. WordPress Developer</h6>
-                        <p>1 - 2 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2019/09/src_node-js.svg);">
-                        <h6>Node JS Developer</h6>
-                        <p>1 - 2 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2019/12/career-ic-laravel.svg);">
-                        <h6>Laravel Developer</h6>
-                        <p>1 - 2 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2019/09/src_native-ios.svg);">
-                        <h6>iOS Developer</h6>
-                        <p>1 - 2 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2019/12/career-ic-android.svg);">
-                        <h6>Android Developer</h6>
-                        <p>1 - 2 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box" style="background-image: url(https://www.yudiz.com/wp-content/uploads/2019/06/career-ic-mean-stack.svg);">
-                        <h6>Mean Stack Developer</h6>
-                        <p>1 - 2 YEARS</p>
-                        <a href="#"></a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-4">
-                    <div class="career-box other-career-box">
-                        <small>Not Listed Here?</small>
-                        <h6>Apply For Other</h6>
-                        <a href="#"></a>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12 btn-send">
+                        <p><input type="submit" class="btn btn-washla" value="Send message"></p>
                     </div>
                 </div>
             </div>
+        </form>
+    </div>
+</div>
+</div>
         </div>
     </section>
 

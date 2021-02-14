@@ -48,7 +48,7 @@
                             <input type="file" accept="image/*" class="form-control" id="image" name="image" />
                         </div>
                         <div class="form-group ">
-                            <label class="col-form-label ">Image (Size : 50px * 50px)
+                            <label class="col-form-label ">Icon (Size : 50px * 50px)
                                 <span class="text-danger">*</span></label>
                                 <br>
                                     <img src="{{ asset('public/upload/services/'.$details[0]->icon) }}" alt="icon" style="width: 50px ;height: 50px ">

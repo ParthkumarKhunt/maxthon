@@ -8,118 +8,18 @@ use DB;
 class Department extends Model
 {
     use HasFactory;
-    protected $table = 'department';
+    protected $table = 'department'; 
 
-    public function getdatatable(){
-        $requestData = $_REQUEST;
-        $columns = array(
-            0 => 'id',
-            1 => 'name',
-
-        );
-        $query = Department ::from('department')
-                    ->where("is_deleted","No");
-
-
-        if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
-            $searchVal = $requestData['search']['value'];
-            $query->where(function($query) use ($columns, $searchVal, $requestData) {
-                $flag = 0;
-                foreach ($columns as $key => $value) {
-                    $searchVal = $requestData['search']['value'];
-                    if ($requestData['columns'][$key]['searchable'] == 'true') {
-                        if ($flag == 0) {
-                            $query->where($value, 'like', '%' . $searchVal . '%');
-                            $flag = $flag + 1;
-                        } else {
-                            $query->orWhere($value, 'like', '%' . $searchVal . '%');
-                        }
-                    }
-                }
-            });
-        }
-
-        $temp = $query->orderBy($columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir']);
-
-        $totalData = count($temp->get());
-        $totalFiltered = count($temp->get());
-
-        $resultArr = $query->skip($requestData['start'])
-                ->take($requestData['length'])
-                ->select('id','name')
-                ->where("is_deleted","No")
-                ->get();
-        $data = array();
-        $i = 0;
-        foreach ($resultArr as $row) {
-            $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteDepartment" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
-            .'<a href="' . route('admin-department-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
-
-            $i++;
-            $nestedData = array();
-            $nestedData[] = $i;
-            $nestedData[] = $row['name'];
-            $nestedData[] = $actionhtml;
-            $data[] = $nestedData;
-        }
-        $json_data = array(
-            "draw" => intval($requestData['draw']), // for every request/draw by clientside , they send a number as a parameter, when they recieve a response/data they first check the draw number, so we are sending same number in draw.
-            "recordsTotal" => intval($totalData), // total number of records
-            "recordsFiltered" => intval($totalFiltered), // total number of records after searching, if there is no searching then totalFiltered = totalData
-            "data" => $data   // total data array
-        );
-        return $json_data;
-    }
-    public function addSubmenu($data){
-        $count = Department::where("name", $data)
-       ->count();
-       if ($count == 0) {
-           $obj = new Department();
-           $obj->name = $data;
-           $obj->created_at = date("Y-m-d h:i:s");
-           $obj->updated_at = date("Y-m-d h:i:s");
-           if ($obj->save()) {
-             return "true";
-           } else {
-               return "wrong";
-            }
-       }
-       else {
-            return "exits";
-       }
-    }
-    public function getDetail($id){
-        return Department::select('id','name')->where("id",$id)->get();
+    public function getDetail(){
+            return Department::select("phoneno","email","line1","line2")->where("id",1)->get();
     }
     public function editDetail($request){
-        $count = Department::where("name",$request->input('name'))
-        ->count();
-        if ($count == 0) {
-            $obj  = Department::find($request->input('editId'));
-            $obj->name = $request->input('name');
-            $obj->updated_at = date("Y-m-d h:i:s");
-            if ($obj->save()) {
-              return "true";
-            } else {
-                return "wrong";
-             }
-        }
-        else {
-             return "exits";
-        }
-
+        $objDetails = Department::find(1);
+        $objDetails->phoneno = $request->input('phoneno');
+        $objDetails->email = $request->input('email');
+        $objDetails->line1 = $request->input('line1');
+        $objDetails->line2 = $request->input('line2');
+        $objDetails->updated_at = date("Y-m-d h:i:s");
+        return $objDetails->save();
     }
-
-    public function getAllDetails(){
-        return Department::select('id','name')
-        ->where("is_deleted","No")->get();
-    }
-
-    public function  deleteDepartment($data){
-        $obj = Department::find($data['id']);
-        $obj->is_deleted = "Yes";
-        $obj->updated_at = date("Y-m-d h:i:s");
-        return $obj->save();
-    }
-
 }

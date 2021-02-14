@@ -34,6 +34,7 @@ Route::match(['get', 'post'], 'about-us', ['as' => 'about-us', 'uses' => 'fronte
 
 // career
 Route::match(['get', 'post'], 'career', ['as' => 'career', 'uses' => 'frontend\career\CareerController@career']);
+Route::match(['get', 'post'], 'careerdetail/{id}', ['as' => 'careerdetail', 'uses' => 'frontend\career\CareerController@careerdetail']);
 
 // faqs
 Route::match(['get', 'post'], 'faqs', ['as' => 'faqs', 'uses' => 'frontend\faqs\FaqsController@faqs']);

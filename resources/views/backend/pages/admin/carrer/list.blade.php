@@ -25,9 +25,10 @@
                     <thead>
                         <tr>
                             <th>Sr. No</th>
-                            <th>Headline</th>
-                            <th>Details</th>
+                            <th>Department Name</th>
+                            <th>icon</th>
                             <th>Experience</th>
+                            <th>Details</th>
                             <th>Actions</th> 
                          </tr>
                     </thead>

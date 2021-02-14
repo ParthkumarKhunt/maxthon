@@ -5,7 +5,7 @@ namespace App\Http\Controllers\backend\admin\career;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Carrer;
-use App\Models\Department;
+
 use App\Models\Skills;
 use App\Models\CareerDetail;
 
@@ -53,8 +53,8 @@ class CarrerController extends Controller
 
     }
     public function add (Request $request){
-        $objDetails = new Department();
-        $data['menu'] = $objDetails->getAllDetails();
+        // $objDetails = new Department();
+        // $data['menu'] = $objDetails->getAllDetails();
          if ($request->isMethod('post')) {
             $obj = new Carrer();
             $result  = $obj->addCarrer($request);
@@ -98,7 +98,9 @@ class CarrerController extends Controller
         $data['pluginjs'] = array(
             'toastr/toastr.min.js',
             'plugins/validate/jquery.validate.min.js',
-            'pages/crud/file-upload/image-inputd1cf.js'
+            'pages/crud/file-upload/image-inputd1cf.js',
+            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
+            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
         );
 
         $data['js'] = array(
@@ -122,8 +124,8 @@ class CarrerController extends Controller
 
     }
     public function edit(Request $request,$id){
-        $objDetails = new Department();
-        $data['menu'] = $objDetails->getAllDetails();
+        // $objDetails = new Department();
+        // $data['menu'] = $objDetails->getAllDetails();
         $obj = new Carrer();
         $result['details'] = $obj->getDetail($id);
         // echo '<pre>';

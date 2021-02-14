@@ -49,11 +49,10 @@ var Carrer = function() {
     var add = function() {
         var form = $('#add-career-form');
         var rules = {
-            department_id: { required: true},
-            headline: { required: true},
+            department_name: { required: true},
+            icon: { required: true},
             details: { required: true},
             experience: { required: true},
-            skills: { required: true},
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
@@ -102,8 +101,7 @@ var Carrer = function() {
     var edit = function() {
         var form = $('#edit-career-form');
         var rules = {
-            department_id: { required: true},
-            headline: { required: true},
+            department_name: { required: true},
             details: { required: true},
             experience: { required: true},
          };
