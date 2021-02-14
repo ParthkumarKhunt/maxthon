@@ -36,8 +36,15 @@
                             <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="title" name="title"  placeholder="Please enter title"/>
                         </div>
+                        
                         <div class="form-group ">
-                            <label class="col-form-label ">Description (Max  : 120 Characters)
+                            <label class="col-form-label ">Short Description (Max  : 240 Characters)
+                            <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="short_description" name="short_description" placeholder="Please enter short description"></textarea>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-form-label ">Description 
                             <span class="text-danger">*</span></label>
                             <textarea class="form-control" id="details" name="description" placeholder="Please enter  description"></textarea>
                         </div>

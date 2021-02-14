@@ -18,7 +18,7 @@
                                 <div class="bp-caption">
                                     <h6>{{ $value->name }}</h6>
                                     <h5>{{ $value->title }}</h5>
-                                    <p>{!! substr($value->description, 0,  100) !!}.</p>
+                                    <p>{{ $value->short_description }}</p>
                                     <a class="btn-washla" href="{{ route('blogdetail',$value->id)}}" role="button">Read More</a>
                                 
                                 </div>

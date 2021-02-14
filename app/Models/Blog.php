@@ -89,7 +89,8 @@ class Blog extends Model
             $obj->image = $blogimage;
         }      
         $obj->title = $request->input('title');
-        $obj->category_id = $request->input('category_id');  
+        $obj->category_id = $request->input('category_id'); 
+        $obj->short_description = $request->input('short_description');   
         $obj->description = $request->input('description');
            $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
@@ -98,7 +99,7 @@ class Blog extends Model
             
     }
     public function getDetail($id){
-        return Blog::select('id','category_id','image','title','description')->where("id",$id)->get();
+        return Blog::select('id','category_id','image','title','short_description','description')->where("id",$id)->get();
     }
     public function editDetail($request){
         $obj = new Blog();
@@ -111,7 +112,8 @@ class Blog extends Model
             $obj->image = $blogimage;
         }
         $obj->title = $request->input('title');
-        $obj->category_id = $request->input('category_id');  
+        $obj->category_id = $request->input('category_id'); 
+        $obj->short_description = $request->input('short_description');  
         $obj->description = $request->input('description');
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
@@ -120,14 +122,14 @@ class Blog extends Model
     public function getAllDetails(){
         return Blog::from('blog')
                     ->join("blog_category","blog_category.id","=","blog.category_id")
-                    ->select('blog.id','blog_category.name','blog.image','blog.title','blog.description')
+                    ->select('blog.id','blog_category.name','blog.image','blog.title','blog.short_description','blog.description')
                     ->where("blog.is_deleted","No")
                     ->get();
     }
     public function getBlogsDetail($id){
         return Blog::from('blog')
                     ->join("blog_category","blog_category.id","=","blog.category_id")
-                    ->select('blog.id','blog_category.name','blog.image','blog.title','blog.description')
+                    ->select('blog.id','blog_category.name','blog.image','blog.title','blog.short_description','blog.description')
                     ->where("blog.is_deleted","No")
                     ->where("blog.id",$id)
                     ->get();
