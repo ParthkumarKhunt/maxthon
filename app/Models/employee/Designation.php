@@ -94,4 +94,7 @@ class Designation extends Model
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
+    public function getAllDetails(){
+        return Designation::select('id','designation','department_id')->get();
+    }
 }

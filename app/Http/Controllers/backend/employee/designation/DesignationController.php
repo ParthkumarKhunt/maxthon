@@ -4,8 +4,8 @@ namespace App\Http\Controllers\backend\employee\designation;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Department;
-use App\Models\Designation;
+use App\Models\employee\Department;
+use App\Models\employee\Designation;
 use Config;
 class DesignationController extends Controller
 {
@@ -33,7 +33,7 @@ class DesignationController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'blog.js'
+            'designation.js'
         );
         $data['funinit'] = array(
             'Designation.list()'
@@ -41,16 +41,16 @@ class DesignationController extends Controller
         $data['header'] = array(
             'title' => 'Designation',
             'breadcrumb' => array(
-                'Dashboard'=> route('admin-dashboard'),
+                'Dashboard'=> route('employee-dashboard'),
                 'Designation'=> 'Designation',
             )
         );
-        return view('backend.pages.admin.blog.list', $data);
+        return view('backend.employee.pages.designation.list', $data);
 
     }
 
     public function add (Request $request){
-        $obj = new DesignationCategory();
+        $obj = new Department();
         $data['menu']  = $obj->getAllDetails();
          if ($request->isMethod('post')) {
             $obj = new Designation();
@@ -69,7 +69,7 @@ class DesignationController extends Controller
                     if ($result == "exits") {
                         $return['status'] = 'error';
                         $return['message'] = 'The Designation is already there.';
-                        $return['redirect'] = route('admin-blog');
+                        $return['redirect'] = route('employee-designation');
                     } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -103,7 +103,7 @@ class DesignationController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'blog.js'
+            'designation.js'
         );
         $data['funinit'] = array(
             'Designation.add()'
@@ -111,16 +111,16 @@ class DesignationController extends Controller
         $data['header'] = array(
             'title' => 'Add Designation',
             'breadcrumb' => array(
-                'Dashboard'=> route('admin-dashboard'),
-                'Designation' => route('admin-blog'),
+                'Dashboard'=> route('employee-dashboard'),
+                'Designation' => route('employee-designation'),
                 'Add Designation'=> 'Add Designation',
             )
         );
-        return view('backend.pages.admin.blog.add', $data);
+        return view('backend.employee.pages.designation.add', $data);
 
     }
     public function edit(Request $request,$id){
-        $obj = new DesignationCategory();
+        $obj = new Department();
         $data['menu']  = $obj->getAllDetails();
         if ($request->isMethod('post')) {
 
@@ -131,7 +131,7 @@ class DesignationController extends Controller
                 $return['status'] = 'success';
                 $return['message'] = 'Designation successfully edited!';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
-                $return['redirect'] = route('admin-blog');
+                $return['redirect'] = route('employee-designation');
             } else {
                 if ($result == "wrong") {
                     $return['status'] = 'error';
@@ -141,7 +141,7 @@ class DesignationController extends Controller
                     if ($result == "exits") {
                         $return['status'] = 'error';
                         $return['message'] = 'The Designation is already there.';
-                        $return['redirect'] = route('admin-blog');
+                        $return['redirect'] = route('employee-designation');
                     } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
@@ -175,7 +175,7 @@ class DesignationController extends Controller
             'comman_function.js',
             'ajaxfileupload.js',
             'jquery.form.min.js',
-            'blog.js'
+            'designation.js'
         );
         $data['funinit'] = array(
             'Designation.edit()'
@@ -183,12 +183,12 @@ class DesignationController extends Controller
         $data['header'] = array(
             'title' => 'Edit Designation',
             'breadcrumb' => array(
-                'Dashboard' => route('admin-dashboard'),
+                'Dashboard' => route('employee-dashboard'),
                 'Designation' => route('employee-designation'),
                 'Edit Designation' => 'Edit Designation',
             )
         );
-        return view('backend.pages.admin.blog.edit', $data);
+        return view('backend.employee.pages.designation.edit', $data);
     }
     public function ajaxAction(Request $request) {
         $action = $request->input('action');
