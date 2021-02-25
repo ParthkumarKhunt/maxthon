@@ -42,23 +42,7 @@
                             <label class="col-form-label ">Description
                             <span class="text-danger">*</span></label>
                             <textarea class="form-control" id="details" name="details" placeholder="Please enter  description"></textarea>
-                        </div>    
-                            <!-- <div class="form-group ">
-                                <label class="col-form-label ">Skills<span class="text-danger">*</span></label>
-                                <div class="appendDiv">
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <input type="text" class="form-control" id="skills" name="skills[]"
-                                                placeholder="Please enter skills" />
-                                        </div>
-                                        <div class="col-3">
-                                            <button type="button"
-                                                class="btn  btn-primary font-weight-bold addSkills btn-block"><i
-                                                    class="feather icon-plus"></i>Add skills</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+                        </div>
 
 
                             <div class="card-footer">

@@ -20,7 +20,7 @@
                 <form class="form" id="add-client-form" method="POST">@csrf
                     <div class="card-body">
                         <div class="form-group ">
-                            <label class="col-form-label ">Client Logo
+                            <label class="col-form-label ">Client Logo ( Size : 600px * 300px without background)
                             <span class="text-danger">*</span></label>
                             <input type="file" accept="image/*" class="form-control" id="logo" name="logo" />
                         </div>

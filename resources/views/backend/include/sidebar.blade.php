@@ -67,7 +67,9 @@ $logodetails = getdetails();
                     </a>
                 </li>
 
-                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-home-silder-add' || $currentRoute == 'admin-home-silder' || $currentRoute == 'admin-home-silder-edit' || $currentRoute == 'admin-top-section' || $currentRoute == 'admin-section2' || $currentRoute == 'admin-banner-section' ? 'menu-item-active menu-item-open' : '' )  }}"
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-home-service-add' || $currentRoute == 'admin-home-service' || $currentRoute == 'admin-home-service-edit' ||
+                    $currentRoute == 'admin-home-silder-add' || $currentRoute == 'admin-home-silder' || $currentRoute == 'admin-home-silder-edit'
+                    || $currentRoute == 'admin-top-section' || $currentRoute == 'admin-banner-section' ||  $currentRoute == 'admin-section2'  ? 'menu-item-active menu-item-open' : '' )  }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -196,7 +198,7 @@ $logodetails = getdetails();
                     </a>
                 </li>
 
-                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-department-add' || $currentRoute == 'admin-department' || $currentRoute == 'admin-department-edit' || $currentRoute == 'admin-carrer-add' || $currentRoute == 'admin-carrer-list'|| $currentRoute == 'admin-carrer' || $currentRoute == 'admin-carrer-edit' ? 'menu-item-active menu-item-open' : '' )  }}"
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-department-add' || $currentRoute == 'admin-career-details' || $currentRoute == 'admin-department-edit' || $currentRoute == 'admin-carrer-add' || $currentRoute == 'admin-carrer-list'|| $currentRoute == 'admin-carrer' || $currentRoute == 'admin-carrer-edit' ? 'menu-item-active menu-item-open' : '' )  }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -221,11 +223,11 @@ $logodetails = getdetails();
                     <div class="menu-submenu">
                         <i class="menu-arrow"></i>
                         <ul class="menu-subnav">
-                            <li class="menu-item {{ ( $currentRoute == 'admin-department-add' || $currentRoute == 'admin-department' || $currentRoute == 'admin-department-edit' ? 'menu-item-active ' : '' )  }}"
+                            <li class="menu-item {{ ( $currentRoute == 'admin-career-details' ? 'menu-item-active ' : '' )  }}"
                                 aria-haspopup="true">
-                                <a href="{{ route('admin-department') }}" class="menu-link">
+                                <a href="{{ route('admin-career-details') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right"
-                                            style="color: white"></i>&nbsp;&nbsp;Department</span>
+                                            style="color: white"></i>&nbsp;&nbsp;Carrer Page Details</span>
                                 </a>
                             </li>
                             <li class="menu-item {{ ( $currentRoute == 'admin-carrer-add' || $currentRoute == 'admin-carrer' || $currentRoute == 'admin-carrer-edit' ? 'menu-item-active ' : '' )  }}"
@@ -240,7 +242,7 @@ $logodetails = getdetails();
                                 aria-haspopup="true">
                                 <a href="{{ route('admin-carrer-list') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right"
-                                            style="color: white"></i>&nbsp;&nbsp;Carrer List</span>
+                                            style="color: white"></i>&nbsp;&nbsp;Carrer Inquiry List</span>
                                 </a>
                             </li>
 

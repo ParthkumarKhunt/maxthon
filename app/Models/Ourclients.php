@@ -59,7 +59,7 @@ class Ourclients extends Model
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
-            $nestedData[] = '<img class="rounded-circle" height="50px" width="50px" src="' . $image . '" style="margin:10px;">';
+            $nestedData[] = '<img class="" height="100px" width="150px" src="' . $image . '" style="margin:10px;">';
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }

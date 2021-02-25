@@ -25,7 +25,7 @@
                             <label class="col-form-label ">Icon (Size : 50px * 50px)
                                 <span class="text-danger">*</span></label>
                                 <br>
-                                    <img src="{{ asset('public/upload/topsection/'.$details[0]->icon) }}" alt="Icon Image" style="width: 50px ;height: 50px ">
+                                    <img src="{{ asset('public/upload/topsection/'.$details[0]->icon) }}" alt="Icon Image" class=" bg-blue" style="width: 50px ;height: 50px ">
                                 <br><br>
                             <input type="file" accept="image/*" class="form-control" id="icon" name="icon" />
                         </div>

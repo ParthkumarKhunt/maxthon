@@ -34,3 +34,8 @@
             .aside-menu .menu-nav>.menu-item .menu-submenu .menu-item.menu-item-active>.menu-link {
                 background-color: #3699FF !important;
             }
+            
+            .bg-blue{
+                background-color: #01b3e4;
+                padding: 5px !important;
+            }

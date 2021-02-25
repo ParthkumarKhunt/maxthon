@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
     protected $table = 'blog';
- 
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
@@ -65,7 +65,7 @@ class Blog extends Model
             $nestedData[] = $i;
             $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
             $nestedData[] = $row['title'];
-            $nestedData[] = $row['description'];             
+            $nestedData[] = $row['description'];
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -78,25 +78,25 @@ class Blog extends Model
         return $json_data;
     }
     public function addBlog($request){
-      
+
         $obj = new Blog();
-   
+
         if ($request->file('image')) {
             $image = $request->file('image');
             $blogimage = time() . '1.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/upload/blog');
             $image->move($destinationPath, $blogimage);
             $obj->image = $blogimage;
-        }      
+        }
         $obj->title = $request->input('title');
-        $obj->category_id = $request->input('category_id'); 
-        $obj->short_description = $request->input('short_description');   
+        $obj->category_id = $request->input('category_id');
+        $obj->short_description = $request->input('short_description');
         $obj->description = $request->input('description');
            $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
 
-            
+
     }
     public function getDetail($id){
         return Blog::select('id','category_id','image','title','short_description','description')->where("id",$id)->get();
@@ -112,8 +112,8 @@ class Blog extends Model
             $obj->image = $blogimage;
         }
         $obj->title = $request->input('title');
-        $obj->category_id = $request->input('category_id'); 
-        $obj->short_description = $request->input('short_description');  
+        $obj->category_id = $request->input('category_id');
+        $obj->short_description = $request->input('short_description');
         $obj->description = $request->input('description');
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();

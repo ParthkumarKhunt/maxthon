@@ -28,7 +28,7 @@
 
 
                             <div class="form-group ">
-                                <label class="col-form-label ">Description (Max : 120 Characters)
+                                <label class="col-form-label ">Description 
                                     <span class="text-danger">*</span></label>
                                 <textarea class="form-control" id="details" name="description"
                                     placeholder="Please enter description">{{  $details[0]->description }}</textarea>

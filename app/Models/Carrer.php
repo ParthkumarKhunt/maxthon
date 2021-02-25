@@ -65,7 +65,7 @@ class Carrer extends Model
             $nestedData[] = $row['department_name'];
             $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
             $nestedData[] = $row['experience'];
-            $nestedData[] = substr($row['details'],0,250);
+            // $nestedData[] = substr($row['details'],0,250);
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -91,8 +91,8 @@ class Carrer extends Model
         $obj->experience = $request->input('experience');
         $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
-        return $obj->save();          
-        
+        return $obj->save();
+
     }
     public function getDetail($id){
         return Carrer::from('carrer')
@@ -123,7 +123,7 @@ class Carrer extends Model
         $obj->experience = $request->input('experience');
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
-      
+
      }
 
     public function getAllDetails(){

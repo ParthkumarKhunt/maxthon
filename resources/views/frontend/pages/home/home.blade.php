@@ -82,7 +82,7 @@
                 <div class="item">
                     <div class="team-card">
                         <figure class="tc-portrait">
-                            <img src="{{ asset('public/upload/ourteam/'. $value->image)}}" alt="ourteam">
+                            <img src="{{ asset('public/upload/ourteam/'. $value->image)}}" alt="ourteam" style="height:330px">
                             <ul class="tc-social">
                             @if($value->facebook != NULL)
                                 <li><a href="{{ $value->facebook }}"><i class="fab fa-facebook-f"></i></a></li>

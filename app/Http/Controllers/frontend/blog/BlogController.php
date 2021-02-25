@@ -14,8 +14,8 @@ class BlogController extends Controller
     function __construct(){
 
     }
-    
-    
+
+
     public function blog(Request $request){
         $objDetails = new Blog();
         $data['blog'] = $objDetails->getAllDetails();
@@ -42,7 +42,7 @@ class BlogController extends Controller
     }
     public function blogs(Request $request,$id){
         $obj = new Blog();
-        $data['blog'] = $obj->getBlogsDetail($id);  
+        $data['blog'] = $obj->getBlogsDetail($id);
 
         $obj = new BlogCategory();
         $data['menu']  = $obj->getAllDetails();
@@ -67,7 +67,7 @@ class BlogController extends Controller
     }
     public function blogdetail(Request $request,$id){
         $obj = new Blog();
-        $data['blog'] = $obj->getDetail($id);   
+        $data['blog'] = $obj->getDetail($id);
         $objDetails = new Blog();
         $data['blogs'] = $objDetails->getAllDetails();
         $obj = new BlogCategory();

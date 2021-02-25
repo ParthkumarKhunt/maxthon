@@ -20,7 +20,7 @@
                                     <h5>{{ $value->title }}</h5>
                                     <p>{{ $value->short_description }}</p>
                                     <a class="btn-washla" href="{{ route('blogdetail',$value->id)}}" role="button">Read More</a>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -41,9 +41,9 @@
                             $count = 0;
                             @endphp
                             @foreach($blog as $key => $value)
-                            @if($count == 3) 
+                            @if($count == 3)
                             @break;
-                            @endif                            
+                            @endif
                                 <li class="media">
                                   <a href="{{ route('blogdetail',$value->id)}}"><img src=" {{asset('public/upload/blog/'.$value->image) }}" class="mr-3" alt="..."></a>
                                   <div class="media-body">
@@ -51,7 +51,7 @@
                                   </div>
                                 </li>
                                 <br>
-                                @php 
+                                @php
                             $count++;
                             @endphp
                                 @endforeach

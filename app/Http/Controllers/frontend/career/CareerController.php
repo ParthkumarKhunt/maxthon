@@ -65,7 +65,7 @@ class CareerController extends Controller
 
     public function careerdetail(Request $request,$id){
         $obj = new Carrer();
-        $data['career'] = $obj->getDetail($id);   
+        $data['career'] = $obj->getDetail($id);
         $objDetails = new Carrer();
         $data['careers'] = $objDetails->getDetailWithoutId($id);
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.CAREER_PAGE' ) ;

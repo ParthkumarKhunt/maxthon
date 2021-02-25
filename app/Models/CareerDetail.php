@@ -10,6 +10,8 @@ class CareerDetail extends Model
     use HasFactory;
     protected $table = "career_detail";
     public function saveDetails($request){
+        // print_r($request->file());
+        // die();
         $objCareerDetail = new CareerDetail();
         $objCareerDetail->name =$request->input('name');
         $objCareerDetail->email =$request->input('email');
@@ -27,9 +29,12 @@ class CareerDetail extends Model
         }
 
         $objCareerDetail->message =$request->input('message');
+        $objCareerDetail->experience =$request->input('experience');
+        $objCareerDetail->department =$request->input('department');
         $objCareerDetail->updated_at = date("Y-m-d h:i:s");
         $objCareerDetail->updated_at = date("Y-m-d h:i:s");
         if($objCareerDetail->save()){
+
             return true;
         }else{
             return false;

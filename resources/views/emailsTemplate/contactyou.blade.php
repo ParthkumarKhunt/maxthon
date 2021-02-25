@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
-	
+
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -13,27 +13,27 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
     <!--<![endif]-->
 	<title>Video call schedule request</title>
-	
-	
+
+
 
 	<style type="text/css" media="screen">
 		/* Linked Styles */
 		body { padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#0a2641; -webkit-text-size-adjust:none }
 		a { color:#8fc55b; text-decoration:none }
-		p { padding:0 !important; margin:0 !important } 
+		p { padding:0 !important; margin:0 !important }
 		img { -ms-interpolation-mode: bicubic; /* Allow smoother rendering of resized image in Internet Explorer */ }
 		.mcnPreviewText { display: none !important; }
 
-				
+
 		/* Mobile styles */
 		@media only screen and (max-device-width: 480px), only screen and (max-width: 480px) {
 			u + .body .gwfw { width:100% !important; width:100vw !important; }
 
 			.m-shell { width: 100% !important; min-width: 100% !important; }
-			
+
 			.m-center { text-align: center !important; }
 			.center { margin: 0 auto !important; }
-			
+
 			.td { width: 100% !important; min-width: 100% !important; }
 			.h2 { font-size: 35px !important; line-height: 40px !important; }
 			.nav { font-size: 12px !important; line-height: 22px !important; padding: 10px !important; }
@@ -88,16 +88,16 @@
 																</table>
 															</th>
 															<th style="padding-bottom: 20px !important; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;" class="column" width="1"></th>
-															
+
 															<th style="padding-bottom: 20px !important; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;" class="column" width="1"></th>
-															
+
 														</tr>
 													</table>
 												</td>
 											</tr>
 										</table>
 										<!-- END Header -->
-										
+
 										<!-- Title + Copy - center -->
 										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#62b3ff">
 											<tr>
@@ -106,7 +106,7 @@
 														<tr>
 															<td class="h1 white center" style="padding-bottom: 20px; font-family:'Lato', Arial, sans-serif; font-size:44px; line-height:50px; color:#ffffff; text-align:center;">Real Estate Agency</td>
                                                         </tr>
-                                                        
+
 														<tr>
                                                             <td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:20px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
                                                                 Hey , {{ $data['username']}}
@@ -114,7 +114,7 @@
                                                         </tr>
 
                                                         <tr>
-                                                        
+
                                                             <td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16`px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
                                                                 {{ $data['name']}} try to contact you. All Details Given below
                                                             </td>
@@ -122,19 +122,19 @@
 
                                                         <tr>
                                                             <td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16`px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
-                                                                Email  : {{ $data['email']}} 
+                                                                Email  : {{ $data['email']}}
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16`px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
-                                                                Phone No : {{ $data['phoneno']}} 
+                                                                Phone No : {{ $data['phoneno']}}
                                                             </td>
                                                         </tr>
 
                                                         <tr>
                                                             <td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16`px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
-                                                                Message {{ $data['message']}} 
+                                                                Message {{ $data['message']}}
                                                             </td>
                                                         </tr>
 													</table>
@@ -142,10 +142,10 @@
 											</tr>
 										</table>
 										<!-- END Title + Copy - center -->
-										
-										
-										
-										
+
+
+
+
 										<!-- Footer -->
 										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#00122c">
 											<tr>
@@ -187,7 +187,7 @@
 															<td>
 																<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																	<tr>
-																		
+
 																		<th style="padding-bottom: 25px !important; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;" class="column" width="1"></th>
 																		<th class="column-bottom" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:bottom;">
 																			<table width="100%" border="0" cellspacing="0" cellpadding="0">

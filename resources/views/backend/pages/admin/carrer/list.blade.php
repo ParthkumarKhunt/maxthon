@@ -28,8 +28,7 @@
                             <th>Department Name</th>
                             <th>icon</th>
                             <th>Experience</th>
-                            <th>Details</th>
-                            <th>Actions</th> 
+                            <th>Actions</th>
                          </tr>
                     </thead>
                     <tbody>

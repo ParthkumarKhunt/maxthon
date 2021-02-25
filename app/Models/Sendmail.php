@@ -14,11 +14,13 @@ class Sendmail extends Model
         $mailData['data']='';
         $mailData['subject'] = 'Adspot - Testing Mail';
         $mailData['attachment'] = array();
-        $mailData['template'] ="emailsTemplate.testemail";
+        $mailData['template'] ="emailsTemplate.carrer";
         $mailData['mailto'] = 'parthkhunt12@gmail.com';
+
         $sendMail = new Sendmail;
         return $sendMail->sendSMTPMail($mailData);
     }
+
     public function sendContactMail($request){
 
         $mailData['data']['firstname']=$request->input('firstname');
@@ -49,19 +51,18 @@ class Sendmail extends Model
     }
     public function sendSMTPMail($mailData)
     {
-
                 $pathToFile = $mailData['attachment'];
-
                 $mailsend = Mail::send($mailData['template'], ['data' => $mailData['data']], function ($m) use ($mailData,$pathToFile) {
                     $m->from('parthkhunt37@gmail.com', 'Maxthon Technology');
-
                     $m->to($mailData['mailto'], "Maxthon Technology")->subject($mailData['subject']);
+
                     if($pathToFile != ""){
                         // $m->attach($pathToFile);
                     }
 
                     //  $m->cc($mailData['bcc']);
                 });
+
                 if($mailsend){
                     return true;
                 }else{

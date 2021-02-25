@@ -3476,5 +3476,7 @@ p.categorie {
     border: 1px solid #28a745;
 }
 
-
+.bg-blue{
+    background-color: #01b3e4;
+    margin: 5px;
 }

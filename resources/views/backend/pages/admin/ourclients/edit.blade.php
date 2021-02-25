@@ -22,7 +22,7 @@
                         <div class="form-group ">
                             <img src="{{ asset('public/upload/ourclients/'.$details[0]->image) }}"  alt="Logo" style="height: 30px; width: 180px">
                             <br>
-                            <label class="col-form-label ">Client Logo
+                            <label class="col-form-label ">Client Logo ( Size : 600px * 300px without background)
                             <span class="text-danger">*</span></label>
                             <input type="file" accept="image/*" class="form-control" id="logo" name="logo" />
                         </div>

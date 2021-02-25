@@ -226,7 +226,7 @@ class CarrerController extends Controller
                         $return['message'] = 'Something goes to wrong.';
                     }
                     echo json_encode($return);
-                    exit;            
+                    exit;
             case 'deleteCarrer':
                 $obj = new Carrer();
                 $result = $obj->deleteCarrer($request->input('data'));
@@ -257,7 +257,7 @@ class CarrerController extends Controller
                     exit;
         }
     }
-    
+
     public function careerList(Request $request){
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Career Request List';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Career Request List';
