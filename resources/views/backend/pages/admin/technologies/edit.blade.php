@@ -17,10 +17,8 @@
 
                 </div>
                 <!--begin::Form-->
-                <form class="form" id="add-technologies-category-form" method="POST">@csrf
-
-
-
+                <form class="form" id="edit-technologies-form" method="POST">@csrf
+                    <input type="hidden" id="id" name="id" value="{{ $details[0]->id }}">
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleSelect1">Technology Category
@@ -33,8 +31,8 @@
                             </select>
                         </div>
 
-                        <div class="form-group ">
-                            <label class="col-form-label ">Technology Image (Size : 80px * 80px)
+                        <div class="form-group">
+                            <label class="col-form-label ">Technology Image (Size : 80px * 80px)</label>
                                 <br><br>
                                     <img class="bg-blue" src="{{ asset('public/upload/technologies/'.$details[0]->image) }}" alt="icon" style="width: 50px ;height: 50px ">
                                 <br><br>

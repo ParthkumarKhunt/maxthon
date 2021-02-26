@@ -64,8 +64,6 @@ var Technology = function() {
         var form = $('#edit-technologies-form');
         var rules = {
             technologies: { required: true},
-            image: { required: true},
-
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);

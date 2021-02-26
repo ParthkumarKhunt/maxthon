@@ -75,8 +75,6 @@ class Technology extends Model
     }
 
     public function addCategory($request){
-        // print_r($request->input());
-        // die();
         $objTechnology = new Technology();
         $objTechnology->cat_id = $request->input('technologies');
 
@@ -100,5 +98,30 @@ class Technology extends Model
                 ->select('technologies_category.id as category','technologies.image','technologies.id')
                 ->get();
 
+    }
+
+    public function editCategory($request){
+
+        $objTechnology = Technology::find($request->input('id'));
+        $objTechnology->cat_id = $request->input('technologies');
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $technologiesImage = time() . '1.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('/upload/technologies');
+            $image->move($destinationPath, $technologiesImage);
+            $objTechnology->image = $technologiesImage;
+        }
+        $objTechnology->is_deleted = "No";
+        $objTechnology->created_at = date("Y-m-d h:i:s");
+        $objTechnology->updated_at = date("Y-m-d h:i:s");
+        return $objTechnology->save();
+    }
+
+    public function deleteTechnologies($data){
+        $objTechnology = Technology::find($data['id']);
+        $objTechnology->is_deleted = "Yes";
+        $objTechnology->updated_at = date("Y-m-d h:i:s");
+        return $objTechnology->save();
     }
 }
