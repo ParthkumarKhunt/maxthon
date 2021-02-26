@@ -6,13 +6,13 @@
     <!-- SERVICE START -->
     @if(!$service->isEmpty())
     <div class="container mt-5 mb-5">
-        <div class="row">            
+        <div class="row">
             @foreach($service as $key => $value)
             <div class="col-md-6 col-lg-4">
                 <div class="sb-washla">
                     <figure class="sb-thumbail"><img src="{{ asset('public/upload/services/'.$value->image) }}" alt="service_image" style="width: 350px ;height: 250px "></figure>
                     <div class="sb-caption">
-                        <div class="sb-inner-caption">
+                        <div class="sb-inner-caption" style="height:210px">
                             <div class="sb-circle-layer">
                                 <figure class="sb-center-icon">
                                     <img src="{{ asset('public/upload/services/'.$value->icon) }}" alt="service_image">
@@ -20,8 +20,11 @@
                             </div>
                             <h4>{{  $value->title }}</h4>
                             <p>{{ $value->short_description }}</p>
-                            <a class="btn" href="{{ route("service-details", $value->id) }}">Read More</a>
+
                         </div>
+                        <center>
+                            <a class="btn bg-blue"  style="color: white;margin-bottom:15px" href="{{ route("service-details", $value->id) }}">Read More</a>
+                        </center>
                     </div>
                 </div>
             </div>
@@ -88,7 +91,7 @@
                         </figure>
                     </div>
                 </div>
-                @endforeach   
+                @endforeach
             </div>
         </div>
     </div>
