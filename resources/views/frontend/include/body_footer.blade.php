@@ -6,13 +6,13 @@
  <footer>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-footer">
+            <div class="col-lg-4 col-footer">
                 <figure class="footer-logo">
                     <img src="{{ asset('public/upload/details/'.$logodetails[0]->logo) }}" alt="">
                 </figure>
                 <p style="text-align: justify">{{  $logodetails[0]->aboutus }}</p>
             </div>
-            <div class="col-lg-3 col-footer">
+            <div class="col-lg-4 col-footer">
                 <h5>Get In Touch</h5>
                 <p>{{  $logodetails[0]->address_line1 }},
                     {{  $logodetails[0]->address_line2 }}</p>
@@ -21,7 +21,7 @@
                     <li><a href="tel:{{  $logodetails[0]->phoneno }}">+91 {{  $logodetails[0]->phoneno }}</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-footer">
+            <div class="col-lg-4 col-footer">
                 <h5>Quick Links</h5>
                 <ul class="quick-links left-layer">
                     <li><a href="{{ route('home') }}">Home</a></li>
@@ -36,17 +36,7 @@
                     <li><a href="{{ route('blog') }}">Blogs</a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-footer">
-                <h5>Our Newsletter</h5>
-                <p>Subscribe to our newsletter to receive the latest news about our services.</p>
-                <div class="newsletter mt-2">
-                    <form action="#" method="post" name="sign-up">
-                        <input type="email" class="input" id="email" name="email" placeholder="Your email address"
-                            required>
-                        <input type="submit" class="button" id="submit" value="SIGN UP">
-                    </form>
-                </div>
-            </div>
+
         </div>
         <hr class="footer">
         <div class="bottom-footer">
@@ -75,6 +65,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </footer>
 <!-- FOOTER END -->
