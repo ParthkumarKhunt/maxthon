@@ -201,29 +201,118 @@
     <!-- COUNTER END -->
 
 
-    <!-- CLIENTS CAROUSEL START -->
-    @if(!$ourClient->isEmpty())
-    <div class="container mt-5 mb-5">
-        <div class="clients-carousel">
-            <div class="owl-carousel owl-theme">
+           <!-- PROJECT GRID START -->
+           <div class="container mt-5 mb-5" >
+            <div class="">
 
-                @foreach($ourClient as $key => $value)
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img" style="width: 184px;
-                            height: 125px;">
-
-                            {{-- <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt=""> --}}
-                        </figure>
+                <div class="section-heading">
+                    <div class="row">
+                        <div class="col-10 col-md-8 mx-auto text-center mb-4">
+                            <h2>Technologies</h2>
+                            <p>We’ve spent over 15 years carefully curating the best local and international talent
+                                to provide you with flexible staffing solutions that will reduce your costs and give better results.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                @endforeach
+
+                <div class="filter-container">
+                    <ul class="filter">
+                        <li class="active" data-filter="*">All</li>
+                    <li data-filter=".house">House</li>
+                    <li data-filter=".apartment">Apartment</li>
+                    <li data-filter=".office">Office</li>
+                    </ul>
+                </div>
+
+                <div class="grid grid-four-col" id="kehl-grid">
+                    <div class="grid-sizer"></div>
+                    <div class="grid-box house">
+                        <div class="image-mask"></div>
+                        <img src="{{ asset('public/frontend/assets/images/commons/gallery-1.jpg') }}" alt="" />
+                        <h3>House Cleaning</h3>
+                    </div>
+                    <div class="grid-box house apartment">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-2.jpg') }}" alt="" />
+                            <h3>Apartment Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box apartment">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-3.jpg') }}" alt="" />
+                            <h3>Apartment Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box office">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-4.jpg') }}" alt="" />
+                            <h3>Office Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box house">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-5.jpg') }}" alt="" />
+                            <h3>House Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box house office">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-6.jpg') }}" alt="" />
+                            <h3>Office Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box office">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-7.jpg') }}" alt="" />
+                            <h3>Office Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box house">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-8.jpg') }}" alt="" />
+                            <h3>House Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box house office">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-9.jpg') }}" alt="" />
+                            <h3>Office Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box apartment">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-10.jpg') }}" alt="" />
+                            <h3>Apartment Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box office">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-11.jpg') }}" alt="" />
+                            <h3>Office Cleaning</h3>
+
+                    </div>
+                    <div class="grid-box house">
+
+                            <div class="image-mask"></div>
+                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-12.jpg') }}" alt="" />
+                            <h3>House Cleaning</h3>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    @endif
-    <!-- CLIENTS CAROUSEL END -->
+        <!-- PROJECT GRID END -->
 </section>
 
 @endsection

@@ -77,6 +77,18 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-portfolio-category-edit/{id}', ['as' => 'admin-portfolio-category-edit', 'uses' => 'backend\admin\gallery\GallerySubController@edit']);
     Route::match(['get', 'post'], 'admin-portfolio-category-ajaxaction', ['as' => 'admin-portfolio-category-ajaxaction', 'uses' => 'backend\admin\gallery\GallerySubController@ajaxAction']);
 
+    //gallery
+    Route::match(['get', 'post'], 'admin-technologies-category', ['as' => 'admin-technologies-category', 'uses' => 'backend\admin\technologiesCategory\TechnologiesCategoryController@list']);
+    Route::match(['get', 'post'], 'admin-technologies-category-add', ['as' => 'admin-technologies-category-add', 'uses' => 'backend\admin\technologiesCategory\TechnologiesCategoryController@add']);
+    Route::match(['get', 'post'], 'admin-technologies-category-edit/{id}', ['as' => 'admin-technologies-category-edit', 'uses' => 'backend\admin\technologiesCategory\TechnologiesCategoryController@edit']);
+    Route::match(['get', 'post'], 'admin-technologies-category-ajaxaction', ['as' => 'admin-technologies-category-ajaxaction', 'uses' => 'backend\admin\technologiesCategory\TechnologiesCategoryController@ajaxAction']);
+
+    //gallery
+    Route::match(['get', 'post'], 'admin-technologies', ['as' => 'admin-technologies', 'uses' => 'backend\admin\technologies\TechnologiesController@list']);
+    Route::match(['get', 'post'], 'admin-technologies-add', ['as' => 'admin-technologies-add', 'uses' => 'backend\admin\technologies\TechnologiesController@add']);
+    Route::match(['get', 'post'], 'admin-technologies-edit/{id}', ['as' => 'admin-technologies-edit', 'uses' => 'backend\admin\technologies\TechnologiesController@edit']);
+    Route::match(['get', 'post'], 'admin-technologies-ajaxaction', ['as' => 'admin-technologies-ajaxaction', 'uses' => 'backend\admin\technologies\TechnologiesController@ajaxAction']);
+
     Route::match(['get', 'post'], 'admin-galleryimage', ['as' => 'admin-galleryimage', 'uses' => 'backend\admin\gallery\GalleryController@list']);
     Route::match(['get', 'post'], 'admin-galleryimage-add', ['as' => 'admin-galleryimage-add', 'uses' => 'backend\admin\gallery\GalleryController@add']);
     Route::match(['get', 'post'], 'admin-galleryimage-edit/{id}', ['as' => 'admin-galleryimage-edit', 'uses' => 'backend\admin\gallery\GalleryController@edit']);

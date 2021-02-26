@@ -376,7 +376,7 @@ $logodetails = getdetails();
                 </li>
 
 
-                <li class="menu-item {{ ( $currentRoute == 'admin-our-clients-add' || $currentRoute == 'admin-our-clients' || $currentRoute == 'admin-our-clients-edit'  ? 'menu-item-active' : '' )  }}"
+                {{-- <li class="menu-item {{ ( $currentRoute == 'admin-our-clients-add' || $currentRoute == 'admin-our-clients' || $currentRoute == 'admin-our-clients-edit'  ? 'menu-item-active' : '' )  }}"
                     aria-haspopup="true">
                     <a href="{{  route('admin-our-clients') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
@@ -400,7 +400,54 @@ $logodetails = getdetails();
                         </span>
                         <span class="menu-text">Our Clients</span>
                     </a>
-                </li>
+                </li> --}}
+
+                <li class="menu-item menu-item-submenu {{ (  $currentRoute == 'admin-technologies' || $currentRoute == 'admin-technologies-add' || $currentRoute == 'admin-technologies-edit' || $currentRoute == 'admin-technologies-category' || $currentRoute == 'admin-technologies-category-add' || $currentRoute == 'admin-technologies-category-edit'  ? 'menu-item-active menu-item-open' : '' )  }}"
+                aria-haspopup="true" data-menu-toggle="hover">
+                <a href="javascript:;" class="menu-link menu-toggle">
+                    <span class="svg-icon menu-icon">
+                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-11-19-154210/theme/html/demo1/dist/../src/media/svg/icons/Communication/Group-chat.svg--><svg
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <polygon points="0 0 24 0 24 24 0 24" />
+                                <path
+                                    d="M6,5 L18,5 C19.6568542,5 21,6.34314575 21,8 L21,17 C21,18.6568542 19.6568542,20 18,20 L6,20 C4.34314575,20 3,18.6568542 3,17 L3,8 C3,6.34314575 4.34314575,5 6,5 Z M5,17 L14,17 L9.5,11 L5,17 Z M16,14 C17.6568542,14 19,12.6568542 19,11 C19,9.34314575 17.6568542,8 16,8 C14.3431458,8 13,9.34314575 13,11 C13,12.6568542 14.3431458,14 16,14 Z"
+                                    fill="#000000" />
+                            </g>
+                        </svg>
+                        <!--end::Svg Icon-->
+                    </span>
+                    </span>
+                    <span class="menu-text">
+                        Technologies
+                    </span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+                        <li class="menu-item {{ ( $currentRoute == 'admin-technologies-category' || $currentRoute == 'admin-technologies-category-add' || $currentRoute == 'admin-technologies-category-edit' ? 'menu-item-active ' : '' )  }}"
+                            aria-haspopup="true">
+                            <a href="{{ route('admin-technologies-category') }}" class="menu-link">
+                                <span class="menu-text"><i class="far fa-hand-point-right"
+                                        style="color: white"></i>&nbsp;&nbsp;Technologies Category</span>
+                            </a>
+                        </li>
+
+                        <li class="menu-item {{ ( $currentRoute == 'admin-technologies' || $currentRoute == 'admin-technologies-add' || $currentRoute == 'admin-technologies-edit' ? 'menu-item-active ' : '' )  }}"
+                            aria-haspopup="true">
+                            <a href="{{ route('admin-technologies') }}" class="menu-link">
+                                <span class="menu-text"><i class="far fa-hand-point-right"
+                                        style="color: white"></i>&nbsp;&nbsp;Technology</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+
+
                 <li class="menu-item {{ ( $currentRoute == 'admin-testimonials-add' || $currentRoute == 'admin-testimonials' || $currentRoute == 'admin-testimonials-edit'  ? 'menu-item-active' : '' )  }}"
                     aria-haspopup="true">
                     <a href="{{  route('admin-testimonials') }}" class="menu-link">
@@ -423,6 +470,7 @@ $logodetails = getdetails();
                         <span class="menu-text">Testimonials</span>
                     </a>
                 </li>
+
                 <li class="menu-item  {{ ( $currentRoute == 'admin-service-add' || $currentRoute == 'admin-service' || $currentRoute == 'admin-service-edit' ? 'menu-item-active ' : '' )  }}"
                     aria-haspopup="true">
                     <a href="{{  route('admin-service') }}" class="menu-link">

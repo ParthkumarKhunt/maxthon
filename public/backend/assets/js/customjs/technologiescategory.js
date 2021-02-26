@@ -1,13 +1,13 @@
-var Services = function() {
+var Technologiescategory = function() {
 
 
     var list = function() {
 
         var dataArr = {};
-        var columnWidth = { "width": "5%", "targets": 0 };
+        var columnWidth = {};
         var arrList = {
-            'tableID': '#service-list',
-            'ajaxURL': baseurl + "admin-service-ajaxaction",
+            'tableID': '#technology-list',
+            'ajaxURL': baseurl + "admin-technologies-category-ajaxaction",
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
             'hideColumnList': [],
@@ -19,8 +19,9 @@ var Services = function() {
         };
         getDataTable(arrList);
 
-        $("body").on("click", ".deleteServices", function() {
+        $("body").on("click", ".deleteTechnologies", function() {
             var id = $(this).data('id');
+
             setTimeout(function() {
                 $('.yes-sure:visible').attr('data-id', id);
             }, 500);
@@ -30,14 +31,16 @@ var Services = function() {
 
             var id = $(this).attr('data-id');
             // alert(id);
+            // alert(id);
+            // exit;
             var data = { id: id, _token: $('#_token').val() };
             $.ajax({
                 type: "POST",
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 },
-                url: baseurl + "admin-service-ajaxaction",
-                data: { 'action': 'deleteServices', 'data': data },
+                url: baseurl + "admin-technologies-category-ajaxaction",
+                data: { 'action': 'deleteTechnologies', 'data': data },
                 success: function(data) {
                     $("#loader").show();
                     handleAjaxResponse(data);
@@ -47,13 +50,9 @@ var Services = function() {
     }
     var add = function() {
 
-        var form = $('#add-service-form');
+        var form = $('#add-technologies-category-form');
         var rules = {
-            title: { required: true, maxlength: 30 },
-            short_description: { required: true, maxlength: 120 },
-            description: { required: true },
-            image: { required: true },
-            icon: { required: true },
+            technologies: { required: true, maxlength: 30 },
 
         };
         handleFormValidate(form, rules, function(form) {
@@ -61,11 +60,10 @@ var Services = function() {
         });
     };
     var edit = function() {
-        var form = $('#edit-service-form');
+        var form = $('#edit-technologies-category-form');
         var rules = {
-            title: { required: true, maxlength: 30 },
-            short_description: { required: true, maxlength: 120 },
-            description: { required: true },
+            technologies: { required: true, maxlength: 30 },
+
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);

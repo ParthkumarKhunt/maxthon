@@ -21,7 +21,7 @@ class Testimonials extends Model
         );
         $query = Testimonials ::from('testimonials')
             ->where("is_deleted","No");
-        
+
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
             $searchVal = $requestData['search']['value'];
             $query->where(function($query) use ($columns, $searchVal, $requestData) {
