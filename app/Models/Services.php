@@ -23,7 +23,7 @@ class Services extends Model
         );
         $query = Services ::from('services')
             ->where("is_deleted","No");
-        
+
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
             $searchVal = $requestData['search']['value'];
             $query->where(function($query) use ($columns, $searchVal, $requestData) {
@@ -64,8 +64,8 @@ class Services extends Model
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
-            $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
-            $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $icon . '" style="margin:10px;">';
+            $nestedData[] = '<img height="75px" width="150px" src="' . $image . '" style="margin:10px;">';
+            $nestedData[] = '<img class="bg-blue" height="50px" width="50px" src="' . $icon . '" style="margin:10px;">';
             $nestedData[] = ucfirst($row['title']);
             $nestedData[] = ucfirst($row['short_description']);
             $nestedData[] = $actionhtml;
@@ -86,7 +86,7 @@ class Services extends Model
         $obj->title = $request->input('title');
         $obj->description = $request->input('description');
         $obj->short_description = $request->input('short_description');
-      
+
         if ($request->file('image')) {
             $image = $request->file('image');
             $serviceTmage = time() . '1.' . $image->getClientOriginalExtension();
