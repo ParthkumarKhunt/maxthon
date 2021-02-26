@@ -3480,3 +3480,8 @@ p.categorie {
     background-color: #01b3e4;
     margin: 5px;
 }
+
+.has-error{
+    color: red !important;
+    text-align: center;
+}

@@ -31,8 +31,10 @@ class GalleryController extends Controller
         $data['plugincss'] = array(
         );
         $data['pluginjs'] = array(
+            'modernizr-custom.js'
         );
         $data['js'] = array(
+
         );
         $data['funinit'] = array(
         );

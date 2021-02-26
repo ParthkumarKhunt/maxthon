@@ -3,7 +3,7 @@
 <script src="{{ asset('public/frontend/assets/js/lib/bootstrap.min.js') }}"></script>
 <script src="{{ asset('public/frontend/assets/js/lib/plugins.js') }}"></script>
 <script src="{{ asset('public/frontend/assets/js/lib/nav.fixed.top.js') }}"></script>
-<script src="{{ asset('public/frontend/assets/js/lib/contact.js') }}"></script>
+{{-- <script src="{{ asset('public/frontend/assets/js/lib/contact.js') }}"></script> --}}
 <script src="{{ asset('public/frontend/assets/js/main.js') }}"></script>
 <script src="{{ asset('public/frontend/assets/js/slider.js') }}"></script>
 <!-- JAVASCRIPTS END -->
