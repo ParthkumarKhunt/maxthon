@@ -335,7 +335,7 @@ $('.team-carousel .owl-carousel').owlCarousel({
     dots: true,
     margin: 0,
     nav: true,
-    center: true,
+    // center: true,
     navText: [
         '<i class="fa fa-angle-left" aria-hidden="true"></i>',
         '<i class="fa fa-angle-right" aria-hidden="true"></i>'
