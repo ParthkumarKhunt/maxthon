@@ -28,13 +28,13 @@
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Meber Designation
+                            <label class="col-form-label ">Member  Designation
                             <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="designation" name="designation"  value="{{  $memberDetails[0]->designation }}" />
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Meber Image (Size : 480px * 520px)
+                            <label class="col-form-label ">Member  Image (Size : 480px * 520px)
                             <span class="text-danger">*</span></label>
                             <input type="file" accept="image/*" class="form-control" id="image" name="image" />
                         </div>

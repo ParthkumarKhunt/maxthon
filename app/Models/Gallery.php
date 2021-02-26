@@ -9,7 +9,7 @@ class Gallery extends Model
 {
     use HasFactory;
     protected $table = 'gallery';
- 
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
@@ -76,7 +76,7 @@ class Gallery extends Model
     }
     public function addGalleryImage($request){
 
-      
+
         $obj = new Gallery();
         $obj->name = $request->input('name');
         $obj->submenu_id = $request->input('submenu_id');
@@ -91,7 +91,7 @@ class Gallery extends Model
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
 
-            
+
     }
     public function getDetail($id){
         return Gallery::select('id','name','image','submenu_id')->where("id",$id)->get();
@@ -118,6 +118,7 @@ class Gallery extends Model
                         ->join("gallerysubmenu","gallerysubmenu.id","=","gallery.submenu_id")
                         ->select('gallery.id','gallery.name','gallery.image','gallerysubmenu.name as cat_name')
                         ->where("gallery.is_deleted","No")
+                        ->where("gallerysubmenu.is_deleted","No")
                         ->get();
     }
 
@@ -128,5 +129,5 @@ class Gallery extends Model
         return $obj->save();
     }
 
-    
+
 }

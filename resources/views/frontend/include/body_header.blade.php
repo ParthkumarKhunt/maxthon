@@ -1,5 +1,6 @@
 @php
-    $logodetails = getdetails();
+$currentRoute = Route::current()->getName();
+$logodetails = getdetails();
 @endphp
 <!-- TOP HEADER START -->
 <div class="top-header-wrapper">
@@ -54,13 +55,13 @@
 
         <div id="main-nav" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li><a href="{{ route('home') }}" class="nav-item nav-link last-link-item">Home</a></li>
-                <li><a href="{{ route('services') }}" class="nav-item nav-link last-link-item">Services</a></li>
-                <li><a href="{{ route('gallery') }}" class="nav-item nav-link last-link-item">Gallery</a></li>
-                <li><a href="{{ route('blog') }}" class="nav-item nav-link last-link-item">Blog</a></li>
-                <li><a href="{{ route('about-us') }}" class="nav-item nav-link last-link-item">About us</a></li>
-                <li><a href="{{ route('career') }}" class="nav-item nav-link last-link-item">Career</a></li>
-                <li><a href="{{ route('contact-us') }}" class="nav-item nav-link last-link-item">Contact us</a></li>
+                <li><a href="{{ route('home') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'home'  ? 'my-select-menu' : '' )  }} ">Home</a></li>
+                <li><a href="{{ route('services') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'services' || $currentRoute == 'service-details'  ? 'my-select-menu' : '' )  }}">Services</a></li>
+                <li><a href="{{ route('gallery') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'gallery'  ? 'my-select-menu' : '' )  }}">Gallery</a></li>
+                <li><a href="{{ route('blog') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'blog' || $currentRoute == 'blogs' || $currentRoute == 'blogdetail' ? 'my-select-menu' : '' )  }}">Blog</a></li>
+                <li><a href="{{ route('about-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'about-us'  ? 'my-select-menu' : '' )  }}">About us</a></li>
+                <li><a href="{{ route('career') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'career'  || $currentRoute == 'careerdetail' ? 'my-select-menu' : '' )  }}">Career</a></li>
+                <li><a href="{{ route('contact-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'contact-us'  ? 'my-select-menu' : '' )  }}">Contact us</a></li>
             </ul>
         </div>
     </div>
