@@ -8,8 +8,8 @@
         <div class="front-carousel-alt">
             <div class="owl-carousel owl-theme">
             @foreach($homeService as $key => $value)
-                <div class="item">
-                    <div class="box-layer">
+                <div class="item" >
+                    <div class="box-layer" style="height: 250px">
                         <figure class="bl-icon">
                             <img src="{{ asset('public/upload/homeservice/'.$value->image) }}" alt="service_image">
                         </figure>

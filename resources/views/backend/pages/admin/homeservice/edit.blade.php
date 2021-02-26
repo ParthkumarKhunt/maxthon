@@ -37,7 +37,7 @@
                             <label class="col-form-label ">Image (Size : 50px * 50px)
                                 <span class="text-danger">*</span></label>
                                 <br>
-                                    <img src="{{ asset('public/upload/homeservice/'.$details[0]->image) }}" alt="Silder Image" style="width: 50px ;height: 50px ">
+                                    <img class="bg-blue" src="{{ asset('public/upload/homeservice/'.$details[0]->image) }}" alt="Silder Image" style="width: 50px ;height: 50px ">
                                 <br><br>
                             <input type="file" accept="image/*" class="form-control" id="image" name="image" />
                         </div>
