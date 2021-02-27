@@ -68,7 +68,17 @@ class OurTeam extends Model
                 $socialMedia = $socialMedia . '<a href="' . $row['linkedin'] . '" class="btn btn-icon"><i class="fab fa-linkedin"> </i></a>';
             }
 
-            $image = url("public/upload/ourteam/" . $row['image']);
+            if($row['image'] != '' || $row['image'] != null ){
+                if(file_exists( public_path().'/upload/ourteam/'.$row['image']) ){
+                    $image = url("public/upload/ourteam/" . $row['image']);
+                }else{
+                    $image = url("public/frontend/assets/images/commons/user.png");
+                }
+            }else{
+                $image = url("public/frontend/assets/images/commons/user.png");
+            }
+
+            // $image = url("public/upload/ourteam/" . $row['image']);
 
             $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteTeam" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
             .'<a href="' . route('admin-our-team-edit', $row['id']) . '" class="btn btn-icon"><i class="fa fa-edit"> </i></a>';

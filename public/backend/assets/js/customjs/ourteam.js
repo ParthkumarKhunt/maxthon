@@ -49,7 +49,7 @@ var Ourteam = function() {
         var rules = {
             name: { required: true },
             designation: { required: true },
-            image: { required: true },
+            // image: { required: true },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
