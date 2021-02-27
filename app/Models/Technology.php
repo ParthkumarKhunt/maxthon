@@ -17,7 +17,7 @@ class Technology extends Model
             1 => 'technologies.category',
 
         );
-        $query = Testimonials ::from('technologies')
+        $query = Technology ::from('technologies')
                                 ->join("technologies_category","technologies_category.id","=","technologies.cat_id");
 
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
@@ -92,7 +92,7 @@ class Technology extends Model
     }
 
     public function getDetail($id){
-        return Testimonials ::from('technologies')
+        return Technology ::from('technologies')
                 ->join("technologies_category","technologies_category.id","=","technologies.cat_id")
                 ->where("technologies.id",$id)
                 ->select('technologies_category.id as category','technologies.image','technologies.id')
@@ -123,5 +123,14 @@ class Technology extends Model
         $objTechnology->is_deleted = "Yes";
         $objTechnology->updated_at = date("Y-m-d h:i:s");
         return $objTechnology->save();
+    }
+
+    public function getHomeTechnology(){
+        return Technology::from('technologies')
+                        ->join("technologies_category","technologies_category.id","=","technologies.cat_id")
+                        ->select('technologies_category.category','technologies.image','technologies.id')
+                        ->where("technologies_category.is_deleted","No")
+                        ->where("technologies.is_deleted","No")
+                        ->get();
     }
 }

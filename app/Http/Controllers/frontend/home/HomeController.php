@@ -13,7 +13,8 @@ use App\Models\HomeService;
 use App\Models\Section2;
 use App\Models\TopSection;
 use App\Models\BannerSection;
-
+use App\Models\Technologiescategory;
+use App\Models\Technology;
 
 class HomeController extends Controller
 {
@@ -42,6 +43,13 @@ class HomeController extends Controller
         $objBannerSection = new BannerSection();
         $data['bannersection'] = $objBannerSection->getDetails();
 
+        $objTechnologiescategory = new Technologiescategory();
+        $data['categroy'] = $objTechnologiescategory->getHomeCategroy();
+
+        $objTechnology = new Technology();
+        $data['technology'] = $objTechnology->getHomeTechnology();
+        // print_r($data['technology']);
+        // die();
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'title.HOME_PAGE' ) ;
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'description.HOME_PAGE' ) ;
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || '. Config::get( 'keywords.HOME_PAGE' ) ;

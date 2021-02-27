@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Technology;
 
 class Technologiescategory extends Model
 {
@@ -99,5 +100,13 @@ class Technologiescategory extends Model
 
     public function getCategroy(){
         return Technologiescategory::select("category","id")->where('is_deleted',"No")->get();
+    }
+
+    public function getHomeCategroy(){
+        return Technologiescategory::select("technologies_category.category","technologies_category.id")
+                                    ->join("technologies","technologies.cat_id","=","technologies_category.id")
+                                    ->where('technologies_category.is_deleted',"No")
+                                    ->where('technologies.is_deleted',"No")
+                                    ->get();
     }
 }

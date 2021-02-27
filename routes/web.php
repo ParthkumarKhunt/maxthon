@@ -19,7 +19,7 @@ Route::match(['get', 'post'], '/', ['as' => 'home', 'uses' => 'frontend\home\Hom
 Route::match(['get', 'post'], 'services', ['as' => 'services', 'uses' => 'frontend\services\ServicesController@services']);
 
 // gallery
-Route::match(['get', 'post'], 'gallery', ['as' => 'gallery', 'uses' => 'frontend\gallery\GalleryController@gallery']);
+Route::match(['get', 'post'], 'portfolio', ['as' => 'portfolio', 'uses' => 'frontend\gallery\GalleryController@gallery']);
 
 // Blog
 Route::match(['get', 'post'], 'blog', ['as' => 'blog', 'uses' => 'frontend\blog\BlogController@blog']);

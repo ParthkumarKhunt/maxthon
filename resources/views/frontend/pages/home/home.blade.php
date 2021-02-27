@@ -215,8 +215,45 @@
                         </div>
                     </div>
                 </div>
+                @if(count($categroy) <= 0 )
+                    <div class="container mt-5 mb-5" style="">
+                        <div class="grid">
+                            <h3 class="has-error"  >Oops !!!! No gallery technologies available right now</h3>
+                        </div>
+                    </div>
+                @else
+                    <!-- PROJECT GRID START -->
+                    <div class="container mt-5 mb-5">
+                        <div class="grid">
+                            <div class="filter-container">
+                                <ul class="filter">
+                                <li class=" active" data-filter="*">All</li>
+                                @foreach($categroy as $key => $value)
+                                    <li class="" data-filter="{{  ".".str_replace(' ', '-',$value['category'])  }}">  {{ $value->category }} </a></li>
+                                @endforeach
+                                </ul>
+                            </div>
 
-                <div class="filter-container">
+                            <div class="grid grid-four-col" id="kehl-grid">
+                                <div class="grid-sizer"></div>
+                                @foreach($technology as $key => $value)
+                                    <div class="grid-box {{  str_replace(' ', '-',$value['category'])  }}">
+                                        <div class="image-mask"></div>
+                                        <img  style="height: 50px;width: 50px" src=" {{asset('public/upload/technologies/'.$value->image) }}" alt="{{  str_replace(' ', '-',$value['cat_name'])  }}" />
+                                    </div>
+                                @endforeach
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- PROJECT GRID END -->
+                    <br/>
+                    <br/>
+                    <br/>
+
+                @endif
+
+                {{-- <div class="filter-container">
                     <ul class="filter">
                         <li class="active" data-filter="*">All</li>
                     <li data-filter=".house">House</li>
@@ -309,7 +346,7 @@
                             <h3>House Cleaning</h3>
 
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <!-- PROJECT GRID END -->

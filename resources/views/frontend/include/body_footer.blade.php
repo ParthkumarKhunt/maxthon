@@ -32,7 +32,7 @@
                 <ul class="quick-links right-layer">
                     <li><a href="{{ route('faqs') }}">FAQ</a></li>
                     <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
-                    <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                    <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
                     <li><a href="{{ route('blog') }}">Blogs</a></li>
                 </ul>
             </div>
