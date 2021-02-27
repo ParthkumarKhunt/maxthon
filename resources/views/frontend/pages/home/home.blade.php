@@ -215,7 +215,7 @@
                         </div>
                     </div>
                 </div>
-                @if(count($categroy) <= 0 )
+                {{-- @if(count($categroy) <= 0 )
                     <div class="container mt-5 mb-5" style="">
                         <div class="grid">
                             <h3 class="has-error"  >Oops !!!! No gallery technologies available right now</h3>
@@ -251,9 +251,9 @@
                     <br/>
                     <br/>
 
-                @endif
+                @endif --}}
 
-                {{-- <div class="filter-container">
+                <div class="filter-container">
                     <ul class="filter">
                         <li class="active" data-filter="*">All</li>
                     <li data-filter=".house">House</li>
@@ -346,7 +346,7 @@
                             <h3>House Cleaning</h3>
 
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
         <!-- PROJECT GRID END -->

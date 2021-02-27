@@ -107,6 +107,7 @@ class Technologiescategory extends Model
                                     ->join("technologies","technologies.cat_id","=","technologies_category.id")
                                     ->where('technologies_category.is_deleted',"No")
                                     ->where('technologies.is_deleted',"No")
+                                    ->groupBy('technologies_category.id')
                                     ->get();
     }
 }
