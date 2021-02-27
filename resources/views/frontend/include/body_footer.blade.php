@@ -42,7 +42,7 @@
         <div class="bottom-footer">
             <div class="row">
                 <div class="col-lg-6">
-                    <p class="right">© 2020 Maxthon Technology reserved.</p>
+                    <p class="right">© 2020 Maxthon Technologies reserved.</p>
                 </div>
                 <div class="col-lg-6">
                     <ul class="footer-social">
