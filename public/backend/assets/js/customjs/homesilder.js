@@ -49,8 +49,8 @@ var Homesilder = function() {
 
         var form = $('#add-home-silder-form');
         var rules = {
-            title: { required: true, maxlength: 30 },
-            description: { required: true, maxlength: 80 },
+            // title: { required: true, maxlength: 30 },
+            // description: { required: true, maxlength: 80 },
             image: { required: true },
         };
         handleFormValidate(form, rules, function(form) {
@@ -60,8 +60,8 @@ var Homesilder = function() {
     var edit = function() {
         var form = $('#edit-home-silder-form');
         var rules = {
-            title: { required: true, maxlength: 30 },
-            description: { required: true, maxlength: 80 },
+            // title: { required: true, maxlength: 30 },
+            // description: { required: true, maxlength: 80 },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
