@@ -7,7 +7,7 @@ var GalleryImage = function() {
         var columnWidth = { "width": "5%", "targets": 0 };
         var arrList = {
             'tableID': '#galler-list',
-            'ajaxURL': baseurl + "admin-galleryimage-ajaxaction",
+            'ajaxURL': baseurl + "admin-portfolio-ajaxaction",
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
             'hideColumnList': [],
@@ -36,7 +36,7 @@ var GalleryImage = function() {
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 },
-                url: baseurl + "admin-galleryimage-ajaxaction",
+                url: baseurl + "admin-portfolio-ajaxaction",
                 data: { 'action': 'deleteGallery', 'data': data },
                 success: function(data) {
                     $("#loader").show();
@@ -51,6 +51,7 @@ var GalleryImage = function() {
         var rules = {
             name: { required: true },
             submenu_id: { required: true },
+            url: { required: true },
             image:{ required: true },
         };
         handleFormValidate(form, rules, function(form) {
@@ -63,6 +64,7 @@ var GalleryImage = function() {
         var rules = {
             name: { required: true },
             submenu_id: { required: true },
+            url: { required: true },
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);

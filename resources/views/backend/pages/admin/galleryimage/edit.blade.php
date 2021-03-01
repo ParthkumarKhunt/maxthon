@@ -25,17 +25,24 @@
                         <select class="form-control"  id="submenu_id" name="submenu_id">
                          <option value="">-- Select -- </option>
                             @foreach($submenu as $key => $value)
-                            <option value="{{ $value->id }}" {{ $value->id == $details[0]->submenu_id ? "selected='selected'" : "" }}>{{ $value->name }}</option>                                
+                            <option value="{{ $value->id }}" {{ $value->id == $details[0]->submenu_id ? "selected='selected'" : "" }}>{{ $value->name }}</option>
                             @endforeach
-                    
+
                         </select>
                        </div>
-                       <div class="form-group ">
-                        <label class="col-form-label ">Portfolio Category Name (Ex : Web Design , App Development)
-                        <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{  $details[0]->name }}" placeholder="Please enter portfolio category"/>
-                    </div>
-            
+
+                        <div class="form-group ">
+                            <label class="col-form-label ">Portfolio Category Name (Ex : Web Design , App Development)
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{  $details[0]->name }}" placeholder="Please enter portfolio category"/>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-form-label ">Portfolio URL
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="url" name="url"  value="{{  $details[0]->name }}" placeholder="Please enter portfolio url"/>
+                        </div>
+
                     <div class="form-group ">
                         <label class="col-form-label ">Portfolio Category Image (Ex : Web Design , App Development)
                         <span class="text-danger">*</span></label><br>

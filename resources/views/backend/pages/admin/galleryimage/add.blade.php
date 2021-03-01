@@ -24,21 +24,27 @@
                         <div class="form-group">
                             <label for="exampleSelect1">Portfolio Category <span class="text-danger">*</span></label>
                             <select class="form-control"  id="submenu_id" name="submenu_id">
-                             <option value="">-- Select -- </option>
+                                <option value="">Select Portfolio Category</option>
                                 @foreach($submenu as $key => $value)
                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
                                 @endforeach
-
                             </select>
-                           </div>
-                           <div class="form-group ">
-                            <label class="col-form-label ">Portfolio Category Name (Ex : Web Design , App Development)
-                            <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="name" name="name"  placeholder="Please enter portfolio category"/>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Portfolio Category Image (Ex : Web Design , App Development)
+                            <label class="col-form-label ">Portfolio Name
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name"  placeholder="Please enter portfolio name"/>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-form-label ">Portfolio URL
+                            <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="url" name="url"  placeholder="Please enter portfolio url"/>
+                        </div>
+
+                        <div class="form-group ">
+                            <label class="col-form-label ">Portfolio Category Image
                             <span class="text-danger">*</span></label><br>
                             <div class="image-input image-input-outline" id="kt_image_1">
                                 <div class="image-input-wrapper" style="background-image: url({{asset('public/upload/addimage.png')}}"></div>
@@ -53,8 +59,6 @@
                             </div>
                         </div>
                     </div>
-
-
 
                     <div class="card-footer">
                         <div class="row">

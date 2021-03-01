@@ -56,7 +56,7 @@ class Gallery extends Model
             $image = url("public/upload/galleryimage/" . $row['image']);
 
             $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteGallery" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
-            .'<a href="' . route('admin-galleryimage-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
+            .'<a href="' . route('admin-portfolio-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
 
             $i++;
             $nestedData = array();

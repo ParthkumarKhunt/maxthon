@@ -89,10 +89,10 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-technologies-edit/{id}', ['as' => 'admin-technologies-edit', 'uses' => 'backend\admin\technologies\TechnologiesController@edit']);
     Route::match(['get', 'post'], 'admin-technologies-ajaxaction', ['as' => 'admin-technologies-ajaxaction', 'uses' => 'backend\admin\technologies\TechnologiesController@ajaxAction']);
 
-    Route::match(['get', 'post'], 'admin-galleryimage', ['as' => 'admin-galleryimage', 'uses' => 'backend\admin\gallery\GalleryController@list']);
-    Route::match(['get', 'post'], 'admin-galleryimage-add', ['as' => 'admin-galleryimage-add', 'uses' => 'backend\admin\gallery\GalleryController@add']);
-    Route::match(['get', 'post'], 'admin-galleryimage-edit/{id}', ['as' => 'admin-galleryimage-edit', 'uses' => 'backend\admin\gallery\GalleryController@edit']);
-    Route::match(['get', 'post'], 'admin-galleryimage-ajaxaction', ['as' => 'admin-galleryimage-ajaxaction', 'uses' => 'backend\admin\gallery\GalleryController@ajaxAction']);
+    Route::match(['get', 'post'], 'admin-portfolio', ['as' => 'admin-portfolio', 'uses' => 'backend\admin\gallery\GalleryController@list']);
+    Route::match(['get', 'post'], 'admin-portfolio-add', ['as' => 'admin-portfolio-add', 'uses' => 'backend\admin\gallery\GalleryController@add']);
+    Route::match(['get', 'post'], 'admin-portfolio-edit/{id}', ['as' => 'admin-portfolio-edit', 'uses' => 'backend\admin\gallery\GalleryController@edit']);
+    Route::match(['get', 'post'], 'admin-portfolio-ajaxaction', ['as' => 'admin-portfolio-ajaxaction', 'uses' => 'backend\admin\gallery\GalleryController@ajaxAction']);
 
 //service
 Route::match(['get', 'post'], 'admin-service', ['as' => 'admin-service', 'uses' => 'backend\admin\service\ServicesController@list']);

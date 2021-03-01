@@ -28,7 +28,7 @@
 
 
                             <div class="form-group ">
-                                <label class="col-form-label ">Description 
+                                <label class="col-form-label ">Description
                                     <span class="text-danger">*</span></label>
                                 <textarea class="form-control" id="details" name="description"
                                     placeholder="Please enter description">{{  $details[0]->description }}</textarea>
@@ -39,7 +39,7 @@
                                 @foreach($extraimages as $value)
                                 <div style="float: left; width: 33.33%;  padding: 5px;position: relative;">
                                     <img src="{{ asset('public/upload/section/'.$value) }}" alt="main_image"
-                                        class="img-fluid" style="width: 100%; height: 150px;">
+                                        class="img-fluid" style="width: 100%; height: 350px;">
                                     <button type="button" class="btn btn-danger deleteExterimage"
                                         data-exterimage="{{$value}}" data-toggle="modal" data-target="#deleteModel"
                                         style="position: absolute;top: 6px;right: 20px;" title="Remove Image"><i
@@ -49,8 +49,9 @@
                             </div>
 
                             @endif
+                            <br>
                             <div class="form-group">
-                                <label class="form-label">Image</label>
+                                <label class="form-label">Image (Size : 445px * 550px (w*h))</label>
                                 <div class="appendDiv">
                                     <div class="row">
                                         <div class="col-9">

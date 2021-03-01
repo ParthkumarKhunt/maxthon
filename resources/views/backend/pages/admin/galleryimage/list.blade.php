@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-toolbar">
                     <!--begin::Button-->
-                    <a href="{{  route('admin-galleryimage-add') }}" class="btn btn-primary font-weight-bolder">
+                    <a href="{{  route('admin-portfolio-add') }}" class="btn btn-primary font-weight-bolder">
                     <i class="far fa-plus-square"></i> New Image</a>
                     <!--end::Button-->
                 </div>

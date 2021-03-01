@@ -134,7 +134,7 @@ $logodetails = getdetails();
                 </li>
 
 
-                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-portfolio-category-add' || $currentRoute == 'admin-portfolio-category' || $currentRoute == 'admin-portfolio-category-edit' || $currentRoute == 'admin-galleryimage-add' || $currentRoute == 'admin-galleryimage' || $currentRoute == 'admin-galleryimage-edit' ? 'menu-item-active menu-item-open' : '' )  }}"
+                <li class="menu-item menu-item-submenu {{ ( $currentRoute == 'admin-portfolio-category-add' || $currentRoute == 'admin-portfolio-category' || $currentRoute == 'admin-portfolio-category-edit' || $currentRoute == 'admin-portfolio-add' || $currentRoute == 'admin-portfolio' || $currentRoute == 'admin-portfolio-edit' ? 'menu-item-active menu-item-open' : '' )  }}"
                     aria-haspopup="true" data-menu-toggle="hover">
                     <a href="javascript:;" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
@@ -166,11 +166,11 @@ $logodetails = getdetails();
                                             style="color: white"></i>&nbsp;&nbsp;Category</span>
                                 </a>
                             </li>
-                            <li class="menu-item {{ ( $currentRoute == 'admin-galleryimage-add' || $currentRoute == 'admin-galleryimage' || $currentRoute == 'admin-galleryimage-edit' ? 'menu-item-active ' : '' )  }}"
+                            <li class="menu-item {{ ( $currentRoute == 'admin-portfolio-add' || $currentRoute == 'admin-portfolio' || $currentRoute == 'admin-portfolio-edit' ? 'menu-item-active ' : '' )  }}"
                                 aria-haspopup="true">
-                                <a href="{{ route('admin-galleryimage') }}" class="menu-link">
+                                <a href="{{ route('admin-portfolio') }}" class="menu-link">
                                     <span class="menu-text"><i class="far fa-hand-point-right"
-                                            style="color: white"></i>&nbsp;&nbsp;Image</span>
+                                            style="color: white"></i>&nbsp;&nbsp;Portfolio Details     </span>
                                 </a>
                             </li>
 
