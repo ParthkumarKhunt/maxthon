@@ -26,6 +26,7 @@
                         <tr>
                             <th>Sr. No</th>
                             <th>Image</th>
+                            <th>Category name</th>
                             <th>Name</th>
                             <th>Actions</th>
                         </tr>

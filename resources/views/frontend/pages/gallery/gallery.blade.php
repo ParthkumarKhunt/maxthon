@@ -1,7 +1,7 @@
 @extends('frontend.layout.app')
 @section('section')
 
- <!-- CONTENT START -->
+ {{-- <!-- CONTENT START -->
  <section>
     @if(count($gallary) <= 0 )
     <div class="container mt-5 mb-5" style="">
@@ -47,9 +47,9 @@
 
     @endif
 
-</section>
+</section> --}}
 <!-- CONTENT END -->
-{{--
+
  <!-- CONTENT START -->
  <section>
     <!-- PROJECT GRID START -->
@@ -81,5 +81,5 @@
    </div>
    <!-- PROJECT GRID END -->
 </section>
-<!-- CONTENT END --> --}}
+<!-- CONTENT END -->
 @endsection

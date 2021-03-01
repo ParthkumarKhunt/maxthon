@@ -13,13 +13,15 @@ class Gallery extends Model
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
-            0 => 'id',
-            1 => 'name',
-            2 => 'image',
-
+            0 => 'gallery.id',
+            1 => 'gallery.name',
+            2 => 'gallery.image',
+            3 => 'gallery.url',
+            4 => 'gallerysubmenu.name',
         );
         $query = Gallery ::from('gallery')
-                    ->where("is_deleted","No");
+                        ->join("gallerysubmenu","gallerysubmenu.id","=","gallery.submenu_id")
+                        ->where("gallery.is_deleted","No");
 
 
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
@@ -47,22 +49,24 @@ class Gallery extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('id','name','image')
-                ->where("is_deleted","No")
+                ->select('gallery.id','gallery.name','gallery.image','gallery.url','gallerysubmenu.name as cat_name')
+                ->where("gallery.is_deleted","No")
                 ->get();
         $data = array();
         $i = 0;
         foreach ($resultArr as $row) {
             $image = url("public/upload/galleryimage/" . $row['image']);
 
-            $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteGallery" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
-            .'<a href="' . route('admin-portfolio-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
+            $actionhtml ='<a href="'.$row['url'].'"  class="btn btn-icon " target="_blank" title="Link"><i class="fa fa-link" ></i></a>'
+            .'<a href="' . route('admin-portfolio-edit', $row['id']) . '" class="btn btn-icon primary" title="Edit Portfolio"><i class="fa fa-edit"> </i></a>'
+            .'<a href="#" data-toggle="modal" data-target="#deleteModel" title="Delete Portfolio" class="btn btn-icon   deleteGallery" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
 
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
             $nestedData[] = '<img class="rounded-circle" height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
             $nestedData[] = $row['name'];
+            $nestedData[] = $row['cat_name'];
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
