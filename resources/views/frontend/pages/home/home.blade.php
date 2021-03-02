@@ -227,7 +227,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- @if(count($categroy) <= 0 )
+                @if(count($categroy) <= 0 )
                     <div class="container mt-5 mb-5" style="">
                         <div class="grid">
                             <h3 class="has-error"  >Oops !!!! No gallery technologies available right now</h3>
@@ -251,7 +251,7 @@
                                 @foreach($technology as $key => $value)
                                     <div class="grid-box {{  str_replace(' ', '-',$value['category'])  }}">
                                         <div class="image-mask"></div>
-                                        <img  style="height: 50px;width: 50px" src=" {{asset('public/upload/technologies/'.$value->image) }}" alt="{{  str_replace(' ', '-',$value['cat_name'])  }}" />
+                                        <img src=" {{asset('public/upload/technologies/'.$value->image) }}" alt="{{  str_replace(' ', '-',$value['cat_name'])  }}" />
                                     </div>
                                 @endforeach
                             </div>
@@ -263,102 +263,7 @@
                     <br/>
                     <br/>
 
-                @endif --}}
-
-                <div class="filter-container">
-                    <ul class="filter">
-                        <li class="active" data-filter="*">All</li>
-                    <li data-filter=".house">House</li>
-                    <li data-filter=".apartment">Apartment</li>
-                    <li data-filter=".office">Office</li>
-                    </ul>
-                </div>
-
-                <div class="grid grid-four-col" id="kehl-grid">
-                    <div class="grid-sizer"></div>
-                    <div class="grid-box house">
-                        <div class="image-mask"></div>
-                        <img src="{{ asset('public/frontend/assets/images/commons/gallery-1.jpg') }}" alt="" />
-                        <h3>House Cleaning</h3>
-                    </div>
-                    <div class="grid-box house apartment">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-2.jpg') }}" alt="" />
-                            <h3>Apartment Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box apartment">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-3.jpg') }}" alt="" />
-                            <h3>Apartment Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box office">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-4.jpg') }}" alt="" />
-                            <h3>Office Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box house">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-5.jpg') }}" alt="" />
-                            <h3>House Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box house office">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-6.jpg') }}" alt="" />
-                            <h3>Office Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box office">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-7.jpg') }}" alt="" />
-                            <h3>Office Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box house">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-8.jpg') }}" alt="" />
-                            <h3>House Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box house office">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-9.jpg') }}" alt="" />
-                            <h3>Office Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box apartment">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-10.jpg') }}" alt="" />
-                            <h3>Apartment Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box office">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-11.jpg') }}" alt="" />
-                            <h3>Office Cleaning</h3>
-
-                    </div>
-                    <div class="grid-box house">
-
-                            <div class="image-mask"></div>
-                            <img src="{{ asset('public/frontend/assets/images/commons/gallery-12.jpg') }}" alt="" />
-                            <h3>House Cleaning</h3>
-
-                    </div>
-                </div>
+                @endif
             </div>
         </div>
         <!-- PROJECT GRID END -->
