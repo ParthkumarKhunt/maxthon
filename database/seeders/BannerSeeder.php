@@ -13,7 +13,7 @@ class BannerSeeder extends Seeder
      */
     public function run()
     {
-        $pageHeader = ['Services','Portfolio','Blog','Blogdetail','About us','Career','Career Detail','Contact Us'];
+        $pageHeader = ['Services','Portfolio','Blog','Blogdetail','About us','Career','Career Detail','Contact Us','Faqs','Our Team'];
 
         for ($i=0; $i < count($pageHeader) ; $i++) {
             DB::table('banner')->insert([

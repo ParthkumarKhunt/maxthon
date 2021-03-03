@@ -1,9 +1,42 @@
 <!--begin::Aside-->
 @php
 $currentRoute = Route::current()->getName();
-$getBannerList = getBannerList();
-// print_r($getBannerList);
-// die();
+if($currentRoute != "home"){
+    if($currentRoute == "services" || $currentRoute == "service-details"){
+        $id= 1;
+    }
+    if($currentRoute == "portfolio"){
+        $id= 2;
+    }
+    if($currentRoute == "blog" || $currentRoute ==  "blogs"){
+        $id= 3;
+    }
+    if($currentRoute == "blogdetail"){
+        $id= 4;
+    }
+    if($currentRoute == "contact-us"){
+        $id= 8;
+    }
+    if($currentRoute == "about-us"){
+        $id= 5;
+    }
+    if($currentRoute == "career"){
+        $id= 6;
+    }
+    if($currentRoute == "careerdetail"){
+        $id= 7;
+    }
+
+    if($currentRoute == "faqs"){
+        $id= 9;
+    }
+    if($currentRoute == "our-team"){
+        $id= 10;
+    }
+
+    $getBannerList = getBannerDetails($id);
+
+}
 @endphp
 
 @if($currentRoute == "home")
@@ -28,7 +61,7 @@ $getBannerList = getBannerList();
 @else
 
     <!--SLIDER START-->
-    <div class="pages-hero" style="background-image:url({{ asset('public/frontend/assets/images/commons/header.png') }});">
+    <div class="pages-hero" style="background-image:url({{ asset('public/upload/banner_image/'.$getBannerList[0]->image) }});">
         <div class="container">
             <div class="pages-title">
                 <h1>{{$header['title']}}</h1>

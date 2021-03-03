@@ -7,9 +7,9 @@ function getdetails() {
     return $objDetails->getDetails();
 }
 
-function getBannerList() {
+function getBannerDetails($id) {
     $ojBanner = new Banner();
-    return $ojBanner->getBannerList();
+    return $ojBanner->getBannerDetails($id);
 }
 
 ?>
