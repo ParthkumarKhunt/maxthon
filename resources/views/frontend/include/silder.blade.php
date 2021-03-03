@@ -1,6 +1,9 @@
 <!--begin::Aside-->
 @php
 $currentRoute = Route::current()->getName();
+$getBannerList = getBannerList();
+// print_r($getBannerList);
+// die();
 @endphp
 
 @if($currentRoute == "home")
@@ -23,6 +26,7 @@ $currentRoute = Route::current()->getName();
 </div>
 <!--SLIDER END-->
 @else
+
     <!--SLIDER START-->
     <div class="pages-hero" style="background-image:url({{ asset('public/frontend/assets/images/commons/header.png') }});">
         <div class="container">

@@ -107,6 +107,12 @@ Route::match(['get', 'post'], 'admin-faqs-add', ['as' => 'admin-faqs-add', 'uses
 Route::match(['get', 'post'], 'admin-faqs-edit/{id}', ['as' => 'admin-faqs-edit', 'uses' => 'backend\admin\faqs\FaqsController@edit']);
 Route::match(['get', 'post'], 'admin-faqs-ajaxaction', ['as' => 'admin-faqs-ajaxaction', 'uses' => 'backend\admin\faqs\FaqsController@ajaxAction']);
 
+//banner
+Route::match(['get', 'post'], 'admin-banner', ['as' => 'admin-banner', 'uses' => 'backend\admin\banner\BannerController@list']);
+Route::match(['get', 'post'], 'admin-banner-add', ['as' => 'admin-banner-add', 'uses' => 'backend\admin\banner\BannerController@add']);
+Route::match(['get', 'post'], 'admin-banner-edit/{id}', ['as' => 'admin-banner-edit', 'uses' => 'backend\admin\banner\BannerController@edit']);
+Route::match(['get', 'post'], 'admin-banner-ajaxaction', ['as' => 'admin-banner-ajaxaction', 'uses' => 'backend\admin\banner\BannerController@ajaxAction']);
+
     //blog
     Route::match(['get', 'post'], 'admin-blog-category', ['as' => 'admin-blog-category', 'uses' => 'backend\admin\blogcategory\BlogCategoryController@list']);
     Route::match(['get', 'post'], 'admin-blog-category-add', ['as' => 'admin-blog-category-add', 'uses' => 'backend\admin\blogcategory\BlogCategoryController@add']);
