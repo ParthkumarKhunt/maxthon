@@ -26,7 +26,6 @@
                         <tr>
                             <th>Sr. No</th>
                             <th>Name</th>
-                            <th>URL</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
