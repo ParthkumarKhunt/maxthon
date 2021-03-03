@@ -44,7 +44,7 @@ $logodetails = getdetails();
             data-menu-dropdown-timeout="500">
             <!--begin::Menu Nav-->
             <ul class="menu-nav">
-                <li class="menu-item {{ ( $currentRoute == 'admin-dashboard'  ? 'menu-item-active' : '' )  }}"
+                <li class="menu-item {{ ( $currentRoute == 'admin-change-password' ||   $currentRoute == 'admin-dashboard' || $currentRoute == 'admin-my-profile' ? 'menu-item-active' : '' )  }}"
                     aria-haspopup="true">
                     <a href="{{  route('admin-dashboard') }}" class="menu-link">
                         <span class="svg-icon menu-icon">

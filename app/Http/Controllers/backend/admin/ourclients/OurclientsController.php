@@ -106,7 +106,7 @@ class OurclientsController extends Controller
 
         $obj = new Ourclients();
         $data['details'] = $obj->getDetails($id);
-      
+
         if ($request->isMethod('post')) {
 
             $objOurclientsdetails = new Ourclients();

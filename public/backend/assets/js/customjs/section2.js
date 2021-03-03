@@ -47,7 +47,7 @@ var Section2 = function() {
                 '</div></div>';
             $(".appendDiv").append(html);
         });
-    
+
         $('body').on("click", ".removePhotos", function() {
             $(this).closest('.removediv').remove();
         });

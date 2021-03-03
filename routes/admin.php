@@ -20,6 +20,12 @@ $adminPrefix = "";
 Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     // Dashboard
     Route::match(['get', 'post'], 'admin-dashboard', ['as' => 'admin-dashboard', 'uses' => 'backend\admin\dashboard\DashboardController@dashboard']);
+
+    // Dashboard
+    Route::match(['get', 'post'], 'admin-my-profile', ['as' => 'admin-my-profile', 'uses' => 'backend\admin\myprofile\MyprofileController@myprofile']);
+    // Dashboard
+    Route::match(['get', 'post'], 'admin-change-password', ['as' => 'admin-change-password', 'uses' => 'backend\admin\myprofile\MyprofileController@changepassword']);
+
     // Details
     Route::match(['get', 'post'], 'admin-details', ['as' => 'admin-details', 'uses' => 'backend\admin\details\DetailsController@details']);
 
