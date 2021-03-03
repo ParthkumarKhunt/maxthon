@@ -27,7 +27,7 @@
                         </div>
 
                       <div class="form-group ">
-                            <label class="col-form-label ">Image (Size : 320px * 225px)</label>
+                            <label class="col-form-label ">Image (Size : 1920px * 600px)</label>
                                 <br>
                                     <img src="{{ asset('public/upload/banner_image/'.$details[0]->image) }}" alt="image" style="width: 320px ;height: 225px ">
                                 <br><br>
