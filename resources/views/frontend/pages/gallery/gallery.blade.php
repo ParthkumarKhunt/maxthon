@@ -74,6 +74,11 @@
                         <img src=" {{asset('public/upload/galleryimage/'.$value->image) }}" alt="" />
                     </div>
                     <h3>{{ $value->name }}</h3>
+                    <h4>
+                        <a href="{{  $value->url }}" target="_blank">
+                            View Demo
+                        </a>
+                    </h4>
                 </a>
             </div>
             @endforeach

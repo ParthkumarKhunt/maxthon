@@ -120,7 +120,7 @@ class Gallery extends Model
     public function getAllDetails(){
         return Gallery::from('gallery')
                         ->join("gallerysubmenu","gallerysubmenu.id","=","gallery.submenu_id")
-                        ->select('gallery.id','gallery.name','gallery.image','gallerysubmenu.name as cat_name')
+                        ->select('gallery.id','gallery.name','gallery.image','gallerysubmenu.name as cat_name','gallery.url')
                         ->where("gallery.is_deleted","No")
                         ->where("gallerysubmenu.is_deleted","No")
                         ->get();
