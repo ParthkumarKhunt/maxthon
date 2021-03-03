@@ -227,6 +227,7 @@
                         </div>
                     </div>
                 </div>
+
                 @if(count($categroy) <= 0 )
                     <div class="container mt-5 mb-5" style="">
                         <div class="grid">
@@ -236,7 +237,7 @@
                 @else
                     <!-- PROJECT GRID START -->
                     <div class="container mt-5 mb-5">
-                        <div class="grid">
+                        <div class="grid technologies-box">
                             <div class="filter-container">
                                 <ul class="filter">
                                 <li class=" active" data-filter="*">All</li>
@@ -247,11 +248,11 @@
                             </div>
 
                             <div class="grid grid-four-col" id="kehl-grid">
-                                <div class="grid-sizer"></div>
                                 @foreach($technology as $key => $value)
                                     <div class="grid-box {{  str_replace(' ', '-',$value['category'])  }}">
-                                        <div class="image-mask"></div>
-                                        <img src=" {{asset('public/upload/technologies/'.$value->image) }}" alt="{{  str_replace(' ', '-',$value['cat_name'])  }}" />
+                                        <div class="technologies-icon">
+                                            <img src=" {{asset('public/upload/technologies/'.$value->image) }}" style="height: 80px" alt="{{  str_replace(' ', '-',$value['cat_name'])  }}" />
+                                        </div>
                                     </div>
                                 @endforeach
                             </div>

@@ -64,13 +64,15 @@
        </div>
 
 
-       <div class="grid" id="kehl-grid">
+       <div class="grid gallery" id="kehl-grid">
            <div class="grid-sizer"></div>
             @foreach($gallary as $key => $value)
             <div class="grid-box {{  str_replace(' ', '-',$value['cat_name'])  }}">
                 <a class="image-popup-vertical-fit" href="{{asset('public/upload/galleryimage/'.$value->image)}}">
-                    <div class="image-mask"></div>
-                    <img style="height: 255px" src=" {{asset('public/upload/galleryimage/'.$value->image) }}" alt="" />
+                    <!-- <div class="image-mask"></div> -->
+                    <div class="gallery-img">
+                        <img src=" {{asset('public/upload/galleryimage/'.$value->image) }}" alt="" />
+                    </div>
                     <h3>{{ $value->name }}</h3>
                 </a>
             </div>

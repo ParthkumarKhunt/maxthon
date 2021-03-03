@@ -1231,7 +1231,7 @@ p.read-more-alt {
 }
 
 .content-left-layer {
-    background-color: var(--primary-rgba-color);
+    /* background-color: var(--primary-rgba-color); */
     width: 50%;
     height: 100%;
     padding: 50px;
@@ -3488,4 +3488,56 @@ p.categorie {
 
 .my-select-menu{
     color: #3699FF !important;
+}
+
+.technologies-box .grid-box img{
+	width: auto;
+}
+.technologies-icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100px;
+}
+.technologies-box .grid-four-col .grid-box {
+	padding: 0 15px;
+	width: 16.66%;
+	margin-bottom: 15px;
+}
+.gallery-img {
+	position: relative;
+	padding: 50%;
+}
+.gallery#kehl-grid {
+	width: auto;
+	margin: 0 -15px;
+}
+.gallery .grid-box {
+	padding: 0 15px;
+
+}
+.gallery .grid-box a{
+	display: inline-block;
+	border: 1px solid #e6e6e6;
+	width: 100%;
+	margin-bottom: 30px;
+}
+.gallery .grid-box a:hover {
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+}
+.gallery-img img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.gallery#kehl-grid .grid-box h3 {
+    position: inherit;
+    opacity: 1;
+    margin: 0;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    padding: 20px 10px;
 }
