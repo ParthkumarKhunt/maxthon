@@ -75,28 +75,5 @@
 
 
 
-    <!-- CLIENTS CAROUSEL START -->
-    @if(!$ourClient->isEmpty())
-    <div class="container mt-5 mb-5">
-        <div class="clients-carousel">
-            <div class="owl-carousel owl-theme">
-                @foreach($ourClient as $key => $value)
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img" style="width: 184px;
-                            height: 125px;">
 
-                            {{-- <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt=""> --}}
-                        </figure>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    @endif
-    <!-- CLIENTS CAROUSEL END -->
-</section>
-<!-- CONTENT END -->
 @endsection

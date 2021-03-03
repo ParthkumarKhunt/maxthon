@@ -10,26 +10,26 @@
                 <div class="about-info-layer">
                     {{-- <h5 class="subtitle">About Washla</h5> --}}
                     <h2>
-                        @if($aboutus_section_one[0]->title)   
+                        @if($aboutus_section_one[0]->title)
                         {{ $aboutus_section_one[0]->title }}
                         @endif
                     </h2>
                     <p>
-                        @if($aboutus_section_one[0]->details)  
-                        {!! $aboutus_section_one[0]->details !!} 
+                        @if($aboutus_section_one[0]->details)
+                        {!! $aboutus_section_one[0]->details !!}
                         @endif
                     </p>
 
                     <div class="brand-layer d-flex">
                         <figure class="signature">
-                            @if($aboutus_section_one[0]->signuture)  
+                            @if($aboutus_section_one[0]->signuture)
                             <img src="{{ asset('public/upload/aboutus_section/'.$aboutus_section_one[0]->signuture) }}" alt="signuture_image">
                             @endif
                         </figure>
                         <div class="bl-contact">
                             <p>Call Us for Service</p>
                             <h4>
-                                @if($aboutus_section_one[0]->contact_no)  
+                                @if($aboutus_section_one[0]->contact_no)
                                 {{$aboutus_section_one[0]->contact_no}}
                                 @endif
                             </h4>
@@ -39,7 +39,7 @@
             </div>
             <div class="col-lg-6 spacing-md">
                 <figure class="about-img-layer">
-                    @if($aboutus_section_one[0]->image)  
+                    @if($aboutus_section_one[0]->image)
                     <img src="{{ asset('public/upload/aboutus_section/'.$aboutus_section_one[0]->image) }}"  alt="aboutus_section_image ">
                     @endif
                     <div class="ai-banner">
@@ -47,7 +47,7 @@
 
                             <div class="media-body">
                                 <h5 class="mt-0">
-                                    @if($aboutus_section_one[0]->image_headline)  
+                                    @if($aboutus_section_one[0]->image_headline)
                                     {{$aboutus_section_one[0]->image_headline}}
                                     @endif
                                 </h5>
@@ -59,7 +59,7 @@
         </div>
     </div>
     <!-- ABOUT SECTION END -->
-    
+
     <br><br><br><br>
 
     <!-- COUNTER START -->
@@ -110,25 +110,25 @@
     <!-- COUNTER END -->
 
     <!-- GRID SECTION START -->
-    @if(!$aboutus_section_two->isEmpty())   
+    @if(!$aboutus_section_two->isEmpty())
     <div class="bg-wrapper mt-5" style="background-color: white">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-12 spacing-md">
                     <div class="ws-left-side">
-                        
+
                         <h2>
-                            @if($aboutus_section_two[0]->title)   
+                            @if($aboutus_section_two[0]->title)
                             {{ $aboutus_section_two[0]->title }}
                             @endif
                         </h2>
                         <p>
-                            @if($aboutus_section_two[0]->details) 
-                            {!! $aboutus_section_two[0]->details !!} 
+                            @if($aboutus_section_two[0]->details)
+                            {!! $aboutus_section_two[0]->details !!}
                             @endif
                         </p>
-                     
+
                     </div>
                 </div>
             </div>
@@ -137,26 +137,6 @@
     @endif
     <!-- GRID SECTION END -->
 
-    <!-- CLIENTS CAROUSEL START -->  
-    @if(!$ourClient->isEmpty())
-    <div class="container mt-5 mb-5">
-        <div class="clients-carousel">
-            <div class="owl-carousel owl-theme">              
-                @foreach($ourClient as $key => $value)
-                <div class="item">
-                    <div class="client-box">
-                        <figure class="client-icon">
-                            <img src="{{ asset('public/upload/ourclients/'.$value->image) }}" alt="blog_img" style="width: 184px;
-                            height: 125px;">                            
-                            {{-- <img src="{{ asset('public/frontend/assets/images/commons/client-logo-1.jpg') }}" alt=""> --}}
-                        </figure>
-                    </div>
-                </div>               
-                @endforeach              
-            </div>
-        </div>
-    </div>
-    @endif
-    <!-- CLIENTS CAROUSEL END -->
+
 
 @endsection
