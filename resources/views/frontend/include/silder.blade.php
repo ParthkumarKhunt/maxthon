@@ -17,14 +17,14 @@ $currentRoute = Route::current()->getName();
 
             </div>
         </div>
-        @endforeach             
+        @endforeach
     </div>
     <!-- partial -->
 </div>
 <!--SLIDER END-->
 @else
     <!--SLIDER START-->
-    <div class="pages-hero">
+    <div class="pages-hero" style="background-image:url({{ asset('public/frontend/assets/images/commons/header.png') }});">
         <div class="container">
             <div class="pages-title">
                 <h1>{{$header['title']}}</h1>
