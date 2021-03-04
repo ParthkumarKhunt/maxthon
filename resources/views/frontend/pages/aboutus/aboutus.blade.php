@@ -135,8 +135,5 @@
         </div>
     </div>
     @endif
-    <!-- GRID SECTION END -->
-
-
 
 @endsection
