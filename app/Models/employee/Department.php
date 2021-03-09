@@ -93,7 +93,8 @@ class Department extends Model
     }
     public function editDetail($request){
         $count = Department::where("department",$request->input('department'))
-        ->count();
+                            ->where("id","!=", $request->input('editId'))
+                            ->count();
         if ($count == 0) {
             $obj  = Department::find($request->input('editId'));
             $obj->department = $request->input('department');

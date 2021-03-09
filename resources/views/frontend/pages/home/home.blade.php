@@ -1,7 +1,6 @@
 @extends('frontend.layout.app')
 @section('section')
 
-<section>
     <!-- HOME SERVICE CAROUSEL START -->
     @if(!$homeService->isEmpty())
     <div class="container mt-5 mb-5">
@@ -248,10 +247,11 @@
                             </div>
 
                             <div class="grid grid-four-col" id="kehl-grid">
+                            	<div class="grid-sizer"></div>
                                 @foreach($technology as $key => $value)
                                     <div class="grid-box {{  str_replace(' ', '-',$value['category'])  }}">
                                         <div class="technologies-icon">
-                                            <img src=" {{asset('public/upload/technologies/'.$value->image) }}" style="height: 80px" alt="{{  str_replace(' ', '-',$value['cat_name'])  }}" />
+                                            <img src=" {{asset('public/upload/technologies/'.$value->image) }}" alt="{{  str_replace(' ', '-',$value['cat_name'])  }}" />
                                         </div>
                                     </div>
                                 @endforeach
@@ -268,6 +268,6 @@
             </div>
         </div>
         <!-- PROJECT GRID END -->
-</section>
+
 
 @endsection

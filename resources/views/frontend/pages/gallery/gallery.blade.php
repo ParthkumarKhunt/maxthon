@@ -68,18 +68,20 @@
            <div class="grid-sizer"></div>
             @foreach($gallary as $key => $value)
             <div class="grid-box {{  str_replace(' ', '-',$value['cat_name'])  }}">
+                <div class="gallery-box-main">
                 <a class="image-popup-vertical-fit" href="{{asset('public/upload/galleryimage/'.$value->image)}}">
                     <!-- <div class="image-mask"></div> -->
                     <div class="gallery-img">
                         <img src=" {{asset('public/upload/galleryimage/'.$value->image) }}" alt="" />
                     </div>
-                    <h3>{{ $value->name }}</h3>
-                    <h4>
-                        <a href="{{  $value->url }}" target="_blank">
-                            View Demo
-                        </a>
-                    </h4>
                 </a>
+                <div class="gallery-box-content">
+                    <h3>{{ $value->name }}</h3>
+                
+                    <h4><a href="{{  $value->url }}" target="_blank">View Demo</a></h4>
+                </div>
+                
+                </div>
             </div>
             @endforeach
 

@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Image (Size : 350px * 250px)
+                            <label class="col-form-label ">Image (Size : 825px * 450px)
                                 <span class="text-danger">*</span></label>
                                 <br>
                                     <img src="{{ asset('public/upload/services/'.$details[0]->image) }}" alt="Image" style="width: 350px ;height: 250px ">

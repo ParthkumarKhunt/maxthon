@@ -19,6 +19,12 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['employee']], function(
     // Dashboard
     Route::match(['get', 'post'], 'employee-dashboard', ['as' => 'employee-dashboard', 'uses' => 'backend\employee\dashboard\DashboardController@dashboard']);
 
+     // profile
+     Route::match(['get', 'post'], 'employee-my-profile', ['as' => 'employee-my-profile', 'uses' => 'backend\employee\myprofile\MyprofileController@myprofile']);
+     // password
+     Route::match(['get', 'post'], 'employee-change-password', ['as' => 'employee-change-password', 'uses' => 'backend\employee\myprofile\MyprofileController@changepassword']);
+
+
      // Employee List
      Route::match(['get', 'post'], 'employee', ['as' => 'employee', 'uses' => 'backend\employee\employee\EmployeeController@list']);
      Route::match(['get', 'post'], 'employee-add', ['as' => 'employee-add', 'uses' => 'backend\employee\employee\EmployeeController@add']);

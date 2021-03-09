@@ -42,7 +42,6 @@ if($currentRoute != "home"){
 @if($currentRoute == "home")
     <!--SLIDER START-->
 <div class="home-slider">
-    <!-- partial:index.partial.html -->
     <div class="hero-slider" data-carousel>
     @foreach($homeSlider as $key => $value)
         <div class="carousel-cell" style="background-image:url({{ asset('public/upload/homesilder/'.$value->image) }});">
@@ -55,8 +54,8 @@ if($currentRoute != "home"){
         </div>
         @endforeach
     </div>
-    <!-- partial -->
 </div>
+
 <!--SLIDER END-->
 @else
 

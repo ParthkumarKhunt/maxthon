@@ -1,6 +1,11 @@
-@extends('backend.layout.layout')
+@extends('backend.employee.layout.layout')
 @section('section')
 
+@php
+if (!empty(Auth()->guard('employee')->user())) {
+   $data = Auth()->guard('employee')->user();
+}
+@endphp
 <!--begin::Entry-->
 <div class="d-flex flex-column-fluid">
     <!--begin::Container-->
@@ -17,39 +22,29 @@
 
                 </div>
                 <!--begin::Form-->
-                <form class="form" id="add-service-form" method="POST">@csrf
-
+                <form class="form" id="change-password" method="POST">@csrf
                     <div class="card-body">
 
+                        <input type="hidden" class="form-control" id="editId" name="editId" value="{{  $data['id'] }}"/>
+
                         <div class="form-group ">
-                            <label class="col-form-label ">Title (Max  : 30 Characters)
+                            <label class="col-form-label ">Old Passsword
                             <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="title" name="title"  placeholder="Please enter title"/>
+                            <input type="password" class="form-control" id="oldpassword" name="oldpassword"  placeholder="Please enter your old password"/>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Short Description (Max  : 120 Characters)
-                            <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="short_description" name="short_description" placeholder="Please enter short description"></textarea>
-                        </div>
-
-
-                        <div class="form-group ">
-                            <label class="col-form-label ">Description
-                            <span class="text-danger">*</span></label>
-                            <textarea class="form-control" rows="5" name="description" id="details"></textarea>
+                            <label class="col-form-label ">New Passsword
+                                <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="newpasssword" name="newpasssword"  placeholder="Please enter your new password"/>
                         </div>
 
                         <div class="form-group ">
-                            <label class="col-form-label ">Image (Size : 825px * 450px)
-                            <span class="text-danger">*</span></label>
-                            <input type="file" accept="image/*" class="form-control" id="image" name="image" accept="image/*"/>
+                            <label class="col-form-label ">Confirm Passsword
+                                <span class="text-danger">*</span></label>
+                            <input type="password" class="form-control" id="confirmpasssword" name="confirmpasssword"  placeholder="Please enter your confirm password"/>
                         </div>
-                        <div class="form-group ">
-                            <label class="col-form-label ">icon (Size : 50px * 50px)
-                            <span class="text-danger">*</span></label>
-                            <input type="file" accept="image/*" class="form-control" id="icon" name="icon" accept="image/*"/>
-                        </div>
+
                     </div>
 
                     <div class="card-footer">
@@ -73,6 +68,5 @@
     <!--end::Container-->
 </div>
 <!--end::Entry-->
-
 
 @endsection
