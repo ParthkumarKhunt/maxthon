@@ -59,6 +59,7 @@
         margin: 0px 15px;
         min-width: 250px;
     }
+    .technologies-box .grid-four-col .grid-sizer,
     .technologies-box .grid-four-col .grid-box {
         width: 25%;
     }
@@ -365,6 +366,7 @@
     }
 
     @media (max-width:767px) {
+        .technologies-box .grid-four-col .grid-sizer,
         .technologies-box .grid-four-col .grid-box {
             width: 33.33%;
         } 

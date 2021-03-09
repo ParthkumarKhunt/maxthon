@@ -1228,6 +1228,7 @@ p.read-more-alt {
     background-size: cover;
     position: relative;
     padding: 50px 0px;
+    overflow: hidden;
 }
 
 .content-left-layer {
@@ -3501,7 +3502,6 @@ p.categorie {
 }
 .technologies-box .grid-four-col .grid-box {
 	padding: 0 15px;
-	width: 16.66%;
 	margin-bottom: 15px;
 }
 .gallery-img {
@@ -3516,13 +3516,13 @@ p.categorie {
 	padding: 0 15px;
 
 }
-.gallery .grid-box a{
+.gallery .grid-box .gallery-box-main{
 	display: inline-block;
 	border: 1px solid #e6e6e6;
 	width: 100%;
 	margin-bottom: 30px;
 }
-.gallery .grid-box a:hover {
+.gallery .grid-box .gallery-box-main:hover {
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 }
 .gallery-img img{
@@ -3536,8 +3536,16 @@ p.categorie {
 .gallery#kehl-grid .grid-box h3 {
     position: inherit;
     opacity: 1;
-    margin: 0;
+    margin: 0 0 5px;
     text-transform: capitalize;
     letter-spacing: 0;
+}
+
+.gallery#kehl-grid .grid-box h4 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0px;
+}
+.gallery-box-content {
     padding: 20px 10px;
 }
