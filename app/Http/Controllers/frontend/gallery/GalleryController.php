@@ -39,7 +39,7 @@ class GalleryController extends Controller
         $data['funinit'] = array(
         );
         $data['header'] = array(
-            'title' => 'Gallery',
+            'title' => 'Portfolio',
             'breadcrumb' => array()
         );
         return view('frontend.pages.gallery.gallery', $data);
