@@ -442,9 +442,9 @@ p.right {
 .pages-title {
     position: absolute;
     top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    /* left: 50%; */
+    transform: translate(-10%, -50%);
+    text-align: left;
     color: #FFF;
 }
 

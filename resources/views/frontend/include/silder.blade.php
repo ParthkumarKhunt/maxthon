@@ -62,7 +62,7 @@ if($currentRoute != "home"){
     <!--SLIDER START-->
     <div class="pages-hero" style="background-image:url({{ asset('public/upload/banner_image/'.$getBannerList[0]->image) }});">
         <div class="container">
-            <div class="pages-title" style="left: 15% !important">
+            <div class="pages-title" >
                 <h1 style="color: white !important">{{$header['title']}}</h1>
             </div>
         </div>
