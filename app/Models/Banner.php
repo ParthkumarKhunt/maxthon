@@ -85,7 +85,7 @@ class Banner extends Model
         $objBanner  = Banner::find($request->input('editId'));
         if ($request->file('image')) {
             $image = $request->file('image');
-            $blogimage = time() .$image->getClientOriginalExtension();
+            $blogimage = time().".".$image->getClientOriginalExtension();
             $destinationPath = public_path('/upload/banner_image');
             $image->move($destinationPath, $blogimage);
             $objBanner->image = $blogimage;
