@@ -68,7 +68,7 @@
             <div class="counter-bar">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="media counter-layer right-border" style="padding: 32px;">
+                        <div class="media counter-layer right-border" style="height: 125px !important">
                             <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon1) }}"  class="mr-3" alt="happay_client">
                             <div class="media-body">
                                 <div class="counter" data-count="{{$statistical[0]->count1}}">0</div>
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="media counter-layer right-border">
+                        <div class="media counter-layer right-border" style="height: 125px !important">
                             <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon2) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
                                 <div class="counter" data-count="{{$statistical[0]->count2}}">0</div>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="media counter-layer right-border">
+                        <div class="media counter-layer right-border" style="height: 125px !important">
                             <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon3) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
                                 <div class="counter" data-count="{{$statistical[0]->count3}}">0</div>
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="media counter-layer">
+                        <div class="media counter-layer" style="height: 125px !important">
                             <img src="{{ asset('public/upload/aboutus_section/'.$statistical[0]->icon4) }}" class="mr-3" alt="happay_client">
                             <div class="media-body">
                                 <div class="counter" data-count="{{$statistical[0]->count4}}">0</div>
