@@ -57,8 +57,8 @@ $logodetails = getdetails();
             <ul class="navbar-nav ml-auto">
                 <li><a href="{{ route('home') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'home'  ? 'my-select-menu' : '' )  }} ">Home</a></li>
                 <li><a href="{{ route('services') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'services' || $currentRoute == 'service-details'  ? 'my-select-menu' : '' )  }}">Services</a></li>
-                <li><a href="{{ route('portfolio') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'portfolio'  ? 'my-select-menu' : '' )  }}">Portfolio</a></li>
-                <li><a href="{{ route('blog') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'blog' || $currentRoute == 'blogs' || $currentRoute == 'blogdetail' ? 'my-select-menu' : '' )  }}">Blog</a></li>
+                {{-- <li><a href="{{ route('portfolio') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'portfolio'  ? 'my-select-menu' : '' )  }}">Portfolio</a></li> --}}
+                {{-- <li><a href="{{ route('blog') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'blog' || $currentRoute == 'blogs' || $currentRoute == 'blogdetail' ? 'my-select-menu' : '' )  }}">Blog</a></li> --}}
                 <li><a href="{{ route('about-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'about-us'  ? 'my-select-menu' : '' )  }}">About us</a></li>
                 <li><a href="{{ route('career') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'career'  || $currentRoute == 'careerdetail' ? 'my-select-menu' : '' )  }}">Career</a></li>
                 <li><a href="{{ route('contact-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'contact-us'  ? 'my-select-menu' : '' )  }}">Contact us</a></li>
