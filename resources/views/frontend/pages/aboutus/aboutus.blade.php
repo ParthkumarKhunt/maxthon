@@ -20,7 +20,7 @@
                         @endif
                     </p>
 
-                    <div class="brand-layer d-flex">
+                    {{-- <div class="brand-layer d-flex">
                         <figure class="signature">
                             @if($aboutus_section_one[0]->signuture)
                             <img src="{{ asset('public/upload/aboutus_section/'.$aboutus_section_one[0]->signuture) }}" alt="signuture_image">
@@ -34,7 +34,7 @@
                                 @endif
                             </h4>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-lg-6 spacing-md">
