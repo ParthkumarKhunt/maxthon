@@ -27,7 +27,7 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['admin']], function() {
     Route::match(['get', 'post'], 'admin-change-password', ['as' => 'admin-change-password', 'uses' => 'backend\admin\myprofile\MyprofileController@changepassword']);
 
     // Details
-    Route::match(['get', 'post'], 'admin-details', ['as' => 'admin-details', 'uses' => 'backend\admin\details\DetailsController@details']);
+    Route::match(['get', 'post'], 'site-details', ['as' => 'site-details', 'uses' => 'backend\admin\details\DetailsController@details']);
 
     Route::match(['get', 'post'], 'admin-section2', ['as' => 'admin-section2', 'uses' => 'backend\admin\section2\Section2Controller@details']);
     Route::match(['get', 'post'], 'admin-section2-ajaxaction', ['as' => 'admin-section2-ajaxaction', 'uses' => 'backend\admin\section2\Section2Controller@ajaxAction']);

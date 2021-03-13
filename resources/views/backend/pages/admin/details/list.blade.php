@@ -91,10 +91,10 @@
                             <input type="text" class="form-control" id="facebook" name="facebook" value="{{ $details[0]->facebook }}"/>
                         </div>
 
-                        <div class="form-group ">
+                        {{-- <div class="form-group ">
                             <label class="col-form-label ">Twitter link (optional)</label>
                             <input type="text" class="form-control" id="twitter" name="twitter" value="{{ $details[0]->twitter }}"/>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group ">
                             <label class="col-form-label ">Linkedin (optional) </label>
@@ -107,10 +107,10 @@
                         </div>
 
 
-                        <div class="form-group ">
+                        {{-- <div class="form-group ">
                             <label class="col-form-label ">Github (optional)</label>
                             <input type="text" class="form-control" id="github" name="github" value="{{ $details[0]->github }}"/>
-                        </div>
+                        </div> --}}
 
 
                     </div>

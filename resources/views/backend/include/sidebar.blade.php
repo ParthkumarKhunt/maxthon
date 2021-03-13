@@ -198,9 +198,9 @@ $logodetails = getdetails();
                     </div>
                 </li>
 
-                <li class="menu-item {{ ( $currentRoute == 'admin-details'  ? 'menu-item-active' : '' )  }}"
+                <li class="menu-item {{ ( $currentRoute == 'site-details'  ? 'menu-item-active' : '' )  }}"
                     aria-haspopup="true">
-                    <a href="{{  route('admin-details') }}" class="menu-link">
+                    <a href="{{  route('site-details') }}" class="menu-link">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

@@ -56,12 +56,12 @@ class Details extends Model
             $objDetails->facebook = $request->input('facebook');
         }
 
-        if($request->input('twitter') == '' || $request->input('twitter') == NULL){
-            $objDetails->twitter = NULL;
-        }else{
-            $objDetails->twitter = $request->input('twitter');
-        }
-
+        // if($request->input('twitter') == '' || $request->input('twitter') == NULL){
+        //     $objDetails->twitter = NULL;
+        // }else{
+        //     $objDetails->twitter = $request->input('twitter');
+        // }
+        $objDetails->twitter = NULL;
         if($request->input('linkedin') == '' || $request->input('linkedin') == NULL){
             $objDetails->linkedin = NULL;
         }else{
@@ -73,12 +73,12 @@ class Details extends Model
         }else{
             $objDetails->instagram = $request->input('instagram');
         }
-
-        if($request->input('github') == '' || $request->input('github') == NULL){
-            $objDetails->github = NULL;
-        }else{
-            $objDetails->github = $request->input('github');
-        }
+        $objDetails->github = NULL;
+        // if($request->input('github') == '' || $request->input('github') == NULL){
+        //     $objDetails->github = NULL;
+        // }else{
+        //     $objDetails->github = $request->input('github');
+        // }
         $objDetails->address_line1 = $request->input('address_line1');
         $objDetails->address_line2 = $request->input('address_line2');
         $objDetails->aboutus = $request->input('aboutus');

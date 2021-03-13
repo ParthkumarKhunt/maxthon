@@ -22,7 +22,7 @@ class DetailsController extends Controller
             if($result){
                 $return['status'] = 'success';
                 $return['message'] = 'Details successfully updated';
-                $return['redirect'] = route('admin-details');
+                $return['redirect'] = route('site-details');
             }else{
                 $return['status'] = 'error';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
