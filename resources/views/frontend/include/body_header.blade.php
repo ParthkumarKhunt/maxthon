@@ -1,6 +1,13 @@
 @php
 $currentRoute = Route::current()->getName();
+
 $logodetails = getdetails();
+
+$menuaccessList = menuaccessList();
+$menu = [];
+foreach ($menuaccessList as $key => $value) {
+    array_push($menu,$value['menu']);
+}
 @endphp
 <!-- TOP HEADER START -->
 <div class="top-header-wrapper">
@@ -56,12 +63,33 @@ $logodetails = getdetails();
         <div id="main-nav" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li><a href="{{ route('home') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'home'  ? 'my-select-menu' : '' )  }} ">Home</a></li>
-                <li><a href="{{ route('services') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'services' || $currentRoute == 'service-details'  ? 'my-select-menu' : '' )  }}">Services</a></li>
-                {{-- <li><a href="{{ route('portfolio') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'portfolio'  ? 'my-select-menu' : '' )  }}">Portfolio</a></li> --}}
-                {{-- <li><a href="{{ route('blog') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'blog' || $currentRoute == 'blogs' || $currentRoute == 'blogdetail' ? 'my-select-menu' : '' )  }}">Blog</a></li> --}}
-                <li><a href="{{ route('about-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'about-us'  ? 'my-select-menu' : '' )  }}">About us</a></li>
-                <li><a href="{{ route('career') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'career'  || $currentRoute == 'careerdetail' ? 'my-select-menu' : '' )  }}">Career</a></li>
-                <li><a href="{{ route('contact-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'contact-us'  ? 'my-select-menu' : '' )  }}">Contact us</a></li>
+
+                @if(in_array("Services",$menu))
+                    <li><a href="{{ route('services') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'services' || $currentRoute == 'service-details'  ? 'my-select-menu' : '' )  }}">Services</a></li>
+                @endif
+
+                @if(in_array("Portfolio",$menu))
+                    <li><a href="{{ route('portfolio') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'portfolio'  ? 'my-select-menu' : '' )  }}">Portfolio</a></li>
+                @endif
+
+                @if(in_array("Blog",$menu))
+                    <li><a href="{{ route('blog') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'blog' || $currentRoute == 'blogs' || $currentRoute == 'blogdetail' ? 'my-select-menu' : '' )  }}">Blog</a></li>
+                @endif
+
+
+
+                @if(in_array("About us",$menu))
+                    <li><a href="{{ route('about-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'about-us'  ? 'my-select-menu' : '' )  }}">About us</a></li>
+                @endif
+
+                @if(in_array("Career",$menu))
+                    <li><a href="{{ route('career') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'career'  || $currentRoute == 'careerdetail' ? 'my-select-menu' : '' )  }}">Career</a></li>
+                @endif
+
+                @if(in_array("Contact us",$menu))
+                    <li><a href="{{ route('contact-us') }}" class="nav-item nav-link last-link-item {{ ( $currentRoute == 'contact-us'  ? 'my-select-menu' : '' )  }}">Contact us</a></li>
+                @endif
+
             </ul>
         </div>
     </div>

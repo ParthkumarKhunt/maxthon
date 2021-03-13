@@ -142,4 +142,7 @@ Route::match(['get', 'post'], 'admin-carrer-ajaxaction', ['as' => 'admin-carrer-
 
 Route::match(['get', 'post'], 'admin-carrer-list', ['as' => 'admin-carrer-list', 'uses' => 'backend\admin\career\CarrerController@careerList']);
 
+Route::match(['get', 'post'], 'admin-menu-access', ['as' => 'admin-menu-access', 'uses' => 'backend\admin\menuaccess\MenuController@list']);
+
+
 });

@@ -1,7 +1,11 @@
  <!-- FOOTER START -->
  @php
     $logodetails = getdetails();
-
+    $menuaccessList = menuaccessList();
+    $menu = [];
+    foreach ($menuaccessList as $key => $value) {
+        array_push($menu,$value['menu']);
+    }
 @endphp
  <footer>
     <div class="container">
@@ -25,15 +29,40 @@
                 <h5>Quick Links</h5>
                 <ul class="quick-links left-layer">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('about-us') }}">About</a></li>
-                    <li><a href="{{ route('services') }}">Services</a></li>
-                    <li><a href="{{ route('our-team') }}">Team</a></li>
+
+                    @if(in_array("About us",$menu))
+                        <li><a href="{{ route('about-us') }}">About</a></li>
+                    @endif
+
+                    @if(in_array("Services",$menu))
+                        <li><a href="{{ route('services') }}">Services</a></li>
+                    @endif
+
+                    @if(in_array("Portfolio",$menu))
+                        <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                    @endif
+
                 </ul>
                 <ul class="quick-links right-layer">
-                    <li><a href="{{ route('faqs') }}">FAQ</a></li>
-                    <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
-                    <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                    <li><a href="{{ route('blog') }}">Blogs</a></li>
+
+                    @if(in_array("FAQS",$menu))
+                        <li><a href="{{ route('faqs') }}">FAQ</a></li>
+                    @endif
+
+                    @if(in_array("Contact us",$menu))
+                        <li><a href="{{ route('contact-us') }}">Contact Us</a></li>
+                    @endif
+
+                    @if(in_array("Team",$menu))
+                        <li><a href="{{ route('our-team') }}">Team</a></li>
+                    @endif
+
+
+
+                    @if(in_array("Blog",$menu))
+                        <li><a href="{{ route('blog') }}">Blogs</a></li>
+                    @endif
+
                 </ul>
             </div>
 
