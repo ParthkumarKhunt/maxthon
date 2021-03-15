@@ -55,7 +55,7 @@
                     <div class="row justify-content-center py-10 px-8 py-lg-12 px-lg-10">
                         <div class="col-xl-12 col-xxl-7">
                             <!--begin: Wizard Form-->
-                            <form class="form" id="kt_form">@csrf
+                            <form class="form" id="kt_form" method="POST" enctype="multipart/form-data">@csrf
                                 <!--begin: Wizard Step 1-->
                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                     <div class="row">
@@ -91,7 +91,7 @@
                                             <!--begin::Input-->
                                             <div class="form-group">
                                                 <label>Employee father/husband name & surname</label>
-                                                <input type="text" class="form-control" name="empLastName" placeholder="Please enter your employee last name"/>
+                                                <input type="text" class="form-control" name="empLastName" placeholder="Please enter your employee father/husband name & surname"/>
                                             </div>
                                             <!--end::Input-->
                                         </div>
@@ -125,7 +125,7 @@
                                             <!--begin::Input-->
                                             <div class="form-group">
                                                 <label>Employee Mobile No</label>
-                                                <input type="text" class="form-control" name="empMobileNo" placeholder="Please enter your employee mobile no"  />
+                                                <input type="text" class="form-control onlyNumber" name="empMobileNo" placeholder="Please enter your employee mobile no"  />
                                             </div>
                                             <!--end::Input-->
                                         </div>
@@ -133,7 +133,7 @@
                                             <!--begin::Input-->
                                             <div class="form-group">
                                                 <label>Employee emergency contact no (Like : Father No, Husband/Wife no)</label>
-                                                <input type="text" class="form-control" name="empEmrNo" placeholder="Please enter emergency contact no"/>
+                                                <input type="text" class="form-control onlyNumber" name="empEmrNo" placeholder="Please enter emergency contact no"/>
                                             </div>
                                             <!--end::Input-->
                                         </div>

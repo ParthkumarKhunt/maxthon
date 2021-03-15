@@ -137,6 +137,7 @@ class EmployeeController extends Controller
         return view('backend.employee.pages.employee.add', $data);
 
     }
+
     public function edit(Request $request,$id){
         $obj = new Department();
         $data['menu']  = $obj->getAllDetails();
@@ -210,6 +211,8 @@ class EmployeeController extends Controller
         );
         return view('backend.employee.pages.employee.edit', $data);
     }
+
+
     public function ajaxAction(Request $request) {
         $action = $request->input('action');
         $session = session()->all();

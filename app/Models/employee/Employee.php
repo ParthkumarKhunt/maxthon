@@ -28,7 +28,7 @@ class Employee extends Model
             13 => 'basicSalary',
             14 => 'designation',
             15 => 'department',
-            16 => 'notes',        
+            16 => 'notes',
                );
         $query = Employee ::from('employeelist')
                     ->where("is_deleted","No");
@@ -73,19 +73,19 @@ class Employee extends Model
             $nestedData = array();
             $nestedData[] = $i;
             $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
-            $nestedData[] = $row['fullname'];  
-            $nestedData[] = $row['dob'];  
-            $nestedData[] = $row['address'];  
-            $nestedData[] = $row['mobile'];  
-            $nestedData[] = $row['emrgencyContact'];  
-            $nestedData[] = $row['email'];  
-            $nestedData[] = $row['edu_with_passing_year'];  
-            $nestedData[] = $row['expreiance'];  
-            $nestedData[] = $row['adharCard'];  
-            $nestedData[] = $row['panCard']; 
-            $nestedData[] = $row['dateofJoining'];  
-            $nestedData[] = $row['basicSalary'];  
-            $nestedData[] = $row['notes'];   
+            $nestedData[] = $row['fullname'];
+            $nestedData[] = $row['dob'];
+            $nestedData[] = $row['address'];
+            $nestedData[] = $row['mobile'];
+            $nestedData[] = $row['emrgencyContact'];
+            $nestedData[] = $row['email'];
+            $nestedData[] = $row['edu_with_passing_year'];
+            $nestedData[] = $row['expreiance'];
+            $nestedData[] = $row['adharCard'];
+            $nestedData[] = $row['panCard'];
+            $nestedData[] = $row['dateofJoining'];
+            $nestedData[] = $row['basicSalary'];
+            $nestedData[] = $row['notes'];
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -97,7 +97,10 @@ class Employee extends Model
         );
         return $json_data;
     }
-    public function addEmployee($request){      
+    public function addEmployee($request){
+
+        print_r($request->input());
+        die();
         $obj = new Employee();
         if ($request->file('employeeImage')) {
             $image = $request->file('employeeImage');
@@ -105,26 +108,26 @@ class Employee extends Model
             $destinationPath = public_path('/upload/employeeImage');
             $image->move($destinationPath, $employeeImage);
             $obj->employeeImage = $employeeImage;
-        }  
+        }
         $obj->fullname = $request->input('fullname');
-        $obj->dob = $request->input('dob'); 
-        $obj->address = $request->input('address'); 
-        $obj->mobile = $request->input('mobile'); 
-        $obj->emrgencyContact = $request->input('emrgencyContact'); 
-        $obj->email = $request->input('email'); 
-        $obj->edu_with_passing_year = $request->input('edu_with_passing_year'); 
-        $obj->expreiance = $request->input('expreiance'); 
-        $obj->adharCard = $request->input('adharCard'); 
-        $obj->panCard = $request->input('panCard'); 
-  
-        $obj->dateofJoining = $request->input('dateofJoining'); 
-        $obj->basicSalary = $request->input('basicSalary'); 
-        $obj->designation = $request->input('designation'); 
-        $obj->department = $request->input('department'); 
-        $obj->notes = $request->input('notes'); 
+        $obj->dob = $request->input('dob');
+        $obj->address = $request->input('address');
+        $obj->mobile = $request->input('mobile');
+        $obj->emrgencyContact = $request->input('emrgencyContact');
+        $obj->email = $request->input('email');
+        $obj->edu_with_passing_year = $request->input('edu_with_passing_year');
+        $obj->expreiance = $request->input('expreiance');
+        $obj->adharCard = $request->input('adharCard');
+        $obj->panCard = $request->input('panCard');
+
+        $obj->dateofJoining = $request->input('dateofJoining');
+        $obj->basicSalary = $request->input('basicSalary');
+        $obj->designation = $request->input('designation');
+        $obj->department = $request->input('department');
+        $obj->notes = $request->input('notes');
         $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
-        return $obj->save();            
+        return $obj->save();
     }
     public function getDetail($id){
         return Employee::select('*')->where("id",$id)->get();
@@ -138,22 +141,22 @@ class Employee extends Model
             $destinationPath = public_path('/upload/employeeImage');
             $image->move($destinationPath, $employeeImage);
             $obj->employeeImage = $employeeImage;
-        }  
+        }
         $obj->fullname = $request->input('fullname');
-        $obj->dob = $request->input('dob'); 
-        $obj->address = $request->input('address'); 
-        $obj->mobile = $request->input('mobile'); 
-        $obj->emrgencyContact = $request->input('emrgencyContact'); 
-        $obj->email = $request->input('email'); 
-        $obj->edu_with_passing_year = $request->input('edu_with_passing_year'); 
-        $obj->expreiance = $request->input('expreiance'); 
-        $obj->adharCard = $request->input('adharCard'); 
-        $obj->panCard = $request->input('panCard'); 
-        $obj->dateofJoining = $request->input('dateofJoining'); 
-        $obj->basicSalary = $request->input('basicSalary'); 
-        $obj->designation = $request->input('designation'); 
-        $obj->department = $request->input('department'); 
-        $obj->notes = $request->input('notes'); 
+        $obj->dob = $request->input('dob');
+        $obj->address = $request->input('address');
+        $obj->mobile = $request->input('mobile');
+        $obj->emrgencyContact = $request->input('emrgencyContact');
+        $obj->email = $request->input('email');
+        $obj->edu_with_passing_year = $request->input('edu_with_passing_year');
+        $obj->expreiance = $request->input('expreiance');
+        $obj->adharCard = $request->input('adharCard');
+        $obj->panCard = $request->input('panCard');
+        $obj->dateofJoining = $request->input('dateofJoining');
+        $obj->basicSalary = $request->input('basicSalary');
+        $obj->designation = $request->input('designation');
+        $obj->department = $request->input('department');
+        $obj->notes = $request->input('notes');
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
