@@ -8,7 +8,7 @@ use DB;
 class Department extends Model
 {
     use HasFactory;
-    protected $table = 'department'; 
+    protected $table = 'department';
 
     public function getDetail(){
             return Department::select("phoneno","email","line1","line2")->where("id",1)->get();

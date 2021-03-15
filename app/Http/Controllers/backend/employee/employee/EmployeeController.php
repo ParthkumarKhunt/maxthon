@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\employee\Department;
 use App\Models\employee\Designation;
 use App\Models\employee\Employee;
-
+use App\Models\State;
+use App\Models\Country;
+use App\Models\City;
+use App\Models\Employeeno;
 use Config;
 class EmployeeController extends Controller
 {
@@ -52,11 +55,23 @@ class EmployeeController extends Controller
     }
 
     public function add (Request $request){
-        $obj = new Department();
-        $data['menu']  = $obj->getAllDetails();
-        $obj = new Designation();
-        $data['designation']  = $obj->getAllDetails();
-         if ($request->isMethod('post')) {
+        $objDepartment = new Department();
+        $data['departmentList']  = $objDepartment->getAllDetails();
+        // print_r($data);
+        // die();
+        // $objDesignation = new Designation();
+        // $data['designation']  = $objDesignation->getAllDetails();
+
+        $objCountry = new Country();
+        $data['country'] = $objCountry->countyList();
+
+        $objEmployeeNo = new Employeeno();
+        $data['empno'] = $objEmployeeNo->getEmpNo();
+
+        // $objState = new State();
+        // $data['state'] = $objState->stateList(101);
+
+        if ($request->isMethod('post')) {
             $obj = new Employee();
             $result  = $obj->addEmployee($request);
             if ($result == "true") {
@@ -93,14 +108,13 @@ class EmployeeController extends Controller
             'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
-
+            'css/pages/wizard/wizard-3d1cf.css'
         );
 
         $data['pluginjs'] = array(
             'toastr/toastr.min.js',
             'plugins/validate/jquery.validate.min.js',
-            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
-            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
+            'pages/custom/wizard/wizard-3d1cf.js'
         );
 
         $data['js'] = array(
@@ -203,6 +217,28 @@ class EmployeeController extends Controller
             case 'getdatatable':
                 $obj = new Employee();
                 $list = $obj->getdatatable();
+
+                echo json_encode($list);
+                break;
+
+            case 'changeCountry':
+
+                $objState = new State();
+                $list = $objState->stateList(($request->input('data'))['id']);
+
+                echo json_encode($list);
+                break;
+            case 'changeState':
+
+                $objCity = new City();
+                $list = $objCity->cityList(($request->input('data'))['id']);
+
+                echo json_encode($list);
+                break;
+            case 'changeDepartment':
+
+                $objobjDesignation = new Designation();
+                $list = $objobjDesignation->getDetail(($request->input('data'))['id']);
 
                 echo json_encode($list);
                 break;

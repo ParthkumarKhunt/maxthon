@@ -25,7 +25,8 @@
                     <thead>
                         <tr>
                             <th>Sr. No</th>
-                            <th>Designation</th>
+                            <th>Departments</th>
+                            <th>Designations</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

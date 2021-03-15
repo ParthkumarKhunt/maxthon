@@ -4,20 +4,23 @@ namespace App\Models\employee;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\employee\Department;
 
 class Designation extends Model
 {
     use HasFactory;
     protected $table = 'employee_designation';
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
-            0 => 'id',
-            1 => 'department_id',
-            2 => 'designation',
+            0 => 'employee_designation.id',
+            1 => 'employee_department.department',
+            2 => 'employee_designation.designation',
                );
         $query = Designation ::from('employee_designation')
-                    ->where("is_deleted","No");
+                    ->join("employee_department","employee_department.id","=","employee_designation.department_id")
+                    ->where("employee_designation.is_deleted","No");
 
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
             $searchVal = $requestData['search']['value'];
@@ -44,8 +47,8 @@ class Designation extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('id','department_id','designation')
-                ->where("is_deleted","No")
+                ->select('employee_designation.id','employee_department.department','employee_designation.designation')
+                ->where("employee_designation.is_deleted","No")
                 ->get();
         $data = array();
 
@@ -57,7 +60,8 @@ class Designation extends Model
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
-            $nestedData[] = $row['designation'];             
+            $nestedData[] = $row['department'];
+            $nestedData[] = $row['designation'];
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -69,13 +73,13 @@ class Designation extends Model
         );
         return $json_data;
     }
-    public function addDesignation($request){      
+    public function addDesignation($request){
         $obj = new Designation();
         $obj->designation = $request->input('designation');
-        $obj->department_id = $request->input('department_id'); 
+        $obj->department_id = $request->input('department_id');
         $obj->created_at = date("Y-m-d h:i:s");
         $obj->updated_at = date("Y-m-d h:i:s");
-        return $obj->save();            
+        return $obj->save();
     }
     public function getDetail($id){
         return Designation::select('id','designation','department_id')->where("id",$id)->get();
@@ -84,7 +88,7 @@ class Designation extends Model
         $obj = new Designation();
         $obj  = Designation::find($request->input('editId'));
         $obj->designation = $request->input('designation');
-        $obj->department_id = $request->input('department_id'); 
+        $obj->department_id = $request->input('department_id');
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }

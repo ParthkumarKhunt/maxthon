@@ -45,31 +45,114 @@ var EmployeeList = function() {
             });
         });
     }
-    
-    var add = function() {
 
-        var form = $('#add-employee-form');
-        var rules = {
-            fullname: { required: true },
-            dob: { required: true },
-            address: { required: true },
-            mobile: { required: true, minlength: 10, maxlength: 10 },
-            emrgencyContact: { required: true, minlength: 10, maxlength: 10 },
-            email: { required: true, email: true },
-            edu_with_passing_year: { required: true },
-            expreiance: { required: true },
-            adharCard: { required: true },
-            panCard: { required: true },
-            employeeImage: { required: true },
-            dateofJoining: { required: true },
-            basicSalary: { required: true },
-            designation: { required: true },
-            department: { required: true },
-            notes: { required: true },
-        };
-        handleFormValidate(form, rules, function(form) {
-            handleAjaxFormSubmit(form, true);
+    var add = function() {
+        $("body").on("change","#empCountry",function(){
+            var id = $(this).val();
+            var data = { id: id, _token: $('#_token').val() };
+
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "employee-ajaxaction",
+                data: { 'action': 'changeCountry', 'data': data },
+                success: function(data) {
+                    var output = JSON.parse(data);
+                    var temp_html = '';
+                    var html ='<option value="">Please select employee state</option>';
+
+
+                    for (var i = 0; i < output.length; i++) {
+                        temp_html = '<option value="' + output[i].id + '">' + output[i].name + '</option>';
+                        html = html + temp_html;
+                    }
+
+                    $('#empState').html(html);
+                    $('#empCity').html('<option value="">Please select employee city</option>');
+                }
+            });
         });
+
+        $("body").on("change","#empState",function(){
+            var id = $(this).val();
+            var data = { id: id, _token: $('#_token').val() };
+
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "employee-ajaxaction",
+                data: { 'action': 'changeState', 'data': data },
+                success: function(data) {
+                    var output = JSON.parse(data);
+                    // console.log(output);
+                    // exit;
+                    var temp_html = '';
+                    var html ='<option value="">Please select employee city</option>';
+
+
+                    for (var i = 0; i < output.length; i++) {
+                        temp_html = '<option value="' + output[i].id + '">' + output[i].name + '</option>';
+                        html = html + temp_html;
+                    }
+
+                    $('#empCity').html(html);
+                }
+            });
+        });
+        $("body").on("change","#empDepartment",function(){
+            var id = $(this).val();
+            var data = { id: id, _token: $('#_token').val() };
+
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "employee-ajaxaction",
+                data: { 'action': 'changeDepartment', 'data': data },
+                success: function(data) {
+                    var output = JSON.parse(data);
+                    // console.log(output);
+                    // exit;
+                    var temp_html = '';
+                    var html ='<option  value="">Select employee designation</option>';
+
+
+                    for (var i = 0; i < output.length; i++) {
+                        temp_html = '<option value="' + output[i].id + '">' + output[i].designation + '</option>';
+                        html = html + temp_html;
+                    }
+
+                    $('#empDesignation').html(html);
+                }
+            });
+        });
+        // var form = $('#add-employee-form');
+        // var rules = {
+        //     fullname: { required: true },
+        //     dob: { required: true },
+        //     address: { required: true },
+        //     mobile: { required: true, minlength: 10, maxlength: 10 },
+        //     emrgencyContact: { required: true, minlength: 10, maxlength: 10 },
+        //     email: { required: true, email: true },
+        //     edu_with_passing_year: { required: true },
+        //     expreiance: { required: true },
+        //     adharCard: { required: true },
+        //     panCard: { required: true },
+        //     employeeImage: { required: true },
+        //     dateofJoining: { required: true },
+        //     basicSalary: { required: true },
+        //     designation: { required: true },
+        //     department: { required: true },
+        //     notes: { required: true },
+        // };
+        // handleFormValidate(form, rules, function(form) {
+        //     handleAjaxFormSubmit(form, true);
+        // });
     };
     var edit = function() {
 
@@ -90,7 +173,7 @@ var EmployeeList = function() {
             designation: { required: true },
             department: { required: true },
             notes: { required: true },
-            
+
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
