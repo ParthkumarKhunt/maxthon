@@ -118,6 +118,7 @@ var EmployeeList = function() {
                     var output = JSON.parse(data);
                     // console.log(output);
                     // exit;
+
                     var temp_html = '';
                     var html ='<option  value="">Select employee designation</option>';
 
