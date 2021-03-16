@@ -139,6 +139,47 @@
                                         </div>
                                     </div>
 
+                                    {{-- <div class="form-group row">
+                                        <label class="col-3 col-form-label">Success State</label>
+                                        <div class="col-9 col-form-label">
+                                            <div class="radio-inline">
+                                                <label class="radio radio-success">
+                                                <input type="radio" name="radios5">
+                                                <span></span>Default</label>
+                                                <label class="radio radio-success">
+                                                <input type="radio" name="radios5" checked="checked">
+                                                <span></span>Checked</label>
+                                                <label class="radio radio-success radio-disabled">
+                                                <input type="radio" name="radios5" disabled="disabled">
+                                                <span></span>Disabled</label>
+                                            </div>
+                                            <span class="form-text text-muted">Some help text goes here</span>
+                                        </div>
+                                    </div> --}}
+
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <!--begin::Input-->
+                                            <div class="form-group">
+                                                <label>Employee Gender</label>
+                                                <div class="radio-inline">
+                                                    <label class="radio radio-success">
+                                                    <input type="radio" name="empgender" checked="checked" value="M">
+                                                    <span></span>Male</label>
+                                                    <label class="radio radio-success">
+                                                    <input type="radio" name="empgender" value="F">
+                                                    <span></span>Female</label>
+                                                    <label class="radio radio-success">
+                                                    <input type="radio" name="empgender" value="O">
+                                                    <span></span>Others</label>
+                                                </div>
+
+                                            </div>
+                                            <!--end::Input-->
+                                        </div>
+
+                                    </div>
+
                                 </div>
                                 <!--end: Wizard Step 1-->
 

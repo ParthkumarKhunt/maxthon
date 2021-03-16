@@ -59,6 +59,7 @@ var KTWizard3 = (function () {
                             empDob: { validators: { notEmpty: { message: "Please enter employee date of birth" } } },
                             empMobileNo: { validators: { notEmpty: { message: "Please enter employee mobile no"  }, digits: { message: "Please enter vaild employee mobile no" } } },
                             empEmrNo: { validators: { notEmpty: { message: "Please enter employee emergency contact no"  }, digits: { message: "Please enter vaild emergency contact no" } } },
+                            empgender: { validators: { notEmpty: { message: "Please select employee gender"  } } },
                         },
                         plugins: { trigger: new FormValidation.plugins.Trigger(), bootstrap: new FormValidation.plugins.Bootstrap({ eleValidClass: "" }) },
                     })
