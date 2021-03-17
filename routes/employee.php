@@ -29,6 +29,7 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['employee']], function(
      Route::match(['get', 'post'], 'employee', ['as' => 'employee', 'uses' => 'backend\employee\employee\EmployeeController@list']);
      Route::match(['get', 'post'], 'employee-add', ['as' => 'employee-add', 'uses' => 'backend\employee\employee\EmployeeController@add']);
      Route::match(['get', 'post'], 'employee-edit/{id}', ['as' => 'employee-edit', 'uses' => 'backend\employee\employee\EmployeeController@edit']);
+     Route::match(['get', 'post'], 'employee-view/{id}', ['as' => 'employee-view', 'uses' => 'backend\employee\employee\EmployeeController@view']);
      Route::match(['get', 'post'], 'employee-ajaxaction', ['as' => 'employee-ajaxaction', 'uses' => 'backend\employee\employee\EmployeeController@ajaxAction']);
 
      // department  List

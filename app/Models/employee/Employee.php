@@ -59,8 +59,9 @@ class Employee extends Model
         $i = 0;
         foreach ($resultArr as $row) {
             $image = url("public/upload/employeeImage/" . $row['image']);
-            $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteEmployee" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
-            .'<a href="' . route('employee-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
+            $actionhtml ='<a href="' . route('employee-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>'
+            .'<a href="' . route('employee-view', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-eye"> </i></a>'
+            .'<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteEmployee" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
@@ -158,40 +159,87 @@ class Employee extends Model
 
 
     public function getDetail($id){
-        return Employee::select('*')->where("id",$id)->get();
+        return Employee::select('*')
+                        ->where("id",$id)->get();
+    }
+
+
+    public function viewDetail($id){
+        return Employee::select('myemployee.emp_no','myemployee.image','myemployee.firstname','myemployee.lastname',
+                                'myemployee.email','myemployee.dob','myemployee.mobileno','myemployee.emergencyno',
+                                'myemployee.gender','myemployee.education','myemployee.passingyear','myemployee.institute',
+                                'myemployee.experience','myemployee.address','myemployee.salary','myemployee.doj',
+                                'myemployee.aadharcard','myemployee.pancard','myemployee.bankname','myemployee.branchname',
+                                'myemployee.ifsccode','myemployee.accountno','myemployee.pfno','myemployee.esino','myemployee.notes',
+                                'employee_department.department','countries.name as country','states.name as state','cities.name as city','employee_designation.designation'
+                            )
+                            ->join("countries","countries.id","=","myemployee.country")
+                            ->join("states","states.id","=","myemployee.state")
+                            ->join("cities","cities.id","=","myemployee.city")
+                            ->join("employee_department","employee_department.id","=","myemployee.department")
+                            ->join("employee_designation","employee_designation.id","=","myemployee.designation")
+                            ->where("myemployee.id",$id)
+                            ->get();
     }
 
     public function editDetail($request){
-        $obj = new Employee();
-        $obj  = Employee::find($request->input('editId'));
-        if ($request->file('employeeImage')) {
-            $image = $request->file('employeeImage');
-            $employeeImage = time() . '1.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/employeeImage');
-            $image->move($destinationPath, $employeeImage);
-            $obj->employeeImage = $employeeImage;
+
+        $count = Employee::where('email',"=",$request->input('empEmail'))
+                            ->where("id","!=",$request->input('empEditId'))
+                            ->count();
+
+        if($count == 0){
+            $objEmployee  = Employee::find($request->input('empEditId'));
+
+            if ($request->file('empImage')) {
+                $image = $request->file('empImage');
+                $employeeImage = time() . '1.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/upload/employeeImage');
+                $image->move($destinationPath, $employeeImage);
+                $objEmployee->image = $employeeImage;
+            }
+            $objEmployee->firstname = $request->input('empFirstName');
+            $objEmployee->lastname = $request->input('empLastName');
+            $objEmployee->email = $request->input('empEmail');
+            $objEmployee->dob = date("Y-m-d",strtotime($request->input('empDob')));
+            $objEmployee->mobileno = $request->input('empMobileNo');
+            $objEmployee->emergencyno = $request->input('empEmrNo');
+            $objEmployee->gender = $request->input('empgender');
+            $objEmployee->education = $request->input('empEducation');
+            $objEmployee->passingyear = $request->input('empPassingYear');
+            $objEmployee->institute = $request->input('empCollageName');
+            $objEmployee->experience = $request->input('empExperience');
+            $objEmployee->address = $request->input('empAddress');
+            $objEmployee->country = $request->input('empCountry');
+            $objEmployee->state = $request->input('empState');
+            $objEmployee->city = $request->input('empCity');
+            $objEmployee->department = $request->input('empDepartment');
+            $objEmployee->designation = $request->input('empDesignation');
+            $objEmployee->salary = $request->input('empSalary');
+            $objEmployee->doj = date("Y-m-d",strtotime($request->input('empDoj')));
+            $objEmployee->aadharcard = $request->input('empAadharCard');
+            $objEmployee->pancard = $request->input('empPanCard');
+            $objEmployee->bankname = $request->input('empBank');
+            $objEmployee->branchname = $request->input('empBranch');
+            $objEmployee->ifsccode = $request->input('empIfsc');
+            $objEmployee->accountno = $request->input('empAccount');
+            $objEmployee->pfno = $request->input('empPfno');
+            $objEmployee->esino = $request->input('empEsl');
+            $objEmployee->notes = $request->input('empnotes');
+            $objEmployee->updated_at = date("Y-m-d h:i:s");
+            if($objEmployee->save()){
+                    return "true";
+            }else{
+                return "wrong";
+            }
+        }else{
+            return "exits";
         }
-        $obj->fullname = $request->input('fullname');
-        $obj->dob = $request->input('dob');
-        $obj->address = $request->input('address');
-        $obj->mobile = $request->input('mobile');
-        $obj->emrgencyContact = $request->input('emrgencyContact');
-        $obj->email = $request->input('email');
-        $obj->edu_with_passing_year = $request->input('edu_with_passing_year');
-        $obj->expreiance = $request->input('expreiance');
-        $obj->adharCard = $request->input('adharCard');
-        $obj->panCard = $request->input('panCard');
-        $obj->dateofJoining = $request->input('dateofJoining');
-        $obj->basicSalary = $request->input('basicSalary');
-        $obj->designation = $request->input('designation');
-        $obj->department = $request->input('department');
-        $obj->notes = $request->input('notes');
-        $obj->updated_at = date("Y-m-d h:i:s");
-        return $obj->save();
     }
+
     public function  deleteEmployee($data){
         $obj = Employee::find($data['id']);
-        $obj->is_deleted = "Yes";
+        $obj->is_deleted = "Y";
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }

@@ -82,7 +82,7 @@ class EmployeeController extends Controller
                 } else {
                     if ($result == "exits") {
                         $return['status'] = 'error';
-                        $return['message'] = 'The Employee is already there.';
+                        $return['message'] = 'Employe email already exits.';
                         $return['redirect'] = route('employee');
                     } else {
                         $return['status'] = 'error';
@@ -96,9 +96,9 @@ class EmployeeController extends Controller
             exit;
         }
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Employee';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Employee';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Employee';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit employee details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit employee details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit employee details';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
@@ -122,11 +122,11 @@ class EmployeeController extends Controller
             'EmployeeList.add()'
         );
         $data['header'] = array(
-            'title' => 'Add Employee',
+            'title' => 'Edit employee details',
             'breadcrumb' => array(
                 'Dashboard'=> route('employee-dashboard'),
                 'Employee' => route('employee'),
-                'Add Employee'=> 'Add Employee',
+                'Edit employee details'=> 'Edit employee details',
             )
         );
         return view('backend.employee.pages.employee.add', $data);
@@ -134,18 +134,30 @@ class EmployeeController extends Controller
     }
 
     public function edit(Request $request,$id){
-        $obj = new Department();
-        $data['menu']  = $obj->getAllDetails();
-        $obj = new Designation();
-        $data['designation']  = $obj->getAllDetails();
-        if ($request->isMethod('post')) {
+        $objDepartment = new Department();
+        $data['departmentList']  = $objDepartment->getAllDetails();
 
+        $objCountry = new Country();
+        $data['country'] = $objCountry->countyList();
+
+        $objEmployee = new Employee();
+        $data['employeeDetails'] = $objEmployee->getDetail($id);
+
+        $objState = new State();
+        $data['statelist'] = $objState->stateList($data['employeeDetails'][0]->country);
+
+        $objCity = new City();
+        $data['citylist'] = $objCity->cityList($data['employeeDetails'][0]->state);
+
+        $objobjDesignation = new Designation();
+        $data['designationList'] = $objobjDesignation->getDesignation($data['employeeDetails'][0]->designation);
+
+        if ($request->isMethod('post')) {
             $obj = new Employee();
             $result = $obj->editDetail($request);
-
             if ($result == "true") {
                 $return['status'] = 'success';
-                $return['message'] = 'Employee successfully edited!';
+                $return['message'] = 'Employee details succesfully updated.!!';
                 $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                 $return['redirect'] = route('employee');
             } else {
@@ -156,37 +168,38 @@ class EmployeeController extends Controller
                 } else {
                     if ($result == "exits") {
                         $return['status'] = 'error';
-                        $return['message'] = 'The Employee is already there.';
+                        $return['message'] = 'Employe email already exits.';
                         $return['redirect'] = route('employee');
                     } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                         $return['message'] = 'Something goes to wrong.Please try agian later';
-
                     }
                 }
             }
-            return json_encode($return);
-                exit();
+            echo json_encode($return);
+            exit;
         }
 
         $obj = new Employee();
         $data['details']  = $obj->getDetail($id);
 
-        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Employee';
-        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Employee';
-        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Edit Employee';
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Employee';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Employee';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Employee';
         $data['css'] = array(
             'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
+            'css/pages/wizard/wizard-3d1cf.css'
         );
+
         $data['pluginjs'] = array(
             'toastr/toastr.min.js',
             'plugins/validate/jquery.validate.min.js',
-            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
-            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
+            'pages/custom/wizard/wizard-3d1cfedit.js'
         );
+
         $data['js'] = array(
             'comman_function.js',
             'ajaxfileupload.js',
@@ -194,20 +207,49 @@ class EmployeeController extends Controller
             'employeeList.js'
         );
         $data['funinit'] = array(
-            'EmployeeList.edit()'
+            'EmployeeList.add()'
         );
         $data['header'] = array(
-            'title' => 'Edit Employee',
+            'title' => 'Add Employee',
             'breadcrumb' => array(
-                'Dashboard' => route('employee-dashboard'),
+                'Dashboard'=> route('employee-dashboard'),
                 'Employee' => route('employee'),
-                'Edit Employee' => 'Edit Employee',
+                'Add Employee'=> 'Add Employee',
             )
         );
         return view('backend.employee.pages.employee.edit', $data);
     }
 
+    public function view(Request $request,$id){
 
+        $objEmployee = new Employee();
+        $data['employeeDetails'] = $objEmployee->viewDetail($id);
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View employee details';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View employee details';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View employee details';
+        $data['css'] = array(
+        );
+        $data['plugincss'] = array(
+        );
+
+        $data['pluginjs'] = array(
+        );
+
+        $data['js'] = array(
+        );
+        $data['funinit'] = array(
+        );
+        $data['header'] = array(
+            'title' => 'View employee details',
+            'breadcrumb' => array(
+                'Dashboard'=> route('employee-dashboard'),
+                'Employee' => route('employee'),
+                'View employee details'=> 'View employee details',
+            )
+        );
+        return view('backend.employee.pages.employee.view', $data);
+    }
     public function ajaxAction(Request $request) {
         $action = $request->input('action');
         $session = session()->all();
