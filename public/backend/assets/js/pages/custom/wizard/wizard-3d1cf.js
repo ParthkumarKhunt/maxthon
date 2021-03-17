@@ -35,16 +35,8 @@ var KTWizard3 = (function () {
                     i &&
                         i.validate().then(function (e) {
                             "Valid" == e
-                                ? t.submit()
-                                : Swal.fire({
-                                      text: "Sorry, looks like there are some errors detected, please try again.",
-                                      icon: "error",
-                                      buttonsStyling: !1,
-                                      confirmButtonText: "Ok, got it!",
-                                      customClass: { confirmButton: "btn font-weight-bold btn-light" },
-                                  }).then(function () {
-                                      KTUtil.scrollTop();
-                                  });
+                                ? handleAjaxFormMySubmit(t,true)
+                                : ''
                         });
                 }),
 
@@ -107,6 +99,7 @@ var KTWizard3 = (function () {
                         plugins: { trigger: new FormValidation.plugins.Trigger(), bootstrap: new FormValidation.plugins.Bootstrap({ eleValidClass: "" }) },
                     })
                 );
+
         },
     };
 })();

@@ -55,12 +55,9 @@ class EmployeeController extends Controller
     }
 
     public function add (Request $request){
+
         $objDepartment = new Department();
         $data['departmentList']  = $objDepartment->getAllDetails();
-        // print_r($data);
-        // die();
-        // $objDesignation = new Designation();
-        // $data['designation']  = $objDesignation->getAllDetails();
 
         $objCountry = new Country();
         $data['country'] = $objCountry->countyList();
@@ -68,12 +65,10 @@ class EmployeeController extends Controller
         $objEmployeeNo = new Employeeno();
         $data['empno'] = $objEmployeeNo->getEmpNo();
 
-        // $objState = new State();
-        // $data['state'] = $objState->stateList(101);
-
         if ($request->isMethod('post')) {
             $obj = new Employee();
             $result  = $obj->addEmployee($request);
+
             if ($result == "true") {
                 $return['status'] = 'success';
                 $return['message'] = 'Employee add succesfully !!';

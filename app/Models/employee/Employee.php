@@ -4,34 +4,27 @@ namespace App\Models\employee;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Employeeno;
+use DB;
 class Employee extends Model
 {
     use HasFactory;
-    protected $table = 'employeelist';
+    protected $table = 'myemployee';
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
-            0 => 'id',
-            1 => 'fullname',
-            2 => 'dob',
-            3 => 'address',
-            4 => 'mobile',
-            5 => 'emrgencyContact',
-            6 => 'email',
-            7 => 'edu_with_passing_year',
-            8 => 'expreiance',
-            9 => 'adharCard',
-            10=> 'panCard',
-            11 => 'employeeImage',
-            12 => 'dateofJoining',
-            13 => 'basicSalary',
-            14 => 'designation',
-            15 => 'department',
-            16 => 'notes',
-               );
-        $query = Employee ::from('employeelist')
-                    ->where("is_deleted","No");
+            0 => 'myemployee.id',
+            1 => 'myemployee.image',
+            2 => 'myemployee.firstname',
+            3 => 'myemployee.lastname',
+            4 => 'myemployee.email',
+            5 => 'myemployee.mobileno',
+            6 => 'myemployee.emergencyno',
+            7 => 'myemployee.dob',
+        );
+        $query = Employee ::from('myemployee')
+                    ->where("myemployee.is_deleted","N");
 
         if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
             $searchVal = $requestData['search']['value'];
@@ -58,34 +51,27 @@ class Employee extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('*')
-                ->where("is_deleted","No")
+                ->select('myemployee.id','myemployee.dob','myemployee.emp_no','myemployee.image','myemployee.firstname','myemployee.lastname','myemployee.email','myemployee.mobileno','myemployee.emergencyno')
                 ->get();
         $data = array();
 
 
         $i = 0;
         foreach ($resultArr as $row) {
-            $image = url("public/upload/employeeImage/" . $row['employeeImage']);
+            $image = url("public/upload/employeeImage/" . $row['image']);
             $actionhtml = '<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteEmployee" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>'
             .'<a href="' . route('employee-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>';
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
-            $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;">';
-            $nestedData[] = $row['fullname'];
-            $nestedData[] = $row['dob'];
-            $nestedData[] = $row['address'];
-            $nestedData[] = $row['mobile'];
-            $nestedData[] = $row['emrgencyContact'];
+            $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;border-radius: 50%;">';
+            $nestedData[] = $row['emp_no'];
+            $nestedData[] = $row['firstname'];
+            $nestedData[] = $row['lastname'];
             $nestedData[] = $row['email'];
-            $nestedData[] = $row['edu_with_passing_year'];
-            $nestedData[] = $row['expreiance'];
-            $nestedData[] = $row['adharCard'];
-            $nestedData[] = $row['panCard'];
-            $nestedData[] = $row['dateofJoining'];
-            $nestedData[] = $row['basicSalary'];
-            $nestedData[] = $row['notes'];
+            $nestedData[] = $row['mobileno'];
+            $nestedData[] = $row['emergencyno'];
+            $nestedData[] = date("d/m/Y",strtotime($row['dob']));
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }
@@ -99,39 +85,82 @@ class Employee extends Model
     }
     public function addEmployee($request){
 
-        print_r($request->input());
-        die();
-        $obj = new Employee();
-        if ($request->file('employeeImage')) {
-            $image = $request->file('employeeImage');
-            $employeeImage = time() . '1.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/upload/employeeImage');
-            $image->move($destinationPath, $employeeImage);
-            $obj->employeeImage = $employeeImage;
-        }
-        $obj->fullname = $request->input('fullname');
-        $obj->dob = $request->input('dob');
-        $obj->address = $request->input('address');
-        $obj->mobile = $request->input('mobile');
-        $obj->emrgencyContact = $request->input('emrgencyContact');
-        $obj->email = $request->input('email');
-        $obj->edu_with_passing_year = $request->input('edu_with_passing_year');
-        $obj->expreiance = $request->input('expreiance');
-        $obj->adharCard = $request->input('adharCard');
-        $obj->panCard = $request->input('panCard');
+        $count = Employee::where('email',$request->input('empEmail'))->count();
 
-        $obj->dateofJoining = $request->input('dateofJoining');
-        $obj->basicSalary = $request->input('basicSalary');
-        $obj->designation = $request->input('designation');
-        $obj->department = $request->input('department');
-        $obj->notes = $request->input('notes');
-        $obj->created_at = date("Y-m-d h:i:s");
-        $obj->updated_at = date("Y-m-d h:i:s");
-        return $obj->save();
+        if($count == 0){
+            $objEmployee = new Employee();
+            if ($request->file('empImage')) {
+                $image = $request->file('empImage');
+                $employeeImage = time() . '1.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/upload/employeeImage');
+                $image->move($destinationPath, $employeeImage);
+                $objEmployee->image = $employeeImage;
+            }
+
+            $objEmployee->emp_no = $request->input('empNoNew');
+            $objEmployee->firstname = $request->input('empFirstName');
+            $objEmployee->lastname = $request->input('empLastName');
+            $objEmployee->email = $request->input('empEmail');
+            $objEmployee->dob = date("Y-m-d",strtotime($request->input('empDob')));
+            $objEmployee->mobileno = $request->input('empMobileNo');
+            $objEmployee->emergencyno = $request->input('empEmrNo');
+            $objEmployee->gender = $request->input('empgender');
+            $objEmployee->education = $request->input('empEducation');
+            $objEmployee->passingyear = $request->input('empPassingYear');
+            $objEmployee->institute = $request->input('empCollageName');
+            $objEmployee->experience = $request->input('empExperience');
+            $objEmployee->address = $request->input('empAddress');
+            $objEmployee->country = $request->input('empCountry');
+            $objEmployee->state = $request->input('empState');
+            $objEmployee->city = $request->input('empCity');
+            $objEmployee->department = $request->input('empDepartment');
+            $objEmployee->designation = $request->input('empDesignation');
+            $objEmployee->salary = $request->input('empSalary');
+            $objEmployee->doj = date("Y-m-d",strtotime($request->input('empDoj')));
+            $objEmployee->aadharcard = $request->input('empAadharCard');
+            $objEmployee->pancard = $request->input('empPanCard');
+            $objEmployee->bankname = $request->input('empBank');
+            $objEmployee->branchname = $request->input('empBranch');
+            $objEmployee->ifsccode = $request->input('empIfsc');
+            $objEmployee->accountno = $request->input('empAccount');
+            $objEmployee->pfno = $request->input('empPfno');
+            $objEmployee->esino = $request->input('empEsl');
+            $objEmployee->notes = $request->input('empnotes');
+            $objEmployee->is_deleted = "N";
+            $objEmployee->created_at = date("Y-m-d h:i:s");
+            $objEmployee->updated_at = date("Y-m-d h:i:s");
+            if($objEmployee->save()){
+                $id = $objEmployee->id;
+
+                $objEmployeeNo = new Employeeno();
+                $empno = $objEmployeeNo->getEmpNo();
+                $cur_emp_no = $empno[0]->no;
+
+                $objEmployeeNo = Employeeno::find(1);
+                $objEmployeeNo->no = $cur_emp_no + 1;
+                $objEmployeeNo->updated_at = date("Y-m-d h:i:s");
+                if($objEmployeeNo->save()){
+                    return "true";
+                }else{
+                    DB::table('myemployee')->where('id', $id)->delete();
+                    return "wrong";
+                }
+                print_r($objEmployeeNo->save());
+                die();
+                return "true";
+            }else{
+                return "wrong";
+            }
+        }else{
+            return "exits";
+        }
     }
+
+
     public function getDetail($id){
         return Employee::select('*')->where("id",$id)->get();
     }
+
     public function editDetail($request){
         $obj = new Employee();
         $obj  = Employee::find($request->input('editId'));

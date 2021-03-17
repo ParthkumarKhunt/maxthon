@@ -57,6 +57,7 @@
                             <!--begin: Wizard Form-->
                             <form class="form" id="kt_form" method="POST" enctype="multipart/form-data">@csrf
                                 <!--begin: Wizard Step 1-->
+                                <input type="hidden" class="form-control" name="empNoNew" placeholder="Please enter your employee number" value="{{ "MAXTHON-EMP-00".$empno[0]->no }}" />
                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                     <div class="row">
                                         <div class="col-xl-6">
@@ -64,7 +65,6 @@
                                             <div class="form-group">
                                                 <label>Employee Number</label>
                                                 <input type="text" class="form-control" name="empNo" placeholder="Please enter your employee number" value="{{ "MAXTHON-EMP-00".$empno[0]->no }}" disabled="disabled" />
-                                                {{-- <span class="form-text text-muted">Please enter your employee number.</span> --}}
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
@@ -139,23 +139,7 @@
                                         </div>
                                     </div>
 
-                                    {{-- <div class="form-group row">
-                                        <label class="col-3 col-form-label">Success State</label>
-                                        <div class="col-9 col-form-label">
-                                            <div class="radio-inline">
-                                                <label class="radio radio-success">
-                                                <input type="radio" name="radios5">
-                                                <span></span>Default</label>
-                                                <label class="radio radio-success">
-                                                <input type="radio" name="radios5" checked="checked">
-                                                <span></span>Checked</label>
-                                                <label class="radio radio-success radio-disabled">
-                                                <input type="radio" name="radios5" disabled="disabled">
-                                                <span></span>Disabled</label>
-                                            </div>
-                                            <span class="form-text text-muted">Some help text goes here</span>
-                                        </div>
-                                    </div> --}}
+
 
                                     <div class="row">
                                         <div class="col-xl-6">
@@ -414,6 +398,17 @@
                                                 <!--end::Input-->
                                             </div>
                                         </div>
+                                        <div class="row">
+
+                                            <div class="col-xl-12">
+                                                <!--begin::Input-->
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <textarea class="form-control" name="empnotes" placeholder="Please enter employee notes"></textarea>
+                                                </div>
+                                                <!--end::Input-->
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -424,7 +419,7 @@
                                         <button type="button" class="btn btn-light-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-prev">Previous</button>
                                     </div>
                                     <div>
-                                        <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit">Submit</button>
+                                        <button type="submit" class="btn btn-success submitbtn font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit">Submit</button>
                                         <button type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-next">Next</button>
                                     </div>
                                 </div>

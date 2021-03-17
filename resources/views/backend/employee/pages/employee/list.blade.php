@@ -25,22 +25,15 @@
                     <thead>
                         <tr>
                             <th>Sr. No</th>
-                            <th>Employee Image</th>
-                            <th>Full Name</th>
-                            <th>DOB</th>
-                            <th>Address</th>
+                            <th>Emp. No</th>
+                            <th>Image</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
                             <th>Mobile No</th>
-                            <th>Emrgency Contact No</th>
-                            <th>Email Address</th>
-                            <th>Education with Passing Year</th>
-                            <th>Expreiance</th>
-                            <th>Aadhar Card No</th>
-                            <th>Pan Card No</th>
-                            <th>Date of Joining</th>
-                            <th>Basic Salary</th>
-                            <th>Notes</th>
-                            <th>Actions</th>
-
+                            <th>Emergency Contact No</th>
+                            <th>DOB</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

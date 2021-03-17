@@ -82,6 +82,27 @@ function handleAjaxFormSubmit(form, type) {
     }
     return false;
 }
+function handleAjaxFormMySubmit(form, type) {
+    $(".submitbtn:visible").attr("disabled", "disabled");
+    $("#loader").show();
+
+    if (typeof type === 'undefined') {
+        ajaxcall($(form).attr('action'), $(form).serialize(), function(output) {
+            handleAjaxResponse(output);
+        });
+    } else if (type === true) {
+        // App.startPageLoading();
+        var options = {
+            resetForm: false, // reset the form after successful submit
+            success: function(output) {
+                //   App.stopPageLoading();
+                handleAjaxResponse(output);
+            }
+        };
+        $(form).ajaxSubmit(options);
+    }
+    return false;
+}
 
 function showToster(status, message) {
 

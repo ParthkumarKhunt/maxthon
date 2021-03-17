@@ -47,34 +47,10 @@ var EmployeeList = function() {
     }
 
     var add = function() {
-
-
     };
     var edit = function() {
-
-        var form = $('#edit-employee-form');
-        var rules = {
-            fullname: { required: true },
-            dob: { required: true },
-            address: { required: true },
-            mobile: { required: true, minlength: 10, maxlength: 10 },
-            emrgencyContact: { required: true, minlength: 10, maxlength: 10 },
-            email: { required: true, email: true },
-            edu_with_passing_year: { required: true },
-            expreiance: { required: true },
-            adharCard: { required: true },
-            panCard: { required: true },
-            dateofJoining: { required: true },
-            basicSalary: { required: true },
-            designation: { required: true },
-            department: { required: true },
-            notes: { required: true },
-
-        };
-        handleFormValidate(form, rules, function(form) {
-            handleAjaxFormSubmit(form, true);
-        });
     };
+
     return {
         list: function() {
             list();
