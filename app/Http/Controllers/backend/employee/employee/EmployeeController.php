@@ -226,6 +226,7 @@ class EmployeeController extends Controller
 
                 echo json_encode($list);
                 break;
+
             case 'changeState':
 
                 $objCity = new City();
@@ -233,10 +234,11 @@ class EmployeeController extends Controller
 
                 echo json_encode($list);
                 break;
+
             case 'changeDepartment':
 
                 $objobjDesignation = new Designation();
-                $list = $objobjDesignation->getDetail(($request->input('data'))['id']);
+                $list = $objobjDesignation->getDesignation(($request->input('data'))['id']);
 
                 echo json_encode($list);
                 break;

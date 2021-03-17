@@ -84,6 +84,11 @@ class Designation extends Model
     public function getDetail($id){
         return Designation::select('id','designation','department_id')->where("id",$id)->get();
     }
+
+    public function getDesignation($id){
+        return Designation::select('id','designation','department_id')->where("department_id",$id)->get();
+    }
+
     public function editDetail($request){
         $obj = new Designation();
         $obj  = Designation::find($request->input('editId'));
