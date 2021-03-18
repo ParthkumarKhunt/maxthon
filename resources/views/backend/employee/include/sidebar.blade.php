@@ -104,7 +104,7 @@ $logodetails = getdetails();
                     </a>
                 </li>
 
-                <li class="menu-item {{ ( $currentRoute == 'employee'  || $currentRoute == 'employee-add' || $currentRoute == 'employee-edit'  ? 'menu-item-active' : '' )  }}"
+                <li class="menu-item {{ (  $currentRoute == "employee-view" || $currentRoute == 'employee'  || $currentRoute == 'employee-add' || $currentRoute == 'employee-edit'  ? 'menu-item-active' : '' )  }}"
                     aria-haspopup="true">
                     <a href="{{  route('employee') }}" class="menu-link">
                             <span class="svg-icon menu-icon">
