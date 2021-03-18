@@ -58,11 +58,13 @@
                             <form class="form" id="kt_form" method="POST" enctype="multipart/form-data">@csrf
                                 <!--begin: Wizard Step 1-->
                                 <input type="hidden" class="form-control" name="empEditId" placeholder="Please enter your employee number" value="{{ $employeeDetails[0]->id }}" />
-                                <center>
-                                    <img height="100px" width="100px" src="{{ asset('public/upload/employeeImage/'.$employeeDetails[0]->image) }}" style="margin:10px;border-radius: 50%;">
-                                </center>
+
                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
+                                    <center>
+                                        <img height="100px" width="100px" src="{{ asset('public/upload/employeeImage/'.$employeeDetails[0]->image) }}" style="margin:10px;border-radius: 50%;">
+                                    </center>
                                     <div class="row">
+
                                         <div class="col-xl-6">
                                             <!--begin::Input-->
                                             <div class="form-group">
@@ -335,7 +337,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>Employee Aadhar Card</label>
+                                                    <label>Employee Aadhar Card Number</label>
                                                     <input type="text" class="form-control onlyNumber" name="empAadharCard" placeholder="Please enter your employee aadhar card number"  value="{{ $employeeDetails[0]->aadharcard }}" />
                                                 </div>
                                                 <!--end::Input-->

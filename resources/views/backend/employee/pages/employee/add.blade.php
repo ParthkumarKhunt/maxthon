@@ -323,7 +323,7 @@
                                             <div class="col-xl-6">
                                                 <!--begin::Input-->
                                                 <div class="form-group">
-                                                    <label>Employee Aadhar Card</label>
+                                                    <label>Employee Aadhar Card Number</label>
                                                     <input type="text" class="form-control onlyNumber" name="empAadharCard" placeholder="Please enter your employee aadhar card number"  />
                                                 </div>
                                                 <!--end::Input-->

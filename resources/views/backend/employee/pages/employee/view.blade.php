@@ -8,6 +8,8 @@
         <!--begin::Card-->
         <div class="card card-custom gutter-b">
             <div class="card-body">
+
+
                 <!--begin::Details-->
                 <div class="d-flex mb-9">
                     <!--begin: Pic-->
@@ -49,7 +51,7 @@
                                     <i class="fa fa-phone mr-2 font-size-lg"></i>{{  $employeeDetails[0]->mobileno }}</a>
 
                                     <a href="#" class="text-dark-50 text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
-                                    <i class="fa fa-ambulance mr-2 font-size-lg"></i>{{  $employeeDetails[0]->mobileno }}</a>
+                                    <i class="fa fa-ambulance mr-2 font-size-lg"></i>{{  $employeeDetails[0]->emergencyno }}</a>
 
                                 </div>
 
@@ -85,67 +87,406 @@
                     <!--end::Info-->
                 </div>
                 <!--end::Details-->
-                <div class="separator separator-solid"></div>
+
+
+                <br>
+                <div class="mt-5">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label font-weight-bolder text-dark">Basic Details</span>
+                        <div class="separator separator-solid mt-3"></div>
+                    </h3>
+                </div>
+                <div class="d-flex align-items-center flex-wrap mt-3">
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Number</span>
+                            <span >
+                            {{  $employeeDetails[0]->emp_no }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">First name</span>
+                            <span>
+                            {{  $employeeDetails[0]->firstname }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Last name</span>
+                            <span>
+                                {{ $employeeDetails[0]->lastname }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column flex-lg-fill">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Email</span>
+                            <span>
+                                {{  $employeeDetails[0]->email }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+
+                </div>
+                <!--begin::Items-->
                 <!--begin::Items-->
                 <div class="d-flex align-items-center flex-wrap mt-8">
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
-                        <span class="mr-4">
-                            <i class="flaticon-piggy-bank display-4 text-muted font-weight-bold"></i>
-                        </span>
-                        <div class="d-flex flex-column text-dark-75">
-                            <span class="font-weight-bolder font-size-sm">Earnings</span>
-                            <span class="font-weight-bolder font-size-h5">
-                            <span class="text-dark-50 font-weight-bold">$</span>249,500</span>
-                        </div>
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
-                        <span class="mr-4">
-                            <i class="flaticon-confetti display-4 text-muted font-weight-bold"></i>
-                        </span>
-                        <div class="d-flex flex-column text-dark-75">
-                            <span class="font-weight-bolder font-size-sm">Expenses</span>
-                            <span class="font-weight-bolder font-size-h5">
-                            <span class="text-dark-50 font-weight-bold">$</span>164,700</span>
-                        </div>
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
-                        <span class="mr-4">
-                            <i class="flaticon-pie-chart display-4 text-muted font-weight-bold"></i>
-                        </span>
-                        <div class="d-flex flex-column text-dark-75">
-                            <span class="font-weight-bolder font-size-sm">Net</span>
-                            <span class="font-weight-bolder font-size-h5">
-                            <span class="text-dark-50 font-weight-bold">$</span>782,300</span>
-                        </div>
-                    </div>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
-                        <span class="mr-4">
-                            <i class="flaticon-file-2 display-4 text-muted font-weight-bold"></i>
-                        </span>
+
+                     <!--begin::Item-->
+                     <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
                         <div class="d-flex flex-column flex-lg-fill">
-                            <span class="text-dark-75 font-weight-bolder font-size-sm">73 Tasks</span>
-                            <a href="#" class="text-primary font-weight-bolder">View</a>
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Birthdate</span>
+                            <span>
+                                {{  date("d F ,Y", strtotime($employeeDetails[0]->dob)) }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Mobile number</span>
+                            <span>
+                                {{ $employeeDetails[0]->mobileno }}
+                            </span>
                         </div>
                     </div>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
-                        <span class="mr-4">
-                            <i class="flaticon-chat-1 display-4 text-muted font-weight-bold"></i>
-                        </span>
+
                         <div class="d-flex flex-column">
-                            <span class="text-dark-75 font-weight-bolder font-size-sm">648 Comments</span>
-                            <a href="#" class="text-primary font-weight-bolder">View</a>
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Emerg contact number</span>
+                            <span>
+                                {{ $employeeDetails[0]->emergencyno }}
+                            </span>
                         </div>
                     </div>
                     <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Gender</span>
+                            <span>
+                                @if ($employeeDetails[0]->gender == "F")
+                                    {{ "Female" }}
+                                @endif
+                                @if ($employeeDetails[0]->gender == "M")
+                                    {{ "Male" }}
+                                @endif
+                                @if ($employeeDetails[0]->gender == "O")
+                                    {{ "Others" }}
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+                </div>
+                <!--begin::Items-->
+                <br>
+
+                <!--begin::Items-->
+
+                <div class="mt-5">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label font-weight-bolder text-dark">Address & Education Details</span>
+                        <div class="separator separator-solid mt-3"></div>
+                    </h3>
+                </div>
+                <div class="d-flex align-items-center flex-wrap mt-3">
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Education</span>
+                            <span >
+                            {{  $employeeDetails[0]->education }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Education passsing year</span>
+                            <span>
+                            {{  $employeeDetails[0]->passingyear }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">College/Institute Name</span>
+                            <span>
+                                {{ $employeeDetails[0]->institute }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column flex-lg-fill">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">No of yeras experience</span>
+                            <span>
+                                {{  $employeeDetails[0]->experience }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+
+                </div>
+                <!--begin::Items-->
+                <!--begin::Items-->
+                <div class="d-flex align-items-center flex-wrap mt-8 mb-5">
+
+                     <!--begin::Item-->
+                     <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column flex-lg-fill">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Employee Address </span>
+                            <span>
+                                {{  $employeeDetails[0]->address }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Country</span>
+                            <span>
+                                {{ $employeeDetails[0]->country }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">State</span>
+                            <span>
+                                {{ $employeeDetails[0]->state }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">City</span>
+                            <span>
+                                {{ $employeeDetails[0]->city }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+                </div>
+                <!--begin::Items-->
+
+                <br>
+
+                <div class="mt-5">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label font-weight-bolder text-dark">Employee Work Details</span>
+                        <div class="separator separator-solid mt-3"></div>
+                    </h3>
+                </div>
+                <div class="d-flex align-items-center flex-wrap mt-3">
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Department</span>
+                            <span >
+                            {{  $employeeDetails[0]->department }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Designation</span>
+                            <span>
+                            {{  $employeeDetails[0]->designation }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Salary</span>
+                            <span>
+                                {{ $employeeDetails[0]->salary }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column flex-lg-fill">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Date of Joining</span>
+                            <span>
+                                {{  date("d F ,Y", strtotime($employeeDetails[0]->doj)) }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+
+                </div>
+                <!--begin::Items-->
+                <br>
+                <div class="mt-5">
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label font-weight-bolder text-dark">Employee Bank Details</span>
+                        <div class="separator separator-solid mt-3"></div>
+                    </h3>
+                </div>
+                <div class="d-flex align-items-center flex-wrap mt-3">
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Aadhar Card Number</span>
+                            <span >
+                            {{  $employeeDetails[0]->aadharcard }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Pan Card Number</span>
+                            <span>
+                            {{  $employeeDetails[0]->pancard }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Bank Name</span>
+                            <span>
+                                {{ $employeeDetails[0]->bankname }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column flex-lg-fill">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">Bank Branch name</span>
+                            <span>
+                                {{  $employeeDetails[0]->branchname  }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+
+                </div>
+
+                <div class="d-flex align-items-center flex-wrap mt-3">
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">IFSC Code</span>
+                            <span >
+                            {{  $employeeDetails[0]->ifsccode }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Bank account number</span>
+                            <span>
+                            {{  $employeeDetails[0]->accountno }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">P.F. No</span>
+                            <span>
+                                {{ $employeeDetails[0]->pfno }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column flex-lg-fill">
+                            <span class="text-dark-75 font-weight-bolder font-size-sm">ESI No</span>
+                            <span>
+                                {{  $employeeDetails[0]->esino  }}
+                            </span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+
+                </div>
+                <div class="d-flex align-items-center flex-wrap mt-3">
+
+                    <!--begin::Item-->
+                    <div class="d-flex align-items-center flex-lg-fill mr-5 mb-2">
+
+                        <div class="d-flex flex-column text-dark-75">
+                            <span class="font-weight-bolder font-size-sm">Notes</span>
+                            <span >
+                            {{  $employeeDetails[0]->notes }}</span>
+                        </div>
+                    </div>
+                    <!--end::Item-->
+
+
 
                 </div>
                 <!--begin::Items-->
