@@ -112,7 +112,7 @@ class Employee extends Model
     }
     public function addEmployee($request){
 
-        $count = Employee::where('email',$request->input('empEmail'))->count();
+        $count = Employee::where('email',$request->input('empEmail'))->where("is_deleted","N")->count();
 
         if($count == 0){
             $objEmployee = new Employee();
@@ -212,6 +212,7 @@ class Employee extends Model
 
         $count = Employee::where('email',"=",$request->input('empEmail'))
                             ->where("id","!=",$request->input('empEditId'))
+                            ->where("is_deleted","N")
                             ->count();
 
         if($count == 0){
