@@ -1,6 +1,6 @@
 var Carrer = function() {
 
-    
+
     var list = function() {
 
         var dataArr = {};
@@ -93,7 +93,7 @@ var Carrer = function() {
                 '</div></div>';
             $(".appendDiv").append(html);
         });
-    
+
         $('body').on("click", ".removeSkills", function() {
             $(this).closest('.removediv').remove();
         });
@@ -144,14 +144,14 @@ var Carrer = function() {
                 '</div></div>';
             $(".appendDiv").append(html);
         });
-    
+
         $('body').on("click", ".removeSkills", function() {
             $(this).closest('.removediv').remove();
         });
     }
 
 
-    
+
     var careerList = function() {
 
         var dataArr = {};

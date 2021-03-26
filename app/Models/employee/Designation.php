@@ -11,6 +11,10 @@ class Designation extends Model
     use HasFactory;
     protected $table = 'employee_designation';
 
+    public function noofdesignation(){
+        return Designation::where('is_deleted','No')->count();
+    }
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(

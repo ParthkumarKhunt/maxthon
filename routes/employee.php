@@ -18,6 +18,7 @@ $adminPrefix = "";
 Route::group(['prefix' => $adminPrefix, 'middleware' => ['employee']], function() {
     // Dashboard
     Route::match(['get', 'post'], 'employee-dashboard', ['as' => 'employee-dashboard', 'uses' => 'backend\employee\dashboard\DashboardController@dashboard']);
+    Route::match(['get', 'post'], 'employee-dashboard-ajaxaction', ['as' => 'employee-dashboard-ajaxaction', 'uses' => 'backend\employee\dashboard\DashboardController@ajaxaction']);
 
      // profile
      Route::match(['get', 'post'], 'employee-my-profile', ['as' => 'employee-my-profile', 'uses' => 'backend\employee\myprofile\MyprofileController@myprofile']);

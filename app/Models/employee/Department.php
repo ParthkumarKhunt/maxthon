@@ -4,11 +4,16 @@ namespace App\Models\employee;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Myemployee;
+use DB;
 class Department extends Model
 {
     protected $table = 'employee_department';
     use HasFactory;
+
+    public function noofdepartment(){
+        return Department::where('is_deleted','No')->count();
+    }
 
     public function getdatatable(){
         $requestData = $_REQUEST;
@@ -70,9 +75,71 @@ class Department extends Model
         );
         return $json_data;
     }
+
+
+    public function getdatatableWithEmployee(){
+        $requestData = $_REQUEST;
+        $columns = array(
+            0 => 'employee_department.id',
+            1 => 'employee_department.department',
+
+        );
+        $query = Department ::from('employee_department')
+                    ->leftjoin('myemployee','employee_department.id','=','myemployee.department',"myemployee.is_deleted","=","N")
+                    // ->where("myemployee.is_deleted","N")
+                    ->where("employee_department.is_deleted","No")
+                    ->groupby('employee_department.id');
+
+
+        if (!empty($requestData['search']['value'])) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
+            $searchVal = $requestData['search']['value'];
+            $query->where(function($query) use ($columns, $searchVal, $requestData) {
+                $flag = 0;
+                foreach ($columns as $key => $value) {
+                    $searchVal = $requestData['search']['value'];
+                    if ($requestData['columns'][$key]['searchable'] == 'true') {
+                        if ($flag == 0) {
+                            $query->where($value, 'like', '%' . $searchVal . '%');
+                            $flag = $flag + 1;
+                        } else {
+                            $query->orWhere($value, 'like', '%' . $searchVal . '%');
+                        }
+                    }
+                }
+            });
+        }
+
+        $temp = $query->orderBy($columns[$requestData['order'][0]['column']], $requestData['order'][0]['dir']);
+
+        $totalData = count($temp->get());
+        $totalFiltered = count($temp->get());
+
+        $resultArr = $query->skip($requestData['start'])
+                ->take($requestData['length'])
+                ->select('employee_department.*',DB::raw("count(myemployee.department) as count"))
+                ->get();
+        $data = array();
+        $i = 0;
+        foreach ($resultArr as $row) {
+            $actionhtml = '';
+
+            $i++;
+            $nestedData = array();
+            $nestedData[] = $i;
+            $nestedData[] = $row['department'];
+            $nestedData[] = $row['count'];
+            $data[] = $nestedData;
+        }
+        $json_data = array(
+            "draw" => intval($requestData['draw']), // for every request/draw by clientside , they send a number as a parameter, when they recieve a response/data they first check the draw number, so we are sending same number in draw.
+            "recordsTotal" => intval($totalData), // total number of records
+            "recordsFiltered" => intval($totalFiltered), // total number of records after searching, if there is no searching then totalFiltered = totalData
+            "data" => $data   // total data array
+        );
+        return $json_data;
+    }
     public function addDepartment($data){
-        $count = Department::where("department", $data)
-       ->count();
+        $count = Department::where("department", $data)->count();
        if ($count == 0) {
            $obj = new Department();
            $obj->department = $data;
@@ -88,9 +155,11 @@ class Department extends Model
             return "exits";
        }
     }
+
     public function getDetail($id){
         return Department::select('id','department')->where("id",$id)->get();
     }
+
     public function editDetail($request){
         $count = Department::where("department",$request->input('department'))
                             ->where("id","!=", $request->input('editId'))
@@ -112,8 +181,7 @@ class Department extends Model
     }
 
     public function getAllDetails(){
-        return Department::select('id','department')
-        ->where("is_deleted","No")->get();
+        return Department::select('id','department')->where("is_deleted","No")->get();
     }
 
     public function  deleteDepartment($data){

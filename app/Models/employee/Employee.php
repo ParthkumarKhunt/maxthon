@@ -11,6 +11,10 @@ class Employee extends Model
     use HasFactory;
     protected $table = 'myemployee';
 
+    public function noofemployee(){
+        return Employee::where('is_deleted','N')->count();
+    }
+
     public function getdatatable(){
         $requestData = $_REQUEST;
         $columns = array(
