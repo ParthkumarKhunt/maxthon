@@ -143,14 +143,16 @@ class EmployeeController extends Controller
         $objEmployee = new Employee();
         $data['employeeDetails'] = $objEmployee->getDetail($id);
 
+        $objobjDesignation = new Designation();
+        $data['designationList'] = $objobjDesignation->getDesignation($data['employeeDetails'][0]->department);
+
+
         $objState = new State();
         $data['statelist'] = $objState->stateList($data['employeeDetails'][0]->country);
 
         $objCity = new City();
         $data['citylist'] = $objCity->cityList($data['employeeDetails'][0]->state);
 
-        $objobjDesignation = new Designation();
-        $data['designationList'] = $objobjDesignation->getDesignation($data['employeeDetails'][0]->designation);
 
         if ($request->isMethod('post')) {
             $obj = new Employee();

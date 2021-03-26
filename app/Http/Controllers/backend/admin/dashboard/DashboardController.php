@@ -20,9 +20,10 @@ class DashboardController extends Controller
             'toastr/toastr.min.css'
         );
         $data['plugincss'] = array(
-            'toastr/toastr.min.js',
+            
         );
         $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
         );
         $data['js'] = array(
             'comman_function.js',
