@@ -83,7 +83,8 @@ class EmployeeController extends Controller
                     if ($result == "exits") {
                         $return['status'] = 'error';
                         $return['message'] = 'Employe email already exits.';
-                        $return['redirect'] = route('employee');
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        // $return['redirect'] = route('employee');
                     } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
