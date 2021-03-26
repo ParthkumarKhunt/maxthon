@@ -44,7 +44,7 @@ var KTWizard3 = (function () {
                     FormValidation.formValidation(t, {
                         fields: {
                             empNo: { validators: { notEmpty: { message: "Please enter employee number" } } },
-                            empImage: { validators: { notEmpty: { message: "Please select employee image" } } },
+                            // empImage: { validators: { notEmpty: { message: "Please select employee image" } } },
                             empFirstName: { validators: { notEmpty: { message: "Please enter employee first name" } } },
                             empLastName: { validators: { notEmpty: { message: "Please enter employee father/husband name & surname" } } },
                             empEmail: { validators: { notEmpty: { message: "Please enter employee email" },  emailAddress: { message: "Please enter vaild employee email" } } },

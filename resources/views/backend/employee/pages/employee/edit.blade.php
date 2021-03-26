@@ -61,7 +61,36 @@
 
                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                     <center>
-                                        <img height="100px" width="100px" src="{{ asset('public/upload/employeeImage/'.$employeeDetails[0]->image) }}" style="margin:10px;border-radius: 50%;">
+                                        @php
+
+
+                                        if($employeeDetails[0]->image != null || $employeeDetails[0]->image != ''){
+                                            if(file_exists( public_path().'/upload/employeeImage/'.$employeeDetails[0]->image) ){
+                                                $image = url("public/upload/employeeImage/" . $employeeDetails[0]->image);
+                                            }else{
+                                                if( $employeeDetails[0]->gender == 'M'){
+                                                    $image = url("public/upload/employeeImage/male.png");
+                                                }else{
+                                                    if( $employeeDetails[0]->gender == 'F'){
+                                                        $image = url("public/upload/employeeImage/female.png");
+                                                    }else{
+                                                        $image = url("public/upload/employeeImage/other.png");
+                                                    }
+                                                }
+                                            }
+                                        }else{
+                                            if( $employeeDetails[0]->gender == 'M'){
+                                                $image = url("public/upload/employeeImage/male.png");
+                                            }else{
+                                                if( $employeeDetails[0]->gender == 'F'){
+                                                    $image = url("public/upload/employeeImage/female.png");
+                                                }else{
+                                                    $image = url("public/upload/employeeImage/other.png");
+                                                }
+                                            }
+                                        }
+                                        @endphp
+                                        <img height="100px" width="100px" src="{{ $image }}" style="margin:10px;border-radius: 50%;">
                                     </center>
                                     <div class="row">
 

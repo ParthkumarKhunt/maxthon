@@ -15,7 +15,37 @@
                     <!--begin: Pic-->
                     <div class="flex-shrink-0 mr-7 mt-lg-0 mt-3">
                         <div class="symbol symbol-50 symbol-lg-120">
-                            <img src="{{ asset('public/upload/employeeImage/'.$employeeDetails[0]->image) }}" alt="image" />
+                            @php
+
+
+                            if($employeeDetails[0]->image != null || $employeeDetails[0]->image != ''){
+                                if(file_exists( public_path().'/upload/employeeImage/'.$employeeDetails[0]->image) ){
+                                    $image = url("public/upload/employeeImage/" . $employeeDetails[0]->image);
+                                }else{
+                                    if( $employeeDetails[0]->gender == 'M'){
+                                        $image = url("public/upload/employeeImage/male.png");
+                                    }else{
+                                        if( $employeeDetails[0]->gender == 'F'){
+                                            $image = url("public/upload/employeeImage/female.png");
+                                        }else{
+                                            $image = url("public/upload/employeeImage/other.png");
+                                        }
+                                    }
+                                }
+                            }else{
+                                if( $employeeDetails[0]->gender == 'M'){
+                                    $image = url("public/upload/employeeImage/male.png");
+                                }else{
+                                    if( $employeeDetails[0]->gender == 'F'){
+                                        $image = url("public/upload/employeeImage/female.png");
+                                    }else{
+                                        $image = url("public/upload/employeeImage/other.png");
+                                    }
+                                }
+                            }
+                            @endphp
+
+                            <img src="{{ $image  }}" alt="image" />
                         </div>
                         <div class="symbol symbol-50 symbol-lg-120 symbol-primary d-none">
                             <span class="font-size-h3 symbol-label font-weight-boldest">JM</span>

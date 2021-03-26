@@ -51,14 +51,40 @@ class Employee extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('myemployee.id','myemployee.dob','myemployee.emp_no','myemployee.image','myemployee.firstname','myemployee.lastname','myemployee.email','myemployee.mobileno','myemployee.emergencyno')
+                ->select('myemployee.id','myemployee.gender','myemployee.dob','myemployee.emp_no','myemployee.image','myemployee.firstname','myemployee.lastname','myemployee.email','myemployee.mobileno','myemployee.emergencyno')
                 ->get();
         $data = array();
 
 
         $i = 0;
         foreach ($resultArr as $row) {
-            $image = url("public/upload/employeeImage/" . $row['image']);
+            if($row['image'] != null || $row['image'] != ''){
+                if(file_exists( public_path().'/upload/employeeImage/'.$row['image']) ){
+                    $image = url("public/upload/employeeImage/" . $row['image']);
+                }else{
+                    if($row['gender'] == 'M'){
+                        $image = url("public/upload/employeeImage/male.png");
+                    }else{
+                        if($row['gender'] == 'F'){
+                            $image = url("public/upload/employeeImage/female.png");
+                        }else{
+                            $image = url("public/upload/employeeImage/other.png");
+                        }
+                    }
+                }
+            }else{
+                if($row['gender'] == 'M'){
+                    $image = url("public/upload/employeeImage/male.png");
+                }else{
+                    if($row['gender'] == 'F'){
+                        $image = url("public/upload/employeeImage/female.png");
+                    }else{
+                        $image = url("public/upload/employeeImage/other.png");
+                    }
+                }
+            }
+
+
             $actionhtml ='<a href="' . route('employee-edit', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-edit"> </i></a>'
             .'<a href="' . route('employee-view', $row['id']) . '" class="btn btn-icon primary"><i class="fa fa-eye"> </i></a>'
             .'<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteEmployee" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';

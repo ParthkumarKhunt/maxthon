@@ -88,7 +88,6 @@ class EmployeeController extends Controller
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
                         $return['message'] = 'Something goes to wrong.Please try agian later';
-
                     }
                 }
             }
