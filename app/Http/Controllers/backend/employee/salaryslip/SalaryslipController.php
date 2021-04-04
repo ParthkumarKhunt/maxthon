@@ -125,7 +125,17 @@ class SalaryslipController extends Controller
 
     }
 
-    public function edit (Request $request){
+    public function edit (Request $request,$id){
+
+        $objSalaryslip = new Salaryslip();
+        $data['salarySlipDetails'] = $objSalaryslip->getSalaryslipDetails($id);
+
+        $objobjDesignation = new Designation();
+        $data['designationList'] = $objobjDesignation->getDesignation($data['salarySlipDetails'][0]->empDepartment);
+
+        $objEmployee = new Employee();
+        $data['employeeList'] = $objEmployee->getEmployeeList( $data['salarySlipDetails'][0]->empDepartment , $data['salarySlipDetails'][0]->empDesignation);
+
         $obj = new Department();
         $data['menu']  = $obj->getAllDetails();
 
@@ -196,7 +206,10 @@ class SalaryslipController extends Controller
 
     }
 
-    public function view(){
+    public function view($id){
+        $objSalaryslip = new Salaryslip();
+        $data['salaryslipDetails']  = $objSalaryslip->getSalaryslipDetails($id);
+
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';
         $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';

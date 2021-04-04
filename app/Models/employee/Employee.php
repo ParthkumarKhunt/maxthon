@@ -286,4 +286,12 @@ class Employee extends Model
         $obj->updated_at = date("Y-m-d h:i:s");
         return $obj->save();
     }
+
+
+    public function getEmployeeList($department,$designation){
+        return Employee::select('emp_no','firstname','lastname','id')
+                    ->where("department",$department)
+                    ->where("designation",$designation)
+                    ->get();
+    }
 }

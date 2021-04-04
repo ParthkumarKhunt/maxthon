@@ -20,7 +20,7 @@ class Salaryslip extends Model
             4 => 'salary_slip.year'
 
         );
-        $query = OurTeam ::from('salary_slip')
+        $query = Salaryslip ::from('salary_slip')
                     ->join("myemployee","myemployee.id","=","salary_slip.employee")
                     ->join("employee_department","employee_department.id","=","salary_slip.empDepartment")
                     ->join("employee_designation","employee_designation.id","=","salary_slip.empDesignation")
@@ -121,5 +121,58 @@ class Salaryslip extends Model
                 return "false";
             }
         }
+    }
+    public function editSalaryslip($request){
+
+        $checkSalarySlip = Salaryslip::where("month",$request->input('month'))
+                                    ->where("year",$request->input('year'))
+                                    ->where("employee",$request->input('employee'))
+                                    ->where("id",$request->input('editId'))
+                                    ->count();
+        if($checkSalarySlip != 0){
+            return "exits";
+        }else{
+            $ojSalaryslip = Salaryslip::find($request->input('editId'));
+            $ojSalaryslip->empDepartment = $request->input('empDepartment');
+            $ojSalaryslip->empDesignation = $request->input('empDesignation');
+            $ojSalaryslip->employee = $request->input('employee');
+            $ojSalaryslip->month = $request->input('month');
+            $ojSalaryslip->year = $request->input('year');
+            $ojSalaryslip->wd = $request->input('wd');
+            $ojSalaryslip->wo = $request->input('wo');
+            $ojSalaryslip->ph = $request->input('ph');
+            $ojSalaryslip->pd = $request->input('pd');
+            $ojSalaryslip->lwp = $request->input('lwp');
+            $ojSalaryslip->basic = $request->input('basic');
+            $ojSalaryslip->hra = $request->input('hra');
+            $ojSalaryslip->leave_encash = $request->input('leave_encash');
+            $ojSalaryslip->produc = $request->input('produc');
+            $ojSalaryslip->convei = $request->input('convei');
+            $ojSalaryslip->transport = $request->input('transport');
+            $ojSalaryslip->pf = $request->input('pf');
+            $ojSalaryslip->esi = $request->input('esi');
+            $ojSalaryslip->pt = $request->input('pt');
+            $ojSalaryslip->tds = $request->input('tds');
+            $ojSalaryslip->other = $request->input('other');
+            $ojSalaryslip->updated_at = date("Y-m-d h:i:s");
+            $ojSalaryslip->updated_at = date("Y-m-d h:i:s");
+            if($ojSalaryslip->save()){
+                return "true";
+            }else{
+                return "false";
+            }
+        }
+    }
+
+    public function getSalaryslipDetails($id){
+        return Salaryslip ::from('salary_slip')
+                            ->join("myemployee","myemployee.id","=","salary_slip.employee")
+                            ->join("employee_department","employee_department.id","=","salary_slip.empDepartment")
+                            ->join("employee_designation","employee_designation.id","=","salary_slip.empDesignation")
+                            ->where("salary_slip.id",$id)
+                            ->select("employee_department.department","employee_designation.designation","myemployee.firstname","myemployee.lastname","myemployee.emp_no",
+                                    "myemployee.doj","myemployee.accountno","myemployee.pfno","myemployee.esino","myemployee.bankname","myemployee.esino",
+                                    "salary_slip.empDepartment","salary_slip.id","salary_slip.empDesignation","salary_slip.employee","salary_slip.month","salary_slip.year","salary_slip.wd","salary_slip.wo","salary_slip.ph","salary_slip.pd","salary_slip.lwp","salary_slip.basic","salary_slip.hra","salary_slip.leave_encash","salary_slip.produc","salary_slip.convei","salary_slip.transport","salary_slip.pf","salary_slip.esi","salary_slip.pt","salary_slip.tds","salary_slip.other")
+                            ->get();
     }
 }
