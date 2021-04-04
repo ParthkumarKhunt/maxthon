@@ -125,6 +125,114 @@ class SalaryslipController extends Controller
 
     }
 
+    public function edit (Request $request){
+        $obj = new Department();
+        $data['menu']  = $obj->getAllDetails();
+
+         if ($request->isMethod('post')) {
+            $objSalaryslip = new Salaryslip();
+            $result  = $objSalaryslip->editSalaryslip($request);
+            if ($result == "true") {
+                $return['status'] = 'success';
+                $return['message'] = 'Salaryslip upadted succesfully.';
+                $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                $return['redirect'] = route('employee-salaryslip');
+            } else {
+                if ($result == "wrong") {
+                    $return['status'] = 'error';
+                    $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                    $return['message'] = 'Something goes to wrong.Please try agian later';
+                } else {
+                    if ($result == "exits") {
+                        $return['status'] = 'error';
+                        $return['message'] = 'Salaryslip is already creted.';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                    } else {
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        $return['message'] = 'Something goes to wrong.Please try agian later';
+                    }
+                }
+            }
+            echo json_encode($return);
+            exit;
+        }
+
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Salary Slip';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Salary Slip';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || Add Salary Slip';
+        $data['css'] = array(
+            'toastr/toastr.min.css'
+        );
+        $data['plugincss'] = array(
+
+        );
+
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'plugins/validate/jquery.validate.min.js',
+            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
+            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
+        );
+
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'salaryslip.js'
+        );
+        $data['funinit'] = array(
+            'Salaryslip.edit()'
+        );
+        $data['header'] = array(
+            'title' => 'Edit Salary Slip',
+            'breadcrumb' => array(
+                'Dashboard'=> route('employee-dashboard'),
+                'Salary Slip' => route('employee-salaryslip'),
+                'Edit Salary Slip'=> 'Edit Salary Slip',
+            )
+        );
+        return view('backend.employee.pages.salaryslip.edit', $data);
+
+    }
+
+    public function view(){
+        $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';
+        $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';
+        $data['keywords'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';
+        $data['css'] = array(
+            'toastr/toastr.min.css'
+        );
+        $data['plugincss'] = array(
+
+        );
+
+        $data['pluginjs'] = array(
+            'toastr/toastr.min.js',
+            'plugins/validate/jquery.validate.min.js',
+            'plugins/custom/ckeditor/ckeditor-classic.bundled1cf.js',
+            'pages/crud/forms/editors/ckeditor-classicd1cf.js'
+        );
+
+        $data['js'] = array(
+            'comman_function.js',
+            'ajaxfileupload.js',
+            'jquery.form.min.js',
+            'salaryslip.js'
+        );
+        $data['funinit'] = array(
+            'Salaryslip.add()'
+        );
+        $data['header'] = array(
+            'title' => 'View Salary Slip',
+            'breadcrumb' => array(
+                'Dashboard'=> route('employee-dashboard'),
+                'Salary Slip' => route('employee-salaryslip'),
+                'View Salary Slip'=> 'View Salary Slip',
+            )
+        );
+        return view('backend.employee.pages.salaryslip.view', $data);
+    }
     public function ajaxAction(Request $request) {
         $action = $request->input('action');
         $session = session()->all();
