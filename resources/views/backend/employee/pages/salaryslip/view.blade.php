@@ -8,7 +8,7 @@ $logodetails = getdetails();
    <!--begin::Container-->
    <div class="container">
       <div class="card card-custom" style="padding: 25px 25px">
-         <table cellpadding="0" cellspacing="0" style="padding:0px;margin:0px;border:0px;border-spacing:0px;font-family:Arial,Verdana,Geneva,sans-serif;letter-spacing:normal;text-indent:0px;text-transform:none;word-spacing:0px;text-decoration:none;width:100%">
+         <table cellpadding="0" cellspacing="0" style="border-collapse: unset !important;padding:0px;margin:0px;border:0px;border-spacing:0px;font-family:Arial,Verdana,Geneva,sans-serif;letter-spacing:normal;text-indent:0px;text-transform:none;word-spacing:0px;text-decoration:none;width:100%">
             <tbody>
                <tr style="padding:0px;margin:0px;border:0px;border-spacing:0px;pb-5">
                   <td width="50%" align="left" style="padding:4px;margin:0px">
@@ -76,7 +76,7 @@ $logodetails = getdetails();
 
                <tr style="padding:0px;margin:0px;border:0px;border-spacing:0px">
                   <td colspan="2" style="padding:0px;margin:0px;width:100%">
-                     <table style="padding:0px;margin:0px;border:0px;border-spacing:0px;width:100%">
+                     <table style="border-collapse: unset !important; padding:0px;margin:0px;border:0px;border-spacing:0px;width:100%">
                         <tbody>
                            <tr style="padding:0px;margin:0px;border:0px;border-spacing:0px">
                               <th colspan="2" style="border-width:1px 1px 1px 2px;border-style:solid;border-color:rgb(0,0,0)">WORKING DETAILS</th>
