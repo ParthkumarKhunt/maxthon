@@ -193,6 +193,18 @@ class Employee extends Model
                         ->where("id",$id)->get();
     }
 
+    public function getEmployeeBasicSalary($data){
+
+        return Employee::select('salary')->where("id",$data['employee'])->get();
+
+    }
+    public function getEmployee($request){
+        return Employee::select('emp_no','firstname','lastname','id')
+                        ->where("department",$request['empDepartment'])
+                        ->where("designation",$request['empDesignation'])
+                        ->get();
+    }
+
 
     public function viewDetail($id){
         return Employee::select('myemployee.emp_no','myemployee.image','myemployee.firstname','myemployee.lastname',

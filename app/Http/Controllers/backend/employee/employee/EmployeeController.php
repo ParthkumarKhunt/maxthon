@@ -287,6 +287,22 @@ class EmployeeController extends Controller
                 echo json_encode($list);
                 break;
 
+            case 'changeDesignation':
+
+                $objEmployee = new Employee();
+                $list = $objEmployee->getEmployee(($request->input('data')));
+
+                echo json_encode($list);
+                break;
+
+            case 'changeEmployee':
+
+                $objEmployee = new Employee();
+                $list = $objEmployee->getEmployeeBasicSalary(($request->input('data')));
+
+                echo json_encode($list);
+                break;
+
             case 'deleteEmployee':
                 $obj = new Employee();
                 $result = $obj->deleteEmployee($request->input('data'));

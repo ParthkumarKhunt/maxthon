@@ -45,4 +45,10 @@ Route::group(['prefix' => $adminPrefix, 'middleware' => ['employee']], function(
      Route::match(['get', 'post'], 'employee-designation-edit/{id}', ['as' => 'employee-designation-edit', 'uses' => 'backend\employee\designation\DesignationController@edit']);
      Route::match(['get', 'post'], 'employee-designation-ajaxaction', ['as' => 'employee-designation-ajaxaction', 'uses' => 'backend\employee\designation\DesignationController@ajaxAction']);
 
+     // Department  List
+     Route::match(['get', 'post'], 'employee-salaryslip', ['as' => 'employee-salaryslip', 'uses' => 'backend\employee\salaryslip\SalaryslipController@list']);
+     Route::match(['get', 'post'], 'employee-salaryslip-add', ['as' => 'employee-salaryslip-add', 'uses' => 'backend\employee\salaryslip\SalaryslipController@add']);
+     Route::match(['get', 'post'], 'employee-salaryslip-edit/{id}', ['as' => 'employee-salaryslip-edit', 'uses' => 'backend\employee\salaryslip\SalaryslipController@edit']);
+     Route::match(['get', 'post'], 'employee-salaryslip-view/{id}', ['as' => 'employee-salaryslip-view', 'uses' => 'backend\employee\salaryslip\SalaryslipController@view']);
+     Route::match(['get', 'post'], 'employee-salaryslip-ajaxaction', ['as' => 'employee-salaryslip-ajaxaction', 'uses' => 'backend\employee\salaryslip\SalaryslipController@ajaxAction']);
 });

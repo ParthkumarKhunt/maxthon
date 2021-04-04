@@ -26,7 +26,7 @@
                             <select class="form-control"  id="department_id" name="department_id">
                              <option value="">-- Select -- </option>
                                 @foreach($menu as $key => $value)
-                                <option value="{{ $value->id }}" {{ $value->id == $details[0]->department_id ? "selected='selected'" : "" }}>{{ $value->department }}</option>                                
+                                <option value="{{ $value->id }}" {{ $value->id == $details[0]->department_id ? "selected='selected'" : "" }}>{{ $value->department }}</option>
                                 @endforeach
                             </select>
                     </div>
@@ -35,7 +35,7 @@
                             <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="designation" name="designation"  value="{{  $details[0]->designation }}" placeholder="Please enter title"/>
                         </div>
-                     
+
                     </div>
                     <div class="card-footer">
                         <div class="row">

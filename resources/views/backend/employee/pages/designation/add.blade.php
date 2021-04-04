@@ -25,10 +25,10 @@
                             <select class="form-control"  id="department_id" name="department_id">
                              <option value="">-- Select -- </option>
                                 @foreach($menu as $key => $value)
-                                <option value="{{ $value->id }}">{{ $value->department }}</option>                                
+                                <option value="{{ $value->id }}">{{ $value->department }}</option>
                                 @endforeach
                             </select>
-                           </div>   
+                           </div>
                         <div class="form-group ">
                             <label class="col-form-label ">Designation (Ex : Web Design , App Development)
                             <span class="text-danger">*</span></label>
