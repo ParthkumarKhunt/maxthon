@@ -16,6 +16,23 @@ var Salaryslip = function(){
             'setColumnWidth': columnWidth
         };
         getDataTable(arrList);
+
+        $("body").on("click", ".download-pdf", function() {
+            var id = $(this).data('id');
+            var data = { id: id, _token: $('#_token').val() };
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "employee-salaryslip-download",
+                data: {'data': data },
+                success: function(data) {
+                    $("#loader").show();
+                    handleAjaxResponse(data);
+                }
+            });
+        })
     }
     var addSalary = function(){
 

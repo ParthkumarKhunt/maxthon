@@ -59,7 +59,7 @@ class Salaryslip extends Model
         foreach ($resultArr as $row) {
             $month= ["","January","February","March","April","May","June","July","August","September","October","November","December"];
 
-            $actionhtml = '<a href="' . route('admin-our-team-edit', $row['id']) . '" class="btn btn-icon"><i class="fa fa-download"></i></a>'
+            $actionhtml = '<a href="' . route('employee-salaryslip-download', $row['id']) . '"  class="btn btn-icon "><i class="fa fa-download"></i></a>'
             .'<a href="' . route('employee-salaryslip-view', $row['id']) . '" class="btn btn-icon"><i class="fa fa-eye"> </i></a>'
             .'<a href="' . route('employee-salaryslip-edit', $row['id']) . '" class="btn btn-icon"><i class="fa fa-edit"> </i></a>'
             .'<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteTeam" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';

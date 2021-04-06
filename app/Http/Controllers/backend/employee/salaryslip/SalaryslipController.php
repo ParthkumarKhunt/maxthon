@@ -10,6 +10,7 @@ use App\Models\employee\Designation;
 use App\Models\Employeeno;
 use App\Models\Salaryslip;
 use App\Models\employee\Employee;
+use PDF;
 
 class SalaryslipController extends Controller
 {
@@ -206,9 +207,27 @@ class SalaryslipController extends Controller
 
     }
 
-    public function view($id){
+    public function download(Request $request,$id){
+        // $id = $request->input('data');
+        $month= ["","January","February","March","April","May","June","July","August","September","October","November","December"];
         $objSalaryslip = new Salaryslip();
         $data['salaryslipDetails']  = $objSalaryslip->getSalaryslipDetails($id);
+        $salarySlipDetails = $data['salaryslipDetails'][0] ;
+
+        $pdf = PDF::loadView('backend.employee.pages.salaryslip.download', $data);
+        return $pdf->download($salarySlipDetails->firstname.' '.$salarySlipDetails->lastname.' - '. $month[$salarySlipDetails->month] . ' , ' .$salarySlipDetails->year.'.pdf');
+        // $pdf = $pdf->download('itsolutionstuff.pdf');
+        // return $pdf->stream();
+        // print_r($data);
+        // die();
+    }////////
+
+
+    public function view($id){
+        $objSalaryslip = new Salaryslip();
+
+        $data['salaryslipDetails']  = $objSalaryslip->getSalaryslipDetails($id);
+
 
         $data['title'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';
         $data['description'] = Config::get( 'constants.PROJECT_NAME' ) . ' || View Salary Slip';

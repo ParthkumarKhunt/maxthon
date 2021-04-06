@@ -1,6 +1,7 @@
 @extends('backend.employee.layout.layout')
 @section('section')
 @php
+$month= ["","January","February","March","April","May","June","July","August","September","October","November","December"];
 $logodetails = getdetails();
 $days = $salaryslipDetails[0]->wd + $salaryslipDetails[0]->wo + $salaryslipDetails[0]->ph + $salaryslipDetails[0]->pd + $salaryslipDetails[0]->lwp ;
 $grossIncome = $salaryslipDetails[0]->basic + $salaryslipDetails[0]->hra + $salaryslipDetails[0]->leave_encash + $salaryslipDetails[0]->produc + $salaryslipDetails[0]->convei + $salaryslipDetails[0]->transport;
@@ -60,7 +61,7 @@ function AmountInWords(float $amount)
                     <br>
                     <span style="font-size:10px">226, SilverStone Arcade, Near D'Mart, Causeway Road, Katargam, Surat - 395004</span>
                 </td>
-                <td width="50%" align="right" style="padding:4px;margin:0px">Salary Slip For The Month of January - 2021</td>
+                <td width="50%" align="right" style="padding:4px;margin:0px">Salary Slip For The Month of {{ $month[$salaryslipDetails[0]->month] }} - {{ $salaryslipDetails[0]->year }}</td></td>
                </tr>
 
 
