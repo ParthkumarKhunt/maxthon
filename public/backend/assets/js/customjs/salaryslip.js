@@ -16,6 +16,31 @@ var Salaryslip = function(){
             'setColumnWidth': columnWidth
         };
         getDataTable(arrList);
+        $("body").on("click", ".deleteSalarySlip", function() {
+            var id = $(this).data('id');
+            setTimeout(function() {
+                $('.yes-sure:visible').attr('data-id', id);
+            }, 500);
+        })
+
+        $('body').on('click', '.yes-sure', function() {
+
+            var id = $(this).attr('data-id');
+            // alert(id);
+            var data = { id: id, _token: $('#_token').val() };
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url: baseurl + "employee-salaryslip-ajaxaction",
+                data: { 'action': 'deleteSalarySlip', 'data': data },
+                success: function(data) {
+                    $("#loader").show();
+                    handleAjaxResponse(data);
+                }
+            });
+        });
 
         $("body").on("click", ".download-pdf", function() {
             var id = $(this).data('id');

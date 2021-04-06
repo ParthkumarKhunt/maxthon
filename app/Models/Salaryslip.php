@@ -62,7 +62,7 @@ class Salaryslip extends Model
             $actionhtml = '<a href="' . route('employee-salaryslip-download', $row['id']) . '"  class="btn btn-icon "><i class="fa fa-download"></i></a>'
             .'<a href="' . route('employee-salaryslip-view', $row['id']) . '" class="btn btn-icon"><i class="fa fa-eye"> </i></a>'
             .'<a href="' . route('employee-salaryslip-edit', $row['id']) . '" class="btn btn-icon"><i class="fa fa-edit"> </i></a>'
-            .'<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteTeam" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
+            .'<a href="#" data-toggle="modal" data-target="#deleteModel" class="btn btn-icon  deleteSalarySlip" data-id="' . $row["id"] . '" ><i class="fa fa-trash" ></i></a>';
 
             $i++;
             $nestedData = array();
@@ -174,5 +174,13 @@ class Salaryslip extends Model
                                     "myemployee.doj","myemployee.accountno","myemployee.pfno","myemployee.esino","myemployee.bankname","myemployee.esino",
                                     "salary_slip.empDepartment","salary_slip.id","salary_slip.empDesignation","salary_slip.employee","salary_slip.month","salary_slip.year","salary_slip.wd","salary_slip.wo","salary_slip.ph","salary_slip.pd","salary_slip.lwp","salary_slip.basic","salary_slip.hra","salary_slip.leave_encash","salary_slip.produc","salary_slip.convei","salary_slip.transport","salary_slip.pf","salary_slip.esi","salary_slip.pt","salary_slip.tds","salary_slip.other")
                             ->get();
+    }
+
+    public function deleteSalarySlip($data){
+
+        $obj = Salaryslip::find($data['id']);
+        $obj->is_deleted = "Yes";
+        $obj->updated_at = date("Y-m-d h:i:s");
+        return $obj->save();
     }
 }

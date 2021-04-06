@@ -52,7 +52,7 @@ var Blog = function() {
             category_id: { required: true },
             title: { required: true, maxlength: 30  },
             short_description: { required: true, maxlength: 240  },
-            image:{ required: true },           
+            image:{ required: true },
            };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);
@@ -65,7 +65,7 @@ var Blog = function() {
             category_id: { required: true },
             title: { required: true, maxlength: 30 },
             short_description: { required: true, maxlength: 240  },
-        
+
         };
         handleFormValidate(form, rules, function(form) {
             handleAjaxFormSubmit(form, true);

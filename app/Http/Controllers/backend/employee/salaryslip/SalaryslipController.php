@@ -277,13 +277,13 @@ class SalaryslipController extends Controller
 
 
 
-            case 'deleteEmployee':
-                $obj = new Employee();
-                $result = $obj->deleteEmployee($request->input('data'));
+            case 'deleteSalarySlip':
+                $objSalaryslip = new Salaryslip();
+                $result = $objSalaryslip->deleteSalarySlip($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
-                    $return['message'] = 'Employee successfully deleted';
-                    $return['redirect'] = route('employee');
+                    $return['message'] = 'Salaryslip successfully deleted';
+                    $return['redirect'] = route('employee-salaryslip');
                 } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
