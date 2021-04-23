@@ -127,7 +127,7 @@ class Salaryslip extends Model
         $checkSalarySlip = Salaryslip::where("month",$request->input('month'))
                                     ->where("year",$request->input('year'))
                                     ->where("employee",$request->input('employee'))
-                                    ->where("id",$request->input('editId'))
+                                    ->where("id","!=",$request->input('editId'))
                                     ->count();
         if($checkSalarySlip != 0){
             return "exits";
