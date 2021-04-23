@@ -114,22 +114,22 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">WD <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="wd" value="{{ $salarySlipDetails[0]->wd }}" name="wd">
+                                        <input class="form-control " type="number" id="wd" value="{{ $salarySlipDetails[0]->wd }}" name="wd">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>WO <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="wo" value="{{ $salarySlipDetails[0]->wo }}" name="wo">
+                                        <input class="form-control " type="number" id="wo" value="{{ $salarySlipDetails[0]->wo }}" name="wo">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>PH <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="ph" value="{{ $salarySlipDetails[0]->ph }}" name="ph">
-                                        <input class="form-control onlyNumber" type="hidden" id="editId" value="{{ $salarySlipDetails[0]->id }}" name="editId">
+                                        <input class="form-control " type="number" id="ph" value="{{ $salarySlipDetails[0]->ph }}" name="ph">
+                                        <input class="form-control " type="hidden" id="editId" value="{{ $salarySlipDetails[0]->id }}" name="editId">
                                     </div>
                                 </div>
 
@@ -141,14 +141,14 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">PD <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="pd" value="{{ $salarySlipDetails[0]->pd }}" name="pd">
+                                        <input class="form-control " type="number" id="pd" value="{{ $salarySlipDetails[0]->pd }}" name="pd">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>LWP <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="lwp" value="{{ $salarySlipDetails[0]->lwp }}" name="lwp">
+                                        <input class="form-control " type="number" id="lwp" value="{{ $salarySlipDetails[0]->lwp }}" name="lwp">
                                     </div>
                                 </div>
 
@@ -165,21 +165,21 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">BASIC <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="basic" value="{{ $salarySlipDetails[0]->basic }}" name="basic">
+                                        <input class="form-control " type="number" id="basic" value="{{ $salarySlipDetails[0]->basic }}" name="basic">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>HRA <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="hra" value="{{ $salarySlipDetails[0]->hra }}" name="hra">
+                                        <input class="form-control " type="number" id="hra" value="{{ $salarySlipDetails[0]->hra }}" name="hra">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>LEAVE ENCASH <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="leave_encash" value="{{ $salarySlipDetails[0]->leave_encash }}" name="leave_encash">
+                                        <input class="form-control " type="number" id="leave_encash" value="{{ $salarySlipDetails[0]->leave_encash }}" name="leave_encash">
                                     </div>
                                 </div>
 
@@ -191,21 +191,21 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">PRODUC <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="produc" value="{{ $salarySlipDetails[0]->produc }}" name="produc">
+                                        <input class="form-control " type="number" id="produc" value="{{ $salarySlipDetails[0]->produc }}" name="produc">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>CONVEI <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="convei" value="{{ $salarySlipDetails[0]->convei }}" name="convei">
+                                        <input class="form-control " type="number" id="convei" value="{{ $salarySlipDetails[0]->convei }}" name="convei">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>TRANSPORT <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="transport" value="{{ $salarySlipDetails[0]->transport }}" name="transport">
+                                        <input class="form-control " type="number" id="transport" value="{{ $salarySlipDetails[0]->transport }}" name="transport">
                                     </div>
                                 </div>
 
@@ -222,21 +222,21 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">P.F. <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="pf" value="{{ $salarySlipDetails[0]->pf }}" name="pf">
+                                        <input class="form-control " type="number" id="pf" value="{{ $salarySlipDetails[0]->pf }}" name="pf">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>ESI <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="esi" value="{{ $salarySlipDetails[0]->esi }}" name="esi">
+                                        <input class="form-control " type="number" id="esi" value="{{ $salarySlipDetails[0]->esi }}" name="esi">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>P.T. <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="pt" value="{{ $salarySlipDetails[0]->pt }}" name="pt">
+                                        <input class="form-control " type="number" id="pt" value="{{ $salarySlipDetails[0]->pt }}" name="pt">
                                     </div>
                                 </div>
 
@@ -248,14 +248,14 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">TDS <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="tds" value="{{ $salarySlipDetails[0]->tds }}" name="tds">
+                                        <input class="form-control " type="number" id="tds" value="{{ $salarySlipDetails[0]->tds }}" name="tds">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>OTHER DEDUCTION<span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="other" value="{{ $salarySlipDetails[0]->other }}" name="other">
+                                        <input class="form-control " type="number" id="other" value="{{ $salarySlipDetails[0]->other }}" name="other">
                                     </div>
                                 </div>
 

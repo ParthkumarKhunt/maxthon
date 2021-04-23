@@ -108,21 +108,21 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">WD <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="wd" value="0" name="wd">
+                                        <input class="form-control " type="number" id="wd" value="0" name="wd">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>WO <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="wo" value="0" name="wo">
+                                        <input class="form-control " type="number" id="wo" value="0" name="wo">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>PH <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="ph" value="0" name="ph">
+                                        <input class="form-control " type="number" id="ph" value="0" name="ph">
                                     </div>
                                 </div>
 
@@ -134,14 +134,14 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">PD <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="pd" value="0" name="pd">
+                                        <input class="form-control " type="number" id="pd" value="0" name="pd">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>LWP <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="lwp" value="0" name="lwp">
+                                        <input class="form-control " type="number" id="lwp" value="0" name="lwp">
                                     </div>
                                 </div>
 
@@ -158,21 +158,21 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">BASIC <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="basic" value="0" name="basic">
+                                        <input class="form-control " type="number" id="basic" value="0" name="basic">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>HRA <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="hra" value="0" name="hra">
+                                        <input class="form-control " type="number" id="hra" value="0" name="hra">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>LEAVE ENCASH <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="leave_encash" value="0" name="leave_encash">
+                                        <input class="form-control " type="number" id="leave_encash" value="0" name="leave_encash">
                                     </div>
                                 </div>
 
@@ -184,21 +184,21 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">PRODUC <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="produc" value="0" name="produc">
+                                        <input class="form-control " type="number" id="produc" value="0" name="produc">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>CONVEI <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="convei" value="0" name="convei">
+                                        <input class="form-control " type="number" id="convei" value="0" name="convei">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>TRANSPORT <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="transport" value="0" name="transport">
+                                        <input class="form-control " type="number" id="transport" value="0" name="transport">
                                     </div>
                                 </div>
 
@@ -215,21 +215,21 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">P.F. <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="pf" value="0" name="pf">
+                                        <input class="form-control " type="number" id="pf" value="0" name="pf">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>ESI <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="esi" value="0" name="esi">
+                                        <input class="form-control " type="number" id="esi" value="0" name="esi">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>P.T. <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="pt" value="0" name="pt">
+                                        <input class="form-control " type="number" id="pt" value="0" name="pt">
                                     </div>
                                 </div>
 
@@ -241,14 +241,14 @@
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label class="" for="exampleSelect1">TDS <span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="tds" value="0" name="tds">
+                                        <input class="form-control " type="number" id="tds" value="0" name="tds">
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="form-group">
                                         <label>OTHER DEDUCTION<span class="text-danger">*</span></label>
-                                        <input class="form-control onlyNumber" type="text" id="other" value="0" name="other">
+                                        <input class="form-control " type="number" id="other" value="0" name="other">
                                     </div>
                                 </div>
 
