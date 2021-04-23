@@ -1,6 +1,16 @@
 @extends('backend.employee.layout.layout')
 @section('section')
-
+@php
+    if($empno[0]->no > 0 && $empno[0]->no < 10){
+        $emp_no = "00".$empno[0]->no;
+    } else{
+        if($empno[0]->no > 9 && $empno[0]->no < 100){
+            $emp_no = "0".$empno[0]->no;
+        }else{
+            $emp_no = $empno[0]->no;
+        }
+    }
+@endphp
 <!--begin::Entry-->
 <div class="d-flex flex-column-fluid">
     <!--begin::Container-->
@@ -57,14 +67,14 @@
                             <!--begin: Wizard Form-->
                             <form class="form" id="kt_form" method="POST" enctype="multipart/form-data">@csrf
                                 <!--begin: Wizard Step 1-->
-                                <input type="hidden" class="form-control" name="empNoNew" placeholder="Please enter your employee number" value="{{ "MAXTHON-EMP-00".$empno[0]->no }}" />
+                                <input type="hidden" class="form-control" name="empNoNew" placeholder="Please enter your employee number" value="{{ $emp_no }}" />
                                 <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <!--begin::Input-->
                                             <div class="form-group">
                                                 <label>Employee Number</label>
-                                                <input type="text" class="form-control" name="empNo" placeholder="Please enter your employee number" value="{{ "MAXTHON-EMP-00".$empno[0]->no }}" disabled="disabled" />
+                                                <input type="text" class="form-control" name="empNo" placeholder="Please enter your employee number" value="{{ $emp_no }}" disabled="disabled" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
@@ -185,10 +195,9 @@
                                             <!--begin::Input-->
                                             <div class="form-group">
                                                 <label>Education passsing year</label>
-                                                <label>Select Country</label>
                                                 <select class="form-control" name="empPassingYear" id="empPassingYear">
                                                     <option  value="">Select employee passing year</option>
-                                                    @for($i = 2005; $i < date('Y') ; $i++)
+                                                    @for($i = 2005; $i < date('Y') + 3  ; $i++)
                                                         <option  value="{{ $i }}">{{ $i }}</option>
                                                     @endfor
                                                 </select>
