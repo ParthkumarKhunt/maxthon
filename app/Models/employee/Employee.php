@@ -26,6 +26,7 @@ class Employee extends Model
             5 => 'myemployee.mobileno',
             6 => 'myemployee.emergencyno',
             7 => 'myemployee.dob',
+            8 => 'myemployee.doj',
         );
         $query = Employee ::from('myemployee')
                     ->where("myemployee.is_deleted","N");
@@ -103,6 +104,7 @@ class Employee extends Model
             $nestedData[] = $row['mobileno'];
             $nestedData[] = $row['emergencyno'];
             $nestedData[] = date("d/m/Y",strtotime($row['dob']));
+            $nestedData[] = date("d/m/Y",strtotime($row['doj']));
             $nestedData[] = $actionhtml;
             $data[] = $nestedData;
         }

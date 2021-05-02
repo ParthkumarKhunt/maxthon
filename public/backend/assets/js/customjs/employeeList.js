@@ -11,9 +11,9 @@ var EmployeeList = function() {
             'ajaxAction': 'getdatatable',
             'postData': dataArr,
             'hideColumnList': [],
-            'noSortingApply': [0],
-            'noSearchApply': [0],
-            'defaultSortColumn': [0],
+            'noSortingApply': [0,2,10],
+            'noSearchApply': [0,2,10],
+            'defaultSortColumn': [8],
             'defaultSortOrder': 'DESC',
             'setColumnWidth': columnWidth
         };
