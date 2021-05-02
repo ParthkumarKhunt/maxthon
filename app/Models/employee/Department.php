@@ -85,8 +85,8 @@ class Department extends Model
 
         );
         $query = Department ::from('employee_department')
-                    ->leftjoin('myemployee','employee_department.id','=','myemployee.department',"myemployee.is_deleted","=","N")
-                    // ->where("myemployee.is_deleted","N")
+                    ->leftjoin('myemployee','employee_department.id','=','myemployee.department')
+                    ->where("myemployee.is_deleted","N")
                     ->where("employee_department.is_deleted","No")
                     ->groupby('employee_department.id');
 

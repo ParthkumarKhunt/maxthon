@@ -95,8 +95,8 @@ class Employee extends Model
             $i++;
             $nestedData = array();
             $nestedData[] = $i;
-            $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;border-radius: 50%;">';
             $nestedData[] = $row['emp_no'];
+            $nestedData[] = '<img height="100px" width="100px" src="' . $image . '" style="margin:10px;border-radius: 50%;">';
             $nestedData[] = $row['firstname'];
             $nestedData[] = $row['lastname'];
             $nestedData[] = $row['email'];
