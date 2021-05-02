@@ -56,7 +56,7 @@ class Employee extends Model
 
         $resultArr = $query->skip($requestData['start'])
                 ->take($requestData['length'])
-                ->select('myemployee.id','myemployee.gender','myemployee.dob','myemployee.emp_no','myemployee.image','myemployee.firstname','myemployee.lastname','myemployee.email','myemployee.mobileno','myemployee.emergencyno')
+                ->select('myemployee.id','myemployee.gender','myemployee.dob','myemployee.doj','myemployee.emp_no','myemployee.image','myemployee.firstname','myemployee.lastname','myemployee.email','myemployee.mobileno','myemployee.emergencyno')
                 ->get();
         $data = array();
 
