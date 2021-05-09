@@ -13,7 +13,7 @@ class Sendmail extends Model
 {
     public function sendMailltesting(){
         $mailData['data']='';
-        $mailData['subject'] = 'Adspot - Testing Mail';
+        $mailData['subject'] = 'Maxthon - Testing Mail';
         $mailData['attachment'] = array();
         $mailData['template'] ="emailsTemplate.carrer";
         $mailData['mailto'] = 'parthkhunt12@gmail.com';
@@ -39,6 +39,7 @@ class Sendmail extends Model
         $sendMail = new Sendmail;
         return $sendMail->sendSMTPMail($mailData);
     }
+
     public function forgotPassword($token,$username,$email){
         $mailData['data']['token']=$token;
         $mailData['data']['username']=$username;

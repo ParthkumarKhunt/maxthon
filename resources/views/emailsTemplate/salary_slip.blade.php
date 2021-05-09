@@ -87,8 +87,7 @@
 															<th class="column-top" width="120" style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
 																<table width="100%" border="0" cellspacing="0" cellpadding="0">
 																	<tr>
-																		<td class="logo m-center img" style="font-size:0pt; line-height:0pt; text-align:left;">
-                                                                            <img src="{{ asset('public/upload/details/'.$logodetails[0]->logo) }}" width="104" height="20" border="0" alt="" /></td>
+																		<td class="logo m-center img" style="font-size:0pt; line-height:0pt; text-align:left;"><img src="{{ asset('public/frontend/assets/images/images/logo.svg') }}" width="104" height="20" border="0" alt="" /></td>
 																	</tr>
 																</table>
 															</th>
