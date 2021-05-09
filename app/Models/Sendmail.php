@@ -73,22 +73,26 @@ class Sendmail extends Model
     }
 
     public function send_salary_slip_via_mail($data){
+
         $objSalaryslip = new Salaryslip();
         $salaryslipDetails  = $objSalaryslip->getSalaryslipDetails($data['id']);
+
         $salarySlipDetails = $salaryslipDetails[0];
 
-        $month= ["","January","February","March","April","May","June","July","August","September","October","November","December"];
+        $month= ["","january","february","march","april","may","june","july","august","september","october","november","december"];
 
-        $mailData['data']= '';
-        $mailData['subject'] = "Your " .$month[$salarySlipDetails->month]."'s salary slip generated" ;
+
+        $mailData['data']['name']= $salarySlipDetails->firstname.' '.$salarySlipDetails->lastname;
+        $mailData['data']['id']= $salarySlipDetails->id;
+        $mailData['data']['month_year']= "Your " .$month[$salarySlipDetails->month]." - ". $salarySlipDetails->year ." salary slip generated" ;
+        $mailData['subject'] = "Your " .$month[$salarySlipDetails->month]." month's salary slip generated" ;
         $mailData['attachment'] = array();
-        $mailData['template'] ="emailsTemplate.salary_slip";
-        $mailData['mailto'] = 'parthkhunt12@gmail.com';
+        $mailData['template'] = "emailsTemplate.salary_slip";
+        $mailData['mailto'] = $salarySlipDetails->email;
 
         $sendMail = new Sendmail;
-        return $sendMail->sendSMTPMail($mailData);
+        $sendMail->sendSMTPMail($mailData);
 
-        print_r($salaryslipDetails);
-        die();
+        return true;
     }
 }

@@ -60,6 +60,17 @@
 			.column-dir-top { float: left !important; width: 100% !important; display: block !important; }
 
 			.content-spacing { width: 15px !important; }
+
+            .third {
+                border-color: $blue;
+                color: #fff;
+                box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+                transition: all 150ms ease-in-out;
+
+                &:hover {
+                    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+                }
+                }
 		}
 	</style>
 </head>
@@ -108,17 +119,31 @@
 												<td class="p30-20" style="padding: 80px 50px;">
 													<table width="100%" border="0" cellspacing="0" cellpadding="0">
 														<tr>
-															<td class="h1 white center" style="padding-bottom: 20px; font-family:'Lato', Arial, sans-serif; font-size:44px; line-height:50px; color:#ffffff; text-align:center;">Maxthon Technologies</td>
+															<td class="h1 white center" style="padding-bottom: 20px; font-family:'Lato', Arial, sans-serif; font-size:44px; line-height:50px; color:#ffffff; text-align:center;">
+                                                                Hi, {{ $data['name'] }}
+                                                            </td>
 														</tr>
+
+                                                        <tr>
+															<td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
+                                                                {{ $data['month_year'] }}
+                                                            </td>
+														</tr>
+
 														<tr>
-															<td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">Career Inquiry</td>
+															<td class="text white center" style="padding-bottom: 25px; font-family:'Lato', Arial, sans-serif; font-size:16px; line-height:28px; min-width:auto !important; color:#ffffff; text-align:center;">
+                                                                <a href="{{ route('salaryslip-download', $data['id']) }}">
+                                                                    <button style="background-color: #6cc26f;  border: none;  color: white;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;  margin: 4px 2px;  cursor: pointer;">
+                                                                        Download Your Salary Slip
+                                                                    </button>
+                                                                </a>
+                                                            </td>
 														</tr>
 
 													</table>
 												</td>
 											</tr>
 										</table>
-										<!-- END Title + Copy - center -->
 
 
 

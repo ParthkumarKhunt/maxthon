@@ -292,10 +292,10 @@ class SalaryslipController extends Controller
 
                 $objSendmail = new Sendmail();
                 $result = $objSendmail->send_salary_slip_via_mail($request->input('data'));
+
                 if ($result) {
                     $return['status'] = 'success';
-                    $return['message'] = 'Salaryslip successfully send via gmail.';
-                    $return['redirect'] = route('employee-salaryslip');
+                    $return['message'] = 'Salaryslip successfully send via gmail to employee.';
                 } else {
                         $return['status'] = 'error';
                         $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';

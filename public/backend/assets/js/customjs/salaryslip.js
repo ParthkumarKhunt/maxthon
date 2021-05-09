@@ -63,6 +63,7 @@ var Salaryslip = function(){
         $("body").on("click", ".sendMail", function() {
             var id = $(this).data('id');
             var data = { id: id, _token: $('#_token').val() };
+            $("#loader").show();
             $.ajax({
                 type: "POST",
                 headers: {
@@ -71,8 +72,11 @@ var Salaryslip = function(){
                 url:baseurl + "employee-salaryslip-ajaxaction",
                 data: {'action': 'sendMail', 'data': data },
                 success: function(data) {
-                    $("#loader").show();
+                    $('#loader').hide();
                     handleAjaxResponse(data);
+                },
+                complete: function(){
+                    $('#loader').hide();
                 }
             });
         })

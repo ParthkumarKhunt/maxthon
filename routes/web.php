@@ -50,3 +50,5 @@ Route::match(['get', 'post'], 'testing-mail', ['as' => 'testing-mail', 'uses' =>
 
 //servicedetails
 Route::match(['get', 'post'], 'service-details/{id}', ['as' => 'service-details', 'uses' => 'frontend\services\ServicesController@servicedetails']);
+
+Route::match(['get', 'post'], 'salaryslip-download/{id}', ['as' => 'salaryslip-download', 'uses' => 'backend\employee\salaryslip\SalaryslipController@download']);
