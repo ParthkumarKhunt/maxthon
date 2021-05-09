@@ -151,7 +151,7 @@
 
 
 										<!-- Footer -->
-										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#0a2641">
+										<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
 											<tr>
 												<td style="padding: 50px;" class="p30-20">
 													<table width="100%" border="0" cellspacing="0" cellpadding="0">
