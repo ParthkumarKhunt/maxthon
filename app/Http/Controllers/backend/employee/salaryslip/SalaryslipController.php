@@ -9,6 +9,7 @@ use App\Models\employee\Department;
 use App\Models\employee\Designation;
 use App\Models\Employeeno;
 use App\Models\Salaryslip;
+use App\Models\SendMail;
 use App\Models\employee\Employee;
 use PDF;
 
@@ -220,7 +221,7 @@ class SalaryslipController extends Controller
         // return $pdf->stream();
         // print_r($data);
         // die();
-    }////////
+    }
 
 
     public function view($id){
@@ -283,6 +284,22 @@ class SalaryslipController extends Controller
                 if ($result) {
                     $return['status'] = 'success';
                     $return['message'] = 'Salaryslip successfully deleted';
+                    $return['redirect'] = route('employee-salaryslip');
+                } else {
+                        $return['status'] = 'error';
+                        $return['jscode'] = '$(".submitbtn:visible").removeAttr("disabled");$("#loader").hide();';
+                        $return['message'] = 'Something goes to wrong.';
+                }
+                echo json_encode($return);
+                exit;
+
+            case 'sendMail' :
+
+                $objSendmail = new SendMail();
+                $result = $objSendmail->send_salary_slip_via_mail($request->input('data'));
+                if ($result) {
+                    $return['status'] = 'success';
+                    $return['message'] = 'Salaryslip successfully send via gmail.';
                     $return['redirect'] = route('employee-salaryslip');
                 } else {
                         $return['status'] = 'error';

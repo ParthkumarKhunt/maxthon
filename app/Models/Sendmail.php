@@ -7,7 +7,8 @@ use Auth;
 use Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-
+use App\Models\Myemployee;
+use App\Models\Salaryslip;
 class Sendmail extends Model
 {
     public function sendMailltesting(){
@@ -68,5 +69,25 @@ class Sendmail extends Model
                 }else{
                     return false;
                 }
+    }
+
+    public function send_salary_slip_via_mail($data){
+        $objSalaryslip = new Salaryslip();
+        $salaryslipDetails  = $objSalaryslip->getSalaryslipDetails($data['id']);
+        $salarySlipDetails = $salaryslipDetails[0];
+
+        $month= ["","January","February","March","April","May","June","July","August","September","October","November","December"];
+
+        $mailData['data']= '';
+        $mailData['subject'] = "Your " .$month[$salarySlipDetails->month]."'s salary slip generated" ;
+        $mailData['attachment'] = array();
+        $mailData['template'] ="emailsTemplate.salary_slip";
+        $mailData['mailto'] = 'parthkhunt12@gmail.com';
+
+        $sendMail = new Sendmail;
+        return $sendMail->sendSMTPMail($mailData);
+
+        print_r($salaryslipDetails);
+        die();
     }
 }

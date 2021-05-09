@@ -57,6 +57,24 @@ var Salaryslip = function(){
                     handleAjaxResponse(data);
                 }
             });
+        });
+
+
+        $("body").on("click", ".sendMail", function() {
+            var id = $(this).data('id');
+            var data = { id: id, _token: $('#_token').val() };
+            $.ajax({
+                type: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                },
+                url:baseurl + "employee-salaryslip-ajaxaction",
+                data: {'action': 'sendMail', 'data': data },
+                success: function(data) {
+                    $("#loader").show();
+                    handleAjaxResponse(data);
+                }
+            });
         })
     }
     var addSalary = function(){
