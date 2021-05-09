@@ -89,7 +89,7 @@ class LoginController extends Controller
 
 
     public function testingmail(Request $request){
-        $objSendmail = new SendMail();
+        $objSendmail = new Sendmail();
         $Sendmail = $objSendmail->sendMailltesting();
         exit;
     }

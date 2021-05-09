@@ -9,7 +9,7 @@ use App\Models\employee\Department;
 use App\Models\employee\Designation;
 use App\Models\Employeeno;
 use App\Models\Salaryslip;
-use App\Models\SendMail;
+use App\Models\Sendmail;
 use App\Models\employee\Employee;
 use PDF;
 
@@ -290,7 +290,7 @@ class SalaryslipController extends Controller
 
             case 'sendMail' :
 
-                $objSendmail = new SendMail();
+                $objSendmail = new Sendmail();
                 $result = $objSendmail->send_salary_slip_via_mail($request->input('data'));
                 if ($result) {
                     $return['status'] = 'success';
