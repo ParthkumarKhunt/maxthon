@@ -3,8 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use DB;
-use Hash;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,18 +13,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'firstname' => "Maxthon",
-            'lastname' => "Technologies",
-            'email' => "maxthon@admin.com",
-            'password' => Hash::make('Maxthon@123'),
-            'userimage' => 'default.jpg',
-            'usertype' => 'A',
-            'is_deleted' => "N",
-            'email_verified' => "Y",
-            'email_verified_at'=> date("Y-m-d h:i:s"),
-            'created_at' => date("Y-m-d h:i:s"),
-            'updated_at' => date("Y-m-d h:i:s"),
+        $this->call([
+            AdminSeeder::class,
+            BannerSectionSeeder::class,
+            BannerSeeder::class,
+            CareerDepartment::class,
+            ContactusDetailsSeeder::class,
+            DetailsSeeder::class,
+            EmployeeNoSeeder::class,
+            DetailsSeeder::class,
+            EmployeeSeeder::class,
+            HomeSilder::class,
+            MenuSeeder::class,
+            Section2Seeder::class,
+            SectiononeSeeder::class,
+            SectiontwoSeeder::class,
+            StatisticalSeeder::class,
+            TopSectionSeeder::class,
         ]);
     }
 }

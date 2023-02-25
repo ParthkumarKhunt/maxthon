@@ -15,7 +15,7 @@ class CareerDepartment extends Seeder
     {
         DB::table('department')->insert([
             'phoneno' => 1234567890,
-            'email' => 'maxthon@gmail.com',          
+            'email' => 'maxthon@gmail.com',
             'line1' => "WE HAVE A RANGE OF AMAZING OPPORTUNITIES AVAILABLE",
             'line2' => "Join Our Team",
            'created_at' => date("Y-m-d h:i:s"),
